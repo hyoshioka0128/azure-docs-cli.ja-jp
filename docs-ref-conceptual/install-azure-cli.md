@@ -12,8 +12,8 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: b7c0b7c50794333b28c034de9b41f1e506053e25
-ms.sourcegitcommit: 663d4188ccc4be425d3d551fe32613fafd05a764
+ms.openlocfilehash: 664535701ad814f8ff85fefe8ecc45772777d0ba
+ms.sourcegitcommit: ec22ff07aedb5c47e5f636f2a9a341c3edbe7ca1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ---
@@ -60,23 +60,14 @@ Bash を使用しない場合は、Windows コマンド ラインで CLI をイ�
 
 2. Bash シェルを開きます。
 
-3. Python をインストールしていない場合は、インストールします。
-
-   ```bash
-   sudo apt-get install python3
-   ```
-
-   > [!NOTE]
-   > Python がインストールされているかどうかを確認するには、`python --version` を実行します。
-
-4. ソース リストを変更します。
+3. ソース リストを変更します。
 
    ```bash
    echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | \
         sudo tee /etc/apt/sources.list.d/azure-cli.list
    ```
 
-5. 次の sudo コマンドを実行します。
+4. 次の sudo コマンドを実行します。
 
    ```bash
    sudo apt-key adv --keyserver packages.microsoft.com --recv-keys 417A0893
