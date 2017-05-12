@@ -12,10 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 85c418a8-6177-4833-bb8d-ff4ce2233c1a
-ms.openlocfilehash: f5a88012b21e814262436a864b13f053d836cf07
-ms.sourcegitcommit: bcf93ad8ed8802072249cd8187cd4420da89b4c6
+ms.openlocfilehash: 0f8e494ffdd73c666b8361488db0966af01d6876
+ms.sourcegitcommit: 66d997a5afcf32143a4d4817ec1608cbdf58a59f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
+ms.lasthandoff: 05/11/2017
 ---
 # <a name="get-started-with-azure-cli-20"></a>Azure CLI 2.0 を使ってみる
 
@@ -45,7 +46,7 @@ Azure CLI 2.0 をインストールしたら、次の手順では、Azure アカ
 
 1. コマンド ラインから次のコマンドを実行します。
 
-   ```azurecli
+   ```azurecli-interactive
    az login
    ```
    
@@ -61,11 +62,11 @@ Azure CLI 2.0 をインストールしたら、次の手順では、Azure アカ
 
 必要な設定がすべて整ったら、Azure CLI を使って Azure にリソースを作成してみましょう。
 
-まず、リソース グループを作成します。  Azure ではリソース グループを使うことで、複数のリソースを論理上のグループとしてまとめて管理することができます。  たとえば、アプリケーションまたはプロジェクトのリソース グループを作成し、仮想マシン、データベース、CDN サービスをそこに追加することができます。
+まず、リソース グループを作成します。  Azure ではリソース グループを使うことで、複数のリソースを論理上のグループとして 1 つにまとめて管理することができます。  たとえば、アプリケーションまたはプロジェクトのリソース グループを作成し、仮想マシン、データベース、CDN サービスをそこに追加することができます。
 
 "MyResourceGroup" という名前のリソース グループを Azure の *westus2* リージョンに作成しましょう。  そのためには、次のコマンドを入力します。
 
-```azurecli
+```azurecli-interactive
 az group create -n MyResourceGroup -l westus2 
 ```
 
@@ -90,13 +91,13 @@ az group create -n MyResourceGroup -l westus2
 
 次のコマンドで、一般的な UbuntuTLS イメージを使用して、10 GB と 20 GB の 2 つのストレージ ディスクが接続された Linux VM を作成することができます。
 
-```azurecli
+```azurecli-interactive
 az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS --data-disk-sizes-gb 10 20
 ```
 
 上のコマンドを実行すると、Azure CLI 2.0 は、~/.ssh ディレクトリに格納されている SSH キー ペアを探します。  SSH キー ペアがまだそこに格納されていない場合は、次のように --generate-ssh-keys パラメーターを渡して、Azure CLI に自動的に作成させることができます。
 
-```azurecli
+```azurecli-interactive
 az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS --generate-ssh-keys
 ```
 
@@ -117,7 +118,7 @@ VM の作成が完了し、アクセスして使用できるようになると�
 
 VM が作成されたら、その VM のパブリック IP アドレスを **SSH** で使用し、新しい Linux VM にログオンすることができます。
 
-```azurecli
+```azurecli-interactive
 ssh xx.xxx.xxx.xxx
 ```
 
@@ -161,7 +162,7 @@ Azure では、簡単に推測できるユーザー名とパスワードを使�
 > [!NOTE]
 > このコマンドを実行すると、ユーザー名とパスワードの入力を求めるメッセージが表示されます。
 
-```azurecli
+```azurecli-interactive
 az vm create -n MyWinVM -g MyResourceGroup --image Win2016Datacenter
 ```
 
@@ -183,7 +184,7 @@ VM の作成が完了し、アクセスして使用できるようになると�
 リモート デスクトップと VM のパブリック IP アドレス (`az vm create` の出力で返されるアドレス) を使用して、新しく作成した Windows Server VM にログオンします。  
 Windows ベースのシステムでは、`mstsc` コマンドを使ってコマンド ラインから同じ操作を実行できます。
 
-```azurecli
+```azurecli-interactive
 mstsc /v:xx.xxx.xx.xxx
 ```
 
@@ -195,13 +196,13 @@ VM を作成したときと同じユーザー名/パスワードの組み合わ�
 
 すべての新しいリソースは、一貫した `az <resource type name> create` 名前付けパターンを使用して作成されます。  たとえば、新しく作成した VM に関連付けるための Azure Network Load Balancer を作成するには、次の create コマンドを使います。
 
-```azurecli
+```azurecli-interactive
 az network lb create -n MyLoadBalancer -g MyResourceGroup
 ```
 
 また、次の create コマンドを使って、インフラストラクチャ用に新しいプライベート仮想ネットワーク (Azure では通常 "VNet" と呼ばれます) を作成することもできます。
 
-```azurecli
+```azurecli-interactive
 az network vnet create -n MyVirtualNetwork -g MyResourceGroup --address-prefix 10.0.0.0/16
 ```
 
@@ -209,13 +210,13 @@ Azure と Azure CLI の優れている点は、それらを使ってクラウド
 
 たとえば Azure CLI を使って Azure AppService を作成することができます。  Azure AppService は、管理されたプラットフォーム サービスであり、インフラストラクチャには一切気を遣わずに Web アプリをホストできるのが特徴です。  Azure AppService の作成後、次の create コマンドを使用して、AppService 内に 2 つの新しい Azure Web アプリを作成することができます。
 
-```azurecli
+```azurecli-interactive
 # Create an Azure AppService that we can host any number of web apps within
 az appservice plan create -n MyAppServicePlan -g MyResourceGroup
 
 # Create Two Web Apps within the AppService (note: name param must be a unique DNS entry)
-az appservice web create -n MyWebApp43432 -g MyResourceGroup --plan MyAppServicePlan 
-az appservice web create -n MyWebApp43433 -g MyResourceGroup --plan MyAppServicePlan 
+az webapp create -n MyWebApp43432 -g MyResourceGroup --plan MyAppServicePlan 
+az webapp create -n MyWebApp43433 -g MyResourceGroup --plan MyAppServicePlan 
 ```
 
 `az <resource type name> create` パターンの基本を理解すると、何でも簡単に作成できるようになります。 以下に、いくつかの一般的な Azure リソースの種類と、それを作成するための Azure CLI create コマンドを示します。
@@ -231,7 +232,7 @@ Managed Disk                az disk create
 Storage account             az storage account create
 Virtual Machine Scale Set   az vmss create
 Azure Container Service     az acs create
-Web App                     az appservice web create
+Web App                     az webapp create
 SQL Database Server         az sql server create
 Document DB                 az documentdb create
 ```
@@ -248,7 +249,7 @@ Document DB                 az documentdb create
 
 たとえば、次のように `az vm create` を使用すると、VM のデプロイが開始され、より短い時間で (VM が完全に起動される前に) 制御が戻ります。
 
-```azurecli
+```azurecli-interactive
 az vm create -n MyLinuxVM2 -g MyResourceGroup --image UbuntuLTS --no-wait
 ```
 
@@ -262,7 +263,7 @@ create コマンドの場合と同様に、Azure CLI 2.0 では、すべての�
 
 たとえば、`az vm list` は、保持しているすべての VM の一覧を表示します。   
 
-```azurecli
+```azurecli-interactive
 az vm list 
 ```
 返される値は、既定で JSON 形式になります (簡潔にするために、出力の一部のみを示しています)。
@@ -297,7 +298,7 @@ az vm list
 
 必要に応じて、`--output` オプションを使用して、出力形式を変更することもできます。  `az vm list` コマンドを実行すると、前に作成した Linux と Windows Server の両方の VM と共に、VM の最も一般的なプロパティが表示されます。その際、読みやすい *table* 形式オプションが使用されます。
 
-```azurecli
+```azurecli-interactive
 az vm list --output table
 ```
 
@@ -310,7 +311,7 @@ MyWinVM    MyResourceGroup  westus2
 
 ヘッダーのないテキストベースのタブ区切り形式にするには、*tsv* 出力オプションを使用することができます。  この形式は、grep などの他のテキストベースのツールに出力をパイプ処理する場合に便利です。 
 
-```azurecli
+```azurecli-interactive
 az vm list --output tsv
 ```
 
@@ -326,8 +327,9 @@ None    None            /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/reso
 
 `list` コマンドの組み込みのサポートにより、リソース グループ名でリソースを簡単にフィルター処理できます。  たとえば、`--ResourceGroup` または `-g` パラメーターを `list` コマンドに渡し、特定のリソース グループ内のリソースだけを取得することができます。
 
+
 ```azurecli
-az vm list -g MyResouceGroup --output table
+az vm list -g MyResourceGroup --output table
 ```
 
 ```Output
@@ -341,7 +343,7 @@ MyWinVM    MyResourceGroup  westus2
 
 たとえば、次のコマンドを実行すると、"My" という文字列を含む任意のリソース グループ内の任意の VM リソースに対するクエリを実行することができます。
 
-```azurecli
+```azurecli-interactive
 az vm list --output table --query "[?contains(resourceGroup,'MY')]" 
 ```
 
@@ -354,7 +356,7 @@ MYRESOURCEGROUP  Succeeded            MyWinVM    westus2     XXXXXXXX-XXXX-XXXX-
 
 その後、別の値を出力できる JMESPath クエリの整形機能を使用して、さらに出力を絞り込むこともできます。  たとえば、次のコマンドは、OS が Linux ベースか Windows ベースかを判断するために、VM で使用されている OS ディスクの種類を取得します。
 
-```azurecli
+```azurecli-interactive
 az vm list --output table --query "[?contains(resourceGroup,'MY')].{ VMName:name,OSType:storageProfile.osDisk.osType }" 
 ```
 
@@ -371,7 +373,7 @@ Azure CLI での JMESPath サポートは強力です。  使用方法の詳細�
 
 Azure CLI で `delete` コマンドを使用すると、不要になったリソースを削除できます。 `create` コマンドの場合と同様に、任意のリソースに対して `delete` コマンドを使用することができます。
 
-```azurecli
+```azurecli-interactive
 az vm delete -n MyLinuxVM -g MyResourceGroup
 ```
 
@@ -386,7 +388,7 @@ EndTime                           Name                                  StartTim
 
 `delete` コマンドを使用して、多数のリソースを一度に削除することもできます。 たとえば、次のコマンドは、この概要チュートリアルのすべてのサンプルで使用してきた "MyResourceGroup" リソース グループ内のすべてのリソースを削除します。
 
-```azurecli
+```azurecli-interactive
 az group delete -n MyResourceGroup
 ```
 
@@ -406,19 +408,19 @@ Azure CLI の使用方法の詳細については、[Linux VM](/azure/virtual-ma
 
 Azure CLI には、組み込みのヘルプ ドキュメントがあります。これは、コマンド ラインから実行できる Web ドキュメントと同じものです。
 
-```azurecli
+```azurecli-interactive
 az [command-group [command]] -h
 ```
 
 たとえば、VM に使用できるコマンドやサブグループを確認するには、次のコマンドを使用します。
 
-```azurecli
+```azurecli-interactive
 az vm -h
 ```
 
 VM を作成するためのコマンドのヘルプを表示するには、次のコマンドを使用します。
 
-```azurecli
+```azurecli-interactive
 az vm create -h
 ```
 
@@ -430,6 +432,6 @@ Azure CLI 1.0 から Azure CLI 2.0 への切り替えをサポートするため
 
 ## <a name="send-us-your-feedback"></a>フィードバックを送信します
 
-```azurecli
+```azurecli-interactive
 az feedback
 ```
