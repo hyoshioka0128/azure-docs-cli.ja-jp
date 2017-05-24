@@ -12,10 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 80ae9f6c-adb7-483c-bfb4-fbb958e075ba
-ms.openlocfilehash: 2f4f9950dd663ae85f41bf4efe114b15770ace5d
-ms.sourcegitcommit: bcf93ad8ed8802072249cd8187cd4420da89b4c6
+ms.openlocfilehash: 35e754b4ecd75481bd60d95dd1545b798c2e85b3
+ms.sourcegitcommit: c077bd5cbe07f7225714c41714d3981fa0d9928f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
+ms.lasthandoff: 05/16/2017
 ---
 # <a name="azure-cli-20"></a>Azure CLI 2.0
 
@@ -27,8 +28,9 @@ Azure CLI 2.0 は、コマンド ラインから Azure リソースを管理し�
 az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS
 ```
 
-ご利用のシステムで Azure CLI 2.0 を使用するための準備については、[インストール](install-azure-cli.md)に関する記事を参照してください。 さらに実際に使う際には、[概要](get-started-with-azure-cli.md)の記事をお読みください。
-最新リリースについては、[リリース ノート](release-notes-azure-cli.md)を参照してください。
+[インストールに関する記事](install-azure-cli.md)を確認して、Azure CLI 2.0 をシステムにインストールして実行するか、[Cloud Shell](/azure/cloud-shell/overview) を使用して、ブラウザーで CLI を実行します。
+CLI を実際に使う際には、[概要](get-started-with-azure-cli.md)の記事をお読みください。
+最新リリースについては、[リリース ノート](release-notes-azure-cli.md)をご覧ください。
 
 Azure CLI 2.0 の基本的な使い方については、次のサンプルが参考になります。
 - [Linux 仮想マシン](/azure/virtual-machines/virtual-machines-linux-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)

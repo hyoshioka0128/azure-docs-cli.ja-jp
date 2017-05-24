@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 85c418a8-6177-4833-bb8d-ff4ce2233c1a
-ms.openlocfilehash: 0f8e494ffdd73c666b8361488db0966af01d6876
-ms.sourcegitcommit: 66d997a5afcf32143a4d4817ec1608cbdf58a59f
+ms.openlocfilehash: 45e51918ec95494699bf781f66e4cd57bd06fbad
+ms.sourcegitcommit: b4cb5c910b2238cba342f70122feb158c4036844
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 05/18/2017
 ---
 # <a name="get-started-with-azure-cli-20"></a>Azure CLI 2.0 を使ってみる
 
@@ -40,6 +40,9 @@ Azure CLI 2.0 は、コマンド ラインから Azure リソースを管理し�
   
 エラーが発生する場合は、CLI のインストールに問題があった可能性があります。 [Azure CLI 2.0 のインストールに関する記事](install-azure-cli.md#troubleshooting)のトラブルシューティングのセクションでガイダンスを参照するか、そのページの下部にあるディスカッションに支援を求めるコメントを投稿してください。
 
+> [!Note]
+> Azure CLI 2.0 をインストールしない場合は、[Cloud Shell](/azure/cloud-shell/overview) を使用してブラウザーで実行できます。
+
 ## <a name="log-in-to-azure"></a>Azure へのログイン
 
 Azure CLI 2.0 をインストールしたら、次の手順では、Azure アカウントに安全に接続します。 そのためには、`az login` コマンドを使用します。
@@ -62,7 +65,7 @@ Azure CLI 2.0 をインストールしたら、次の手順では、Azure アカ
 
 必要な設定がすべて整ったら、Azure CLI を使って Azure にリソースを作成してみましょう。
 
-まず、リソース グループを作成します。  Azure ではリソース グループを使うことで、複数のリソースを論理上のグループとして 1 つにまとめて管理することができます。  たとえば、アプリケーションまたはプロジェクトのリソース グループを作成し、仮想マシン、データベース、CDN サービスをそこに追加することができます。
+まずリソース グループを作成します。  Azure ではリソース グループを使うことで、複数のリソースを論理上のグループとして管理することができます。  たとえばアプリケーションまたはプロジェクトのリソース グループを作成し、仮想マシンやデータベース、CDN サービスをそこに追加することができます。
 
 "MyResourceGroup" という名前のリソース グループを Azure の *westus2* リージョンに作成しましょう。  そのためには、次のコマンドを入力します。
 
@@ -237,7 +240,7 @@ SQL Database Server         az sql server create
 Document DB                 az documentdb create
 ```
 
-上記の各コマンドに渡すことができるリソース固有の追加パラメーターと、作成できるリソースの種類の詳細については、[リファレンス ドキュメント](/azure/doc-ref-autogen)を参照してください。 
+上記の各コマンドに渡すことができるリソース固有の追加パラメーターと、作成できるリソースの種類の詳細については、[リファレンス ドキュメント](/cli/azure)を参照してください。 
 
 ## <a name="useful-tip-optimizing-create-operations-using---no-wait"></a>便利なヒント: --no-wait を使用して作成操作を最適化する
 

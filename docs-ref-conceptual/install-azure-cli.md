@@ -12,10 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: 664535701ad814f8ff85fefe8ecc45772777d0ba
-ms.sourcegitcommit: ec22ff07aedb5c47e5f636f2a9a341c3edbe7ca1
+ms.openlocfilehash: 7065ed5270ef9bfc70beea81d0bc442a7b4df38c
+ms.sourcegitcommit: c077bd5cbe07f7225714c41714d3981fa0d9928f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
+ms.lasthandoff: 05/16/2017
 ---
 # <a name="install-azure-cli-20"></a>Azure CLI 2.0 のインストール
 
@@ -51,10 +52,19 @@ macOS、Linux、および Windows で使用できます。
 
 ## <a name="windows"></a>Windows
 
-Azure CLI 2.0 では Bash のコマンド構文をサポートしているため、Bash on Ubuntu on Windows は CLI を使用する優れた方法です。
-Bash を使用しない場合は、Windows コマンド ラインで CLI をインストールして使用することができます。
+MSI を使用して CLI をインストールし、Windows コマンド ラインで使用するか、Bash on Ubuntu on Windows で apt-get を使用して、CLI をインストールできます。
 
-### <a name="bash-on-ubuntu-on-windows"></a>Bash on Ubuntu on Windows
+### <a name="msi-for-the-windows-command-line"></a>Windows コマンド ライン用の MSI 
+
+Windows に CLI をインストールして、Windows コマンド ラインで使用するには、[msi](https://aka.ms/InstallAzureCliWindows) をダウンロードして実行します。
+
+> [!NOTE]
+> msi を使用してインストールする場合、`az component` はサポートされません。
+> 最新の CLI に更新するには、[msi](https://aka.ms/InstallAzureCliWindows) をもう一度実行します。
+> 
+> CLI をアンインストールするには、[msi](https://aka.ms/InstallAzureCliWindows) をもう一度実行して、アンインストールを選択します。
+
+### <a name="apt-get-for-bash-on-ubuntu-on-windows"></a>Bash on Ubuntu on Windows 用の apt-get
 
 1. Bash on Windows をインストールしていない場合は、[インストールします](https://msdn.microsoft.com/commandline/wsl/install_guide)。
 
@@ -80,38 +90,6 @@ Bash を使用しない場合は、Windows コマンド ラインで CLI をイ�
 > CLI を更新するには、`sudo apt-get update && sudo apt-get install azure-cli` をもう一度実行します。
 > 
 > アンインストールするには、`sudo apt-get remove azure-cli` を実行します。
-
-### <a name="windows-command-line"></a>Windows コマンド ライン 
-
-1. Python サイトにアクセスし、Windows 向けの [Python をダウンロード](https://www.python.org/downloads/)します。
-   Python をインストールする場合は、必ず Pip コンポーネントをインストールしてください。
-   インストールが完了したら、PATH 環境変数に Python を追加します (インストーラーによって追加するよう求められます)。
-
-2. コマンド プロンプトから Python のインストールを確認します。
-
-   ```bash
-   python --version
-   ```
-
-3. `pip` を使用して Azure CLI 2.0 をインストールします。
-
-   ```bash
-   pip install --user azure-cli
-   ```
-
-4. az.bat が含まれているフォルダーをパスに追加します。
-   CLI の `az.bat` は、通常、`%USERPROFILE%\AppData\Roaming\Python\Scripts` または `%USERPROFILE%\AppData\Roaming\Python\PythonXY\Scripts` にインストールされています。`XY` は Python のバージョンです (例: `%USERPROFILE%\AppData\Roaming\Python\Python27\Scripts`)。
-   `az.bat` が含まれているフォルダーをパスに追加します。
-   
-4. コマンド プロンプトから `az` コマンドを使用して、Azure CLI 2.0 を実行します。
-
-> [!NOTE]
-> Azure CLI 2.0 が既にインストールされており、最新バージョンがインストールされているかどうかを確認するには、`az --version` を使用して、バージョンを確認します。
-> そのバージョンを、[https://pypi.python.org/pypi/azure-cli](https://pypi.python.org/pypi/azure-cli) から入手できる最新バージョンと比較します。
-> 
-> 最新の CLI に更新するには、`az component update` を実行します。
-> 
-> CLI をアンインストールするには、`pip uninstall azure-cli` を実行します。
 
 ## <a name="linux"></a>Linux
 
@@ -213,7 +191,6 @@ Debian/Ubuntu ベースのシステムでは、`apt-get` を使用して Azure C
    ```
 
 ## <a name="troubleshooting"></a>トラブルシューティング
--------------------------------
 
 ### <a name="errors-with-curl-redirection"></a>curl リダイレクトでのエラー
 
@@ -232,70 +209,6 @@ bash: line 1: syntax error near unexpected token `<'
 curl https://azurecliprod.blob.core.windows.net/install | bash
 ```
 
-
-### <a name="errors-on-install-with-cffi-or-cryptography"></a>`cffi` または暗号化を使用してインストールした場合のエラー
-
-OS X でインストール時にエラーが発生した場合は、`pip` をアップグレードします。
-
-```bash
-pip install --upgrade --force-reinstall pip
-```
-
-**Debian** または **Ubuntu** でインストール時にエラーが発生した場合は、`libssl-dev` と `libffi-dev` をインストールしてください。
-
-```bash
-sudo apt-get update
-sudo apt-get install -y libssl-dev libffi-dev
-```
-
-また、使用している Python のバージョンに対応した Python Dev をインストールします。
-
-Python 2:
-
-```bash
-sudo apt-get install -y python-dev
-```
-
-Python 3:
-
-```bash
-sudo apt-get install -y python3-dev
-```
-
-Ubuntu 15 では `build-essential` も必要な場合があります。
-
-```bash
-sudo apt-get install -y build-essential
-```
-
-### <a name="example-errors"></a>エラーの例
-
-```
-Downloading cffi-1.5.2.tar.gz (388kB)
-    100% |################################| 389kB 3.9MB/s
-    Complete output from command python setup.py egg_info:
-
-        No working compiler found, or bogus compiler options
-        passed to the compiler from Python's distutils module.
-        See the error messages above.
-        (If they are about -mno-fused-madd and you are on OS/X 10.8,
-        see http://stackoverflow.com/questions/22313407/ .)
-
-    ----------------------------------------
-Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-build-77i2fido/cffi/
-```
-
-```
-#include <openssl/e_os2.h>
-                            ^
-compilation terminated.
-error: command 'x86_64-linux-gnu-gcc' failed with exit status 1
-
-Failed building wheel for cryptography
-```
-
-Stack Overflow の質問 (「[Failed to install Python Cryptography package with PIP and setup.py (PIP と setup.py で Python 暗号化パッケージをインストールできない)](http://stackoverflow.com/questions/22073516/failed-to-install-python-cryptography-package-with-pip-and-setup-py)」) を参照してください。
-
 ## <a name="uninstall"></a>アンインストール
 
 https://aka.ms/InstallAzureCli のスクリプトを使用して CLI をインストールした場合は、次の手順でアンインストールできます。
@@ -312,7 +225,7 @@ https://aka.ms/InstallAzureCli のスクリプトを使用して CLI をイン�
 > [!Note]
 > 既定のインストール場所は `/Users/<username>` です。
 
-pip、apt-get、または Docker を使用して CLI をインストールした場合は、同じツールを使用してアンインストールします。
+apt-get、Docker、または msi を使用して CLI をインストールした場合は、同じツールを使用してアンインストールします。
 
 ## <a name="reporting-issues-and-feedback"></a>問題とフィードバックの報告
 
