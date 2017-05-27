@@ -12,54 +12,35 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 85c418a8-6177-4833-bb8d-ff4ce2233c1a
-ms.openlocfilehash: 45e51918ec95494699bf781f66e4cd57bd06fbad
-ms.sourcegitcommit: b4cb5c910b2238cba342f70122feb158c4036844
+ms.openlocfilehash: 274336acbf09a21d45b6ef3868f5f7f21757831b
+ms.sourcegitcommit: 21c42ed07c9f7679e4860013ac5647cf31213f4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 05/22/2017
 ---
 # <a name="get-started-with-azure-cli-20"></a>Azure CLI 2.0 を使ってみる
 
 Azure CLI 2.0 は、Azure リソースを管理するための、Azure の新しいコマンド ライン エクスペリエンスです。
-macOS、Linux、および Windows で使用できます。 
+ブラウザーの [Azure Cloud Shell](/azure/cloud-shell/overview) で使用できるほか、macOS、Linux、Windows に[インストール](install-azure-cli.md)してコマンド ラインで実行することもできます。
 
 Azure CLI 2.0 は、コマンド ラインから Azure リソースを管理したり、Azure Resource Manager を操作対象とする自動化スクリプトを作成したりするために最適化されています。
 この記事では、その基本的な使い方と核となる概念について説明します。
 
-最新リリースについては、[リリース ノート](release-notes-azure-cli.md)を参照してください。
+最新リリースについては、[リリース ノート](release-notes-azure-cli.md)をご覧ください。
 
-## <a name="install-azure-cli"></a>Azure CLI のインストール
+## <a name="connect"></a>接続
 
-初めに最新バージョンの Azure CLI がインストールされていることを確認します。
+最も簡単に始められるのは、[Cloud Shell を起動](/azure.cloud-shell/quickstart)する方法です。
 
-1. 使用する任意のプラットフォームに [Azure CLI 2.0 をインストール](install-azure-cli.md)します。
+1. Cloud Shell は、Azure Portal の上部のナビゲーションから起動します。
 
-2. インストールが成功したことを確認するために、コマンド ラインから `az --version` を実行します。 
+   ![Shell アイコン](media/get-started-with-azure-cli/shell-icon.png)
 
-コンピューターにインストールされている Azure CLI と依存するその他のライブラリのバージョン番号が表示されます。  
-  
-エラーが発生する場合は、CLI のインストールに問題があった可能性があります。 [Azure CLI 2.0 のインストールに関する記事](install-azure-cli.md#troubleshooting)のトラブルシューティングのセクションでガイダンスを参照するか、そのページの下部にあるディスカッションに支援を求めるコメントを投稿してください。
+2. 使用するサブスクリプションを選択し、ストレージ アカウントを作成します。
 
-> [!Note]
-> Azure CLI 2.0 をインストールしない場合は、[Cloud Shell](/azure/cloud-shell/overview) を使用してブラウザーで実行できます。
+   ![ストレージ アカウントの作成](media/get-started-with-azure-cli/storage-prompt.png)
 
-## <a name="log-in-to-azure"></a>Azure へのログイン
-
-Azure CLI 2.0 をインストールしたら、次の手順では、Azure アカウントに安全に接続します。 そのためには、`az login` コマンドを使用します。
-
-1. コマンド ラインから次のコマンドを実行します。
-
-   ```azurecli-interactive
-   az login
-   ```
-   
-   このコマンドは、次の手順で使用するコードを出力します。 
-
-2. Web ブラウザーを使用してページ [https://aka.ms/devicelogin](https://aka.ms/devicelogin) を開き、コードを入力します。
-  
-3. プロンプトで、Azure 資格情報を使用してログインします。
-
-これで、アカウントで使用可能な Azure のリソースとサービスに対して Azure CLI 2.0 からコマンドを実行できるようになりました。
+CLI を[インストール](install-azure-cli.md)し、コマンド ラインからローカルで実行することもできます。
 
 ## <a name="create-a-resource-group"></a>リソース グループを作成します
 
