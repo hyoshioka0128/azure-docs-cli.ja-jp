@@ -12,10 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 65becd3a-9d69-4415-8a30-777d13a0e7aa
-ms.openlocfilehash: fea893ebd55811527e0e92375ffc081a52cdbb57
-ms.sourcegitcommit: bcf93ad8ed8802072249cd8187cd4420da89b4c6
+ms.openlocfilehash: 4ab4f0de38614eff00f55bad96ea886bb007f3c0
+ms.sourcegitcommit: 4fd631a58cf19c494162510d073fbbbdf0524d16
 ms.translationtype: HT
 ms.contentlocale: ja-JP
+ms.lasthandoff: 06/05/2017
 ---
 # <a name="log-in-with-azure-cli-20"></a>Azure CLI 2.0 を使用してログインする
 
@@ -36,7 +37,7 @@ Web ブラウザーから対話形式でログインします。
 > [!Note]
 > この方法は、Microsoft アカウント、または 2 要素認証が有効になっているアカウントでは機能しません。
 
-```azurecli
+```azurecli-interactive
 az login -u <username> -p <password>
 ```
 
@@ -51,14 +52,13 @@ az login -u <username> -p <password>
 
 1. サービス プリンシパルを使用してログインします。
 
-   ```azurecli
+   ```azurecli-interactive
    az login --service-principal -u "http://my-app" -p <password> --tenant <tenant>
    ```
 
    テナントを取得するには、対話形式でログインし、サブスクリプションから tenantId を取得します。
 
    ```azurecli
-   az login
    az account show
    ```
 
