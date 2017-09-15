@@ -12,13 +12,87 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ce0428f7-0a59-4e72-9237-d907b171af51
-ms.openlocfilehash: e893b99349bbf2a5eec8af254158eb07001f1da7
-ms.sourcegitcommit: f107cf927ea1ef51de181d87fc4bc078e9288e47
+ms.openlocfilehash: ad30efeb7efafcc5816160ee130665d37adb62c6
+ms.sourcegitcommit: e866977985ba0286fa05f41729dd7e7d9ce86f8e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 リリース ノート
+
+## <a name="september-11-2017"></a>2017 年 9 月 11 日
+
+バージョン 2.0.17
+
+### <a name="core"></a>コア
+
+* テレメトリで独自の関連付け ID を設定するコマンド モジュールを有効にしました
+* テレメトリが診断モードに設定された際に発生する JSON ダンプの問題を修正しました
+
+### <a name="acs"></a>ACS
+
+* `acs list-locations` コマンドを追加しました
+* `ssh-key-file` を予想される既定値と共に使用されるようにしました
+
+### <a name="appservice"></a>Appservice
+
+* アクティブなサービス プラン以外のリソース グループで Web アプリを作成する機能を追加しました
+
+### <a name="cdn"></a>CDN
+
+* `cdn custom-domain create` の "CustomDomain is not interable" バグを修正しました。
+
+### <a name="extension"></a>内線番号
+
+* 最初のリリース。
+
+### <a name="keyvault"></a>KeyVault
+
+* `keyvault set-policy` について、アクセス許可の大文字と小文字が区別される問題を修正しました。
+
+### <a name="network"></a>ネットワーク
+
+* `vnet list-private-access-services` の名前を `vnet list-endpoint-services` に変更しました
+* `vnet subnet create/update` の `--private-access-services` 引数の名前を `--service-endpoints` に変更しました
+* `nsg rule create/update` に対する複数の IP 範囲およびポート範囲のサポートを追加しました
+* `lb create` に対する SKU のサポートを追加しました
+* `public-ip create` に対する SKU のサポートを追加しました
+
+### <a name="resource"></a>リソース
+
+* `policy definition create` と `policy definition update` でリソース ポリシーのパラメーター定義を渡せるようにします
+* `policy assignment create` でパラメーター値を渡せるようにします
+* すべてのパラメーターについて JSON またはファイルを渡せるようにします
+* API バージョンを増やしました
+
+### <a name="sql"></a>SQL
+
+* `sql server vnet-rule` コマンドを追加しました
+
+### <a name="vm"></a>VM
+
+* 修正済み: `--scope` が指定されないとアクセス権が割り当てられない
+* 修正済み: ポータルと同じ拡張機能の名前付けが行われる
+* `[vm|vmss] create` 出力から `subscription` を削除しました
+* 修正済み: `[vm|vmss] create` ストレージ SKU がイメージ付きのデータ ディスクに適用されない
+* 修正済み: `vm format-secret --secrets` で、改行によって分かれた ID を使用できない
+
+## <a name="august-31-2017"></a>2017 年 8 月 31 日
+
+バージョン 2.0.16
+
+### <a name="keyvault"></a>KeyVault
+
+* `secret download` でシークレット エンコードを自動的に解決しようとする際に発生するバグを修正しました
+
+### <a name="sf"></a>SF
+
+* すべてのコマンドが非推奨とされ、Service Fabric CLI (sfctl) が優先されます
+
+### <a name="storage"></a>Storage
+
+* ネットワーク ACL 機能がサポートされていないリージョンでストレージ アカウントを作成できない問題を修正しました
+* コンテンツの種類とエンコードがどちらも指定されていない場合、BLOB とファイルのアップロード中にコンテンツの種類とエンコードを決定します
 
 ## <a name="august-28-2017"></a>2017 年 8 月 28 日
 

@@ -1,7 +1,7 @@
 ---
 title: "Azure CLI 2.0 のインストール"
 description: "Azure CLI 2.0 のインストールに関するリファレンス ドキュメント"
-keywords: "Azure CLI 2.0, Azure CLI 2.0 のリファレンス, Azure CLI 2.0 のインストール, Azure Python CLI, Azure CLI 2.0 のアンインストール, Azure CLI, Azure CLI のインストール, Azure CLI のリファレンス"
+keywords: "Azure CLI, Azure CLI のインストール, Azure Python CLI, Azure CLI のリファレンス"
 author: sptramer
 ms.author: sttramer
 manager: routlaw
@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: 00d5b555975007d7e57f04ce5d69f4f29e6d0219
-ms.sourcegitcommit: f107cf927ea1ef51de181d87fc4bc078e9288e47
+ms.openlocfilehash: a61f47076854d0ff0a7056f82240794b7533fe3e
+ms.sourcegitcommit: 3db5fb207db551a0d3fe0a88fe09e8f5e2ec184d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 09/14/2017
 ---
 # <a name="install-azure-cli-20"></a>Azure CLI 2.0 のインストール
 
@@ -105,15 +105,63 @@ Debian/Ubuntu ベースのシステムでは、`apt-get` を使用して Azure C
 
 3.  コマンド プロンプトで `az` コマンドを使用して、CLI を実行します。
 
+## <a name="install-on-rhel-fedora-and-centos-with-yum"></a>yum を使って RHEL、Fedora、CentOS へのインストールを行う
+
+RedHat に基づいており、`yum` パッケージ マネージャーが含まれているディストリビューションでは、`yum` を使って Azure CLI 2.0 をインストールできます。
+
+1. Microsoft リポジトリ キーをインポートします。
+
+   ```bash
+   sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+   ```
+
+2. ローカル `azure-cli` リポジトリ情報を作成します。
+
+   ```bash
+   sudo sh -c 'echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo'
+   ```
+
+3. `yum` パッケージのインデックスを更新し、インストールを行います。
+
+   ```bash
+   yum check-update
+   sudo yum install azure-cli
+   ```
+
+4. コマンド プロンプトで `az` コマンドを使用して、CLI を実行します。
+
+## <a name="install-on-opensuse-and-sle-with-zypper"></a>zypper を使って openSUSE および SLE へのインストールを行う
+
+1. Microsoft リポジトリ キーをインポートします。
+
+   ```bash
+   sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+   ```
+
+2. ローカル `azure-cli` リポジトリ情報を作成します。
+
+   ```bash
+   sudo sh -c 'echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/zypp/repos.d/azure-cli.repo'
+   ```
+
+3. `zypper` パッケージのインデックスを更新し、インストールを行います。
+
+   ```bash
+   sudo zypper refresh
+   sudo zypper install azure-cli
+   ```
+
+4. コマンド プロンプトで `az` コマンドを使用して、CLI を実行します。
+
 ## <a name="install-with-docker"></a>Docker によるインストール
 
 Microsoft では、Azure CLI 2.0 が事前構成されている Docker イメージを保持しています。
 
 `docker run` を使用して、CLI をインストールしてください。
 
-  ```bash
-  docker run azuresdk/azure-cli-python:<version>
-  ```
+   ```bash
+   docker run azuresdk/azure-cli-python:<version>
+   ```
 
 利用可能なバージョンについては、[Docker のタグ](https://hub.docker.com/r/azuresdk/azure-cli-python/tags/)を参照してください。
 
@@ -128,7 +176,7 @@ CLI は、`/usr/local/bin` の `az` コマンドとしてイメージにイン�
 
 ## <a name="a-namelinuxinstall-on-linux-without-apt-get"></a><a name="Linux"/>apt-get なしでの Linux へのインストール
 
-できれば、`apt-get` で CLI をインストールすることをお勧めします。 `apt` パッケージ マネージャーを使用しないディストリビューションでは、インストールを手動で行えます。
+可能であれば、CLI はパッケージ マネージャーを使ってインストールすることをお勧めします。 パッケージが用意されていないディストリビューションについては、手動でインストールできます。
 
 1. Linux ディストリビューションに応じて、前提条件をインストールします。
 
@@ -289,26 +337,26 @@ Docker イメージをインストールした場合は、それを実行して�
 
 1. azure-cli イメージを実行しているコンテナーを取得します。
 
-  ```bash
-  docker container ls -a --filter 'ancestor=azuresdk/azure-cli-python'
-  ```
+   ```bash
+   docker container ls -a --filter 'ancestor=azuresdk/azure-cli-python'
+   ```
 
-  ```output
-  CONTAINER ID        IMAGE                              COMMAND             CREATED             STATUS                        PORTS               NAMES
-  34a868beb2ab        azuresdk/azure-cli-python:latest      "/bin/sh -c bash"   8 minutes ago       Exited (0) 8 minutes ago                       inspiring_benz
-  ```
+   ```output
+   CONTAINER ID        IMAGE                              COMMAND             CREATED             STATUS                        PORTS               NAMES
+   34a868beb2ab        azuresdk/azure-cli-python:latest      "/bin/sh -c bash"   8 minutes ago       Exited (0) 8 minutes ago                       inspiring_benz
+   ```
 
 2. CLI イメージがあるすべてのコンテナーを削除します。
 
-  ```bash
-  docker rm 34a868beb2ab
-  ```
+   ```bash
+   docker rm 34a868beb2ab
+   ```
 
 3. ローカルにインストールされた CLI イメージを削除します。
 
-  ```bash
-  docker rmi azuresdk/azure-cli-python
-  ```
+   ```bash
+   docker rmi azuresdk/azure-cli-python
+   ```
 
 > [!NOTE]
 > イメージの特定のバージョンをインストールした場合は、イメージ名の末尾に `:<version>` を追加する必要があります。
