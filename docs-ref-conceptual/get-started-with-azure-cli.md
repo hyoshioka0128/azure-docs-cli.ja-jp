@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 85c418a8-6177-4833-bb8d-ff4ce2233c1a
-ms.openlocfilehash: 5d6d7abb34fa2be571a9a49f0f84380538592807
-ms.sourcegitcommit: f107cf927ea1ef51de181d87fc4bc078e9288e47
+ms.openlocfilehash: bfc865f9b34afd8f312808fa420ad987be2a7d34
+ms.sourcegitcommit: 792a4283245160072edcf2bee1482aba19b285d5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 06/26/2017
 ---
 # <a name="get-started-with-azure-cli-20"></a>Azure CLI 2.0 を使ってみる
 
@@ -73,7 +73,7 @@ az group create -n MyResourceGroup -l westus2
 
 リソース グループが完成したら、そこに Linux VM を作成します。
 
-次のコマンドで、一般的な UbuntuLTS イメージを使用して、10 GB と 20 GB の 2 つのストレージ ディスクがアタッチされた Linux VM を作成することができます。
+次のコマンドで、一般的な UbuntuTLS イメージを使用して、10 GB と 20 GB の 2 つのストレージ ディスクが接続された Linux VM を作成することができます。
 
 ```azurecli-interactive
 az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS --data-disk-sizes-gb 10 20

@@ -12,77 +12,13 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ce0428f7-0a59-4e72-9237-d907b171af51
-ms.openlocfilehash: e893b99349bbf2a5eec8af254158eb07001f1da7
-ms.sourcegitcommit: f107cf927ea1ef51de181d87fc4bc078e9288e47
+ms.openlocfilehash: 39e4710a29ac57730919b82ab76b9c9a4b9ca786
+ms.sourcegitcommit: 43d4f838d132ab9bcfa59dbda3b544c06373b6a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 08/22/2017
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 リリース ノート
-
-## <a name="august-28-2017"></a>2017 年 8 月 28 日
-
-バージョン 2.0.15
-
-### <a name="cli"></a>CLI
-
-* `--version` に法的事項を追加しました。
-
-### <a name="acs"></a>ACS
-
-* プレビュー リージョンを修正しました。
-* 既定の `dns_name_prefix` を正しい形式にしました。
-* ACS コマンド出力を最適化しました。
-
-### <a name="appservice"></a>Appservice
-
-* [重大な変更] `az webapp config appsettings [delete|set]` の出力の不整合を修正しました
-* `az webapp config container set --docker-custom-image-name` の `-i` の新しいエイリアスを追加しました
-* `az webapp log show` を公開しました
-* App Service プラン、メトリック、または DNS 登録を保持するために、`az webapp delete` の新しい引数を公開しました
-* 修正済み: スロット設定の正常な検出
-
-### <a name="iot"></a>IoT
-
-* 修正済み #3934: ポリシーの作成で既存のポリシーが消去されなくなりました
-
-### <a name="network"></a>ネットワーク
-
-* [重大な変更] 名前を `vnet list-private-access-services` から `vnet list-endpoint-services` に変更しました
-* [重大な変更] `vnet subnet [create|update]` のオプション `--private-access-services` の名前を `--service-endpoints` に変更しました
-* `nsg rule [create|update]` に対する複数 IP およびポート範囲のサポートを追加しました
-* `lb create` に対する SKU のサポートを追加しました
-* `public-ip create` に対する SKU のサポートを追加しました
-
-### <a name="profile"></a>プロファイル
-
-* 仮想マシンの ID を使用してログインするために、`--msi` と `--msi-port` を公開しました
-
-### <a name="service-fabric"></a>Service Fabric
-
-* プレビュー リリース
-* コマンドに対するレジストリのユーザー/パスワード規則を簡略化しました
-* パラメーターを渡した後でもユーザーにパスワードの入力が求められる問題を修正しました
-* 空の `registry_cred` のサポートを追加しました
-
-### <a name="storage"></a>Storage
-
-* BLOB 層の設定を有効にしました
-* サービス トンネリングをサポートするために、`--bypass` 引数と `--default-action` 引数を `storage account [create|update]` に追加しました
-* VNET ルールと IP ベースのルールを `storage account network-rule` に追加するためのコマンドを追加しました  
-* 顧客管理キーによるサービスの暗号化を有効にしました
-* [重大な変更] `az storage account create and az storage account update` コマンドの `--encryption` オプションの名前を `--encryption-services` に変更しました
-* 修正済み #4220: `az storage account update encryption` - 構文の不一致
-
-### <a name="vm"></a>VM
-
-* `vmss get-instance-view` で `--instance-id *` を使用した場合に、余分な間違えた情報が表示される問題を修正しました
-* `vmss create` に `--lb-sku` のサポートを追加しました。 
-* `[vm|vmss] create` の管理者名ブラックリストから人物名を削除しました 
-* イメージからプラン情報を抽出できない場合に `[vm|vmss] create` がエラーをスローする問題を修正しました
-* 内部 LB で vmms scaleset を作成するときのクラッシュを修正しました
-* `vm availability-set create` で `--no-wait` 引数が機能しない問題を修正しました
-
 
 ## <a name="august-15-2017"></a>2017 年 8 月 15 日
 

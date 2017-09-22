@@ -1,22 +1,22 @@
 ---
 title: "Azure CLI 2.0 のインストール"
 description: "Azure CLI 2.0 のインストールに関するリファレンス ドキュメント"
-keywords: "Azure CLI 2.0, Azure CLI 2.0 のリファレンス, Azure CLI 2.0 のインストール, Azure Python CLI, Azure CLI 2.0 のアンインストール, Azure CLI, Azure CLI のインストール, Azure CLI のリファレンス"
-author: sptramer
-ms.author: sttramer
-manager: routlaw
+keywords: "Azure CLI 2.0, Azure CLI 2.0 のリファレンス, Azure CLI 2.0 のインストール, Azure Python CLI, Azure CLI 2.0 のアンインストール"
+author: rloutlaw
+ms.author: routlaw
+manager: douge
 ms.date: 08/17/2017
-ms.topic: article
+ms.topic: "articleå"
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: 00d5b555975007d7e57f04ce5d69f4f29e6d0219
-ms.sourcegitcommit: f107cf927ea1ef51de181d87fc4bc078e9288e47
+ms.openlocfilehash: 432edac070e238a6f1be0ccd76b9b3582b082219
+ms.sourcegitcommit: 2ec80224c6b831e31038b710d912c0dbb1ddfef6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 08/17/2017
 ---
 # <a name="install-azure-cli-20"></a>Azure CLI 2.0 のインストール
 
@@ -28,15 +28,18 @@ macOS、Linux、および Windows で使用できます。
 > [!NOTE]
 > Azure CLI の以前のバージョンが必要な場合は、[Azure CLI 1.0 をインストールする](/azure/cli-install-nodejs)方法に関するページを参照してください。
 
-## <a name="a-namemacosinstall-on-macos"></a><a name="macOS"/>macOS へのインストール
+## <a name="macos"></a>macOS
 
-1. `curl` で Azure CLI 2.0 をインストールします。
+> [!WARNING]
+> Azure CLI 用の Homebrew Formula `azure-cli` は現在古くなっており、以前のバージョンがインストールされます。
+
+1. 1 つの `curl` コマンドで Azure CLI 2.0 をインストールします。
 
    ```bash
    curl -L https://aka.ms/InstallAzureCli | bash
    ```
 
-2. 場合によっては、変更を有効にするために、シェルを再起動する必要があります。
+2. 場合によっては、変更を有効にするために、コマンド シェルを再起動する必要があります。
 
    ```bash
    exec -l $SHELL
@@ -44,15 +47,27 @@ macOS、Linux、および Windows で使用できます。
    
 3. コマンド プロンプトで `az` コマンドを使用して、CLI を実行します。
 
-## <a name="install-on-windows"></a>Windows へのインストール
+> [!Note]
+> InstallAzureCli を使用してインストールした場合、[`az component update`](/cli/azure/component#update) はサポートされません。
+> 最新の CLI に更新するには、`curl -L https://aka.ms/InstallAzureCli | bash` をもう一度実行します。
+> 
+> アンインストールするには、[手動のアンインストール手順](#uninstall)を参照してください。
 
-MSI を使用して Azure CLI 2.0 をインストールし、Windows コマンド ラインで使用するか、Bash on Ubuntu on Windows で `apt-get` を使用して、CLI をインストールできます。
+## <a name="windows"></a>Windows
 
-### <a name="install-with-msi-for-the-windows-command-line"></a>Windows コマンド ライン用に MSI でインストールを行う 
+MSI を使用して Azure CLI 2.0 をインストールし、Windows コマンド ラインで使用するか、Bash on Ubuntu on Windows で apt-get を使用して、CLI をインストールできます。
 
-Windows に CLI をインストールして、Windows コマンド ラインで使用するには、[MSI](https://aka.ms/InstallAzureCliWindows) をダウンロードして実行します。
+### <a name="msi-for-the-windows-command-line"></a>Windows コマンド ライン用の MSI 
 
-### <a name="install-with-apt-get-for-bash-on-ubuntu-on-windows"></a>Bash on Ubuntu on Windows 用に apt-get でインストールを行う
+Windows に CLI をインストールして、Windows コマンド ラインで使用するには、[msi](https://aka.ms/InstallAzureCliWindows) をダウンロードして実行します。
+
+> [!NOTE]
+> MSI を使用してインストールする場合、[`az component`](/cli/azure/component) はサポートされません。
+> 最新の CLI に更新するには、[msi](https://aka.ms/InstallAzureCliWindows) をもう一度実行します。
+> 
+> CLI をアンインストールするには、[msi](https://aka.ms/InstallAzureCliWindows) をもう一度実行して、アンインストールを選択します。
+
+### <a name="apt-get-for-bash-on-ubuntu-on-windows"></a>Bash on Ubuntu on Windows 用の apt-get
 
 1. Bash on Windows をインストールしていない場合は、[インストールします](https://msdn.microsoft.com/commandline/wsl/install_guide)。
 
@@ -75,7 +90,13 @@ Windows に CLI をインストールして、Windows コマンド ラインで�
 
 5.  コマンド プロンプトで `az` コマンドを使用して、CLI を実行します。
 
-## <a name="install-on-debianubuntu-with-apt-get"></a>apt-get による Debian/Ubuntu へのインストール
+> [!NOTE]
+> apt-get を使用してインストールした場合、[`az component`](/cli/azure/component) はサポートされません。
+> CLI を更新するには、`sudo apt-get update && sudo apt-get install azure-cli` をもう一度実行します。
+> 
+> アンインストールするには、`sudo apt-get remove azure-cli` を実行します。
+
+## <a name="apt-get-for-debianubuntu"></a>Debian/Ubuntu の apt-get
 
 Debian/Ubuntu ベースのシステムでは、`apt-get` を使用して Azure CLI 2.0 をインストールできます。
 
@@ -105,215 +126,95 @@ Debian/Ubuntu ベースのシステムでは、`apt-get` を使用して Azure C
 
 3.  コマンド プロンプトで `az` コマンドを使用して、CLI を実行します。
 
-## <a name="install-with-docker"></a>Docker によるインストール
+> [!NOTE]
+> apt-get を使用してインストールした場合、[`az component`](/cli/azure/component) はサポートされません。
+> CLI を更新するには、`sudo apt-get update && sudo apt-get install azure-cli` をもう一度実行します。
+> 
+> アンインストールするには、`sudo apt-get remove azure-cli` を実行します。
+
+## <a name="docker"></a>Docker
 
 Microsoft では、Azure CLI 2.0 が事前構成されている Docker イメージを保持しています。
 
 `docker run` を使用して、CLI をインストールしてください。
 
-  ```bash
-  docker run azuresdk/azure-cli-python:<version>
-  ```
+```bash
+docker run azuresdk/azure-cli-python:<version>
+```
 
 利用可能なバージョンについては、[Docker のタグ](https://hub.docker.com/r/azuresdk/azure-cli-python/tags/)を参照してください。
-
-CLI は、`/usr/local/bin` の `az` コマンドとしてイメージにインストールされます。
 
 > [!NOTE]
 > ユーザー環境から SSH キーを取得する場合は、`-v ${HOME}:/root` を使用して、$HOME を `/root` としてマウントできます。
 
-> ```bash
+>> ```bash
 > docker run -v ${HOME}:/root azuresdk/azure-cli-python:<version>
 > ```
 
-## <a name="a-namelinuxinstall-on-linux-without-apt-get"></a><a name="Linux"/>apt-get なしでの Linux へのインストール
+CLI は、`/usr/local/bin` の `az` コマンドとしてイメージにインストールされます。
 
-できれば、`apt-get` で CLI をインストールすることをお勧めします。 `apt` パッケージ マネージャーを使用しないディストリビューションでは、インストールを手動で行えます。
+> [!NOTE]
+> Docker イメージでは、[`az component`](/cli/azure/component) 機能がサポートされていません。
+> Azure CLI 2.0 を更新するには、`docker run` を使用して、最新のイメージまたは必要とする特定のイメージをインストールします。
 
-1. Linux ディストリビューションに応じて、前提条件をインストールします。
+## <a name="linux"></a>Linux
+
+1. [Python](https://www.python.org/downloads) をインストールしていない場合は、インストールします。
+
+2. お使いの Linux ディストリビューションに応じて、前提条件をインストールします。
 
    ```
    Platform              | Prerequisites
    ----------------------|---------------------------------------------
-   Ubuntu 15.10 or 16.04 | sudo apt-get update && sudo apt-get install -y python libssl-dev libffi-dev python-dev build-essential
-   Ubuntu 12.04 or 14.04 | sudo apt-get update && sudo apt-get install -y python libssl-dev libffi-dev python-dev
-   Debian 8              | sudo apt-get update && sudo apt-get install -y python libssl-dev libffi-dev python-dev build-essential
-   Debian 7              | sudo apt-get update && sudo apt-get install -y python libssl-dev libffi-dev python-dev
-   CentOS 7.1 or 7.2     | sudo yum check-update; sudo yum install -y gcc python libffi-devel python-devel openssl-devel
-   RedHat 7.2            | sudo yum check-update; sudo yum install -y gcc python libffi-devel python-devel openssl-devel
-   SUSE OpenSUSE 13.2    | sudo zypper refresh && sudo zypper --non-interactive install curl gcc python python-xml libffi-devel python-devel openssl-devel
+   Ubuntu 15.10 or 16.04 | sudo apt-get update && sudo apt-get install -y libssl-dev libffi-dev python-dev build-essential
+   Ubuntu 12.04 or 14.04 | sudo apt-get update && sudo apt-get install -y libssl-dev libffi-dev python-dev
+   Debian 8              | sudo apt-get update && sudo apt-get install -y libssl-dev libffi-dev python-dev build-essential
+   Debian 7              | sudo apt-get update && sudo apt-get install -y libssl-dev libffi-dev python-dev
+   CentOS 7.1 or 7.2     | sudo yum check-update; sudo yum install -y gcc libffi-devel python-devel openssl-devel
+   RedHat 7.2            | sudo yum check-update; sudo yum install -y gcc libffi-devel python-devel openssl-devel
+   SUSE OpenSUSE 13.2    | sudo zypper refresh && sudo zypper --non-interactive install gcc libffi-devel python-devel openssl-devel
    ```
 
-ディストリビューションが上の一覧に記載されていない場合は、[Python](https://www.python.org/downloads/)、[libffi](https://sourceware.org/libffi/)、および [OpenSSL](https://www.openssl.org/source/) をインストールする必要があります。
-
-2. `curl` で CLI をインストールしてください。
+3. 1 つの `curl` コマンドで CLI をインストールします。
 
    ```bash
    curl -L https://aka.ms/InstallAzureCli | bash
    ```
 
-3. 場合によっては、変更を有効にするために、シェルを再起動する必要があります。
+4. 場合によっては、変更を有効にするために、コマンド シェルを再起動する必要があります。
 
    ```bash
    exec -l $SHELL
    ```
 
-4. コマンド プロンプトで `az` コマンドを使用して、CLI を実行します。
+5. コマンド プロンプトで `az` コマンドを使用して、CLI を実行します。
+
+> [!Note]
+> InstallAzureCli を使用してインストールした場合、[`az component update`](/cli/azure/component#update) はサポートされません。
+> 最新の CLI に更新するには、`curl -L https://aka.ms/InstallAzureCli | bash` をもう一度実行します。
+> 
+> アンインストールするには、[手動のアンインストール手順](#uninstall)を参照してください。
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 
-CLI のインストール中に問題が発生した場合は、このセクションを見て、該当するケースの説明があるかどうかを確認してください。 問題がここで説明されていない場合は、[GitHub に問題を提出](https://github.com/Azure/azure-cli/issues)してください。
+### <a name="errors-with-curl-redirection"></a>curl リダイレクトでのエラー
 
-### <a name="curl-object-moved-error"></a>curl の "Object Moved" エラー
+`curl` コマンドで `-L` パラメーターに関連するエラーが発生した場合や、"Object moved" というエラーが発生した場合は、aka.ms URL の代わりに完全な URL を使用してみてください。
 
-`curl` で `-L` パラメーターに関連するエラーが発生した場合や、"Object Moved" というテキストが含まれているエラー メッセージが表示された場合は、次のように、`aka.ms` リダイレクトの代わりに完全な URL を使用してみてください。
+```
+# If you see this:
+curl -L https://aka.ms/InstallAzureCli | bash
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   175  100   175    0     0    562      0 --:--:-- --:--:-- --:--:--   560
+bash: line 1: syntax error near unexpected token `<'
+'ash: line 1: `<html><head><title>Object moved</title></head><body>
 
-```bash
+#### Try this instead:
 curl https://azurecliprod.blob.core.windows.net/install | bash
 ```
 
-### <a name="homebrew-on-macos-installing-older-version"></a>macOS の Homebrew による古いバージョンのインストール
-
-macOS で使用可能な Homebrew `azure-cli` Formula は、現在古くなっており、CLI の 1.x バージョンをインストールします。 いつ更新されたかを調べるには、`brew info azure-cli` を確認してください。
-
-更新されるまでは、[古いバージョンをアンインストール](#uninstall_brew)し、[macOS のインストール手順](#macOS)に従ってください。
-
-## <a name="uninstall-cli-1x-versions"></a>CLI 1.x バージョンのアンインストール
-
-システム上で以前の CLI 1.x バージョンが使用可能な場合は、使用されたインストールの種類に基づいてアンインストールすることができます。
-
-### <a name="uninstall-with-npm"></a>npm でのアンインストール
-
-古い CLI を `npm uninstall` で削除します。
-
-  ```bash
-  npm uninstall -g azure-cli
-  ```
-
-### <a name="a-nameuninstallbrewuninstall-with-homebrew-on-macos"></a><a name="uninstall_brew"/>macOS の Homebrew でのアンインストール
-
-古い CLI を `brew uninstall` で削除します。
-
-```bash
-brew uninstall azure-cli
-```
-
-### <a name="uninstall-with-distributable"></a>再頒布可能パッケージでのアンインストール
-
-[MSI](http://aka.ms/webpi-azure-cli) または [macOS パッケージ](http://aka.ms/mac-azure-cli)を通じてインストールした場合は、同じツールを使用してインストールを削除してください。
-
-### <a name="uninstall-with-docker"></a>Docker でのアンインストール
-
-以前の CLI バージョンを使用するために Docker イメージをインストールした場合は、そのイメージと、関連するすべてのコンテナーを削除します。 その後、インストール手順の説明に従って新しい Docker イメージをインストールしてから、コンテナーを再作成できます。
-
-  ```bash
-  docker rmi -f microsoft/azure-cli
-  ```
-
-## <a name="update-the-cli"></a>CLI の更新
-
-Azure CLI を更新するには、それをインストールしたのと同じ方法を使用します。
-
-### <a name="update-with-msi"></a>MSI での更新
-
-[MSI](https://aka.ms/InstallAzureCliWindows) をもう一度実行します。
-
-### <a name="update-with-apt-get"></a>apt-get での更新
-
-CLI パッケージを更新するには、`apt-get upgrade` を使用します。
-
-   ```bash
-   sudo apt-get update && sudo apt-get upgrade
-   ```
-
-> [!NOTE]
-> これにより、依存関係が変更されていない、システム上のすべてのインストール済みパッケージがアップグレードされます。
-> CLI のみをアップグレードするには、`apt-get install` を使用します。
-> ```bash
-> sudo apt-get update && sudo apt-get install --only-upgrade -y azure-cli
-> ```
-
-### <a name="update-with-docker"></a>Docker での更新
-
-1. `docker pull` でローカル イメージを更新します。
-
-   ```bash
-   docker pull azuresdk/azure-cli-python
-   ```
-
-2. 現時点で CLI イメージを使用しているコンテナーを取得します。
-
-   ```bash
-   docker container ls -a --filter 'ancestor=azuresdk/azure-cli-python'
-   ```
-
-   ```output
-   CONTAINER ID        IMAGE                              COMMAND             CREATED             STATUS                        PORTS               NAMES
-   34a868beb2ab        azuresdk/azure-cli-python:latest      "/bin/sh -c bash"   8 minutes ago       Exited (0) 8 minutes ago                       inspiring_benz
-   ```
-
-> [!NOTE]
-> イメージの特定のバージョンをインストールした場合は、イメージ名の末尾に `:<version>` を追加する必要があります。
-
-3. コンテナーを停止し、もう一度作成します。
-
-   ```bash
-   docker stop inspiring_benz
-   docker rm inspiring_benz
-   docker run azuresdk/azure-cli-python
-   ```
-
-### <a name="update-manually"></a>手動での更新
-
-更新するには、[macOS](#macOS) または [Linux](#Linux) の手動でのインストール手順に従ってください。
-
 ## <a name="uninstall"></a>アンインストール
-
-CLI が不要であると判断した場合は、アンインストールすることができます。 CLI をインストールしたときと同じ方法を使用して、アンインストールする必要があります。
-
-### <a name="uninstall-with-msi"></a>MSI でのアンインストール
-
-[MSI](https://aka.ms/InstallAzureCliWindows) をもう一度実行して、アンインストールを選択します。
-
-### <a name="uninstall-with-apt-get"></a>apt-get でのアンインストール
-
-次のように、`apt-get remove` を通じてアンインストールします。
-
-  ```bash
-  sudo apt-get remove -y azure-cli
-  ```
-
-### <a name="uninstall-with-docker"></a>Docker でのアンインストール
-
-Docker イメージをインストールした場合は、それを実行しているすべてのコンテナーを削除してから、ローカル イメージを削除する必要があります。
-
-1. azure-cli イメージを実行しているコンテナーを取得します。
-
-  ```bash
-  docker container ls -a --filter 'ancestor=azuresdk/azure-cli-python'
-  ```
-
-  ```output
-  CONTAINER ID        IMAGE                              COMMAND             CREATED             STATUS                        PORTS               NAMES
-  34a868beb2ab        azuresdk/azure-cli-python:latest      "/bin/sh -c bash"   8 minutes ago       Exited (0) 8 minutes ago                       inspiring_benz
-  ```
-
-2. CLI イメージがあるすべてのコンテナーを削除します。
-
-  ```bash
-  docker rm 34a868beb2ab
-  ```
-
-3. ローカルにインストールされた CLI イメージを削除します。
-
-  ```bash
-  docker rmi azuresdk/azure-cli-python
-  ```
-
-> [!NOTE]
-> イメージの特定のバージョンをインストールした場合は、イメージ名の末尾に `:<version>` を追加する必要があります。
-
-### <a name="uninstall-manually"></a>手動でのアンインストール
 
 https://aka.ms/InstallAzureCli のスクリプトを使用して CLI をインストールした場合は、次の手順でアンインストールできます。
 
@@ -329,7 +230,9 @@ https://aka.ms/InstallAzureCli のスクリプトを使用して CLI をイン�
 > [!Note]
 > 既定のインストール場所は `/Users/<username>` です。
 
-## <a name="report-cli-issues-and-feedback"></a>CLI の問題とフィードバックの報告
+apt-get、Docker、または msi を使用して CLI をインストールした場合は、同じツールを使用してアンインストールします。
 
-ツールにバグを発見した場合は、GitHub リポジトリの [[Issues]\(問題\)](https://github.com/Azure/azure-cli/issues) セクションで問題を報告してください。
-コマンド ラインからフィードバックを送るには、`az feedback` コマンドを使用します。
+## <a name="reporting-issues-and-feedback"></a>問題とフィードバックの報告
+
+ツールにバグを発見した場合は、GitHub リポジトリの [[Issues (問題)]](https://github.com/Azure/azure-cli/issues) セクションで問題を報告してください。
+コマンド ラインからフィードバックを送るには、`az feedback` コマンドを試してください。

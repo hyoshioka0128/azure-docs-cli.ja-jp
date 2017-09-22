@@ -12,7 +12,6 @@
 ## [出力形式](format-output-azure-cli.md)
 ## [クエリ](query-azure-cli.md)
 ## [サブスクリプション](manage-azure-subscriptions-azure-cli.md)
-### [クラウドの管理](manage-clouds-azure-cli.md)
 ## [リリース ノート](release-notes-azure-cli.md)
 # サンプル スクリプト
 ## [Linux VM](/azure/virtual-machines/linux/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
