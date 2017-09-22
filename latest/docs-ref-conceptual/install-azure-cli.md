@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: a61f47076854d0ff0a7056f82240794b7533fe3e
-ms.sourcegitcommit: 3db5fb207db551a0d3fe0a88fe09e8f5e2ec184d
+ms.openlocfilehash: 580438bfc66f3ed0b4dad504258eab453b1b9183
+ms.sourcegitcommit: c1df7794ad42adb8640b51b630e4275f4a791ac2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="install-azure-cli-20"></a>Azure CLI 2.0 のインストール
 
@@ -29,6 +29,33 @@ macOS、Linux、および Windows で使用できます。
 > Azure CLI の以前のバージョンが必要な場合は、[Azure CLI 1.0 をインストールする](/azure/cli-install-nodejs)方法に関するページを参照してください。
 
 ## <a name="a-namemacosinstall-on-macos"></a><a name="macOS"/>macOS へのインストール
+
+macOS では、[Homebrew](https://brew.sh/) または手動でインストールを行えます。
+
+### <a name="install-with-homebrew"></a>Homebrew でインストールする
+
+1. まだお持ちでない場合は、[Homebrew のインストール手順](https://docs.brew.sh/Installation.html)に従って Homebrew をインストールします。
+
+2. ローカルの Homebrew リポジトリを更新します。
+
+   ```bash
+   brew update
+   ```
+
+3. `azure-cli` パッケージをインストールします。
+
+  ```bash
+  brew install azure-cli
+  ```
+
+> [!NOTE]
+> 以前 Homebrew で Azure CLI 1.0 をインストールしている場合、パッケージをインストールをするのではなく、通常の Homebrew アップグレード プロセスで CLI 2.0 を取得できます。
+>
+> ```bash
+> brew upgrade
+> ```
+
+### <a name="install-manually"></a>手動でインストールする
 
 1. `curl` で Azure CLI 2.0 をインストールします。
 
@@ -220,12 +247,6 @@ CLI のインストール中に問題が発生した場合は、このセクシ�
 curl https://azurecliprod.blob.core.windows.net/install | bash
 ```
 
-### <a name="homebrew-on-macos-installing-older-version"></a>macOS の Homebrew による古いバージョンのインストール
-
-macOS で使用可能な Homebrew `azure-cli` Formula は、現在古くなっており、CLI の 1.x バージョンをインストールします。 いつ更新されたかを調べるには、`brew info azure-cli` を確認してください。
-
-更新されるまでは、[古いバージョンをアンインストール](#uninstall_brew)し、[macOS のインストール手順](#macOS)に従ってください。
-
 ## <a name="uninstall-cli-1x-versions"></a>CLI 1.x バージョンのアンインストール
 
 システム上で以前の CLI 1.x バージョンが使用可能な場合は、使用されたインストールの種類に基づいてアンインストールすることができます。
@@ -237,14 +258,6 @@ macOS で使用可能な Homebrew `azure-cli` Formula は、現在古くなっ�
   ```bash
   npm uninstall -g azure-cli
   ```
-
-### <a name="a-nameuninstallbrewuninstall-with-homebrew-on-macos"></a><a name="uninstall_brew"/>macOS の Homebrew でのアンインストール
-
-古い CLI を `brew uninstall` で削除します。
-
-```bash
-brew uninstall azure-cli
-```
 
 ### <a name="uninstall-with-distributable"></a>再頒布可能パッケージでのアンインストール
 
@@ -261,6 +274,20 @@ brew uninstall azure-cli
 ## <a name="update-the-cli"></a>CLI の更新
 
 Azure CLI を更新するには、それをインストールしたのと同じ方法を使用します。
+
+### <a name="update-with-homebrew"></a>Homebrew での更新
+
+1. ローカルの Homebrew リポジトリ情報を更新します。
+
+   ```bash
+   brew update
+   ```
+
+2. インストール済みパッケージをアップグレードします。
+
+   ```bash
+   brew upgrade
+   ```
 
 ### <a name="update-with-msi"></a>MSI での更新
 
@@ -318,6 +345,14 @@ CLI パッケージを更新するには、`apt-get upgrade` を使用します�
 ## <a name="uninstall"></a>アンインストール
 
 CLI が不要であると判断した場合は、アンインストールすることができます。 CLI をインストールしたときと同じ方法を使用して、アンインストールする必要があります。
+
+### <a name="uninstall-with-homebrew"></a>Homebrew でのアンインストール
+
+`azure-cli` パッケージをアンインストールします。
+
+   ```bash
+   brew uninstall azure-cli
+   ```
 
 ### <a name="uninstall-with-msi"></a>MSI でのアンインストール
 
