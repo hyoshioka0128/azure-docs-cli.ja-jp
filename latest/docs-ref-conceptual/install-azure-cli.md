@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: 580438bfc66f3ed0b4dad504258eab453b1b9183
-ms.sourcegitcommit: c1df7794ad42adb8640b51b630e4275f4a791ac2
+ms.openlocfilehash: 935814d56d0a6be00f626da860dc643adbf14804
+ms.sourcegitcommit: 9f38efbb7efd800ee5cab80d6641770d268c5a68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="install-azure-cli-20"></a>Azure CLI 2.0 のインストール
 
@@ -36,13 +36,15 @@ macOS では、[Homebrew](https://brew.sh/) または手動でインストール
 
 1. まだお持ちでない場合は、[Homebrew のインストール手順](https://docs.brew.sh/Installation.html)に従って Homebrew をインストールします。
 
-2. ローカルの Homebrew リポジトリを更新します。
+2. 以前に手動で CLI をインストール済みの場合は、[手動によるアンインストール](#UninstallManually)の手順に従います。
+
+3. ローカルの Homebrew リポジトリを更新します。
 
    ```bash
    brew update
    ```
 
-3. `azure-cli` パッケージをインストールします。
+4. `azure-cli` パッケージをインストールします。
 
   ```bash
   brew install azure-cli
@@ -73,11 +75,9 @@ macOS では、[Homebrew](https://brew.sh/) または手動でインストール
 
 ## <a name="install-on-windows"></a>Windows へのインストール
 
-MSI を使用して Azure CLI 2.0 をインストールし、Windows コマンド ラインで使用するか、Bash on Ubuntu on Windows で `apt-get` を使用して、CLI をインストールできます。
-
 ### <a name="install-with-msi-for-the-windows-command-line"></a>Windows コマンド ライン用に MSI でインストールを行う 
 
-Windows に CLI をインストールして、Windows コマンド ラインで使用するには、[MSI](https://aka.ms/InstallAzureCliWindows) をダウンロードして実行します。
+Windows に CLI をインストールして、Windows コマンド ラインで使用するには、[Azure CLI インストーラー (MSI)](https://aka.ms/InstallAzureCliWindows) をダウンロードして実行します。
 
 ### <a name="install-with-apt-get-for-bash-on-ubuntu-on-windows"></a>Bash on Ubuntu on Windows 用に apt-get でインストールを行う
 
@@ -247,6 +247,16 @@ CLI のインストール中に問題が発生した場合は、このセクシ�
 curl https://azurecliprod.blob.core.windows.net/install | bash
 ```
 
+### <a name="az-command-not-found"></a>`az` コマンドが見つからない
+
+シェルのコマンド ハッシュのキャッシュをクリアすることが必要になる場合があります。 実行
+
+```bash
+hash -r
+```
+
+問題が解決されているかどうかを確認してください。
+
 ## <a name="uninstall-cli-1x-versions"></a>CLI 1.x バージョンのアンインストール
 
 システム上で以前の CLI 1.x バージョンが使用可能な場合は、使用されたインストールの種類に基づいてアンインストールすることができます。
@@ -261,7 +271,7 @@ curl https://azurecliprod.blob.core.windows.net/install | bash
 
 ### <a name="uninstall-with-distributable"></a>再頒布可能パッケージでのアンインストール
 
-[MSI](http://aka.ms/webpi-azure-cli) または [macOS パッケージ](http://aka.ms/mac-azure-cli)を通じてインストールした場合は、同じツールを使用してインストールを削除してください。
+[Azure CLI インストーラー (MSI)](http://aka.ms/webpi-azure-cli) または [macOS パッケージ](http://aka.ms/mac-azure-cli)を通じてインストールした場合は、同じツールを使用してインストールを削除してください。
 
 ### <a name="uninstall-with-docker"></a>Docker でのアンインストール
 
@@ -277,13 +287,15 @@ Azure CLI を更新するには、それをインストールしたのと同じ�
 
 ### <a name="update-with-homebrew"></a>Homebrew での更新
 
-1. ローカルの Homebrew リポジトリ情報を更新します。
+1. 以前に手動でインストール済みの場合は、「[Homebrew でインストールする](#macOS)」の手順に従います。
+
+2. ローカルの Homebrew リポジトリ情報を更新します。
 
    ```bash
    brew update
    ```
 
-2. インストール済みパッケージをアップグレードします。
+3. インストール済みパッケージをアップグレードします。
 
    ```bash
    brew upgrade
@@ -291,7 +303,7 @@ Azure CLI を更新するには、それをインストールしたのと同じ�
 
 ### <a name="update-with-msi"></a>MSI での更新
 
-[MSI](https://aka.ms/InstallAzureCliWindows) をもう一度実行します。
+もう一度 [Azure CLI インストーラー (MSI)](https://aka.ms/InstallAzureCliWindows) を実行します。
 
 ### <a name="update-with-apt-get"></a>apt-get での更新
 
@@ -396,7 +408,7 @@ Docker イメージをインストールした場合は、それを実行して�
 > [!NOTE]
 > イメージの特定のバージョンをインストールした場合は、イメージ名の末尾に `:<version>` を追加する必要があります。
 
-### <a name="uninstall-manually"></a>手動でのアンインストール
+###<a name="a-nameuninstallmanuallyuninstall-manually"></a><a name="UninstallManually"/>手動でのアンインストール
 
 https://aka.ms/InstallAzureCli のスクリプトを使用して CLI をインストールした場合は、次の手順でアンインストールできます。
 

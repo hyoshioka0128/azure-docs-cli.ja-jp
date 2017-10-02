@@ -12,13 +12,73 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ce0428f7-0a59-4e72-9237-d907b171af51
-ms.openlocfilehash: ad30efeb7efafcc5816160ee130665d37adb62c6
-ms.sourcegitcommit: e866977985ba0286fa05f41729dd7e7d9ce86f8e
+ms.openlocfilehash: 72630c52b5e6afd69809ff19145717c0d65e0252
+ms.sourcegitcommit: 3a490ae3a2a1b2e63a062806f9b720fa4c6be01e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/25/2017
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 リリース ノート
+
+## <a name="september-22-2017"></a>2017 年 9 月 22 日
+
+バージョン 2.0.18
+
+### <a name="resource"></a>リソース
+
+* 組み込みのポリシー定義を表示するためのサポートを追加しました
+* ポリシー定義を作成するためのサポート モード パラメーターを追加しました
+* UI の定義とテンプレートのサポートを `managedapp definition create` に追加しました
+* [重大な変更] `managedapp` のリソースの種類を `appliances` から `applications`、`applianceDefinitions` から `applicationDefinitions` に変更しました
+
+### <a name="network"></a>ネットワーク
+
+* 可用性ゾーンのサポートを `network lb` および `network public-ip` サブコマンドに追加しました
+* IPv6 Microsoft ピアリングのサポートを `express-route` に追加しました
+* `asg` アプリケーション セキュリティ グループのコマンドを追加しました
+* `--application-security-groups` 引数を `nic [create|ip-config create|ip-config update]` に追加しました
+* `--source-asgs` 引数と `--destination-asgs` 引数を `nsg rule [create|update]` に追加しました
+* `--ddos-protection` 引数と `--vm-protection` 引数を `vnet [create|update]` に追加しました
+* `network [vnet-gateway|vpn-client|show-url]` コマンドを追加しました
+
+### <a name="storage"></a>Storage
+
+* SDK の更新後に `storage account network-rule` コマンドが失敗する可能性がある問題を修正しました
+
+### <a name="eventgrid"></a>Eventgrid
+
+* 新しい API バージョン "2017-09-15-preview" を使用するように Azure Event Grid Python SDK を更新しました
+
+### <a name="sql"></a>SQL
+
+* `sql server list` の引数 `--resource-group` を省略可能に変更しました。 指定しなかった場合は、サブスクリプション内のすべての SQL Server が返されます
+* `--no-wait` パラメーターを `db [create|copy|restore|update|replica create|create|update]` と `dw [create|update]` に追加しました
+
+### <a name="keyvault"></a>KeyVault
+
+* プロキシの内側からの KeyVault コマンドのサポートを追加しました
+
+### <a name="vm"></a>VM
+
+* 可用性ゾーンに対するサポートを `[vm|vmss|disk] create` に追加しました
+* `vmss create` で `--app-gateway ID` を使用するとエラーになる問題を修正しました
+* `--asgs` 引数を `vm create` に追加しました
+* `vm run-command` を使用して VM でコマンドを実行するためのサポートを追加しました
+* [プレビュー] `vmss encryption` による VMSS ディスク暗号化のサポートを追加しました
+* `vm perform-maintenance` を使用して VM のメンテナンスを行うためのサポートを追加しました
+
+### <a name="acs"></a>ACS
+
+* ACS プレビューのリージョン用に `--orchestrator-release` 引数を `acs create` に追加しました
+
+### <a name="appservice"></a>Appservice
+
+* `webapp auth [update|show]` で認証設定を更新および表示する機能を追加しました
+
+### <a name="backup"></a>バックアップ
+
+* プレビュー リリース
+
 
 ## <a name="september-11-2017"></a>2017 年 9 月 11 日
 
