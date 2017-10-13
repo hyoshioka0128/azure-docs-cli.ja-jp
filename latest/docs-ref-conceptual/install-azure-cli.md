@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: 935814d56d0a6be00f626da860dc643adbf14804
-ms.sourcegitcommit: 9f38efbb7efd800ee5cab80d6641770d268c5a68
+ms.openlocfilehash: 1b47bd5603f5214dd11d772caaebe8cf380df5c0
+ms.sourcegitcommit: 5e862fd0a93cf668fa76a74ae1c7505d3c8c45f2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="install-azure-cli-20"></a>Azure CLI 2.0 のインストール
 
@@ -104,7 +104,10 @@ Windows に CLI をインストールして、Windows コマンド ラインで�
 
 ## <a name="install-on-debianubuntu-with-apt-get"></a>apt-get による Debian/Ubuntu へのインストール
 
-Debian/Ubuntu ベースのシステムでは、`apt-get` を使用して Azure CLI 2.0 をインストールできます。
+`apt` パッケージ マネージャーを使用するディストリビューションでは、`apt-get` を使用して Azure CLI 2.0 をインストールできます。
+
+> [!NOTE]
+> CLI を使用するために、ディストリビューションでは Python 2.7.x または Python 3.x をサポートしている必要があります。
 
 1. ソース リストを変更します。
  
@@ -134,7 +137,10 @@ Debian/Ubuntu ベースのシステムでは、`apt-get` を使用して Azure C
 
 ## <a name="install-on-rhel-fedora-and-centos-with-yum"></a>yum を使って RHEL、Fedora、CentOS へのインストールを行う
 
-RedHat に基づいており、`yum` パッケージ マネージャーが含まれているディストリビューションでは、`yum` を使って Azure CLI 2.0 をインストールできます。
+`yum` パッケージ マネージャーを使用するディストリビューションでは、`yum` を使用して Azure CLI 2.0 をインストールできます。
+
+> [!NOTE]
+> CLI を使用するために、ディストリビューションでは Python 2.7.x または Python 3.x をサポートしている必要があります。
 
 1. Microsoft リポジトリ キーをインポートします。
 
@@ -158,6 +164,11 @@ RedHat に基づいており、`yum` パッケージ マネージャーが含ま
 4. コマンド プロンプトで `az` コマンドを使用して、CLI を実行します。
 
 ## <a name="install-on-opensuse-and-sle-with-zypper"></a>zypper を使って openSUSE および SLE へのインストールを行う
+
+`zypper` パッケージ マネージャーを使用するディストリビューションでは、`zypper` を使用して Azure CLI 2.0 をインストールできます。
+
+> [!NOTE]
+> CLI を使用するために、ディストリビューションでは Python 2.7.x または Python 3.x をサポートしている必要があります。
 
 1. Microsoft リポジトリ キーをインポートします。
 
@@ -201,9 +212,9 @@ CLI は、`/usr/local/bin` の `az` コマンドとしてイメージにイン�
 > docker run -v ${HOME}:/root azuresdk/azure-cli-python:<version>
 > ```
 
-## <a name="a-namelinuxinstall-on-linux-without-apt-get"></a><a name="Linux"/>apt-get なしでの Linux へのインストール
+## <a name="a-namelinuxinstall-on-linux-without-a-package-manager"></a><a name="Linux"/>パッケージ マネージャーなしでの Linux へのインストール
 
-可能であれば、CLI はパッケージ マネージャーを使ってインストールすることをお勧めします。 パッケージが用意されていないディストリビューションについては、手動でインストールできます。
+可能であれば、CLI はパッケージ マネージャーを使ってインストールすることをお勧めします。 Microsoft のリポジトリを追加しない場合、または指定されたパッケージがないディストリビューションで操作している場合は、手動で CLI をインストールできます。
 
 1. Linux ディストリビューションに応じて、前提条件をインストールします。
 
@@ -219,7 +230,7 @@ CLI は、`/usr/local/bin` の `az` コマンドとしてイメージにイン�
    SUSE OpenSUSE 13.2    | sudo zypper refresh && sudo zypper --non-interactive install curl gcc python python-xml libffi-devel python-devel openssl-devel
    ```
 
-ディストリビューションが上の一覧に記載されていない場合は、[Python](https://www.python.org/downloads/)、[libffi](https://sourceware.org/libffi/)、および [OpenSSL](https://www.openssl.org/source/) をインストールする必要があります。
+ディストリビューションが上の一覧に記載されていない場合は、[Python 2.7 以降](https://www.python.org/downloads/)、[libffi](https://sourceware.org/libffi/)、[OpenSSL](https://www.openssl.org/source/) をインストールする必要があります。
 
 2. `curl` で CLI をインストールしてください。
 
@@ -420,6 +431,12 @@ https://aka.ms/InstallAzureCli のスクリプトを使用して CLI をイン�
    ```
 
 2. `<install location>/.bash_profile` から `<install location>/lib/azure-cli/az.completion` という行を削除します。
+
+3. シェルでコマンド キャッシュを使用する場合は、それを再度読み込んでください。
+
+   ```bash
+   hash -r
+   ```
 
 > [!Note]
 > 既定のインストール場所は `/Users/<username>` です。

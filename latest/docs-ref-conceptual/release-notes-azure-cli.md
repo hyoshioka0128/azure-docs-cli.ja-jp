@@ -12,13 +12,72 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ce0428f7-0a59-4e72-9237-d907b171af51
-ms.openlocfilehash: 72630c52b5e6afd69809ff19145717c0d65e0252
-ms.sourcegitcommit: 3a490ae3a2a1b2e63a062806f9b720fa4c6be01e
+ms.openlocfilehash: 2ea9daa558200204750f19b5d22685587ff097ef
+ms.sourcegitcommit: 376bc0601aba890630dadd55908c1a65ddf40f5a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 リリース ノート
+
+## <a name="october-9-2017"></a>2017 年 10 月 9 日
+
+バージョン 2.0.19
+
+### <a name="core"></a>コア
+
+* 末尾にスラッシュが付いている ADFS 権限 URL の処理を Azure Stack に追加しました
+
+### <a name="appservice"></a>Appservice
+
+* 新しいコマンド `webapp update` による全体的な更新を追加しました
+
+### <a name="batch"></a>Batch
+
+
+* Batch SDK 4.0.0 に更新しました
+* publish:offer:sku:version に加えて ARM イメージ参照をサポートするように VirtualMachineConfiguration の `--image` オプションを更新しました
+* Batch 拡張機能のコマンドの新しい CLI 拡張モデルのサポートを追加しました
+* コンポーネント モデルから Batch のサポートを削除しました
+
+### <a name="batchai"></a>Batchai
+
+* Batch AI モジュールの最初のリリース
+
+### <a name="keyvault"></a>KeyVault
+
+* Azure Stack で ADFS を使用したときの Key Vault の認証の問題を修正しました。 [(#4448)](https://github.com/Azure/azure-cli/issues/4448)
+
+### <a name="network"></a>ネットワーク
+
+* アドレス プールを空にできるように `application-gateway address-pool create` の `--server` 引数を省略可能に変更しました
+* 最新機能をサポートするように `traffic-manager` を更新しました
+
+### <a name="resource"></a>リソース
+
+* リソース グループ名に関する `--resource-group/-g` オプションのサポートを `group` に追加しました
+* サブスクリプション レベルのロックを処理するための `account lock` 用のコマンドを追加しました
+* グループ レベルのロックを処理するための `group lock` 用のコマンドを追加しました
+* リソース レベルのロックを処理するための `resource lock` 用のコマンドを追加しました
+
+### <a name="sql"></a>SQL
+
+* SQL Transparent Data Encryption (TDE) および Bring Your Own Key による TDE のサポートを追加しました
+* `db list-deleted` コマンドと `db restore --deleted-time` パラメーターを追加し、削除したデータベースを検索して復元できるようにしました。
+* `db op list` と `db op cancel` を追加し、データベースに対して実行中の操作を一覧表示およびキャンセルできるようにしました。
+
+### <a name="storage"></a>ストレージ
+
+* ファイル共有スナップショットのサポートを追加しました
+
+### <a name="vm"></a>VM
+
+* `-d` を使用すると存在しないプライベート IP アドレスでクラッシュする `vm show` のバグを修正しました
+* [プレビュー] ローリング アップグレードのサポートを `vmss create` に追加しました
+* `vm encryption enable` による暗号化設定の更新のサポートを追加しました
+* `--os-disk-size-gb` パラメーターを `vm create` に追加しました
+* Windows 用の `--license-type` パラメーターを `vmss create` に追加しました
+
 
 ## <a name="september-22-2017"></a>2017 年 9 月 22 日
 
@@ -41,7 +100,7 @@ ms.lasthandoff: 09/25/2017
 * `--ddos-protection` 引数と `--vm-protection` 引数を `vnet [create|update]` に追加しました
 * `network [vnet-gateway|vpn-client|show-url]` コマンドを追加しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * SDK の更新後に `storage account network-rule` コマンドが失敗する可能性がある問題を修正しました
 
@@ -75,7 +134,7 @@ ms.lasthandoff: 09/25/2017
 
 * `webapp auth [update|show]` で認証設定を更新および表示する機能を追加しました
 
-### <a name="backup"></a>バックアップ
+### <a name="backup"></a>Backup
 
 * プレビュー リリース
 
@@ -149,7 +208,7 @@ ms.lasthandoff: 09/25/2017
 
 * すべてのコマンドが非推奨とされ、Service Fabric CLI (sfctl) が優先されます
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * ネットワーク ACL 機能がサポートされていないリージョンでストレージ アカウントを作成できない問題を修正しました
 * コンテンツの種類とエンコードがどちらも指定されていない場合、BLOB とファイルのアップロード中にコンテンツの種類とエンコードを決定します
@@ -199,7 +258,7 @@ ms.lasthandoff: 09/25/2017
 * パラメーターを渡した後でもユーザーにパスワードの入力が求められる問題を修正しました
 * 空の `registry_cred` のサポートを追加しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * BLOB 層の設定を有効にしました
 * サービス トンネリングをサポートするために、`--bypass` 引数と `--default-action` 引数を `storage account [create|update]` に追加しました
@@ -280,7 +339,7 @@ ms.lasthandoff: 09/25/2017
 
 * `account list`: サーバーの最新のサブスクリプションを同期する `--refresh` を追加しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * システムによって割り当てられた ID によるストレージ アカウントの更新を有効にします
 
@@ -546,7 +605,7 @@ vm (2.0.11)
 * `sql server create` および `sql server update` コマンドの出力からパスワード値を削除しました
 * `sql db list-editions` および `sql elastic-pool list-editions` コマンドを追加しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * `storage blob list`、`storage container list`、`storage share list` の各コマンドから `--marker` オプションを削除しました (#3745)
 * https 専用ストレージ アカウントの作成を有効にしました
