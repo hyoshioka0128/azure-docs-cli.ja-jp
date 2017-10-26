@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: 1b47bd5603f5214dd11d772caaebe8cf380df5c0
-ms.sourcegitcommit: 5e862fd0a93cf668fa76a74ae1c7505d3c8c45f2
+ms.openlocfilehash: 4703a192e23b04d0ad42daf60e415d798610cce0
+ms.sourcegitcommit: 932cc86172ab55c00346f62504787c096ed7b2bd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="install-azure-cli-20"></a>Azure CLI 2.0 のインストール
 
@@ -95,7 +95,7 @@ Windows に CLI をインストールして、Windows コマンド ラインで�
 4. 次の sudo コマンドを実行します。
 
    ```bash
-   sudo apt-key adv --keyserver packages.microsoft.com --recv-keys 417A0893
+   sudo apt-key adv --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
    sudo apt-get install apt-transport-https
    sudo apt-get update && sudo apt-get install azure-cli
    ```
@@ -128,7 +128,7 @@ Windows に CLI をインストールして、Windows コマンド ラインで�
 2. 次の sudo コマンドを実行します。
 
    ```bash
-   sudo apt-key adv --keyserver packages.microsoft.com --recv-keys 417A0893
+   sudo apt-key adv --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
    sudo apt-get install apt-transport-https
    sudo apt-get update && sudo apt-get install azure-cli
    ```
@@ -198,7 +198,7 @@ Microsoft では、Azure CLI 2.0 が事前構成されている Docker イメー
 `docker run` を使用して、CLI をインストールしてください。
 
    ```bash
-   docker run azuresdk/azure-cli-python:<version>
+   docker run -it azuresdk/azure-cli-python:<version>
    ```
 
 利用可能なバージョンについては、[Docker のタグ](https://hub.docker.com/r/azuresdk/azure-cli-python/tags/)を参照してください。
@@ -209,7 +209,7 @@ CLI は、`/usr/local/bin` の `az` コマンドとしてイメージにイン�
 > ユーザー環境から SSH キーを取得する場合は、`-v ${HOME}:/root` を使用して、$HOME を `/root` としてマウントできます。
 
 > ```bash
-> docker run -v ${HOME}:/root azuresdk/azure-cli-python:<version>
+> docker run -it -v ${HOME}:/root azuresdk/azure-cli-python:<version>
 > ```
 
 ## <a name="a-namelinuxinstall-on-linux-without-a-package-manager"></a><a name="Linux"/>パッケージ マネージャーなしでの Linux へのインストール
