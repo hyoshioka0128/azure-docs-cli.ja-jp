@@ -12,13 +12,54 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ce0428f7-0a59-4e72-9237-d907b171af51
-ms.openlocfilehash: 2ea9daa558200204750f19b5d22685587ff097ef
-ms.sourcegitcommit: 376bc0601aba890630dadd55908c1a65ddf40f5a
+ms.openlocfilehash: 429b099dabd27d9356e88791f955ec52acd2a5f9
+ms.sourcegitcommit: 9b36c15dc0e10024e23b8018604f5ef63c025de1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 リリース ノート
+
+## <a name="october-24-2017"></a>2017 年 10 月 24 日
+
+バージョン 2.0.20
+
+### <a name="core"></a>コア
+
+* `MGMT_STORAGE` API バージョン `2016-01-01` を使用するように `2017-03-09-profile` を更新しました
+
+### <a name="acr"></a>ACR
+
+* `2017-10-01` API バージョンを指すようにリソース管理を更新しました
+* "Bring Your Own Storage" SKU をクラシックに変更しました
+* レジストリの SKU の名前を Basic、Standard、Premium に変更しました
+
+### <a name="acs"></a>ACS
+
+* [プレビュー] `az aks` コマンドを追加しました
+* Kubernetes の `get-credentials` を修正しました
+
+### <a name="appservice"></a>Appservice
+
+* ダウンロードした `webapp` ログが無効である可能性のある問題を修正しました
+
+### <a name="component"></a>コンポーネント
+
+* すべてのインストーラー向けのより明確な非推奨メッセージと、確認プロンプトを追加しました
+
+### <a name="monitor"></a>監視
+
+* `action-group` コマンドを追加しました
+
+### <a name="resource"></a>リソース
+
+* `group export` における msrest の依存関係の最新バージョンとの非互換性を修正しました
+* 組み込みのポリシー定義とポリシーセットの定義を使用するように `policy assignment create` を修正しました
+
+### <a name="vm"></a>VM
+
+* `--accelerated-networking` 引数を `vmss create` に追加しました
+
 
 ## <a name="october-9-2017"></a>2017 年 10 月 9 日
 
