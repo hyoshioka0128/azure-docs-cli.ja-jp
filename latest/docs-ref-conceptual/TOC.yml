@@ -34,6 +34,8 @@
       href: query-azure-cli.md
     - name: サブスクリプション
       href: manage-azure-subscriptions-azure-cli.md
+    - name: 拡張機能
+      href: azure-cli-extensions.md
     - name: リリース ノート
       href: release-notes-azure-cli.md
 - name: サンプル スクリプト
