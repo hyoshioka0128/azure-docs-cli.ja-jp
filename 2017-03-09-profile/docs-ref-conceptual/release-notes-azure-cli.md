@@ -12,13 +12,247 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ce0428f7-0a59-4e72-9237-d907b171af51
-ms.openlocfilehash: e893b99349bbf2a5eec8af254158eb07001f1da7
-ms.sourcegitcommit: f107cf927ea1ef51de181d87fc4bc078e9288e47
+ms.openlocfilehash: 429b099dabd27d9356e88791f955ec52acd2a5f9
+ms.sourcegitcommit: 9b36c15dc0e10024e23b8018604f5ef63c025de1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 リリース ノート
+
+## <a name="october-24-2017"></a>2017 年 10 月 24 日
+
+バージョン 2.0.20
+
+### <a name="core"></a>コア
+
+* `MGMT_STORAGE` API バージョン `2016-01-01` を使用するように `2017-03-09-profile` を更新しました
+
+### <a name="acr"></a>ACR
+
+* `2017-10-01` API バージョンを指すようにリソース管理を更新しました
+* "Bring Your Own Storage" SKU をクラシックに変更しました
+* レジストリの SKU の名前を Basic、Standard、Premium に変更しました
+
+### <a name="acs"></a>ACS
+
+* [プレビュー] `az aks` コマンドを追加しました
+* Kubernetes の `get-credentials` を修正しました
+
+### <a name="appservice"></a>Appservice
+
+* ダウンロードした `webapp` ログが無効である可能性のある問題を修正しました
+
+### <a name="component"></a>コンポーネント
+
+* すべてのインストーラー向けのより明確な非推奨メッセージと、確認プロンプトを追加しました
+
+### <a name="monitor"></a>監視
+
+* `action-group` コマンドを追加しました
+
+### <a name="resource"></a>リソース
+
+* `group export` における msrest の依存関係の最新バージョンとの非互換性を修正しました
+* 組み込みのポリシー定義とポリシーセットの定義を使用するように `policy assignment create` を修正しました
+
+### <a name="vm"></a>VM
+
+* `--accelerated-networking` 引数を `vmss create` に追加しました
+
+
+## <a name="october-9-2017"></a>2017 年 10 月 9 日
+
+バージョン 2.0.19
+
+### <a name="core"></a>コア
+
+* 末尾にスラッシュが付いている ADFS 権限 URL の処理を Azure Stack に追加しました
+
+### <a name="appservice"></a>Appservice
+
+* 新しいコマンド `webapp update` による全体的な更新を追加しました
+
+### <a name="batch"></a>Batch
+
+
+* Batch SDK 4.0.0 に更新しました
+* publish:offer:sku:version に加えて ARM イメージ参照をサポートするように VirtualMachineConfiguration の `--image` オプションを更新しました
+* Batch 拡張機能のコマンドの新しい CLI 拡張モデルのサポートを追加しました
+* コンポーネント モデルから Batch のサポートを削除しました
+
+### <a name="batchai"></a>Batchai
+
+* Batch AI モジュールの最初のリリース
+
+### <a name="keyvault"></a>KeyVault
+
+* Azure Stack で ADFS を使用したときの Key Vault の認証の問題を修正しました。 [(#4448)](https://github.com/Azure/azure-cli/issues/4448)
+
+### <a name="network"></a>ネットワーク
+
+* アドレス プールを空にできるように `application-gateway address-pool create` の `--server` 引数を省略可能に変更しました
+* 最新機能をサポートするように `traffic-manager` を更新しました
+
+### <a name="resource"></a>リソース
+
+* リソース グループ名に関する `--resource-group/-g` オプションのサポートを `group` に追加しました
+* サブスクリプション レベルのロックを処理するための `account lock` 用のコマンドを追加しました
+* グループ レベルのロックを処理するための `group lock` 用のコマンドを追加しました
+* リソース レベルのロックを処理するための `resource lock` 用のコマンドを追加しました
+
+### <a name="sql"></a>SQL
+
+* SQL Transparent Data Encryption (TDE) および Bring Your Own Key による TDE のサポートを追加しました
+* `db list-deleted` コマンドと `db restore --deleted-time` パラメーターを追加し、削除したデータベースを検索して復元できるようにしました。
+* `db op list` と `db op cancel` を追加し、データベースに対して実行中の操作を一覧表示およびキャンセルできるようにしました。
+
+### <a name="storage"></a>ストレージ
+
+* ファイル共有スナップショットのサポートを追加しました
+
+### <a name="vm"></a>VM
+
+* `-d` を使用すると存在しないプライベート IP アドレスでクラッシュする `vm show` のバグを修正しました
+* [プレビュー] ローリング アップグレードのサポートを `vmss create` に追加しました
+* `vm encryption enable` による暗号化設定の更新のサポートを追加しました
+* `--os-disk-size-gb` パラメーターを `vm create` に追加しました
+* Windows 用の `--license-type` パラメーターを `vmss create` に追加しました
+
+
+## <a name="september-22-2017"></a>2017 年 9 月 22 日
+
+バージョン 2.0.18
+
+### <a name="resource"></a>リソース
+
+* 組み込みのポリシー定義を表示するためのサポートを追加しました
+* ポリシー定義を作成するためのサポート モード パラメーターを追加しました
+* UI の定義とテンプレートのサポートを `managedapp definition create` に追加しました
+* [重大な変更] `managedapp` のリソースの種類を `appliances` から `applications`、`applianceDefinitions` から `applicationDefinitions` に変更しました
+
+### <a name="network"></a>ネットワーク
+
+* 可用性ゾーンのサポートを `network lb` および `network public-ip` サブコマンドに追加しました
+* IPv6 Microsoft ピアリングのサポートを `express-route` に追加しました
+* `asg` アプリケーション セキュリティ グループのコマンドを追加しました
+* `--application-security-groups` 引数を `nic [create|ip-config create|ip-config update]` に追加しました
+* `--source-asgs` 引数と `--destination-asgs` 引数を `nsg rule [create|update]` に追加しました
+* `--ddos-protection` 引数と `--vm-protection` 引数を `vnet [create|update]` に追加しました
+* `network [vnet-gateway|vpn-client|show-url]` コマンドを追加しました
+
+### <a name="storage"></a>ストレージ
+
+* SDK の更新後に `storage account network-rule` コマンドが失敗する可能性がある問題を修正しました
+
+### <a name="eventgrid"></a>Eventgrid
+
+* 新しい API バージョン "2017-09-15-preview" を使用するように Azure Event Grid Python SDK を更新しました
+
+### <a name="sql"></a>SQL
+
+* `sql server list` の引数 `--resource-group` を省略可能に変更しました。 指定しなかった場合は、サブスクリプション内のすべての SQL Server が返されます
+* `--no-wait` パラメーターを `db [create|copy|restore|update|replica create|create|update]` と `dw [create|update]` に追加しました
+
+### <a name="keyvault"></a>KeyVault
+
+* プロキシの内側からの KeyVault コマンドのサポートを追加しました
+
+### <a name="vm"></a>VM
+
+* 可用性ゾーンに対するサポートを `[vm|vmss|disk] create` に追加しました
+* `vmss create` で `--app-gateway ID` を使用するとエラーになる問題を修正しました
+* `--asgs` 引数を `vm create` に追加しました
+* `vm run-command` を使用して VM でコマンドを実行するためのサポートを追加しました
+* [プレビュー] `vmss encryption` による VMSS ディスク暗号化のサポートを追加しました
+* `vm perform-maintenance` を使用して VM のメンテナンスを行うためのサポートを追加しました
+
+### <a name="acs"></a>ACS
+
+* ACS プレビューのリージョン用に `--orchestrator-release` 引数を `acs create` に追加しました
+
+### <a name="appservice"></a>Appservice
+
+* `webapp auth [update|show]` で認証設定を更新および表示する機能を追加しました
+
+### <a name="backup"></a>Backup
+
+* プレビュー リリース
+
+
+## <a name="september-11-2017"></a>2017 年 9 月 11 日
+
+バージョン 2.0.17
+
+### <a name="core"></a>コア
+
+* テレメトリで独自の関連付け ID を設定するコマンド モジュールを有効にしました
+* テレメトリが診断モードに設定された際に発生する JSON ダンプの問題を修正しました
+
+### <a name="acs"></a>ACS
+
+* `acs list-locations` コマンドを追加しました
+* `ssh-key-file` を予想される既定値と共に使用されるようにしました
+
+### <a name="appservice"></a>Appservice
+
+* アクティブなサービス プラン以外のリソース グループで Web アプリを作成する機能を追加しました
+
+### <a name="cdn"></a>CDN
+
+* `cdn custom-domain create` の "CustomDomain is not interable" バグを修正しました。
+
+### <a name="extension"></a>内線番号
+
+* 最初のリリース。
+
+### <a name="keyvault"></a>KeyVault
+
+* `keyvault set-policy` について、アクセス許可の大文字と小文字が区別される問題を修正しました。
+
+### <a name="network"></a>ネットワーク
+
+* `vnet list-private-access-services` の名前を `vnet list-endpoint-services` に変更しました
+* `vnet subnet create/update` の `--private-access-services` 引数の名前を `--service-endpoints` に変更しました
+* `nsg rule create/update` に対する複数の IP 範囲およびポート範囲のサポートを追加しました
+* `lb create` に対する SKU のサポートを追加しました
+* `public-ip create` に対する SKU のサポートを追加しました
+
+### <a name="resource"></a>リソース
+
+* `policy definition create` と `policy definition update` でリソース ポリシーのパラメーター定義を渡せるようにします
+* `policy assignment create` でパラメーター値を渡せるようにします
+* すべてのパラメーターについて JSON またはファイルを渡せるようにします
+* API バージョンを増やしました
+
+### <a name="sql"></a>SQL
+
+* `sql server vnet-rule` コマンドを追加しました
+
+### <a name="vm"></a>VM
+
+* 修正済み: `--scope` が指定されないとアクセス権が割り当てられない
+* 修正済み: ポータルと同じ拡張機能の名前付けが行われる
+* `[vm|vmss] create` 出力から `subscription` を削除しました
+* 修正済み: `[vm|vmss] create` ストレージ SKU がイメージ付きのデータ ディスクに適用されない
+* 修正済み: `vm format-secret --secrets` で、改行によって分かれた ID を使用できない
+
+## <a name="august-31-2017"></a>2017 年 8 月 31 日
+
+バージョン 2.0.16
+
+### <a name="keyvault"></a>KeyVault
+
+* `secret download` でシークレット エンコードを自動的に解決しようとする際に発生するバグを修正しました
+
+### <a name="sf"></a>SF
+
+* すべてのコマンドが非推奨とされ、Service Fabric CLI (sfctl) が優先されます
+
+### <a name="storage"></a>ストレージ
+
+* ネットワーク ACL 機能がサポートされていないリージョンでストレージ アカウントを作成できない問題を修正しました
+* コンテンツの種類とエンコードがどちらも指定されていない場合、BLOB とファイルのアップロード中にコンテンツの種類とエンコードを決定します
 
 ## <a name="august-28-2017"></a>2017 年 8 月 28 日
 
@@ -65,7 +299,7 @@ ms.lasthandoff: 09/04/2017
 * パラメーターを渡した後でもユーザーにパスワードの入力が求められる問題を修正しました
 * 空の `registry_cred` のサポートを追加しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * BLOB 層の設定を有効にしました
 * サービス トンネリングをサポートするために、`--bypass` 引数と `--default-action` 引数を `storage account [create|update]` に追加しました
@@ -146,7 +380,7 @@ ms.lasthandoff: 09/04/2017
 
 * `account list`: サーバーの最新のサブスクリプションを同期する `--refresh` を追加しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * システムによって割り当てられた ID によるストレージ アカウントの更新を有効にします
 
@@ -412,7 +646,7 @@ vm (2.0.11)
 * `sql server create` および `sql server update` コマンドの出力からパスワード値を削除しました
 * `sql db list-editions` および `sql elastic-pool list-editions` コマンドを追加しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * `storage blob list`、`storage container list`、`storage share list` の各コマンドから `--marker` オプションを削除しました (#3745)
 * https 専用ストレージ アカウントの作成を有効にしました

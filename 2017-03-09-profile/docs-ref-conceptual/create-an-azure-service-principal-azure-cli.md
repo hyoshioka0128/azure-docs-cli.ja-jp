@@ -5,18 +5,18 @@ keywords: Azure CLI 2.0, Azure Active Directory, Azure Active directory, AD, RBA
 author: rloutlaw
 ms.author: routlaw
 manager: douge
-ms.date: 02/27/2017
+ms.date: 10/12/2017
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: fab89cb8-dac1-4e21-9d34-5eadd5213c05
-ms.openlocfilehash: f37df762a9a605ea649b215f38f2e9866614f4ac
-ms.sourcegitcommit: f107cf927ea1ef51de181d87fc4bc078e9288e47
+ms.openlocfilehash: a6ad5611f3e507b65e160122c87e22ec44546588
+ms.sourcegitcommit: e8fe15e4f7725302939d726c75ba0fb3cad430be
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Azure CLI 2.0 で Azure サービス プリンシパルを作成する
 
@@ -31,9 +31,9 @@ Azure CLI 2.0 を使ってアプリまたはサービスを管理する場合、
 
 Azure サービス プリンシパルは、ユーザーによって作成されたアプリ、サービス、およびオートメーション ツールが特定の Azure リソースにアクセスする際に使用するセキュリティ ID です。 特定のロールが割り当てられ、リソースへのアクセス許可が厳しく管理された "ユーザー ID" (ログインとパスワードまたは証明書) と考えてください。 一般的なユーザー ID とは異なり、サービス プリンシパルには求められるのは、限られた目的を遂行する能力だけです。 管理タスクを実行するために必要な最小限のアクセス許可レベルだけを与えるようにすれば、セキュリティは向上します。 
 
-現時点では、Azure CLI 2.0 でサポートされているのは、パスワードベースの認証資格情報の作成のみです。 このトピックでは、特定のパスワードを持つサービス プリンシパルの作成と、オプションとしてサービス プリンシパルへの特定のロールの割り当てについて説明します。
+Azure CLI 2.0 では、パスワードベースの認証資格情報と証明書資格情報の作成がサポートされています。 このトピックでは、両方の種類の資格情報について説明します。
 
-## <a name="verify-your-own-permission-level"></a>自分のアクセス許可レベルを確認する
+## <a name="verify-your-own-permission-level"></a>自分のアクセス許可レベルの確認
 
 まず、Azure Active Directory と Azure サブスクリプションの両方で適切なアクセス許可を持っている必要があります。 具体的には、Active Directory でアプリケーションを作成し、サービス プリンシパルにロールを割り当てることができる必要があります。 
 
@@ -76,9 +76,9 @@ az ad app list --display-name MyDemoWebApp
 
 `--display-name` オプションを使用すると、返されたアプリの一覧がフィルター処理され、`displayName` が MyDemoWebApp で始まるアプリが表示します。
 
-### <a name="create-the-service-principal"></a>サービス プリンシパルを作成する
+### <a name="create-a-service-principal-with-a-password"></a>パスワードを使用したサービス プリンシパルの作成
 
-サービス プリンシパルを作成するには、[az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) を使用します。 
+パスワードを使用してサービス プリンシパルを作成するには、[az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) に加えて `--password` パラメーターを使用します。 ロールまたはスコープを指定しない場合、既定値は、現在のサブスクリプションの **Contributor** ロールになります。 `--password` または `--cert` パラメーターを使用せずにサービス プリンシパルを作成すると、パスワード認証が使用され、パスワードが生成されます。
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name {appId} --password "{strong password}" 
@@ -96,6 +96,29 @@ az ad sp create-for-rbac --name {appId} --password "{strong password}"
 
  > [!WARNING] 
  > 安全でないパスワードを作成しないでください。  [Azure AD のパスワードの規則と制限](/azure/active-directory/active-directory-passwords-policy)に関するガイダンスに従ってください。
+
+### <a name="create-a-service-principal-with-a-self-signed-certificate"></a>自己署名証明書を使用したサービス プリンシパルの作成
+
+自己署名証明書を作成するには、[az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) に加えて `--create-cert` パラメーターを使用します。
+
+```azurecli-interactive
+az ad sp create-for-rbac --name {appId} --create-cert
+```
+
+```json
+{
+  "appId": "c495db57-82e0-4e2e-9369-069dff176858",
+  "displayName": "azure-cli-2017-10-12-22-15-38",
+  "fileWithCertAndPrivateKey": "<path>/<file-name>.pem",
+  "name": "http://MyDemoWebApp",
+  "password": null,
+  "tenant": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+}
+```
+
+`fileWithCertAndPrivateKey` 応答の値をコピーします。 これは、認証に使用される証明書ファイルです。
+
+証明書を使用する際のその他のオプションについては、[az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) に関するページを参照してください。
 
 ### <a name="get-information-about-the-service-principal"></a>サービス プリンシパルに関する情報を取得する
 
@@ -116,12 +139,12 @@ az ad sp show --id a487e0c1-82af-47d9-9a0b-af184eb87646d
 }
 ```
 
-### <a name="sign-in-using-the-service-principal"></a>サービス プリンシパルを使用してサインインする
+### <a name="sign-in-using-the-service-principal"></a>サービス プリンシパルを使ってサインインする
 
-`az ad sp show` の *appId* と *password* を使用して、アプリの新しいサービス プリンシパルとしてログインできるようになりました。  *tenant* 値に `az ad sp create-for-rbac` の結果を指定します。
+`az ad sp show` の *appId* と、"*パスワード*" または作成した証明書のパスを使用して、アプリの新しいサービス プリンシパルとしてログインできるようになりました。  *tenant* 値に `az ad sp create-for-rbac` の結果を指定します。
 
 ```azurecli-interactive
-az login --service-principal -u a487e0c1-82af-47d9-9a0b-af184eb87646d --password {password} --tenant {tenant}
+az login --service-principal -u a487e0c1-82af-47d9-9a0b-af184eb87646d --password {password-or-path-to-cert} --tenant {tenant}
 ``` 
 
 サインインに成功すると、次の出力が表示されます。
