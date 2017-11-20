@@ -1,22 +1,22 @@
 ---
 title: "Azure CLI 2.0 を使用してログインする"
 description: "Linux、Mac、または Windows 上で Azure 2.0 CLI を使用してログインします。"
-keywords: Azure CLI 2.0, Linux, Mac, Windows, OS X, Ubuntu, Debian, CentOS, RHEL, SUSE, CoreOS, Docker, Windows, Python, PIP
-author: rloutlaw
-ms.author: routlaw
-manager: douge
-ms.date: 02/27/2017
+keywords: "Azure CLI 2.0, ログイン, Azure CLI, 認証, 承認, ログインする"
+author: sptramer
+ms.author: stttramer
+manager: routlaw
+ms.date: 11/13/2017
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 65becd3a-9d69-4415-8a30-777d13a0e7aa
-ms.openlocfilehash: 3ba1dd840102c738ccd9eb62a0b9db612cec48d1
-ms.sourcegitcommit: 5cfbea569fef193044da712708bc6957d3fb557c
+ms.openlocfilehash: dd05868f7378673836f47e743ed4088f2efd3dca
+ms.sourcegitcommit: 5db22de971cf3983785cb209d92cbed1bbd69ecf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="log-in-with-azure-cli-20"></a>Azure CLI 2.0 を使用してログインする
 
@@ -24,7 +24,7 @@ Azure CLI を使用してログインと認証を行うには、いくつかの�
 
 プライベートの資格情報はローカルに保存されません。 代わりに、認証トークンが Azure によって生成され、保存されます。 ログイン後、ローカルのログイン トークンは、使用しなくても 14 日間経過するまでは有効です。 その時点で、再認証する必要があります。
 
-CLI で実行するコマンドは、既定のサブスクリプションに対して実行されます。  複数のサブスクリプションがある場合は、[既定のサブスクリプションを確認](manage-azure-subscriptions-azure-cli.md)し、それを適切に変更することができます。
+ログインすると、CLI コマンドが既定のサブスクリプションに対して実行されます。 複数のサブスクリプションがある場合は、[既定のサブスクリプションを変更](manage-azure-subscriptions-azure-cli.md)することもできます。
 
 ## <a name="interactive-log-in"></a>対話形式のログイン
 
@@ -46,35 +46,18 @@ az login -u <username> -p <password>
 ## <a name="logging-in-with-a-service-principal"></a>サービス プリンシパルによるログイン
 
 サービス プリンシパルは、Azure Active Directory を使用してルールを適用できるユーザー アカウントに似ています。
-サービス プリンシパルによる認証は、リソースを操作するスクリプトまたはアプリケーションからの Azure リソースの使用を保護するための最適な方法です。
-ユーザーに持たせるロールを、コマンドの `az role` セットを通じて定義します。
-サービス プリンシパルのロールの詳細と例については、[az role のリファレンス記事](https://docs.microsoft.com/cli/azure/role.md)を参照してください。
+サービス プリンシパルによる認証は、リソースを操作するスクリプトまたはアプリケーションからの Azure リソースの使用を保護するための最適な方法です。 使用可能なサービス プリンシパルがなく、サービス プリンシパルを作成する場合は、[Azure CLI を使用した Azure サービス プリンシパルの作成](create-an-azure-service-principal-azure-cli.md)に関する記事をご覧ください。
 
-1. まだサービス プリンシパルがない場合は、サービス プリンシパルを[作成](create-an-azure-service-principal-azure-cli.md)します。
+サービス プリンシパルでログインするには、ユーザー名、パスワードまたは証明書 PEM ファイル、およびサービス プリンシパルに関連付けられているテナントを指定します。
 
-1. サービス プリンシパルを使用してログインします。
+```azurecli-interactive
+az login --service-principal -u <user> -p <password-or-cert> --tenant <tenant>
+```
 
-   ```azurecli-interactive
-   az login --service-principal -u "http://my-app" -p <password> --tenant <tenant>
-   ```
+tenant 値は、サービス プリンシパルに関連付けられている Azure Active Directory テナントです。 値として、.onmicrosoft.com ドメイン、またはテナントの Azure オブジェクト ID を指定できます。
+現在のログインのテナント オブジェクト ID を取得するには、次のコマンドを使用します。
 
-   テナントを取得するには、対話形式でログインし、サブスクリプションから tenantId を取得します。
+```azurecli
+az account show --query 'tenanatId' -o tsv
+```
 
-   ```azurecli
-   az account show
-   ```
-
-   ```json
-   {
-       "environmentName": "AzureCloud",
-       "id": "********-****-****-****-************",
-       "isDefault": true,
-       "name": "Pay-As-You-Go",
-       "state": "Enabled",
-       "tenantId": "********-****-****-****-************",
-       "user": {
-       "name": "********",
-       "type": "user"
-       }
-   }
-   ```

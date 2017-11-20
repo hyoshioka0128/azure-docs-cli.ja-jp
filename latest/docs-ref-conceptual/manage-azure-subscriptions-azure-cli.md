@@ -3,52 +3,56 @@ title: "Azure CLI 2.0 を使用して Azure サブスクリプションを管理
 description: "Linux、Mac、または Windows 上で Azure CLI 2.0 を使用して Azure サブスクリプションを管理します。"
 keywords: "Azure CLI 2.0, Linux, Mac, Windows, OS X, サブスクリプション"
 author: kamaljit
-ms.author: routlaw
-manager: douge
-ms.date: 02/27/2017
+ms.author: sttramer
+manager: routlaw
+ms.date: 10/30/2017
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 98fb955e-6dbf-47e2-80ac-170d6d95cb70
-ms.openlocfilehash: 383fb6ebd90ac79f60869187b402d53d4f1791fd
-ms.sourcegitcommit: f107cf927ea1ef51de181d87fc4bc078e9288e47
+ms.openlocfilehash: b4544d75aa279b5477f8497257d39182472fae71
+ms.sourcegitcommit: 5db22de971cf3983785cb209d92cbed1bbd69ecf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="manage-multiple-azure-subscriptions"></a>複数の Azure サブスクリプションの管理
 
-Azure を使い始めたばかりの場合、所有しているサブスクリプションは 1 つだけだと思われます。
-一方、しばらく前から Azure を使用している場合は、複数の Azure サブスクリプションを作成済みであることも考えられます。
-その場合は、特定のサブスクリプションに対してコマンドを実行するように Azure CLI 2.0 を構成できます。
+ほとんどの Azure ユーザーは、サブスクリプションを 1 つしか持っていません。 ただし、複数の組織に属している場合や、組織がグループ間で特定のリソースへのアクセスを分けている場合、Azure に複数のサブスクリプションを持っていることがあります。 複数のサブスクリプションは、CLI を使用して簡単に管理することができ、サブスクリプションを選択して操作を実行できます。
+
+## <a name="tenants-users-and-subscriptions"></a>テナント、ユーザー、サブスクリプション
+
+Azure におけるテナント、ユーザー、サブスクリプションが混同されている場合があります。 一般に、"_テナント_" とは、組織全体を含む Azure Active Directory エンティティです。 このテナントは、少なくとも 1 つの "_サブスクリプション_" を持ち、少なくとも 1 人の "_ユーザー_" が含まれます。 ユーザーとは個人であり、1 つのテナント (ユーザーが属している組織) にのみ関連付けられています。 ユーザーは、Azure にログインしてリソースをプロビジョニングおよび使用するアカウントです。 1 人のユーザーが複数の "_サブスクリプション_" にアクセスできる場合があります。サブスクリプションとは、Azure をはじめとするクラウド サービスを使用するための Microsoft との契約です。 各リソースは、サブスクリプションに関連付けられています。
+
+テナント、ユーザー、サブスクリプションの違いの詳細については、[Azure クラウド用語集](/azure/azure-glossary-cloud-terminology)のページをご覧ください。
+Azure Active Directory テナントに新しいサブスクリプションを追加する方法については、「[Azure サブスクリプションを Azure Active Directory に追加する方法](/en-us/azure/active-directory/active-directory-how-subscriptions-associated-directory)」をご覧ください。
+
+## <a name="working-with-multiple-subscriptions"></a>複数のサブスクリプションの操作
+
+サブスクリプションに含まれているリソースにアクセスするには、アクティブなサブスクリプションを切り替える必要があります。 サブスクリプションのすべての操作は、`az account` コマンドを使用して実行します。このコマンドは、個人アカウントを参照するのではなく、サブスクリプションが表すサービス契約を参照します。
 
 [!INCLUDE [cloud-shell-try-it.md](includes/cloud-shell-try-it.md)]
 
-1. アカウント内のすべてのサブスクリプションの一覧を取得します。
+使用可能なサブスクリプションの操作を開始するには、アカウントで使用できるサブスクリプションの一覧を取得します。
 
-   ```azurecli-interactive
-   az account list --output table
-   ```
+```azurecli-interactive
+az account list --output table
+```
 
-   ```Output
-   Name                                         CloudName    SubscriptionId                        State     IsDefault
-   -------------------------------------------  -----------  ------------------------------------  --------  -----------
-   My Production Subscription                   AzureCloud   XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX  Enabled
-   My DevTest Subscription                      AzureCloud   XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX  Enabled   True
-   My Demos                                     AzureCloud   XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX  Enabled
-   ```
+```Output
+Name                                         CloudName    SubscriptionId                        State     IsDefault
+-------------------------------------------  -----------  ------------------------------------  --------  -----------
+My Production Subscription                   AzureCloud   XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX  Enabled
+My DevTest Subscription                      AzureCloud   XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX  Enabled   True
+My Demos                                     AzureCloud   XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX  Enabled
+```
 
-1. 既定値を設定します。
- 
-   ```azurecli-interactive
-   az account set --subscription "My Demos"
-   ```
+アクティブなサブスクリプションを変更するには、`az account set` を使用します。
 
-   > [!NOTE]
-   > `--subscription` パラメーターには、サブスクリプション名またはサブスクリプション ID を指定します。
+```azurecli-interactive
+az account set --subscription "My Demos"
+```
 
-`az account list --output table` コマンドをもう一度実行して、変更を検証できます。
-
-既定のサブスクリプションを設定すると、後続のすべての Azure CLI コマンドは、このサブスクリプションに対して実行されます。
+サブスクリプションは、サブスクリプション ID またはサブスクリプション名を使用して選択できます。

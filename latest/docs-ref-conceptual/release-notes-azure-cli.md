@@ -12,13 +12,119 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ce0428f7-0a59-4e72-9237-d907b171af51
-ms.openlocfilehash: 429b099dabd27d9356e88791f955ec52acd2a5f9
-ms.sourcegitcommit: 9b36c15dc0e10024e23b8018604f5ef63c025de1
+ms.openlocfilehash: 761bd61474e7c72fb2daeb756828f00196b56c3a
+ms.sourcegitcommit: bb649ebd7e7fce8fb5008ac1e2e2c33481a45df9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 リリース ノート
+
+## <a name="november-14-2017"></a>2017 年 11 月 14 日
+
+バージョン 2.0.21
+
+### <a name="acr"></a>ACR
+
+* レプリケーション リージョンで webhook を作成するためのサポートを追加しました
+
+
+### <a name="acs"></a>ACS
+
+* AKS の "エージェント" という用語をすべて "ノード" に変更しました
+* `acs create` の `--orchestrator-release` オプションを非推奨にしました
+* `Standard_D1_v2` に対する AKS の既定 VM サイズを変更しました
+* Windows での `az aks browse` を修正しました
+* Windows での `az aks get-credentials` を修正しました
+
+### <a name="appservice"></a>Appservice
+
+* Web アプリおよび関数アプリ用のデプロイ ソース `config-zip` を追加しました
+* `--docker-container-logging` オプションを `az webapp log config` に追加しました
+* `storage` オプションを `az webapp log config` のパラメーター `--web-server-logging` から削除しました
+* `deployment user set` のエラー メッセージを改善しました
+* Linux 関数アプリを作成するためのサポートを追加しました
+* `list-locations` (固定)
+
+### <a name="batch"></a>Batch
+
+* `--image` を指定してリソース ID を使用した場合のプール作成コマンドのバグを修正しました
+
+### <a name="batchai"></a>Batchai
+
+* `file-server create` コマンドで VM サイズを指定する場合の `--vm-size` の短いオプション `-s` を追加しました
+* ストレージ アカウント名とキー引数を `cluster create` パラメーターに追加しました
+* `job list-files` および `job stream-file` のドキュメントを修正しました
+* `job create` コマンドでクラスター名を指定する場合の `--cluster-name` の短いオプション `-r` を追加しました
+
+### <a name="cloud"></a>クラウド
+
+* 必要なエンドポイントのないクラウドの登録を防ぐために `cloud [register|update]` を変更しました
+
+### <a name="container"></a>コンテナー
+
+* 複数のポートを開くためのサポートを追加しました
+* コンテナー グループ再起動ポリシーを追加しました
+* Azure ファイル共有をボリュームとしてマウントするためのサポートを追加しました
+* ヘルパー ドキュメントを更新しました
+
+### <a name="data-lake-analytics"></a>Data Lake Analytics
+
+* より簡潔な情報を返すように `[job|account] list` を変更しました
+
+### <a name="data-lake-store"></a>Data Lake Store
+
+* より簡潔な情報を返すように `account list` を変更しました
+
+### <a name="extension"></a>内線番号
+
+* 公式の Microsoft 拡張機能を一覧表示できるようにするための `extension list-available` を追加しました
+* 拡張機能を名前別にインストールできるように、`--name` を `extension [add|update]` に追加しました
+
+### <a name="iot"></a>IoT
+
+* 証明機関 (CA) および証明書チェーンのサポートを追加しました
+
+### <a name="monitor"></a>監視
+
+* `activity-log alert` コマンドを追加しました
+
+### <a name="network"></a>ネットワーク
+
+* CAA DNS レコードのサポートを追加しました
+* エンドポイントを `traffic-manager profile update` で更新できない問題を修正しました
+* VNET の作成方法によっては `vnet update --dns-servers` が機能しない問題を修正しました
+* 相対 DNS 名が `dns zone import` によって正しくインポートされない問題を修正しました
+
+### <a name="reservations"></a>Reservations
+
+* 初期プレビュー リリース
+
+### <a name="resource"></a>リソース
+
+* リソース ID のサポートを `--resource` パラメーターとリソースレベル ロックに追加しました
+
+### <a name="sql"></a>SQL
+
+* `--ignore-missing-vnet-service-endpoint` パラメーターを `sql server vnet-rule [create|update]` に追加しました
+
+### <a name="storage"></a>ストレージ
+
+* SKU `Standard_RAGRS` を既定値として使用するように `storage account create` を変更しました
+* 非 ASCII 文字を含むファイル/BLOB 名を処理する場合のバグを修正しました
+* `storage [blob|file] copy start-batch` での `--source-uri` の使用を妨げるバグを修正しました
+* `storage [blob|file] delete-batch` で複数のオブジェクトを glob および削除するコマンドを追加しました
+* `storage metrics update` でメトリックを有効にする場合の問題を修正しました
+* `storage blob upload-batch` の使用時に 200 GB を超えるファイルにおける問題を修正しました
+* `--bypass` と `--default-action` が `storage account [create|update]` によって無視される問題を修正しました
+
+### <a name="vm"></a>VM
+
+* `Basic` サイズ レベルの使用を妨げていり `vmss create` のバグを修正しました
+* 課金情報を含むカスタム イメージ用に `--plan` 引数を `[vm|vmss] create` に追加しました
+* `vm secret `[add|remove|list]` コマンドを追加しました
+* `vm format-secret` の名前を `vm secret format` に変更しました
+* `--encrypt format` 引数を `vm encryption enable` に追加しました
 
 ## <a name="october-24-2017"></a>2017 年 10 月 24 日
 
@@ -74,7 +180,6 @@ ms.lasthandoff: 10/24/2017
 * 新しいコマンド `webapp update` による全体的な更新を追加しました
 
 ### <a name="batch"></a>Batch
-
 
 * Batch SDK 4.0.0 に更新しました
 * publish:offer:sku:version に加えて ARM イメージ参照をサポートするように VirtualMachineConfiguration の `--image` オプションを更新しました
@@ -344,7 +449,6 @@ ms.lasthandoff: 10/24/2017
 
 ### <a name="batch"></a>Batch
 
-
 * Batch SDK 3.1.0 と Batch Management SDK 4.1.0 に更新しました
 * ジョブのタスク数を表示する新しいコマンドを追加しました
 * リソース ファイルの SAS URL 処理のバグを修正しました
@@ -485,7 +589,6 @@ vm (2.0.11)
 * Windows Web アプリ用の `webapp config update` から、サポートされていない `--node-version` 引数を削除しました。 代わりに `webapp config appsettings set --settings WEBSITE_NODE_DEFAULT_VERSION=...` を使用してください
 
 ### <a name="batch"></a>Batch
-
 
 * Batch SDK 3.0.0 に更新して、プール内の優先度が低い VM がサポートされるようにしました
 * `pool create` のオプション `--target-dedicated` の名前を `--target-dedicated-nodes` に変更しました
