@@ -28,16 +28,18 @@
           href: /azure/azure-resource-manager/resource-manager-export-template-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
         - name: プライベート テンプレートからのデプロイ
           href: /azure/azure-resource-manager/resource-manager-cli-sas-token?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: '[サブスクリプションの管理]'
+      href: manage-azure-subscriptions-azure-cli.md
+    - name: 複数のクラウドの処理
+      href: manage-clouds-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
     - name: 出力形式
       href: format-output-azure-cli.md
     - name: クエリ
       href: query-azure-cli.md
-    - name: サブスクリプション
-      href: manage-azure-subscriptions-azure-cli.md
     - name: 拡張機能
       href: azure-cli-extensions.md
     - name: リリース ノート
-      href: release-notes-azure-cli.md
+      href: release-notes-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
 - name: サンプル スクリプト
   items:
     - name: Linux VM
