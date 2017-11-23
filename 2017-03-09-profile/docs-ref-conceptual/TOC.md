@@ -4,11 +4,14 @@
 ## [Cloud Shell](/azure/cloud-shell/overview)
 ## [ログイン](authenticate-azure-cli.md)
 ### [サービス プリンシパルの作成](create-an-azure-service-principal-azure-cli.md)
+### 管理対象サービス ID の使用
+#### [Azure VM 用の MSI の構成](/azure/active-directory/msi-qs-configure-cli-windows-vm?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
+#### [MSI を使用した Azure VM でのサインイン](/azure/active-directory/msi-how-to-get-access-token-using-msi?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
 ## [対話モード](interactive-azure-cli.md)
-## デプロイ
-### [テンプレートを使用](/azure/azure-resource-manager/resource-group-template-deploy-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
-### [テンプレートのエクスポート](/azure/azure-resource-manager/resource-manager-export-template-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
-### [プライベート テンプレートの使用](/azure-resource-manager/resource-manager-cli-sas-token?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
+## デプロイ テンプレート
+### [デプロイ テンプレートの使用](/azure/azure-resource-manager/resource-group-template-deploy-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
+### [デプロイ テンプレートのエクスポート](/azure/azure-resource-manager/resource-manager-export-template-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
+### [プライベート テンプレートのデプロイ](/azure/azure-resource-manager/resource-manager-cli-sas-token?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
 ## [出力形式](format-output-azure-cli.md)
 ## [クエリ](query-azure-cli.md)
 ## [サブスクリプション](manage-azure-subscriptions-azure-cli.md)
