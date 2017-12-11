@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: ea0c785e56427190973887426188db76e6888062
-ms.sourcegitcommit: 905939cc44764b4d1cc79a9b36c0793f7055a686
+ms.openlocfilehash: 7d9c503c4e66f07795d5fec99c206fe7d3afb6a7
+ms.sourcegitcommit: 5fc7d8ccf2304c5a12fb99a80f0b00a0ad2c34e9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="install-azure-cli-20"></a>Azure CLI 2.0 のインストール
 
@@ -38,5 +38,5 @@ Linux については、利用可能なパッケージ マネージャー応じ�
 * [Linux での手動インストール](install-azure-cli-linux.md)
 
 > [!NOTE]
-> Azure CLI の以前のバージョンが必要な場合は、[Azure CLI 1.0 をインストールする](/azure/cli-install-nodejs)方法に関するページを参照してください。
+> Azure Service Management (ASM) モデルを使用している場合は、[Azure CLI 1.0 をインストール](/azure/cli-install-nodejs)します。
 

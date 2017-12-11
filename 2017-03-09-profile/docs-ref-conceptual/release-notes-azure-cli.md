@@ -12,13 +12,71 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ce0428f7-0a59-4e72-9237-d907b171af51
-ms.openlocfilehash: 761bd61474e7c72fb2daeb756828f00196b56c3a
-ms.sourcegitcommit: 905939cc44764b4d1cc79a9b36c0793f7055a686
+ms.openlocfilehash: e02b84891f4bf60cde12591b8e85987f4b3c9e79
+ms.sourcegitcommit: a3c8e15eafac1ddc2289110d513b39714a23353b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 リリース ノート
+
+## <a name="december-5-2017"></a>2017 年 12 月 5 日
+
+バージョン 2.0.22
+
+* `az component` コマンドを削除しました。 代わりに `az extension` を使用してください
+
+### <a name="core"></a>コア
+* `AZURE_US_GOV_CLOUD` AAD 機関エンドポイントを、login.microsoftonline.com から login.microsoftonline.us に変更しました
+* テレメトリが連続的に再送信される問題を修正しました
+
+### <a name="acs"></a>ACS
+
+* `aks install-connector` コマンドと `aks remove-connector` コマンドを追加しました
+* `acs create` のエラー報告を改善しました
+* 完全修飾パスなしでの `aks get-credentials -f` の使用方法を修正しました
+
+### <a name="advisor"></a>Advisor
+
+* 最初のリリース
+
+### <a name="appservice"></a>Appservice
+
+* `webapp config ssl upload` による証明書名の生成を修正しました
+* 正しいアプリを表示するように、`webapp [list|show]` と `functionapp [list|show]` を修正しました
+* `WEBSITE_NODE_DEFAULT_VERSION` の既定値を追加しました
+
+### <a name="consumption"></a>使用量
+
+* API バージョン 2017-11-30 のサポートを追加しました
+
+### <a name="container"></a>コンテナー
+
+* 既定のポート回帰を修正しました
+
+### <a name="monitor"></a>監視
+
+* メトリック コマンドに多次元のサポートを追加しました
+
+### <a name="resource"></a>リソース
+
+* `--include-response-body` 引数を `resource show` に追加しました
+
+### <a name="role"></a>役割
+
+* `role assignment list` に、"従来の" 管理者の既定の割り当ての表示を追加しました
+* `ad sp reset-credentials` で、上書きではなく、資格情報を追加できるようにしました
+* `ad sp create-for-rbac` のエラー報告を改善しました
+
+### <a name="sql"></a>SQL
+
+* `sql db list-usages` コマンドと `sql db show-usage` コマンドを追加しました
+* `sql server conn-policy show` コマンドと `sql server conn-policy update` コマンドを追加しました
+
+### <a name="vm"></a>VM
+
+* `az vm list-skus` にゾーン情報を追加しました
+
 
 ## <a name="november-14-2017"></a>2017 年 11 月 14 日
 
@@ -408,7 +466,7 @@ ms.lasthandoff: 11/20/2017
 
 * BLOB 層の設定を有効にしました
 * サービス トンネリングをサポートするために、`--bypass` 引数と `--default-action` 引数を `storage account [create|update]` に追加しました
-* VNET ルールと IP ベースのルールを `storage account network-rule` に追加するためのコマンドを追加しました  
+* VNET ルールと IP ベースのルールを `storage account network-rule` に追加するためのコマンドを追加しました
 * 顧客管理キーによるサービスの暗号化を有効にしました
 * [重大な変更] `az storage account create and az storage account update` コマンドの `--encryption` オプションの名前を `--encryption-services` に変更しました
 * 修正済み #4220: `az storage account update encryption` - 構文の不一致
@@ -416,8 +474,8 @@ ms.lasthandoff: 11/20/2017
 ### <a name="vm"></a>VM
 
 * `vmss get-instance-view` で `--instance-id *` を使用した場合に、余分な間違えた情報が表示される問題を修正しました
-* `vmss create` に `--lb-sku` のサポートを追加しました。 
-* `[vm|vmss] create` の管理者名ブラックリストから人物名を削除しました 
+* `vmss create` に `--lb-sku` のサポートを追加しました。
+* `[vm|vmss] create` の管理者名ブラックリストから人物名を削除しました
 * イメージからプラン情報を抽出できない場合に `[vm|vmss] create` がエラーをスローする問題を修正しました
 * 内部 LB で vmms scaleset を作成するときのクラッシュを修正しました
 * `vm availability-set create` で `--no-wait` 引数が機能しない問題を修正しました
@@ -505,43 +563,43 @@ ms.lasthandoff: 11/20/2017
 * 請求および使用量モジュールを追加しました
 
 ```
-azure-cli (2.0.12)  
+azure-cli (2.0.12)
 
-acr (2.0.9)  
-acs (2.0.11)  
-appservice (0.1.11)  
-batch (3.0.3)  
-billing (0.1.3)  
-cdn (0.0.6)  
-cloud (2.0.7)  
-cognitiveservices (0.1.6)  
-command-modules-nspkg (2.0.1)  
-component (2.0.6)  
-configure (2.0.10)  
-consumption (0.1.3)  
-container (0.1.7)  
-core (2.0.12)  
-cosmosdb (0.1.11)  
-dla (0.0.10)  
-dls (0.0.11)  
-feedback (2.0.6)  
-find (0.2.6)  
-interactive (0.3.7)  
-iot (0.1.10)  
-keyvault (2.0.8)  
-lab (0.0.9)  
-monitor (0.0.8)  
-network (2.0.11)  
-nspkg (3.0.1)  
-profile (2.0.9)  
-rdbms (0.0.5)  
-redis (0.2.7)  
-resource (2.0.11)  
-role (2.0.9)  
-sf (1.0.5)  
-sql (2.0.8)  
-storage (2.0.11)  
-vm (2.0.11) 
+acr (2.0.9)
+acs (2.0.11)
+appservice (0.1.11)
+batch (3.0.3)
+billing (0.1.3)
+cdn (0.0.6)
+cloud (2.0.7)
+cognitiveservices (0.1.6)
+command-modules-nspkg (2.0.1)
+component (2.0.6)
+configure (2.0.10)
+consumption (0.1.3)
+container (0.1.7)
+core (2.0.12)
+cosmosdb (0.1.11)
+dla (0.0.10)
+dls (0.0.11)
+feedback (2.0.6)
+find (0.2.6)
+interactive (0.3.7)
+iot (0.1.10)
+keyvault (2.0.8)
+lab (0.0.9)
+monitor (0.0.8)
+network (2.0.11)
+nspkg (3.0.1)
+profile (2.0.9)
+rdbms (0.0.5)
+redis (0.2.7)
+resource (2.0.11)
+role (2.0.9)
+sf (1.0.5)
+sql (2.0.8)
+storage (2.0.11)
+vm (2.0.11)
 ```
 
 ### <a name="core"></a>コア
@@ -754,8 +812,8 @@ vm (2.0.11)
 * `storage blob list`、`storage container list`、`storage share list` の各コマンドから `--marker` オプションを削除しました (#3745)
 * https 専用ストレージ アカウントの作成を有効にしました
 * storage metrics、logging、cors の各コマンドを更新しました (#3495)
-* CORS add からの例外メッセージを言い換えました (#3638) (#3362)  
-* ジェネレーターをドライ ラン モードのダウンロード バッチ コマンド内の一覧に変換しました (#3592) 
+* CORS add からの例外メッセージを言い換えました (#3638) (#3362)
+* ジェネレーターをドライ ラン モードのダウンロード バッチ コマンド内の一覧に変換しました (#3592)
 * BLOB ダウンロード バッチのドライ ランの問題を修正しました (#3640) (#3592)
 
 ### <a name="vm"></a>VM
@@ -821,7 +879,7 @@ vm (2.0.6)
 
 ### <a name="core"></a>コア
 
-* コア: 登録されていないプロバイダーによる例外がキャプチャされ、自動登録されます   
+* コア: 登録されていないプロバイダーによる例外がキャプチャされ、自動登録されます
 * パフォーマンス: プロセスが終了するまで ADAL トークン キャッシュがメモリに保持されます ([#2603](https://github.com/Azure/azure-cli/issues/2603))
 * 16 進フィンガープリント -o tsv から返されるバイトが修正されました ([#3053](https://github.com/Azure/azure-cli/issues/3053))
 * Key Vault 証明書ダウンロードの強化と AAD SP 統合 ([#3003](https://github.com/Azure/azure-cli/issues/3003))
@@ -915,7 +973,7 @@ vm (2.0.6)
 * `--no-wait` パラメーターまたは `--validate` パラメーターを使用するときの `vpn-connection create` のバグが修正されました。
 * アクティブ/アクティブ VNet ゲートウェイに対応するようになりました
 * `network vpn-connection list/show` コマンドの出力から null 値が削除されました。
-* BC: `vpn-connection create` の出力のバグが修正されました 
+* BC: `vpn-connection create` の出力のバグが修正されました
 * "vpn-connection create" の "--key-length" 引数が適切に解析されないバグが修正されました。
 * `dns zone import` でレコードが適切にインポートされないバグが修正されました。
 * `traffic-manager endpoint update` が動作しないバグを修正しました。
@@ -981,7 +1039,7 @@ vm (2.0.6)
 
 ```
 azure-cli (2.0.2)
- 
+
 acr (2.0.0)
 acs (2.0.2)
 appservice (0.1.2)
@@ -1019,26 +1077,26 @@ vm (2.0.2)
 * 不足しているテンプレート パラメーターの指定を求めるメッセージを追加  ([#2364](https://github.com/Azure/azure-cli/pull/2364))
 * 既定のリソース グループ、既定の Web、既定の VM など、一般的な引数の既定値の設定をサポート
 * 特定のテナントへのログインをサポート
- 
+
 ### <a name="acs"></a>ACS
 
 * [ACS] 既定の ACS クラスターを構成するためのサポートを追加 ([#2554](https://github.com/Azure/azure-cli/pull/2554))
 * ssh キー パスワードの入力要求のサポートを追加  ([#2044](https://github.com/Azure/azure-cli/pull/2044))
 * Windows クラスターのためのサポートを追加  ([#2211](https://github.com/Azure/azure-cli/pull/2211))
 * 所有者から共同作成者へのロールの切り替え  ([#2321](https://github.com/Azure/azure-cli/pull/2321))
- 
+
 ### <a name="appservice"></a>AppService
 
 * appservice: DNS A レコードで使用される外部 IP アドレスの取得をサポート ([#2627](https://github.com/Azure/azure-cli/pull/2627))
 * appservice: ワイルドカード証明書のバインドをサポート ([#2625](https://github.com/Azure/azure-cli/pull/2625))
 * appservice: 発行プロファイルの一覧表示をサポート ([#2504](https://github.com/Azure/azure-cli/pull/2504))
 * AppService - 構成後にソース管理の同期をトリガー ([#2326](https://github.com/Azure/azure-cli/pull/2326))
- 
+
 ### <a name="datalake"></a>DataLake
 
 * Data Lake Analytics モジュールの最初のリリース。
 * Data Lake Store モジュールの最初のリリース。
- 
+
 ### <a name="docuemntdb"></a>DocuemntDB
 
 * DocumentDB: 接続文字列を一覧表示するためのサポートを追加 ([#2580](https://github.com/Azure/azure-cli/pull/2580))
@@ -1097,8 +1155,8 @@ role (2.0.0)
 sql (0.1.1b5)
 storage (2.0.0)
 vm (2.0.0)
- 
-Python (Darwin) 2.7.10 (default, Jul 30 2016, 19:40:32) 
+
+Python (Darwin) 2.7.10 (default, Jul 30 2016, 19:40:32)
 [GCC 4.2.1 Compatible Apple LLVM 8.0.0 (clang-800.0.34)]
 ```
 
