@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: fab89cb8-dac1-4e21-9d34-5eadd5213c05
-ms.openlocfilehash: a6ad5611f3e507b65e160122c87e22ec44546588
-ms.sourcegitcommit: e8fe15e4f7725302939d726c75ba0fb3cad430be
+ms.openlocfilehash: 9c2b693c356be78893d0893221d99a23beb5f38b
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Azure CLI 2.0 で Azure サービス プリンシパルを作成する
 
@@ -29,13 +29,13 @@ Azure CLI 2.0 を使ってアプリまたはサービスを管理する場合、
 
 ## <a name="what-is-a-service-principal"></a>"サービス プリンシパル" とは
 
-Azure サービス プリンシパルは、ユーザーによって作成されたアプリ、サービス、およびオートメーション ツールが特定の Azure リソースにアクセスする際に使用するセキュリティ ID です。 特定のロールが割り当てられ、リソースへのアクセス許可が厳しく管理された "ユーザー ID" (ログインとパスワードまたは証明書) と考えてください。 一般的なユーザー ID とは異なり、サービス プリンシパルには求められるのは、限られた目的を遂行する能力だけです。 管理タスクを実行するために必要な最小限のアクセス許可レベルだけを与えるようにすれば、セキュリティは向上します。 
+Azure サービス プリンシパルは、ユーザーによって作成されたアプリ、サービス、およびオートメーション ツールが特定の Azure リソースにアクセスする際に使用するセキュリティ ID です。 特定のロールが割り当てられ、リソースへのアクセス許可が厳しく管理された "ユーザー ID" (ログインとパスワードまたは証明書) と考えてください。 一般的なユーザー ID とは異なり、サービス プリンシパルには求められるのは、限られた目的を遂行する能力だけです。 管理タスクを実行するために必要な最小限のアクセス許可レベルだけを与えるようにすれば、セキュリティは向上します。
 
 Azure CLI 2.0 では、パスワードベースの認証資格情報と証明書資格情報の作成がサポートされています。 このトピックでは、両方の種類の資格情報について説明します。
 
 ## <a name="verify-your-own-permission-level"></a>自分のアクセス許可レベルの確認
 
-まず、Azure Active Directory と Azure サブスクリプションの両方で適切なアクセス許可を持っている必要があります。 具体的には、Active Directory でアプリケーションを作成し、サービス プリンシパルにロールを割り当てることができる必要があります。 
+まず、Azure Active Directory と Azure サブスクリプションの両方で適切なアクセス許可を持っている必要があります。 具体的には、Active Directory でアプリケーションを作成し、サービス プリンシパルにロールを割り当てることができる必要があります。
 
 自分のアカウントに適切なアクセス許可があるかどうかを確認する最も簡単な方法は、ポータルを使用することです。 [ポータルでの必要なアクセス許可のチェック](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions)に関するページをご覧ください。
 
@@ -81,8 +81,8 @@ az ad app list --display-name MyDemoWebApp
 パスワードを使用してサービス プリンシパルを作成するには、[az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) に加えて `--password` パラメーターを使用します。 ロールまたはスコープを指定しない場合、既定値は、現在のサブスクリプションの **Contributor** ロールになります。 `--password` または `--cert` パラメーターを使用せずにサービス プリンシパルを作成すると、パスワード認証が使用され、パスワードが生成されます。
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name {appId} --password "{strong password}" 
-``` 
+az ad sp create-for-rbac --name {appId} --password "{strong password}"
+```
 
 ```json
 {
@@ -94,7 +94,7 @@ az ad sp create-for-rbac --name {appId} --password "{strong password}"
 }
 ```
 
- > [!WARNING] 
+ > [!WARNING]
  > 安全でないパスワードを作成しないでください。  [Azure AD のパスワードの規則と制限](/azure/active-directory/active-directory-passwords-policy)に関するガイダンスに従ってください。
 
 ### <a name="create-a-service-principal-with-a-self-signed-certificate"></a>自己署名証明書を使用したサービス プリンシパルの作成
@@ -145,7 +145,7 @@ az ad sp show --id a487e0c1-82af-47d9-9a0b-af184eb87646d
 
 ```azurecli-interactive
 az login --service-principal -u a487e0c1-82af-47d9-9a0b-af184eb87646d --password {password-or-path-to-cert} --tenant {tenant}
-``` 
+```
 
 サインインに成功すると、次の出力が表示されます。
 
@@ -165,9 +165,9 @@ az login --service-principal -u a487e0c1-82af-47d9-9a0b-af184eb87646d --password
 ]
 ```
 
-アプリを実行するための資格情報として、`id`、`password`、`tenant` の値を使用します。 
+アプリを実行するための資格情報として、`id`、`password`、`tenant` の値を使用します。
 
-## <a name="managing-roles"></a>ロールを管理する 
+## <a name="managing-roles"></a>ロールを管理する
 
 > [!NOTE]
 > Azure のロールベースのアクセス制御 (RBAC) は、ユーザー プリンシパルとサービス プリンシパルのロールを定義して管理するためのモデルです。
@@ -210,10 +210,10 @@ az role assignment list --assignee a487e0c1-82af-47d9-9a0b-af184eb87646d
 }
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > ロールを割り当てることのできるアクセス許可がアカウントに設定されていない場合は、エラー メッセージが表示されます。
 > このメッセージは、アカウントで、スコープ "/subscriptions/{guid} に対するアクション Microsoft.Authorization/roleAssignments/write の実行が承認されていない" ことを示しています。
-   
+
 ## <a name="change-the-credentials-of-a-security-principal"></a>セキュリティ プリンシパルの資格情報を変更する
 
 セキュリティ上、アクセス許可の確認とパスワードの更新を定期的に行うことが大切です。 アプリの変更に合わせて、セキュリティ資格情報を管理したり変更したりする場合もあります。

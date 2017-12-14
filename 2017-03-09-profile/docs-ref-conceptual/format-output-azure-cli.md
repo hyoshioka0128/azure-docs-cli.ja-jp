@@ -12,15 +12,15 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 74bdb727-481d-45f7-a44e-15d18dc55483
-ms.openlocfilehash: d1440cc1e99ccddb18d23306cc0fcdb4b8babf14
-ms.sourcegitcommit: f107cf927ea1ef51de181d87fc4bc078e9288e47
+ms.openlocfilehash: 3e99c2533031dc063a50996f26712d4df92f65c9
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="output-formats-for-azure-cli-20-commands"></a>Azure CLI 2.0 コマンドの出力形式
 
-Azure CLI 2.0 では、既定の出力オプションとして JSON が使用されますが、任意のコマンドの出力形式を設定するためのさまざまな方法が用意されています。  `--output` (または `--out` か `-o`) パラメーターを使用して、コマンドの出力形式を、次の表に記載されている出力の種類のいずれかに設定します。 
+Azure CLI 2.0 では、既定の出力オプションとして JSON が使用されますが、任意のコマンドの出力形式を設定するためのさまざまな方法が用意されています。  `--output` (または `--out` か `-o`) パラメーターを使用して、コマンドの出力形式を、次の表に記載されている出力の種類のいずれかに設定します。
 
 --output | Description
 ---------|-------------------------------
@@ -65,10 +65,10 @@ az vm list --output json
     },
           ...
           ...
-          ...   
+          ...
 ]
 ```
- 
+
 ## <a name="using-the-table-option"></a>table オプションの使用
 
 table オプションを使用すると、一連の出力は読みやすくなりますが、上記の .json の例とは異なり、単純な `--output table` では入れ子になったオブジェクトが出力に含まれないことに注意してください。  同じ例で 'table' 出力形式を使用すると、最も一般的なプロパティ値の精選された一覧が表示されます。
@@ -132,7 +132,7 @@ KBDemo020
 
 ## <a name="setting-the-default-output-format"></a>既定の出力形式の設定
 
-`az configure` コマンドを使用して、環境を設定したり、出力形式の既定の設定などの基本設定を確立したりすることができます。 一般的な使用では、最も簡単な既定の出力形式は "table" 形式であるため、出力形式の選択を求めるメッセージが表示されたら **3** を選択します。 
+`az configure` コマンドを使用して、環境を設定したり、出力形式の既定の設定などの基本設定を確立したりすることができます。 一般的な使用では、最も簡単な既定の出力形式は "table" 形式であるため、出力形式の選択を求めるメッセージが表示されたら **3** を選択します。
 
 ```
 What default output format would you like?
@@ -140,5 +140,5 @@ What default output format would you like?
  [2] jsonc - Colored JSON formatted output that most closely matches API responses
  [3] table - Human-readable output format
  [4] tsv - Tab and Newline delimited, great for GREP, AWK, etc.
-Please enter a choice [3]: 
+Please enter a choice [3]:
 ```

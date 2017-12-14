@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 85c418a8-6177-4833-bb8d-ff4ce2233c1a
-ms.openlocfilehash: 3354d1c6518ea2d0ef0db227a13b86cb59d0575e
-ms.sourcegitcommit: 0149f195a0d9f0ea9b7ff5c6e00ad4242223a1a8
+ms.openlocfilehash: 689b8f4d77af5a6f398c0dd85e922baa398f767a
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="get-started-with-azure-cli-20"></a>Azure CLI 2.0 を使ってみる
 
@@ -51,7 +51,7 @@ CLI を[インストール](install-azure-cli.md)し、コマンド ラインか
 "MyResourceGroup" という名前のリソース グループを Azure の *westus2* リージョンに作成しましょう。  そのためには、次のコマンドを入力します。
 
 ```azurecli-interactive
-az group create -n MyResourceGroup -l westus2 
+az group create -n MyResourceGroup -l westus2
 ```
 
 リソース グループが作成されると、`az group create` コマンドによって、新しく作成されたリソースのいくつかのプロパティが出力されます。
@@ -141,7 +141,7 @@ my-login@MyLinuxVM:~$
 
 `az vm create` コマンドを使用して、Windows Server 2016 Datacenter ベースの VM を作成し、Linux VM 用に使用したのと同じ "MyResourceGroup" リソース グループに追加しましょう。  Linux VM の例のように、`--data-disk-sizes-gb` パラメーターを使用して 2 つのストレージ ディスクも接続します。
 
-Azure では、簡単に推測できるユーザー名とパスワードを使用しないようにする必要があります。 使用できる文字のほか、ユーザー名とパスワードの最小の長さについて特定の規則があります。  
+Azure では、簡単に推測できるユーザー名とパスワードを使用しないようにする必要があります。 使用できる文字のほか、ユーザー名とパスワードの最小の長さについて特定の規則があります。
 
 > [!NOTE]
 > このコマンドを実行すると、ユーザー名とパスワードの入力を求めるメッセージが表示されます。
@@ -165,7 +165,7 @@ VM の作成が完了し、アクセスして使用できるようになると�
 }
 ```
 
-リモート デスクトップと VM のパブリック IP アドレス (`az vm create` の出力で返されるアドレス) を使用して、新しく作成した Windows Server VM にログオンします。  
+リモート デスクトップと VM のパブリック IP アドレス (`az vm create` の出力で返されるアドレス) を使用して、新しく作成した Windows Server VM にログオンします。
 Windows ベースのシステムでは、`mstsc` コマンドを使ってコマンド ラインから同じ操作を実行できます。
 
 ```azurecli-interactive
@@ -176,7 +176,7 @@ VM を作成したときと同じユーザー名/パスワードの組み合わ�
 
 ## <a name="creating-other-resources-in-azure"></a>その他の Azure リソースの作成
 
-ここまでは、リソース グループ、Linux VM、Windows Server VM の作成方法を見てきました。 その他にも、さまざまな種類の Azure リソースを作成することができます。  
+ここまでは、リソース グループ、Linux VM、Windows Server VM の作成方法を見てきました。 その他にも、さまざまな種類の Azure リソースを作成することができます。
 
 すべての新しいリソースは、一貫した `az <resource type name> create` 名前付けパターンを使用して作成されます。  たとえば、新しく作成した VM に関連付けるための Azure Network Load Balancer を作成するには、次の create コマンドを使います。
 
@@ -199,8 +199,8 @@ Azure と Azure CLI の優れている点は、それらを使ってクラウド
 az appservice plan create -n MyAppServicePlan -g MyResourceGroup
 
 # Create Two Web Apps within the AppService (note: name param must be a unique DNS entry)
-az webapp create -n MyWebApp43432 -g MyResourceGroup --plan MyAppServicePlan 
-az webapp create -n MyWebApp43433 -g MyResourceGroup --plan MyAppServicePlan 
+az webapp create -n MyWebApp43432 -g MyResourceGroup --plan MyAppServicePlan
+az webapp create -n MyWebApp43433 -g MyResourceGroup --plan MyAppServicePlan
 ```
 
 `az <resource type name> create` パターンの基本を理解すると、何でも簡単に作成できるようになります。 以下に、いくつかの一般的な Azure リソースの種類と、それを作成するための Azure CLI create コマンドを示します。
@@ -221,7 +221,7 @@ SQL Database Server         az sql server create
 Document DB                 az documentdb create
 ```
 
-上記の各コマンドに渡すことができるリソース固有の追加パラメーターと、作成できるリソースの種類の詳細については、[リファレンス ドキュメント](/cli/azure)を参照してください。 
+上記の各コマンドに渡すことができるリソース固有の追加パラメーターと、作成できるリソースの種類の詳細については、[リファレンス ドキュメント](/cli/azure)を参照してください。
 
 ## <a name="useful-tip-optimizing-create-operations-using---no-wait"></a>便利なヒント: --no-wait を使用して作成操作を最適化する
 
@@ -241,14 +241,14 @@ az vm create -n MyLinuxVM2 -g MyResourceGroup --image UbuntuLTS --no-wait
 
 ## <a name="listing-resources-and-formatting-output"></a>リソースの一覧表示と出力の書式設定
 
-Azure CLI 内で `list` コマンドを使用すると、Azure で実行されているリソースを検出し、一覧表示することができます。 
+Azure CLI 内で `list` コマンドを使用すると、Azure で実行されているリソースを検出し、一覧表示することができます。
 
 create コマンドの場合と同様に、Azure CLI 2.0 では、すべてのリソースの種類で一環した共通の `az <resource type name> list` 名前付けパターンを使用してリソースを一覧表示することができます。  リソースの一覧を望ましい形式で表示するためのフィルター処理や並べ替えに使用できる、さまざまな出力形式とクエリ オプションがあります。
 
-たとえば、`az vm list` は、保持しているすべての VM の一覧を表示します。   
+たとえば、`az vm list` は、保持しているすべての VM の一覧を表示します。
 
 ```azurecli-interactive
-az vm list 
+az vm list
 ```
 返される値は、既定で JSON 形式になります (簡潔にするために、出力の一部のみを示しています)。
 
@@ -276,7 +276,7 @@ az vm list
     },
           ...
           ...
-          ...   
+          ...
 ]
 ```
 
@@ -293,7 +293,7 @@ MyLinuxVM  MyResourceGroup  westus2
 MyWinVM    MyResourceGroup  westus2
 ```
 
-ヘッダーのないテキストベースのタブ区切り形式にするには、*tsv* 出力オプションを使用することができます。  この形式は、grep などの他のテキストベースのツールに出力をパイプ処理する場合に便利です。 
+ヘッダーのないテキストベースのタブ区切り形式にするには、*tsv* 出力オプションを使用することができます。  この形式は、grep などの他のテキストベースのツールに出力をパイプ処理する場合に便利です。
 
 ```azurecli-interactive
 az vm list --output tsv
@@ -307,7 +307,7 @@ None    None            /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/reso
 
 ## <a name="querying-resources-and-shaping-outputs"></a>リソースへのクエリ実行と出力の整形
 
-多くの場合、特定の条件に合致するリソースのみに対してクエリを実行できるようにすることが望まれます。  
+多くの場合、特定の条件に合致するリソースのみに対してクエリを実行できるようにすることが望まれます。
 
 `list` コマンドの組み込みのサポートにより、リソース グループ名でリソースを簡単にフィルター処理できます。  たとえば、`--ResourceGroup` または `-g` パラメーターを `list` コマンドに渡し、特定のリソース グループ内のリソースだけを取得することができます。
 
@@ -328,7 +328,7 @@ MyWinVM    MyResourceGroup  westus2
 たとえば、次のコマンドを実行すると、"My" という文字列を含む任意のリソース グループ内の任意の VM リソースに対するクエリを実行することができます。
 
 ```azurecli-interactive
-az vm list --output table --query "[?contains(resourceGroup, 'MY')]" 
+az vm list --output table --query "[?contains(resourceGroup, 'MY')]"
 ```
 
 ```Output
@@ -341,7 +341,7 @@ MYRESOURCEGROUP  Succeeded            MyWinVM    westus2     XXXXXXXX-XXXX-XXXX-
 その後、別の値を出力できる JMESPath クエリの整形機能を使用して、さらに出力を絞り込むこともできます。  たとえば、次のコマンドは、OS が Linux ベースか Windows ベースかを判断するために、VM で使用されている OS ディスクの種類を取得します。
 
 ```azurecli-interactive
-az vm list --output table --query "[?contains(resourceGroup, 'MY')].{ VMName:name, OSType:storageProfile.osDisk.osType }" 
+az vm list --output table --query "[?contains(resourceGroup, 'MY')].{ VMName:name, OSType:storageProfile.osDisk.osType }"
 ```
 
 ```Output

@@ -12,23 +12,22 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 93d947d91973def1c05e2f5b2e7511bc1c5704a2
-ms.sourcegitcommit: 905939cc44764b4d1cc79a9b36c0793f7055a686
+ms.openlocfilehash: 75c531a13a4b730158cd2e874cb6c5d581a27598
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="install-azure-cli-20-with-apt"></a>apt での Azure CLI 2.0 のインストール
 
 Ubuntu、Debian など、`apt` に付属するディストリビューションを実行している場合は、システムにインストールできる Azure CLI 用の利用可能なパッケージがあります。
 
-> [!NOTE]
-> CLI を使用するには、Python 2.7.x または Python 3.x が必要です。 ディストリビューションにいずれのパッケージもない場合は、[Python をインストール](https://www.python.org/downloads/)してください。
+[!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
 
 ## <a name="install"></a>インストール
 
 1. ソース リストを変更します。
- 
+
    - 32 ビット システム
 
      ```bash

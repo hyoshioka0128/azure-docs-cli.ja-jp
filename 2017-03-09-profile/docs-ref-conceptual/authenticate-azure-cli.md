@@ -12,15 +12,15 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 65becd3a-9d69-4415-8a30-777d13a0e7aa
-ms.openlocfilehash: dd05868f7378673836f47e743ed4088f2efd3dca
-ms.sourcegitcommit: 905939cc44764b4d1cc79a9b36c0793f7055a686
+ms.openlocfilehash: 0a8ec3541783ae19961f2acf1192c0ee061a465f
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="log-in-with-azure-cli-20"></a>Azure CLI 2.0 を使用してログインする
 
-Azure CLI を使用してログインと認証を行うには、いくつかの方法があります。 最も簡単に始められるのは、ブラウザーから対話形式でログインするか、コマンド ラインでログインする方法です。 お勧めは、サービス プリンシパルを使用する方法です。サービス プリンシパルは、リソースの操作に使用できる非対話型のアカウントを作成する方法を提供します。 サービス プリンシパルに必要とされる適切なアクセス許可だけを付与することによって、自動化スクリプトをより安全にすることができます。 
+Azure CLI を使用してログインと認証を行うには、いくつかの方法があります。 最も簡単に始められるのは、ブラウザーから対話形式でログインするか、コマンド ラインでログインする方法です。 お勧めは、サービス プリンシパルを使用する方法です。サービス プリンシパルは、リソースの操作に使用できる非対話型のアカウントを作成する方法を提供します。 サービス プリンシパルに必要とされる適切なアクセス許可だけを付与することによって、自動化スクリプトをより安全にすることができます。
 
 プライベートの資格情報はローカルに保存されません。 代わりに、認証トークンが Azure によって生成され、保存されます。 ログイン後、ローカルのログイン トークンは、使用しなくても 14 日間経過するまでは有効です。 その時点で、再認証する必要があります。
 
@@ -58,6 +58,6 @@ tenant 値は、サービス プリンシパルに関連付けられている Az
 現在のログインのテナント オブジェクト ID を取得するには、次のコマンドを使用します。
 
 ```azurecli
-az account show --query 'tenanatId' -o tsv
+az account show --query 'tenantId' -o tsv
 ```
 

@@ -10,11 +10,11 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
-ms.openlocfilehash: cb470d179daf7cb4ecf535903adb12071602034e
-ms.sourcegitcommit: 5db22de971cf3983785cb209d92cbed1bbd69ecf
+ms.openlocfilehash: 0eb07d2919f6e640e1d594db9e18f9ada4d9f59f
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="managing-multiple-clouds-with-azure-cli-20"></a>Azure CLI 2.0 で複数のクラウドを管理する
 
@@ -86,7 +86,7 @@ az cloud set --name AzureChinaCloud
 
 ## <a name="register-a-cloud"></a>クラウドを登録する
 
-Azure Stack 用の独自のエンドポイントがある場合は、新しいクラウドを登録します。 [cloud register](/cli/azure/cloud#register) コマンドを実行すると、クラウドが作成されます。 このコマンドは、名前と、関連するエンドポイントを持つ機能のセットを必要とします。 Azure Stack で使用するクラウドの登録方法については、[Azure Stack で使用する CLI のインストールと構成](/azure/azure-stack/user/azure-stack-connect-cli#connect-to-azure-stack)に関するページをご覧ください。  
+Azure Stack 用の独自のエンドポイントがある場合は、新しいクラウドを登録します。 [cloud register](/cli/azure/cloud#register) コマンドを実行すると、クラウドが作成されます。 このコマンドは、名前と、関連するエンドポイントを持つ機能のセットを必要とします。 Azure Stack で使用するクラウドの登録方法については、[Azure Stack で使用する CLI のインストールと構成](/azure/azure-stack/user/azure-stack-connect-cli#connect-to-azure-stack)に関するページをご覧ください。
 
 中国、米国政府、またはドイツのリージョンについては、独自のクラウドを登録する必要はありません。 これらは Microsoft が管理しているため、既定値で使用可能です。  使用可能なエンドポイント設定に関する詳細については、[`az cloud register` のドキュメント](/cli/azure/cloud?view=azure-cli-latest#az_cloud_register)を参照してください。
 
