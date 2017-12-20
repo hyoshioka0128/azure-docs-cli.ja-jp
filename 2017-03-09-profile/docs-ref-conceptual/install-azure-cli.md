@@ -12,11 +12,11 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: ea5c0ee1-c530-4a1e-a83f-e1be71f6d416
-ms.openlocfilehash: 36429bb23f392ff6210a9c99885df83f53768386
-ms.sourcegitcommit: 5fc7d8ccf2304c5a12fb99a80f0b00a0ad2c34e9
+ms.openlocfilehash: 5a667ad8720100b45ff714601225535ef442545c
+ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="install-azure-cli-20"></a>Azure CLI 2.0 のインストール
 
@@ -70,12 +70,12 @@ macOS では、[Homebrew](https://brew.sh/) または手動でインストール
    ```bash
    exec -l $SHELL
    ```
-   
+
 3. コマンド プロンプトで `az` コマンドを使用して、CLI を実行します。
 
 ## <a name="install-on-windows"></a>Windows へのインストール
 
-### <a name="install-with-msi-for-the-windows-command-line"></a>Windows コマンド ライン用に MSI でインストールを行う 
+### <a name="install-with-msi-for-the-windows-command-line"></a>Windows コマンド ライン用に MSI でインストールを行う
 
 Windows に CLI をインストールして、Windows コマンド ラインで使用するには、[Azure CLI インストーラー (MSI)](https://aka.ms/InstallAzureCliWindows) をダウンロードして実行します。
 
@@ -102,15 +102,14 @@ Windows に CLI をインストールして、Windows コマンド ラインで�
 
 5.  コマンド プロンプトで `az` コマンドを使用して、CLI を実行します。
 
-## <a name="install-with-apt-package-manager"></a>apt パッケージ マネージャーでのインストール 
+## <a name="install-with-apt-package-manager"></a>apt パッケージ マネージャーでのインストール
 
 Ubuntu、Debian など、`apt` パッケージ マネージャーを使用するディストリビューションでは、`apt-get` を使用して Azure CLI 2.0 をインストールできます。
 
-> [!NOTE]
-> CLI を使用するには、Python 2.7.x または Python 3.x が必要です。 ディストリビューションにいずれのパッケージもない場合は、[Python をインストール](https://www.python.org/downloads/)してください。
+[!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
 
 1. ソース リストを変更します。
- 
+
    - 32 ビット システム
 
      ```bash
@@ -139,8 +138,7 @@ Ubuntu、Debian など、`apt` パッケージ マネージャーを使用する
 
 Red Hat Enterprise Linux (RHEL)、Fedora、CentOS など、`yum` パッケージ マネージャーを使用するディストリビューションでは、`yum` を使用して Azure CLI 2.0 をインストールできます。
 
-> [!NOTE]
-> CLI を使用するには、Python 2.7.x または Python 3.x が必要です。 ディストリビューションにいずれのパッケージもない場合は、[Python をインストール](https://www.python.org/downloads/)してください。
+[!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
 
 1. Microsoft リポジトリ キーをインポートします。
 
@@ -167,8 +165,7 @@ Red Hat Enterprise Linux (RHEL)、Fedora、CentOS など、`yum` パッケージ
 
 OpenSUSE、SLE など、`zypper` パッケージ マネージャーを使用するディストリビューションでは、`zypper` を使用して Azure CLI 2.0 をインストールできます。
 
-> [!NOTE]
-> CLI を使用するには、Python 2.7.x または Python 3.x が必要です。 ディストリビューションにいずれのパッケージもない場合は、[Python をインストール](https://www.python.org/downloads/)してください。
+[!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
 
 1. Microsoft リポジトリ キーをインポートします。
 
@@ -230,7 +227,7 @@ CLI は、`/usr/local/bin` の `az` コマンドとしてイメージにイン�
    SUSE OpenSUSE 13.2    | sudo zypper refresh && sudo zypper --non-interactive install curl gcc python python-xml libffi-devel python-devel openssl-devel
    ```
 
-ディストリビューションが上の一覧に記載されていない場合は、[Python 2.7 以降](https://www.python.org/downloads/)、[libffi](https://sourceware.org/libffi/)、[OpenSSL](https://www.openssl.org/source/) をインストールする必要があります。
+ディストリビューションが上の一覧に記載されていない場合は、[Python 2.7 以降](https://www.python.org/downloads/)、[libffi](https://sourceware.org/libffi/)、および [OpenSSL 1.0.2](https://www.openssl.org/source/) をインストールする必要があります。
 
 2. `curl` で CLI をインストールしてください。
 
