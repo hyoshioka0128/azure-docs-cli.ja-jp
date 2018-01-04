@@ -10,15 +10,15 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
-ms.openlocfilehash: 0eb07d2919f6e640e1d594db9e18f9ada4d9f59f
-ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
+ms.openlocfilehash: 6f4cfec45becc0c4940e9066af53396b41db779d
+ms.sourcegitcommit: 16426a08c0f2f62d0b9dca3df8132cece659acff
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="managing-multiple-clouds-with-azure-cli-20"></a>Azure CLI 2.0 で複数のクラウドを管理する
 
-異なるリージョンにわたって作業したり、[Azure Stack](https://docs.microsoft.com/en-us/azure/azure-stack/user/) を使用したりする場合、複数のクラウドの使用が必要になることがあります。 Microsoft はお客様が使用可能な、リージョンの法規に従ったクラウドを提供します。 この記事では、お客様のアカウントで使用可能なクラウドに関する情報の取得、現行クラウドの変更、Azure Stack で使用する新規クラウドの登録または登録解除の方法について説明します。
+異なるリージョンにわたって作業したり、[Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/) を使用したりする場合、複数のクラウドの使用が必要になることがあります。 Microsoft はお客様が使用可能な、リージョンの法規に従ったクラウドを提供します。 この記事では、お客様のアカウントで使用可能なクラウドに関する情報の取得、現行クラウドの変更、Azure Stack で使用する新規クラウドの登録または登録解除の方法について説明します。
 
 ## <a name="listing-clouds"></a>クラウドの一覧表示
 
