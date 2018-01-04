@@ -1,7 +1,7 @@
 - name: Azure CLI 2.0
   href: overview.md
   items:
-    - name: インストール
+    - name: '[インストール]'
       href: install-azure-cli.md
     - name: 作業開始
       href: get-started-with-azure-cli.md
@@ -38,6 +38,8 @@
       href: query-azure-cli.md
     - name: 拡張機能
       href: azure-cli-extensions.md
+    - name: 構成設定
+      href: azure-cli-Configuration.md
     - name: リリース ノート
       href: release-notes-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
 - name: サンプル スクリプト
