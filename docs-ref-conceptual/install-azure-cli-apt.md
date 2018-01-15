@@ -13,10 +13,10 @@ ms.devlang: azurecli
 ms.service: multiple
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 75c531a13a4b730158cd2e874cb6c5d581a27598
-ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
+ms.sourcegitcommit: 3eef136ae752eb90c67af604d4ddd298d70b1c9d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="install-azure-cli-20-with-apt"></a>apt での Azure CLI 2.0 のインストール
 
@@ -24,7 +24,7 @@ Ubuntu、Debian など、`apt` に付属するディストリビューション�
 
 [!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
 
-## <a name="install"></a>インストール
+## <a name="install"></a>[インストール]
 
 1. ソース リストを変更します。
 
@@ -52,7 +52,7 @@ Ubuntu、Debian など、`apt` に付属するディストリビューション�
 
 Azure CLI は `az` コマンドで実行できます。
 
-## <a name="update"></a>更新
+## <a name="update"></a>プライマリの
 
 CLI パッケージを更新するには、`apt-get upgrade` を使用します。
 

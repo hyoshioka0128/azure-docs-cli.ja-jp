@@ -13,10 +13,10 @@ ms.devlang: azurecli
 ms.service: multiple
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: f0d5effcd8315094b30050a35119e41eddf89961
-ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
+ms.sourcegitcommit: 3eef136ae752eb90c67af604d4ddd298d70b1c9d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="install-azure-cli-20-with-yum"></a>yum での Azure CLI 2.0 のインストール
 
@@ -24,7 +24,7 @@ RHEL、Fedora、CentOS など、`yum` に付属するディストリビューシ
 
 [!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
 
-## <a name="install"></a>インストール
+## <a name="install"></a>[インストール]
 
 1. Microsoft リポジトリ キーをインポートします。
 
@@ -47,7 +47,7 @@ RHEL、Fedora、CentOS など、`yum` に付属するディストリビューシ
 
 `az` コマンドで Azure CLI を実行します。
 
-## <a name="update"></a>更新
+## <a name="update"></a>プライマリの
 
 `yum update` コマンドで Azure CLI を更新します。
 
