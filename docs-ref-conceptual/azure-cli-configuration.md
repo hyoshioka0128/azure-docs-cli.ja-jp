@@ -11,11 +11,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 71d9f57846cb83591ca5e3d338735b3c525987af
-ms.sourcegitcommit: 3eef136ae752eb90c67af604d4ddd298d70b1c9d
+ms.openlocfilehash: d60ede5b971ee2489482fb5a72bde9bf5389d37c
+ms.sourcegitcommit: 8606f36963e8daa6448d637393d1e4ef2c9859a0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="azure-cli-20-configuration"></a>Azure CLI 2.0 の構成
 
@@ -30,11 +30,11 @@ CLI が使用する構成値は、次の優先順位で上から順番に評価�
 ## <a name="cli-configuration-with-az-configure"></a>az configure での CLI 構成
 
 CLI の既定値を [az configure](/cli/azure/?view=azure-cli-latest#az_configure) コマンドで設定します。
-このコマンドは 1 つの引数 `--defaults` を取ります。この引数は、スペースで区切られた `key=value` ペアのリストです。 指定した値は、必須の引数の代わりに、CLI によって使用されます。 
+このコマンドは 1 つの引数 `--defaults` を取ります。この引数は、スペースで区切られた `key=value` ペアのリストです。 指定した値は、必須の引数の代わりに、CLI によって使用されます。
 
 使用できるキーの一覧を次に示します。
 
-| 名前 | [説明] |
+| Name | [説明] |
 |------|-------------|
 | group | すべてのコマンドに使用する既定のリソース グループ。 |
 | location | すべてのコマンドに使用する既定の場所。 |
@@ -52,7 +52,7 @@ az configure --defaults "location=westus2 group=MyResourceGroup"
 
 ## <a name="cli-configuration-file"></a>CLI 構成ファイル
 
-CLI 構成ファイルには、CLI の動作の管理に使用されるその他の設定が含まれています。 構成ファイル自体は `$AZURE_CONFIG_DIR/config` にあります。 `AZURE_CONFIG_DIR` の既定値は、Linux と macOS の場合は `$HOME/.azure/config`、Windows の場合は `%USERPROFILE%\.azure\config` です。 
+CLI 構成ファイルには、CLI の動作の管理に使用されるその他の設定が含まれています。 構成ファイル自体は `$AZURE_CONFIG_DIR/config` にあります。 `AZURE_CONFIG_DIR` の既定値は、Linux と macOS の場合は `$HOME/.azure/config`、Windows の場合は `%USERPROFILE%\.azure\config` です。
 
 構成ファイルは、INI ファイル形式で記述されます。 こうしたファイルは、`[section-name]` ヘッダーで始まり、その後に `key=value` エントリのリストが続くセクションで構成されます。 セクション名は大文字と小文字が区別され、キー名は区別されません。
 `#` または `;` で始まる行はすべてコメントです。 インライン コメントは許可されていません。 ブール値は、大文字と小文字が区別されず、次の値によって表されます。
@@ -79,7 +79,7 @@ log_dir=/var/log/azure
 
 既定値を使用できる値は、必須の場合でも、コマンド ライン引数に存在する必要はありません。
 
-| セクション | 名前      | type | [説明]|
+| セクション | Name      | type | [説明]|
 |---------|-----------|------|------------|
 | __core__ | output | 文字列 | 既定の出力形式。 `json`、`jsonc`、`tsv`、`table` のいずれかを指定できます。 |
 | | disable\_confirm\_prompt | ブール値 | 確認のプロンプトをオン/オフにします。 |

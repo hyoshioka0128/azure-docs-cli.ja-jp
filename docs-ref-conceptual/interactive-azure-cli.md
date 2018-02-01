@@ -13,10 +13,10 @@ ms.devlang: azurecli
 ms.service: multiple
 ms.assetid: 
 ms.openlocfilehash: fb260d7385728acd0c699488ecb5b108afefd08c
-ms.sourcegitcommit: 2e4d0bdd94c626e061434883032367b5619de4fe
+ms.sourcegitcommit: dd5b2c7b0b56608ef9ea8730c7dc76e6c532d5ea
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/26/2018
 ---
 # <a name="interactive-azure-cli-20"></a>対話型 Azure CLI 2.0
 
@@ -45,7 +45,7 @@ Azure CLI 2.0 を対話モードで使用するには、`az interactive` コマ�
 
 ![ジェスチャ](./media/interactive-azure-cli/gestures.png)
 
-## <a name="scope"></a>Scope
+## <a name="scope"></a>Scope (スコープ)
 
 対話モードのスコープを、`vm`、`vm image` などの特定のコマンド グループに指定することができます。
 これを行うと、すべてのコマンドがそのスコープ内で解釈されます。
