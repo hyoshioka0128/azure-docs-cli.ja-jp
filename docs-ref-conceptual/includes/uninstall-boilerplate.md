@@ -1,0 +1,1 @@
+Azure CLI が不要であると判断した場合は、アンインストールできます。 アンインストールする前に、`az feedback` コマンドを使用して、アンインストールする理由と CLI をどのように改善すればよいかについてご意見をお聞かせください。 Microsoft の目標は、Azure CLI のバグをなくし、使いやすいものにすることです。 バグが見つかった場合は、[GitHub で問題を報告](https://github.com/Azure/azure-cli/issues)してください。

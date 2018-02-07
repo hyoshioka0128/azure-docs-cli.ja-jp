@@ -3,6 +3,21 @@
   items:
     - name: '[インストール]'
       href: install-azure-cli.md
+      items:
+        - name: macOS
+          href: install-azure-cli-macos.md
+        - name: Windows
+          href: install-azure-cli-windows.md
+        - name: Linux (apt を使用)
+          href: install-azure-cli-apt.md
+        - name: Linux (yum を使用)
+          href: install-azure-cli-yum.md
+        - name: Linux (zypper を使用)
+          href: install-azure-cli-zypper.md
+        - name: Linux
+          href: install-azure-cli-linux.md
+        - name: Docker での実行
+          href: run-azure-cli-docker.md
     - name: 作業開始
       href: get-started-with-azure-cli.md
     - name: Cloud Shell

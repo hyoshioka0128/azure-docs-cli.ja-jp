@@ -1,26 +1,25 @@
 ---
-title: "zypper での Azure CLI 2.0 のインストール"
+title: "zypper を使用して Linux に Azure CLI 2.0 をインストールする"
 description: "zypper で Azure CLI 2.0 をインストールする方法"
 keywords: "azure cli, azure cli のインストール, azure cli zypper, azure cli opensuse, azure cli sle"
 author: sptramer
 ms.author: sttramer
 manager: routlaw
-ms.date: 11/01/2017
+ms.date: 01/29/18
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 6b9a97e73f45c8271f1e8f19d5a8cf5f9f748d07
-ms.sourcegitcommit: 3eef136ae752eb90c67af604d4ddd298d70b1c9d
+ms.openlocfilehash: c0b566f96e47d34d20f7bf85db0fae32913ed596
+ms.sourcegitcommit: 8606f36963e8daa6448d637393d1e4ef2c9859a0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="install-azure-cli-20-with-zypper"></a>zypper での Azure CLI 2.0 のインストール
 
-OpenSUSE、SLE など、`zypper` に付属するディストリビューションを実行している場合は、システムにインストールできる Azure CLI 用の利用可能なパッケージがあります。
+openSUSE や SLES など、`zypper` が付属するディストリビューションを実行している場合は、Azure CLI 用の利用可能なパッケージがあります。 このパッケージは、openSUSE 42.2 と SLES 12 SP 2 でテストされています。
 
 [!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
 
@@ -65,7 +64,7 @@ sudo zypper update azure-cli
 
 ## <a name="uninstall"></a>アンインストール
 
-Azure CLI が不要であると判断した場合は、アンインストールすることができます。 アンインストールする前に、`az feedback` コマンドを使用して、アンインストールの理由と、CLI エクスペリエンスの改善方法について、ご意見をお聞かせください。 Microsoft では、できる限り Azure CLI のバグをなくし、使いやすいものにしたいと考えています。 また、[GitHub に問題を提出](https://github.com/Azure/azure-cli/issues)していただくこともできます。
+[!INCLUDE [uninstall-boilerplate.md](includes/uninstall-boilerplate.md)]
 
 1. システムからパッケージを削除します。
 

@@ -5,33 +5,39 @@ keywords: "Azure CLI,Azure CLI のインストール,azure インストール wi
 author: sptramer
 ms.author: sttramer
 manager: routlaw
-ms.date: 11/01/2017
+ms.date: 01/29/18
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 247ae43813ca9ca7b7b98ebd8e933e02989c6649
-ms.sourcegitcommit: 3eef136ae752eb90c67af604d4ddd298d70b1c9d
+ms.openlocfilehash: f2745c05c12a4ed5fb5a25e86a5dec1664651066
+ms.sourcegitcommit: 8606f36963e8daa6448d637393d1e4ef2c9859a0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="install-azure-cli-20-on-windows"></a>Windows での Azure CLI 2.0 のインストール
 
-Windows では、MSI からネイティブ バイナリをインストールできます。これは、Windows コマンド プロンプトまたは PowerShell から使用できます。 Windows Subsystem for Linux (WSL) を使用している場合は、実行しているディストリビューションで使用できるパッケージがあります。 サポートされているパッケージ マネージャーの一覧または WSL での手動インストール方法については、[メインのインストール ページ](install-azure-cli.md)を参照してください。
+Windows では、MSI を使用して Azure CLI バイナリがインストールされるので、Windows コマンド プロンプト (CMD) または PowerShell から CLI にアクセスできます。
+Windows Subsystem for Linux (WSL) を実行している場合は、お使いの Linux ディストリビューションで使用できるパッケージがあります。 サポートされているパッケージ マネージャーの一覧または WSL での手動インストール方法については、[メインのインストール ページ](install-azure-cli.md)を参照してください。
 
-## <a name="install-or-update-with-msi"></a>MSI でのインストールまたは更新
+## <a name="install-or-update"></a>インストールまたは更新
 
-再頒布可能 MSI は、Windows での `az` コマンドのインストール、更新、およびアンインストールに使用されます。 [MSI インストーラーをダウンロード](https://aka.ms/InstallAzureCliWindows)して実行し、インストールまたは更新できます。
+再頒布可能 MSI は、Windows での `az` コマンドのインストール、更新、およびアンインストールに使用されます。
+
+> [!div class="nextstepaction"]
+> [MSI インストーラーのダウンロード](https://aka.ms/InstallAzureCliWindows)
 
 インストーラーによって、コンピューターに変更を加えるかどうかを尋ねるメッセージが表示されたら、[はい] をクリックします。
 
-これで、Windows コマンド プロンプトまたは PowerShell のいずれかから、`az` コマンドで Azure CLI を実行できるようになりました。
+これで、Windows コマンド プロンプトまたは PowerShell のいずれかから、`az` コマンドで Azure CLI を実行できるようになりました。 PowerShell は、CMD からは利用できないタブ補完機能を提供します。
 
-## <a name="uninstall-with-msi"></a>MSI でのアンインストール
+## <a name="uninstall"></a>アンインストール
 
-Azure CLI が不要であると判断した場合は、アンインストールすることができます。 アンインストールする前に、`az feedback` コマンドを使用して、アンインストールの理由と、CLI エクスペリエンスの改善方法について、ご意見をお聞かせください。 Microsoft では、できる限り Azure CLI のバグをなくし、使いやすいものにしたいと考えています。 また、[GitHub に問題を提出](https://github.com/Azure/azure-cli/issues)していただくこともできます。
+[!INCLUDE [uninstall-boilerplate.md](includes/uninstall-boilerplate.md)]
 
-アンインストールするには、MSI をもう一度実行して、"アンインストール" オプションを選択します。 MSI インストーラーが使用できなくなっている場合は、[ダウンロード](https://aka.ms/InstallAzureCliWindows)できます。
+アンインストールするには、MSI をもう一度実行して、"アンインストール" オプションを選択します。 
+
+> [!div class="nextstepaction"]
+> [MSI インストーラーのダウンロード](https://aka.ms/InstallAzureCliWindows)
