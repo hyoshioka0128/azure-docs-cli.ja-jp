@@ -8,7 +8,7 @@
       "docset_name": "azure-cli-docs",
       "build_source_folder": ".",
       "build_output_subfolder": "cli/azure",
-      "locale": "ja-JP",
+      "locale": "en-us",
       "version": 0,
       "open_to_public_contributors": true,
       "type_mapping": {
@@ -16,7 +16,8 @@
         "ManagedReference": "Content",
         "RestApi": "Content",
         "AzurePyCli": "Content",
-        "UniversalReference": "Content"
+        "UniversalReference": "Content",
+        "Tutorial": "Content"
       },
       "build_entry_point": "docs",
       "template_folder": "_themes",
@@ -31,37 +32,16 @@
     }
   ],
   "notification_subscribers": [],
-  "branches_to_filter": [
-    "live-sxs"
-  ],
-  "continue_with_document_error": true,
+  "branches_to_filter": [],
   "skip_source_output_uploading": false,
-  "git_repository_branch_open_to_public_contributors": "live",
-  "git_repository_url_open_to_public_contributors": "https://github.com/azure/azure-docs-cli-python.ja-JP",
+  "git_repository_branch_open_to_public_contributors": "master",
   "dependent_repositories": [
     {
       "path_to_root": "_themes",
-      "url": "https://github.com/Microsoft/templates.docs.msft.ja-JP",
+      "url": "https://github.com/Microsoft/templates.docs.msft",
       "branch": "master",
       "branch_mapping": {}
-    },
-    {
-      "path_to_root": "_repo.en-us",
-      "url": "https://github.com/Azure/azure-docs-cli-python",
-      "branch": "live",
-      "branch_mapping": {
-        "live": "live",
-        "master": "master"
-      }
-    },
-    { 
-       "path_to_root": "cli-xref", 
-       "url": "https://github.com/MicrosoftDocs/cli-xref", 
-       "branch": "master", 
-       "branch_mapping": { 
-         "master": "master"
-      } 
-    } 
+    }
   ],
   "need_generate_pdf_url_template": false,
   "dependent_packages": [
