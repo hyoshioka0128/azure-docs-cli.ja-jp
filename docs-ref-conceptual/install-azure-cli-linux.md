@@ -1,21 +1,20 @@
 ---
 title: "Linux での Azure CLI 2.0 の手動インストール"
 description: "Linux で Azure CLI 2.0 を手動インストールする方法"
-keywords: "Azure CLI,Azure CLI のインストール,azure linux, azure インストール linux"
 author: sptramer
 ms.author: sttramer
 manager: routlaw
-ms.date: 01/29/18
+ms.date: 01/29/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: d8c88d111c50a3cbb6b643a14dcd2a9773699657
-ms.sourcegitcommit: 8606f36963e8daa6448d637393d1e4ef2c9859a0
+ms.openlocfilehash: 4ab1f70308810e045b9a1d923fd809ad9848f6c6
+ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="install-azure-cli-20-on-linux-manually"></a>Linux での Azure CLI 2.0 の手動インストール
 
@@ -32,7 +31,7 @@ CLI をインストールするには、システムで次のソフトウェア�
 * [libffi](https://sourceware.org/libffi/)
 * [OpenSSL 1.0.2](https://www.openssl.org/source/)
 
-## <a name="install-or-update"></a>インストールまたは更新 
+## <a name="install-or-update"></a>インストールまたは更新
 
 CLI をインストールするか更新するかに関わらず、完全インストールを実行する必要があります。 前提条件を準備できたら、`curl` を実行して CLI をインストールできます。
 
@@ -76,19 +75,19 @@ hash -r
 CLI をアンインストールするには、インストール時に選択した場所からファイルを直接削除します。 既定のインストール場所は `$HOME` です。
 
 1. インストールされている CLI ファイルを削除します。
-  
+
   ```bash
   rm -r <install location>/lib/azure-cli
   rm <install location>/bin/az
   ```
 2. `$HOME/.bash_profile` ファイルを変更して、次の行を削除します。
-  
+
   ```
   <install location>/lib/azure-cli/az.completion
   ```
 
 3. `bash` または `zsh` を使用している場合は、シェルのコマンド キャッシュを再読み込みします。
-  
+
   ```bash
   hash -r
   ```
