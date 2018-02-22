@@ -1,23 +1,193 @@
 ---
 title: "Azure CLI 2.0 リリース ノート"
 description: "Azure CLI 2.0 の最新情報について説明します"
-keywords: "Azure CLI 2.0, リリース ノート"
 author: sptramer
 ms.author: sttramer
 manager: routlaw
-ms.date: 01/17/2018
+ms.date: 02/13/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 86babea3030ea932de1858a391014e5d0bba7f73
-ms.sourcegitcommit: cae66f994cb7b7f829f75ac528093fdb6851f64e
+ms.openlocfilehash: 480b646b7230c8fb22f10b28a9204287cd0acc19
+ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 リリース ノート
+
+## <a name="february-13-2018"></a>2018 年 2 月 13 日
+
+バージョン 2.0.27
+
+### <a name="core"></a>コア
+
+* MSI ログインのサブスクリプション ID と名前の両方で認証をキーに変更しました
+
+### <a name="acs"></a>ACS
+
+* [重大な変更] 精度のために名前を `aks get-versions` から `aks get-upgrades` に変更しました
+* `aks create` で使用可能な Kubernetes バージョンが表示されるように `aks get-versions` を変更しました
+* サーバーで Kubernetes のバージョンを選択できるように `aks create` 既定値を変更しました
+* AKS によって生成されたサービス プリンシパルを参照するヘルプ メッセージを更新しました
+* `aks create` の既定のノード サイズを "Standard\_D1\_v2" から "Standard\_DS1\_v2" に変更しました
+* `az aks browse` のダッシュボード ポッドを特定するときの信頼性が向上しました
+* Kubernetes 構成ファイルを読み込むときの Unicode エラーを処理するように `aks get-credentials` を修正しました
+* メッセージを `az aks install-cli` に追加しました。これは `$PATH` での `kubectl` の取得に役立ちます
+
+### <a name="appservice"></a>Appservice
+
+* null 参照のために `webapp [backup|restore]` が失敗する問題を修正しました
+* `az configure --defaults appserviceplan=my-asp` による既定のアプリ サービス プランのサポートを追加しました
+
+### <a name="cdn"></a>CDN
+
+* `cdn custom-domain [enable-https|disable-https]` コマンドを追加しました
+
+### <a name="container"></a>コンテナー
+
+* ログ ストリーミングのために `--follow` オプションを `az container logs` に追加しました
+* ローカル標準出力とエラー ストリームをコンテナー グループのコンテナーにアタッチする `container attach` コマンドを追加しました
+
+### <a name="cosmosdb"></a>Cosmos DB
+
+* 機能の設定のサポートを追加しました
+
+### <a name="extension"></a>内線番号
+
+* `--pip-proxy` パラメーターのサポートを `az extension [add|update]` コマンドに追加しました
+* `--pip-extra-index-urls` 引数のサポートを `az extension [add|update]` コマンドに追加しました
+
+### <a name="feedback"></a>フィードバック
+
+* 拡張機能の情報を利用統計情報に追加しました
+
+### <a name="interactive"></a>対話
+
+* Cloud Shell で対話モードを使用するときにユーザーのログインが求められる問題を修正しました
+* パラメーター不足での完了による回帰を修正しました
+
+### <a name="iot"></a>IoT
+
+* 成功時に `iot dps access policy [create|update]` が "検出不可" エラーを返す問題を修正しました。
+* 成功時に `iot dps linked-hub [create|update]` が "検出不可" エラーを返す問題を修正しました。
+* `--no-wait` のサポートを `iot dps access policy [create|update]` および `iot dps linked-hub [create|update]` に追加しました
+* パーティション数の指定を許可するように `iot hub create` を変更しました
+
+### <a name="monitor"></a>監視
+
+* `az monitor log-profiles create` コマンドを修正しました
+
+### <a name="network"></a>ネットワーク
+
+* 次のコマンドの `--tags` オプションを修正しました。
+  * `network public-ip create`
+  * `network lb create`
+  * `network local-gateway create`
+  * `network nic create`
+  * `network vnet-gateway create`
+  * `network vpn-connection create`
+
+### <a name="profile"></a>プロファイル
+
+* 対話モードで `az login` を有効にしました
+
+### <a name="resource"></a>リソース
+
+* `feature show` を再び追加しました
+
+### <a name="role"></a>役割
+
+* `--available-to-other-tenants` 引数を `ad app update` に追加しました
+
+### <a name="sql"></a>SQL
+
+* `sql server dns-alias` コマンドを追加しました
+* `sql db rename` を追加しました
+* `--ids` 引数のサポートをすべての SQL コマンドに追加しました
+
+### <a name="storage"></a>Storage
+
+* 論理的な削除を有効にする `storage blob service-properties delete-policy` コマンドと `storage blob undelete` コマンドを追加しました
+
+### <a name="vm"></a>VM
+
+* VM 暗号化の一部を初期化できないときのクラッシュを修正しました
+* MSI を有効にするときのプリンシパル ID 出力を追加しました
+* `vm boot-diagnostics get-boot-log` (固定)
+
+
+## <a name="january-31-2018"></a>2018 年 1 月 31 日
+
+バージョン 2.0.26
+
+### <a name="core"></a>コア
+
+* MSI コンテキストでの未処理トークン取得のサポートを追加しました
+* Windows cmd.exe での LRO 終了後のインジケーター文字列ポーリングを削除しました
+* 構成された既定値の使用が情報レベル エントリに変更されたときに表示される警告を追加しました。 確認するには `--verbose` を使用します
+* 待機コマンドの進行状況のインジケーターを追加します
+
+### <a name="acs"></a>ACS
+
+* `--disable-browser` 引数を明確化しました
+* `--vm-size` 引数のタブ補完を強化しました
+
+### <a name="appservice"></a>Appservice
+
+* `webapp log [tail|download]` (固定)
+* WebApps と機能で `kind` チェックを削除しました
+
+### <a name="cdn"></a>CDN
+
+* `cdn custom-domain create` のクライアントが見つからない問題を修正しました
+
+### <a name="cosmosdb"></a>Cosmos DB
+
+* フェールオーバー ポリシーのパラメーターの説明を修正しました
+
+### <a name="interactive"></a>対話
+
+* コマンド オプションの完了が表示されなくなった問題を修正しました
+
+### <a name="network"></a>ネットワーク
+
+* `--cert-password` の保護を `application-gateway create` に追加しました
+* `--sku` が誤って既定値を適用する `application-gateway update` の問題を修正しました
+* `--shared-key` の保護を `--authorization-key` および `vpn-connection create` に追加しました
+* `asg create` のクライアントが見つからない問題を修正しました
+* エクスポートされた名前の `--file-name / -f` パラメーターを `dns zone export` に追加しました
+* `dns zone export` の次の問題を修正しました。
+  * 長い TXT レコードが誤ってエクスポートされる問題を修正しました
+  * 引用符で囲まれた TXT レコードが、エスケープされた引用符なしで誤ってエクスポートされる問題を修正しました
+* 特定のレコードが `dns zone import` で 2 回インポートされる問題を修正しました 
+* `vnet-gateway root-cert` コマンドと `vnet-gateway revoked-cert` コマンドを復元しました
+
+### <a name="profile"></a>プロファイル
+
+* ID を使用して VM 内で動作するように `get-access-token` を修正しました
+
+### <a name="resource"></a>リソース
+
+* テンプレートの "type" フィールドに大文字の値が含まれているときに警告が誤って表示される `deployment [create|validate]` のバグを修正しました
+
+### <a name="storage"></a>Storage
+
+* ストレージ V1 からストレージ V2 へのアカウント移行の問題を修正しました
+* すべてのアップロード/ダウンロード コマンドについて、進行状況レポートを追加しました
+* `storage account check-name` で "-n" 引数オプションが妨げられるバグを修正しました  
+* "snapshot" 列を `blob [list|show]` のテーブル出力に追加しました
+* 整数として解析する必要があるさまざまなパラメーターのバグを修正しました
+
+### <a name="vm"></a>VM
+
+* 追加料金でイメージからの VM 作成を許可する `vm image accept-terms` コマンドを追加しました
+* 署名されていない証明書を使用して、コマンドをプロキシで確実に実行できるように `[vm|vmss create]` を修正しました
+* [プレビュー] "低" 優先度のサポートを VMSS に追加しました
+* `--admin-password` の保護を `[vm|vmss] create` に追加しました
+
 
 ## <a name="january-17-2018"></a>2018 年 1 月 17 日
 
@@ -84,7 +254,7 @@ ms.lasthandoff: 01/29/2018
 ### <a name="monitor"></a>監視
 
 * 複数診断設定のサポートを追加しました `az monitor diagnostic-settings create` で `--name` パラメーターが必須になりました
-* 診断設定カテゴリを取得する `monitor diagnostic-settings categories` コマンドを追加しました 
+* 診断設定カテゴリを取得する `monitor diagnostic-settings categories` コマンドを追加しました
 
 ### <a name="network"></a>ネットワーク
 
@@ -130,7 +300,7 @@ ms.lasthandoff: 01/29/2018
 * `--disable-bgp-route-propagation` 引数を `route-table [create|update]` に追加しました
 * `--ip-tags` 引数を `public-ip [create|update]` に追加しました
 
-### <a name="storage"></a>ストレージ
+### <a name="storage"></a>Storage
 
 * ストレージ V2 のサポートを追加しました
 
@@ -285,7 +455,7 @@ ms.lasthandoff: 01/29/2018
 
 * `--ignore-missing-vnet-service-endpoint` パラメーターを `sql server vnet-rule [create|update]` に追加しました
 
-### <a name="storage"></a>ストレージ
+### <a name="storage"></a>Storage
 
 * SKU `Standard_RAGRS` を既定値として使用するように `storage account create` を変更しました
 * 非 ASCII 文字を含むファイル/BLOB 名を処理する場合のバグを修正しました
@@ -389,7 +559,7 @@ ms.lasthandoff: 01/29/2018
 * `db list-deleted` コマンドと `db restore --deleted-time` パラメーターを追加し、削除したデータベースを検索して復元できるようにしました。
 * `db op list` と `db op cancel` を追加し、データベースに対して実行中の操作を一覧表示およびキャンセルできるようにしました。
 
-### <a name="storage"></a>ストレージ
+### <a name="storage"></a>Storage
 
 * ファイル共有スナップショットのサポートを追加しました
 
@@ -423,7 +593,7 @@ ms.lasthandoff: 01/29/2018
 * `--ddos-protection` 引数と `--vm-protection` 引数を `vnet [create|update]` に追加しました
 * `network [vnet-gateway|vpn-client|show-url]` コマンドを追加しました
 
-### <a name="storage"></a>ストレージ
+### <a name="storage"></a>Storage
 
 * SDK の更新後に `storage account network-rule` コマンドが失敗する可能性がある問題を修正しました
 
@@ -531,7 +701,7 @@ ms.lasthandoff: 01/29/2018
 
 * すべてのコマンドが非推奨とされ、Service Fabric CLI (sfctl) が優先されます
 
-### <a name="storage"></a>ストレージ
+### <a name="storage"></a>Storage
 
 * ネットワーク ACL 機能がサポートされていないリージョンでストレージ アカウントを作成できない問題を修正しました
 * コンテンツの種類とエンコードがどちらも指定されていない場合、BLOB とファイルのアップロード中にコンテンツの種類とエンコードを決定します
@@ -581,7 +751,7 @@ ms.lasthandoff: 01/29/2018
 * パラメーターを渡した後でもユーザーにパスワードの入力が求められる問題を修正しました
 * 空の `registry_cred` のサポートを追加しました
 
-### <a name="storage"></a>ストレージ
+### <a name="storage"></a>Storage
 
 * BLOB 層の設定を有効にしました
 * サービス トンネリングをサポートするために、`--bypass` 引数と `--default-action` 引数を `storage account [create|update]` に追加しました
@@ -661,7 +831,7 @@ ms.lasthandoff: 01/29/2018
 
 * `account list`: サーバーの最新のサブスクリプションを同期する `--refresh` を追加しました
 
-### <a name="storage"></a>ストレージ
+### <a name="storage"></a>Storage
 
 * システムによって割り当てられた ID によるストレージ アカウントの更新を有効にします
 
@@ -926,7 +1096,7 @@ vm (2.0.11)
 * `sql server create` および `sql server update` コマンドの出力からパスワード値を削除しました
 * `sql db list-editions` および `sql elastic-pool list-editions` コマンドを追加しました
 
-### <a name="storage"></a>ストレージ
+### <a name="storage"></a>Storage
 
 * `storage blob list`、`storage container list`、`storage share list` の各コマンドから `--marker` オプションを削除しました (#3745)
 * https 専用ストレージ アカウントの作成を有効にしました
@@ -1131,7 +1301,7 @@ vm (2.0.6)
 * az sql server list-usages コマンドと az sql db list-usages コマンドが追加されました。
 * SQL - リソース プロバイダーに直接接続できます ([#2832](https://github.com/Azure/azure-cli/issues/2832))
 
-### <a name="storage"></a>ストレージ
+### <a name="storage"></a>Storage
 
 * `storage account create` のリソース グループの場所に対する既定の場所。
 * 増分 BLOB コピーに対応するようになりました
@@ -1239,7 +1409,7 @@ Azure CLI 2.0 のこのリリースは、最初の "一般公開" リリース�
 - コンテナー サービス (acs)
 - コンピューティング (Resource Manager、VM、仮想マシン スケール セット、Managed Disks など)
 - ネットワーク
-- ストレージ
+- Storage
 
 これらのコマンド モジュールは、運用環境で使用することができ、標準の Microsoft SLA でサポートされています。
 問題は、Microsoft サポートで直接開くことも、[github の問題一覧](https://github.com/azure/azure-cli/issues/)で開くこともできます。

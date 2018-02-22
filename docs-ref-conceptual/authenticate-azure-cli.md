@@ -1,30 +1,29 @@
 ---
 title: "Azure CLI 2.0 を使用してログインする"
-description: "Linux、Mac、または Windows 上で Azure 2.0 CLI を使用してログインします。"
-keywords: "Azure CLI 2.0, ログイン, Azure CLI, 認証, 承認, ログインする"
+description: "対話形式またはローカル資格情報で Azure CLI 2.0 を使用してログインします"
 author: sptramer
-ms.author: stttramer
+ms.author: sttramer
 manager: routlaw
-ms.date: 11/13/2017
+ms.date: 02/13/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.assetid: 65becd3a-9d69-4415-8a30-777d13a0e7aa
-ms.openlocfilehash: 0a8ec3541783ae19961f2acf1192c0ee061a465f
-ms.sourcegitcommit: dd5b2c7b0b56608ef9ea8730c7dc76e6c532d5ea
+ms.openlocfilehash: a140f8f54ad72f7f3b5e2d63e2300d0aa2c061ac
+ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/26/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="log-in-with-azure-cli-20"></a>Azure CLI 2.0 を使用してログインする
 
-Azure CLI を使用してログインと認証を行うには、いくつかの方法があります。 最も簡単に始められるのは、ブラウザーから対話形式でログインするか、コマンド ラインでログインする方法です。 お勧めは、サービス プリンシパルを使用する方法です。サービス プリンシパルは、リソースの操作に使用できる非対話型のアカウントを作成する方法を提供します。 サービス プリンシパルに必要とされる適切なアクセス許可だけを付与することによって、自動化スクリプトをより安全にすることができます。
+Azure CLI を使用してログインと認証を行うには、いくつかの方法があります。 最も簡単に始められるのは、Azure Cloud Shell または `az login` コマンドのいずれかを使用して、ブラウザーから対話形式でログインする方法です。
+アクセス許可が制限されたアカウントである、サービス プリンシパルを使用することをお勧めします。 サービス プリンシパルに必要とされる適切なアクセス許可だけを付与することによって、自動化スクリプトをより安全にすることができます。
 
-プライベートの資格情報はローカルに保存されません。 代わりに、認証トークンが Azure によって生成され、保存されます。 ログイン後、ローカルのログイン トークンは、使用しなくても 14 日間経過するまでは有効です。 その時点で、再認証する必要があります。
+プライベートの資格情報はローカルに保存されません。 代わりに、認証トークンが Azure によって生成され、保存されます。 ログイン後、ログイン トークンは、使用しなくても 14 日間経過するまでは有効です。 その時点で、再認証する必要があります。
 
-ログインすると、CLI コマンドが既定のサブスクリプションに対して実行されます。 複数のサブスクリプションがある場合は、[既定のサブスクリプションを変更](manage-azure-subscriptions-azure-cli.md)することもできます。
+ログインすると、CLI コマンドが既定のサブスクリプションに対して実行されます。 複数のサブスクリプションがある場合は、[既定のサブスクリプションを変更](manage-azure-subscriptions-azure-cli.md)できます。
 
 ## <a name="interactive-log-in"></a>対話形式のログイン
 
@@ -39,22 +38,21 @@ Web ブラウザーから対話形式でログインします。
 > [!Note]
 > この方法は、Microsoft アカウント、または 2 要素認証が有効になっているアカウントでは機能しません。
 
-```azurecli-interactive
+```azurecli
 az login -u <username> -p <password>
 ```
 
 ## <a name="logging-in-with-a-service-principal"></a>サービス プリンシパルによるログイン
 
-サービス プリンシパルは、Azure Active Directory を使用してルールを適用できるユーザー アカウントに似ています。
-サービス プリンシパルによる認証は、リソースを操作するスクリプトまたはアプリケーションからの Azure リソースの使用を保護するための最適な方法です。 使用可能なサービス プリンシパルがなく、サービス プリンシパルを作成する場合は、[Azure CLI を使用した Azure サービス プリンシパルの作成](create-an-azure-service-principal-azure-cli.md)に関する記事をご覧ください。
+サービス プリンシパルは、特定のユーザーに関連付けられていないアカウントであり、定義済みのロールによってアクセス許可を割り当てることができます。 サービス プリンシパルを使用した認証は、セキュリティで保護されたスクリプトやプログラムを記述するのに最適な方法で、アクセス許可の制限と、ローカルに保存された静的な資格情報の両方を適用できます。 サービス プリンシパルの詳細については、[Azure CLI を使用した Azure サービス プリンシパルの作成](create-an-azure-service-principal-azure-cli.md)に関するページをご覧ください。
 
 サービス プリンシパルでログインするには、ユーザー名、パスワードまたは証明書 PEM ファイル、およびサービス プリンシパルに関連付けられているテナントを指定します。
 
-```azurecli-interactive
+```azurecli
 az login --service-principal -u <user> -p <password-or-cert> --tenant <tenant>
 ```
 
-tenant 値は、サービス プリンシパルに関連付けられている Azure Active Directory テナントです。 値として、.onmicrosoft.com ドメイン、またはテナントの Azure オブジェクト ID を指定できます。
+tenant 値は、サービス プリンシパルに関連付けられている Azure Active Directory テナントです。 値として、.onmicrosoft.com ドメインまたはテナントの Azure オブジェクト ID を指定できます。
 現在のログインのテナント オブジェクト ID を取得するには、次のコマンドを使用します。
 
 ```azurecli

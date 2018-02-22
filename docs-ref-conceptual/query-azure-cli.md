@@ -1,7 +1,6 @@
 ---
 title: "Azure CLI 2.0 でのクエリ コマンドの結果"
-description: "--query を使用して、Azure CLI 2.0 コマンドの出力に対して JMESPath クエリを実行します。"
-keywords: "Azure CLI 2.0, JMESPath, クエリ, Linux, Mac, Windows, OS X"
+description: "Azure CLI 2.0 コマンドの出力に対して JMESPath クエリを実行する方法について説明します。"
 author: rloutlaw
 ms.author: routlaw
 manager: douge
@@ -11,20 +10,19 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.assetid: 5979acc5-21a5-41e2-a4b6-3183bfe6aa22
-ms.openlocfilehash: 0de18adc91589377d4f96a306a70c9adfeabdcab
-ms.sourcegitcommit: 8606f36963e8daa6448d637393d1e4ef2c9859a0
+ms.openlocfilehash: 98bc35c1e8136231011a2303901f42c68c9a7758
+ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/15/2018
 ---
-# <a name="using-jmespath-queries-with-azure-cli-20"></a>Azure CLI 2.0 での JMESPath クエリの使用
+# <a name="use-jmespath-queries-with-azure-cli-20"></a>Azure CLI 2.0 で JMESPath クエリを使用する
 
 Azure CLI 2.0 は、`--query` パラメーターを使用して、`az` コマンドの結果に対して [JMESPath クエリ](http://jmespath.org)を実行します。 JMESPath は、JSON 出力用の強力なクエリ言語です。  JMESPath クエリに慣れていない場合は、[JMESPath.org/tutorial](http://JMESPath.org/tutorial.html) にあるチュートリアルを参照できます。
 
 `Query` パラメーターは、Azure CLI 2.0 内のすべてのリソースの種類 (Container Services、Web Apps、VM など) でサポートされており、さまざまな目的で使用できます。  以下に、いくつかの例を示します。
 
-## <a name="selecting-simple-properties"></a>単純なプロパティの選択
+## <a name="select-simple-properties"></a>単純なプロパティを選択する
 
 `table` 出力形式を指定した単純な `list` コマンドは、各リソースの種類の最も一般的で単純なプロパティの精選されたセットを、読みやすい表形式で返します。
 
@@ -85,7 +83,7 @@ RGDEMO001  KBDemo001VM
 RGDEMO001  KBDemo020
 ```
 
-## <a name="selecting-complex-nested-properties"></a>入れ子になった複雑なプロパティの選択
+## <a name="select-complex-nested-properties"></a>入れ子になった複雑なプロパティを選択する
 
 選択の対象となるプロパティが、JSON 出力の中で深く入れ子になっている場合は、その入れ子になっているプロパティの完全パスを指定する必要があります。 次の例は、vm list コマンドで VMName および OS の種類を選択する方法を示しています。
 

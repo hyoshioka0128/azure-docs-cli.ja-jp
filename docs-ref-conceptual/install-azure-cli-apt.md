@@ -1,43 +1,35 @@
 ---
 title: "apt を使用して Linux に Azure CLI 2.0 をインストールする"
 description: "apt パッケージ マネージャーで Azure CLI 2.0 をインストールする方法"
-keywords: "Azure CLI,Azure CLI のインストール,azure apt, azure debian, azure ubuntu"
 author: sptramer
 ms.author: sttramer
 manager: routlaw
-ms.date: 01/29/18
+ms.date: 02/06/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: fdd9f0061d5d38ed5a349b11eb0f5f27786bc1ab
-ms.sourcegitcommit: 8606f36963e8daa6448d637393d1e4ef2c9859a0
+ms.openlocfilehash: 4076fefb902a324f77f97bc042b9f5ba3e787734
+ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="install-azure-cli-20-with-apt"></a>apt での Azure CLI 2.0 のインストール
 
-Ubuntu や Debian など、`apt` が付属するディストリビューションを実行している場合は、Azure CLI 用の利用可能なパッケージがあります。 このパッケージは、Ubuntu Wheezy と Ubuntu Xenial でテストされています。
+Ubuntu や Debian など、`apt` が付属するディストリビューションを実行している場合は、Azure CLI 用の利用可能な 64 ビット パッケージがあります。 このパッケージは、以下でテストされています。
 
-[!INCLUDE [linux-install-requirements.md](includes/linux-install-requirements.md)]
+* Ubuntu wheezy、xenial、および artful
+* Debian wheezy、jessie、および stretch
 
-## <a name="install"></a>[インストール]
+## <a name="install"></a>Install
 
 1. ソース リストを変更します。
 
-   - 32 ビット システム
-
      ```bash
-     echo "deb https://packages.microsoft.com/repos/azure-cli/ wheezy main" | \
-          sudo tee /etc/apt/sources.list.d/azure-cli.list
-     ```
-
-   - 64 ビット システム
-
-     ```bash
-     echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | \
+     AZ_REPO=$(lsb_release -cs)
+     echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | \
           sudo tee /etc/apt/sources.list.d/azure-cli.list
      ```
 
