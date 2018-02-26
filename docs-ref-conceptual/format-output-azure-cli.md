@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: a5d629675b468421e3abee41b9c8bffd7e96e5b0
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: ec96d1cb21b32cd982dbec5e4bf38110f8686c25
+ms.sourcegitcommit: f82774a6f92598c41da9956284f563757f402774
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="output-formats-for-azure-cli-20-commands"></a>Azure CLI 2.0 コマンドの出力形式
 
@@ -22,22 +22,20 @@ Azure CLI 2.0 では、既定の出力オプションとして JSON が使用さ
 
 --output | [説明]
 ---------|-------------------------------
-`json`   | JSON 文字列。 `json` は既定値です。
-`jsonc`  | 色付けされた JSON 文字列。
-`table`  | 列見出し付きのテーブル。
-`tsv`    | タブ区切りの値。
+`json`   | JSON 文字列。 これは、既定の設定です。
+`jsonc`  | 色付けされた JSON。
+`table`  | 列見出しとしてキーが使用されている ASCII テーブル。
+`tsv`    | タブ区切りの値 (キーなし)
 
-[!INCLUDE [cloud-shell-try-it.md](includes/cloud-shell-try-it.md)]
-
-## <a name="using-the-json-option"></a>JSON オプションの使用
+## <a name="json-output-format"></a>JSON 出力形式
 
 次の例では、既定の JSON 形式で、サブスクリプション内の仮想マシンの一覧が表示されます。
 
-```azurecli-interactive
+```azurecli
 az vm list --output json
 ```
 
-結果は次の形式になります (簡潔にするために、出力の一部のみを示しています)。
+次の出力では、簡潔にするため、また置き換えた情報を識別するために、一部のフィールドが省略されています。
 
 ```json
 [
@@ -47,7 +45,7 @@ az vm list --output json
     "hardwareProfile": {
       "vmSize": "Standard_DS1"
     },
-    "id": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/DemoVM010",
+    "id": "/subscriptions/.../resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/DemoVM010",
     "instanceView": null,
     "licenseType": null,
     "location": "westus",
@@ -55,7 +53,7 @@ az vm list --output json
     "networkProfile": {
       "networkInterfaces": [
         {
-          "id": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/demorg1/providers/Microsoft.Network/networkInterfaces/DemoVM010VMNic",
+          "id": "/subscriptions/.../resourceGroups/demorg1/providers/Microsoft.Network/networkInterfaces/DemoVM010VMNic",
           "primary": null,
           "resourceGroup": "demorg1"
         }
@@ -67,15 +65,15 @@ az vm list --output json
 ]
 ```
 
-## <a name="using-the-table-option"></a>table オプションの使用
+## <a name="table-output-format"></a>テーブル出力形式
 
-table オプションを使用すると、一連の出力は読みやすくなりますが、上記の .json の例とは異なり、単純な `--output table` では入れ子になったオブジェクトが出力に含まれないことに注意してください。  同じ例で 'table' 出力形式を使用すると、最も一般的なプロパティ値の精選された一覧が表示されます。
+`table` 出力形式では、行と列に並んだデータとして書式設定されたわかりやすい出力が提供されるため、簡単に読み取ったりスキャンしたりできます。 入れ子になったオブジェクトはテーブル出力には含まれませんが、クエリの一部としてフィルター処理することもできます。 この形式ではテーブル データから一部のフィールドが除外されるため、人の目ですばやく検索できるデータ概要が必要な場合に最適です。
 
-```azurecli-interactive
+```azurecli
 az vm list --out table
 ```
 
-```
+```output
 Name         ResourceGroup    Location
 -----------  ---------------  ----------
 DemoVM010    DEMORG1          westus
@@ -84,11 +82,10 @@ demovm213    DEMORG1          westus
 KBDemo001VM  RGDEMO001        westus
 KBDemo020    RGDEMO001        westus
 ```
-
 `--query` パラメーターを使用すると、一覧の出力に表示するプロパティと列をカスタマイズすることができます。 次の例は、`list` コマンドで VM 名とリソース グループ名だけを選択する方法を示しています。
 
-```azurecli-interactive
-az vm list --query "[].{ resource: resourceGroup, name: name }" -o table
+```azurecli
+az vm list --query "[].{resource:resourceGroup, name:name}" -o table
 ```
 
 ```
@@ -101,42 +98,70 @@ RGDEMO001   KBDemo001VM
 RGDEMO001   KBDemo020
 ```
 
-## <a name="using-the-tsv-option"></a>tsv オプションの使用
+> [!NOTE]
+> 特定のキーはフィルター処理され、テーブル ビューには出力されません。 `id`、`type`、および `etag` が、これに相当します。 出力でこれらを表示する必要がある場合は、JMESPath キー更新機能を使用してキー名を変更し、フィルター処理を回避します。
+>
+> ```azurecli
+> az vm list --query "[].{objectID:id}" -o table
+> ```
 
-'tsv' 出力形式では、見出しとダッシュが含まれない、単純なテキスト ベースのタブ区切りの出力が返されます。 この形式を使用すると、なんらかの形式でテキストを処理する必要がある他のコマンドやツールで出力を簡単に利用できるようになります。 前の例で `tsv` オプションを使用すると、タブ区切りの結果が出力されます。
+クエリを使用してデータをフィルター処理する方法の詳細については、「[Azure CLI 2.0 で JMESPath クエリを使用する](/cli/azure/query-azure-cli)」を参照してください。
 
-```azurecli-interactive
+## <a name="tsv-output-format"></a>TSV 出力形式
+
+`tsv` 出力形式では、追加の書式設定、キー、またはその他の記号なしで、タブと改行で区切られた値が返されます。 この形式を使用すると、なんらかの形式でテキストを処理する必要がある他のコマンドやツールで出力を簡単に利用できるようになります。 `table` 形式と同じく、`tsv` 出力オプションでは、入れ子になったオブジェクトは出力されません。
+
+前の例で `tsv` オプションを使用すると、タブ区切りの結果が出力されます。
+
+```azurecli
 az vm list --out tsv
 ```
 
-```
-None    None        /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/DemoVM010    None    None    westus  DemoVM010           None    Succeeded   DEMORG1 None            Microsoft.Compute/virtualMachines   cbd56d9b-9340-44bc-a722-25f15b578444
-None    None        /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/demovm212    None    None    westus  demovm212           None    Succeeded   DEMORG1 None            Microsoft.Compute/virtualMachines   4bdac85d-c2f7-410f-9907-ca7921d930b4
-None    None        /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/demovm213    None    None    westus  demovm213           None    Succeeded   DEMORG1 None            Microsoft.Compute/virtualMachines   2131c664-221a-4b7f-9653-f6d542fbfa34
-None    None        /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo001VM    None    None    westus  KBDemo001VM         None    Succeeded   RGDEMO001   None            Microsoft.Compute/virtualMachines   14e74761-c17e-4530-a7be-9e4ff06ea74b
-None    None        /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo02None   None    westus  KBDemo020           None    Succeeded   RGDEMO001   None            Microsoft.Compute/virtualMachinesed36baa9-9b80-48a8-b4a9-854c7a858ece
+```output
+None    None        /subscriptions/.../resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/DemoVM010 None    None    westus  DemoVM010           None    Succeeded   DEMORG1 None            Microsoft.Compute/virtualMachines   cbd56d9b-9340-44bc-a722-25f15b578444
+None    None        /subscriptions/.../resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/demovm212 None    None    westus  demovm212           None    Succeeded   DEMORG1 None            Microsoft.Compute/virtualMachines   4bdac85d-c2f7-410f-9907-ca7921d930b4
+None    None        /subscriptions/.../resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/demovm213 None    None    westus  demovm213           None    Succeeded   DEMORG1 None            Microsoft.Compute/virtualMachines   2131c664-221a-4b7f-9653-f6d542fbfa34
+None    None        /subscriptions/.../resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo001VM None    None    westus  KBDemo001VM         None    Succeeded   RGDEMO001   None            Microsoft.Compute/virtualMachines   14e74761-c17e-4530-a7be-9e4ff06ea74b
+None    None        /subscriptions/.../resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo02None    None    westus  KBDemo020           None    Succeeded   RGDEMO001   None            Microsoft.Compute/virtualMachines    36baa9-9b80-48a8-b4a9-854c7a858ece
 ```
 
-次の例は、`tsv` の出力を `grep` や `cut` のようなコマンドにパイプ処理し、`list` 出力から特定の値をさらに解析する方法を示しています。 `grep` コマンドは "RGD" というテキストが含まれている項目のみを選択し、`cut` コマンドは出力に表示する 8 番目のフィールド (タブ区切り) の値のみを選択します。
+次の例は、`tsv` の出力を UNIX システムの他のコマンドにパイプ処理し、特定のデータを抽出する方法を示しています。 `grep` コマンドは "RGD" というテキストが含まれている項目を選択し、`cut` コマンドは 8 番目のフィールド (タブ区切り) の値を選択して、VM の名前を出力に表示します。
 
-```azurecli
+```bash
 az vm list --out tsv | grep RGD | cut -f8
 ```
 
-```
+```output
 KBDemo001VM
 KBDemo020
 ```
 
-## <a name="setting-the-default-output-format"></a>既定の出力形式の設定
+タブ区切りのフィールドを処理できるように、値は、JSON オブジェクトの出力と同じ順序で表示されます。 コマンドの実行間で、この順序に一貫性があることが保証されます。
 
-`az configure` コマンドを使用して、環境を設定したり、出力形式の既定の設定などの基本設定を確立したりすることができます。 一般的な使用では、最も簡単な既定の出力形式は "table" 形式であるため、出力形式の選択を求めるメッセージが表示されたら **3** を選択します。
+## <a name="set-the-default-output-format"></a>既定の出力形式を設定する
 
+対話型の `az configure` コマンドを使用して、環境を設定し、出力形式の既定の設定を確立します。 既定の出力形式は `json` です。 
+
+```azurecli
+az configure
 ```
+
+```output
+Welcome to the Azure CLI! This command will guide you through logging in and setting some default values.
+
+Your settings can be found at /home/defaultuser/.azure/config
+Your current configuration is as follows:
+
+  ...
+
+Do you wish to change your settings? (y/N): y
+
 What default output format would you like?
  [1] json - JSON formatted output that most closely matches API responses
  [2] jsonc - Colored JSON formatted output that most closely matches API responses
  [3] table - Human-readable output format
- [4] tsv - Tab and Newline delimited, great for GREP, AWK, etc.
-Please enter a choice [3]:
+ [4] tsv - Tab- and Newline-delimited, great for GREP, AWK, etc.
+Please enter a choice [1]:
 ```
+
+ご利用環境の構成方法の詳細については、「[Azure CLI 2.0 configuration (Azure CLI 2.0 の構成)](/cli/azure/azure-cli-configuration)」を参照してください。
