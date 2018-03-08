@@ -1,166 +1,128 @@
 ---
 title: "Azure CLI 2.0 でのクエリ コマンドの結果"
 description: "Azure CLI 2.0 コマンドの出力に対して JMESPath クエリを実行する方法について説明します。"
-author: rloutlaw
-ms.author: routlaw
-manager: douge
-ms.date: 02/27/2017
+author: sptramer
+ms.author: sttramer
+manager: carmonm
+ms.date: 02/22/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 98bc35c1e8136231011a2303901f42c68c9a7758
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: 2a0cdc34bbaf0864885588ecaddff725c744c90e
+ms.sourcegitcommit: 5a4c7205087d2f6c4800cf25178f0543a6157d99
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 02/24/2018
 ---
-# <a name="use-jmespath-queries-with-azure-cli-20"></a><span data-ttu-id="daa13-103">Azure CLI 2.0 で JMESPath クエリを使用する</span><span class="sxs-lookup"><span data-stu-id="daa13-103">Use JMESPath queries with Azure CLI 2.0</span></span>
+# <a name="use-jmespath-queries-with-azure-cli-20"></a><span data-ttu-id="06e0d-103">Azure CLI 2.0 で JMESPath クエリを使用する</span><span class="sxs-lookup"><span data-stu-id="06e0d-103">Use JMESPath queries with Azure CLI 2.0</span></span>
 
-<span data-ttu-id="daa13-104">Azure CLI 2.0 は、`--query` パラメーターを使用して、`az` コマンドの結果に対して [JMESPath クエリ](http://jmespath.org)を実行します。</span><span class="sxs-lookup"><span data-stu-id="daa13-104">The Azure CLI 2.0 uses the `--query` parameter to execute a [JMESPath query](http://jmespath.org) on the results of your `az` command.</span></span> <span data-ttu-id="daa13-105">JMESPath は、JSON 出力用の強力なクエリ言語です。</span><span class="sxs-lookup"><span data-stu-id="daa13-105">JMESPath is a powerful query language for JSON outputs.</span></span>  <span data-ttu-id="daa13-106">JMESPath クエリに慣れていない場合は、[JMESPath.org/tutorial](http://JMESPath.org/tutorial.html) にあるチュートリアルを参照できます。</span><span class="sxs-lookup"><span data-stu-id="daa13-106">If you are unfamiliar with JMESPath queries you can find a tutorial at [JMESPath.org/tutorial](http://JMESPath.org/tutorial.html).</span></span>
+<span data-ttu-id="06e0d-104">Azure CLI 2.0 では、`--query` 引数を使用して、コマンドの結果に対して [JMESPath クエリ](http://jmespath.org)を実行します。</span><span class="sxs-lookup"><span data-stu-id="06e0d-104">The Azure CLI 2.0 uses the `--query` argument to execute a [JMESPath query](http://jmespath.org) on the results of commands.</span></span> <span data-ttu-id="06e0d-105">JMESPath は、CLI の出力からデータを選択して表示できるようにする、JSON 用のクエリ言語です。</span><span class="sxs-lookup"><span data-stu-id="06e0d-105">JMESPath is a query language for JSON, giving you the ability to select and present data from CLI output.</span></span> <span data-ttu-id="06e0d-106">これらのクエリは、その他の表示書式設定を実行する前に、JSON 出力に対して実行されます。</span><span class="sxs-lookup"><span data-stu-id="06e0d-106">These queries are executed on the JSON output, before performing any other display formatting.</span></span>
 
-<span data-ttu-id="daa13-107">`Query` パラメーターは、Azure CLI 2.0 内のすべてのリソースの種類 (Container Services、Web Apps、VM など) でサポートされており、さまざまな目的で使用できます。</span><span class="sxs-lookup"><span data-stu-id="daa13-107">`Query` parameter is supported by every resource type (Container Services, Web Apps, VM, etc.) within Azure CLI 2.0 and can be used for various different purposes.</span></span>  <span data-ttu-id="daa13-108">以下に、いくつかの例を示します。</span><span class="sxs-lookup"><span data-stu-id="daa13-108">We have listed several examples below.</span></span>
+<span data-ttu-id="06e0d-107">`--query` 引数は、Azure CLI のすべてのコマンドでサポートされています。</span><span class="sxs-lookup"><span data-stu-id="06e0d-107">The `--query` argument is supported by all commands in the Azure CLI.</span></span> <span data-ttu-id="06e0d-108">この記事の例では、一般的なユース ケースについて説明し、JMESPath の機能を使用する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="06e0d-108">This article's examples cover common use cases and demonstrate how to use the features of JMESPath.</span></span>
 
-## <a name="select-simple-properties"></a><span data-ttu-id="daa13-109">単純なプロパティを選択する</span><span class="sxs-lookup"><span data-stu-id="daa13-109">Select simple properties</span></span>
+## <a name="work-with-dictionary-output"></a><span data-ttu-id="06e0d-109">ディクショナリ出力を使用する</span><span class="sxs-lookup"><span data-stu-id="06e0d-109">Work with dictionary output</span></span>
 
-<span data-ttu-id="daa13-110">`table` 出力形式を指定した単純な `list` コマンドは、各リソースの種類の最も一般的で単純なプロパティの精選されたセットを、読みやすい表形式で返します。</span><span class="sxs-lookup"><span data-stu-id="daa13-110">The simple `list` command with `table` output format returns a curated set of most common, simple properties for each resource type in an easy-to-read tabular format.</span></span>
+<span data-ttu-id="06e0d-110">JSON ディクショナリを返すコマンドは、キー名のみで探索できます。</span><span class="sxs-lookup"><span data-stu-id="06e0d-110">Commands that return a JSON dictionary can be explored by their key names alone.</span></span> <span data-ttu-id="06e0d-111">キーのパスは、`.` 文字を区切り記号として使用します。</span><span class="sxs-lookup"><span data-stu-id="06e0d-111">Key paths use the `.` character as a separator.</span></span> <span data-ttu-id="06e0d-112">次の例では、Linux VM に接続できる SSH 公開キーの一覧を取得します。</span><span class="sxs-lookup"><span data-stu-id="06e0d-112">The following example pulls a list of the public SSH keys allowed to connect to a Linux VM:</span></span>
 
-```azurecli-interactive
-az vm list --out table
+```azurecli
+az vm show -g QueryDemo -n TestVM --query osProfile.linuxConfiguration.ssh.publicKeys
 ```
 
-```
-Name         ResourceGroup    Location
------------  ---------------  ----------
-DemoVM010    DEMORG1          westus
-demovm212    DEMORG1          westus
-demovm213    DEMORG1          westus
-KBDemo001VM  RGDEMO001        westus
-KBDemo020    RGDEMO001        westus
+<span data-ttu-id="06e0d-113">複数の値を取得して、順序付けられた配列に配置することもできます。</span><span class="sxs-lookup"><span data-stu-id="06e0d-113">You can also get multiple values, putting them in an ordered array.</span></span> <span data-ttu-id="06e0d-114">この配列にキー情報はありませんが、配列の要素の順序はクエリ対象のキーの順序と一致します。</span><span class="sxs-lookup"><span data-stu-id="06e0d-114">The array doesn't have any key information, but the order of the array's elements matches the order of the queried keys.</span></span> <span data-ttu-id="06e0d-115">次の例では、Azure のイメージ オファリング名と OS ディスクのサイズを取得する方法を示します。</span><span class="sxs-lookup"><span data-stu-id="06e0d-115">The following example shows how to retrieve the Azure image offering name and the size of the OS disk:</span></span>
+
+```azurecli
+az vm show -g QueryDemo -n TestVM --query 'storageProfile.[imageReference.offer, osDisk.diskSizeGb]'
 ```
 
-<span data-ttu-id="daa13-111">`--query` パラメーターを使用すると、サブスクリプション内のすべての仮想マシンのリソース グループ名と VM 名だけを表示できます。</span><span class="sxs-lookup"><span data-stu-id="daa13-111">You can use the `--query` parameter to show just the Resource Group name and VM name for all virtual machines in your subscription.</span></span>
-
-```azurecli-interactive
-az vm list \
-  --query "[].[name, resourceGroup]" --out table
+```json
+[
+  "UbuntuServer",
+  30
+]
 ```
 
-```
-Column1     Column2
----------   -----------
-DemoVM010   DEMORG1
-demovm111   DEMORG1
-demovm211   DEMORG1
-demovm212   DEMORG1
-demovm213   DEMORG1
-demovm214   DEMORG1
-demovm222   DEMORG1
-KBDemo001VM RGDEMO001
-KBDemo020   RGDEMO001
+<span data-ttu-id="06e0d-116">出力にキーが必要な場合は、代替ディクショナリ構文を使用できます。</span><span class="sxs-lookup"><span data-stu-id="06e0d-116">If you want keys in your output, you can use an alternate dictionary syntax.</span></span> <span data-ttu-id="06e0d-117">ディクショナリに複数の要素を選択すると、`{displayKey:keyPath, ...}` の書式を使用して `keyPath` JMESPath 式でフィルター処理が行われます。</span><span class="sxs-lookup"><span data-stu-id="06e0d-117">Multiple element selection into a dictionary uses the format `{displayKey:keyPath, ...}` to filter on the `keyPath` JMESPath expression.</span></span> <span data-ttu-id="06e0d-118">これは、`{displayKey: value}` として出力に表示されます。</span><span class="sxs-lookup"><span data-stu-id="06e0d-118">This displays in the output as `{displayKey: value}`.</span></span> <span data-ttu-id="06e0d-119">次の例では、すぐ前の例のクエリを受け取り、出力にキーを割り当てることでわかりやすくしています。</span><span class="sxs-lookup"><span data-stu-id="06e0d-119">The next example takes the last example's query, and makes it clearer by assigning keys to the output:</span></span>
+
+```azurecli
+az vm show -g QueryDemo -n TestVM --query 'storageProfile.{image:imageReference.offer, diskSize:osDisk.diskSizeGb}'
 ```
 
-<span data-ttu-id="daa13-112">前の例では、列見出しが "Column1" と "Column2" であることがわかります。</span><span class="sxs-lookup"><span data-stu-id="daa13-112">In the previous example, you notice that the column headings are "Column1" and "Column2".</span></span>  <span data-ttu-id="daa13-113">選択したプロパティにわかりやすいラベルまたは名前を追加することもできます。</span><span class="sxs-lookup"><span data-stu-id="daa13-113">You can add friendly labels or names to the properties you select, as well.</span></span>  <span data-ttu-id="daa13-114">次の例では、選択したプロパティ "name" および "resourceGroup" にラベル "VMName" および "RGName" を追加しました。</span><span class="sxs-lookup"><span data-stu-id="daa13-114">In the following example, we added the labels "VMName" and "RGName" to the selected properties "name" and "resourceGroup".</span></span>
-
-
-```azurecli-interactive
-az vm list \
-  --query "[].{RGName:resourceGroup, VMName:name}" --out table
+```json
+{
+  "diskSize": 30,
+  "image": "UbuntuServer"
+}
 ```
 
-```
-RGName     VMName
----------  -----------
-DEMORG1    DemoVM010
-DEMORG1    demovm111
-DEMORG1    demovm211
-DEMORG1    demovm212
-DEMORG1    demovm213
-DEMORG1    demovm214
-DEMORG1    demovm222
-RGDEMO001  KBDemo001VM
-RGDEMO001  KBDemo020
-```
+<span data-ttu-id="06e0d-120">`table` 出力形式で情報を表示する場合は、ディクショナリ表示が特に便利です。</span><span class="sxs-lookup"><span data-stu-id="06e0d-120">When displaying information in the `table` output format, dictionary display is especially useful.</span></span> <span data-ttu-id="06e0d-121">これにより独自の列ヘッダーを設定できるため、出力がいっそう読みやすくなります。</span><span class="sxs-lookup"><span data-stu-id="06e0d-121">This allows for setting your own column headers, making output even easier to read.</span></span> <span data-ttu-id="06e0d-122">出力形式の詳細については、「[Azure CLI 2.0 コマンドの出力形式](/cli/azure/format-output-azure-cli)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="06e0d-122">For more information on output formats, see [Output formats for Azure CLI 2.0 commands](/cli/azure/format-output-azure-cli).</span></span>
 
-## <a name="select-complex-nested-properties"></a><span data-ttu-id="daa13-115">入れ子になった複雑なプロパティを選択する</span><span class="sxs-lookup"><span data-stu-id="daa13-115">Select complex nested properties</span></span>
+> [!NOTE]
+> <span data-ttu-id="06e0d-123">特定のキーはフィルター処理され、テーブル ビューには出力されません。</span><span class="sxs-lookup"><span data-stu-id="06e0d-123">Certain keys are filtered out and not printed in the table view.</span></span> <span data-ttu-id="06e0d-124">これらのキーは、`id`、`type`、および`etag` です。</span><span class="sxs-lookup"><span data-stu-id="06e0d-124">These keys are `id`, `type`, and `etag`.</span></span> <span data-ttu-id="06e0d-125">この情報を表示する必要がある場合は、キーの名前を変更し、フィルター処理を回避することができます。</span><span class="sxs-lookup"><span data-stu-id="06e0d-125">If you need to see this information, you can change the key name and avoid filtering.</span></span>
+>
+> ```azurecli
+> az vm show -g QueryDemo -n TestVM --query "{objectID:id}" -o table
+> ```
 
-<span data-ttu-id="daa13-116">選択の対象となるプロパティが、JSON 出力の中で深く入れ子になっている場合は、その入れ子になっているプロパティの完全パスを指定する必要があります。</span><span class="sxs-lookup"><span data-stu-id="daa13-116">If the property you want to select is nested deep in the JSON output you need to supply the full path to that nested property.</span></span> <span data-ttu-id="daa13-117">次の例は、vm list コマンドで VMName および OS の種類を選択する方法を示しています。</span><span class="sxs-lookup"><span data-stu-id="daa13-117">The following example shows how to select the VMName and the OS type from the vm list command.</span></span>
+## <a name="work-with-list-output"></a><span data-ttu-id="06e0d-126">一覧の出力を使用する</span><span class="sxs-lookup"><span data-stu-id="06e0d-126">Work with list output</span></span>
 
-```azurecli-interactive
-az vm list \
-  --query "[].{VMName:name, OSType:storageProfile.osDisk.osType}" --out table
+<span data-ttu-id="06e0d-127">複数の値を返す可能性のある CLI コマンドは、常に配列を返します。</span><span class="sxs-lookup"><span data-stu-id="06e0d-127">CLI commands that may return more than one value always return an array.</span></span> <span data-ttu-id="06e0d-128">配列の要素にはインデックスでアクセスできますが、CLI では順序が保証されていません。</span><span class="sxs-lookup"><span data-stu-id="06e0d-128">Arrays can have their elements accessed by index, but there's never an order guarantee from the CLI.</span></span> <span data-ttu-id="06e0d-129">値の配列にクエリを実行する最善の方法は、`[]` 演算子でそれらをフラット化することです。</span><span class="sxs-lookup"><span data-stu-id="06e0d-129">The best way to query an array of values is to flatten them with the `[]` operator.</span></span> <span data-ttu-id="06e0d-130">この演算子は、配列のキーの後、または式の最初の要素として記述します。</span><span class="sxs-lookup"><span data-stu-id="06e0d-130">The operator is written after the key for the array, or as the first element in the expression.</span></span> <span data-ttu-id="06e0d-131">フラット化に続いて配列の各要素に対してクエリが実行され、結果の値を新しい配列に配置します。</span><span class="sxs-lookup"><span data-stu-id="06e0d-131">Flattening runs the query following it against each individual element in the array, and places the resulting values into a new array.</span></span> <span data-ttu-id="06e0d-132">次の例では、名前とリソース グループ内の各 VM で実行されている OS を出力します。</span><span class="sxs-lookup"><span data-stu-id="06e0d-132">The following example prints out the name and OS running on each VM in a resource group.</span></span> 
+
+```azurecli
+az vm list -g QueryDemo --query '[].{name:name, image:storageProfile.imageReference.offer}'
 ```
 
-```
-VMName       OSType
------------  --------
-DemoVM010    Linux
-demovm111    Linux
-demovm211    Linux
-demovm212    Linux
-demovm213    Linux
-demovm214    Linux
-demovm222    Linux
-KBDemo001VM  Linux
-KBDemo020    Linux
-```
-
-## <a name="filter-with-the-contains-function"></a><span data-ttu-id="daa13-118">contains 関数を使用したフィルター処理</span><span class="sxs-lookup"><span data-stu-id="daa13-118">Filter with the contains function</span></span>
-
-<span data-ttu-id="daa13-119">JMESPath の `contains` 関数を使用すると、クエリで返される結果を絞り込むことができます。</span><span class="sxs-lookup"><span data-stu-id="daa13-119">You can use the JMESPath `contains` function to refine your results returned in the query.</span></span>
-<span data-ttu-id="daa13-120">次の例では、名前に "RGD" というテキストが含まれている VM のみをコマンドで選択します。</span><span class="sxs-lookup"><span data-stu-id="daa13-120">In the following example, the command selects only VMs that have the text "RGD" in their name.</span></span>
-
-```azurecli-interactive
-az vm list \
-  --query "[?contains(resourceGroup, 'RGD')].{ resource: resourceGroup, name: name }" --out table
-```
-
-```
-Resource    VMName
-----------  -----------
-RGDEMO001   KBDemo001VM
-RGDEMO001   KBDemo020
+```json
+[
+  {
+    "image": "CentOS",
+    "name": "CentBox"
+  },
+  {
+    "image": "openSUSE-Leap",
+    "name": "SUSEBox"
+  },
+  {
+    "image": "UbuntuServer",
+    "name": "TestVM"
+  },
+  {
+    "image": "UbuntuServer",
+    "name": "Test2"
+  },
+  {
+    "image": "WindowsServer",
+    "name": "WinServ"
+  }
+]
 ```
 
-<span data-ttu-id="daa13-121">次の例では、vmSize が 'Standard_DS1' と等しい VM が結果として返されます。</span><span class="sxs-lookup"><span data-stu-id="daa13-121">With the next example, the results will return the VMs that have the vmSize 'Standard_DS1'.</span></span>
+<span data-ttu-id="06e0d-133">キーのパスの一部である配列も、同様にフラット化することができます。</span><span class="sxs-lookup"><span data-stu-id="06e0d-133">Arrays that are part of a key path can be flattened as well.</span></span> <span data-ttu-id="06e0d-134">次の例は、VM が接続されている NIC の Azure オブジェクト ID を取得するクエリを示しています。</span><span class="sxs-lookup"><span data-stu-id="06e0d-134">This example demonstrates a query that gets the Azure object IDs for the NICs a VM is connected to.</span></span>
 
-```azurecli-interactive
-az vm list \
-  --query "[?contains(hardwareProfile.vmSize, 'Standard_DS1')]" --out table
+```azurecli
+az vm show -g QueryDemo -n TestVM --query 'networkProfile.networkInterfaces[].id'
 ```
 
-```
-ResourceGroup    VMName     VmId                                  Location    ProvisioningState
----------------  ---------  ------------------------------------  ----------  -------------------
-DEMORG1          DemoVM010  cbd56d9b-9340-44bc-a722-25f15b578444  westus      Succeeded
-DEMORG1          demovm111  c1c024eb-3837-4075-9117-bfbc212fa7da  westus      Succeeded
-DEMORG1          demovm211  95eda642-417f-4036-9475-67246ac0f0d0  westus      Succeeded
-DEMORG1          demovm212  4bdac85d-c2f7-410f-9907-ca7921d930b4  westus      Succeeded
-DEMORG1          demovm213  2131c664-221a-4b7f-9653-f6d542fbfa34  westus      Succeeded
-DEMORG1          demovm214  48f419af-d27a-4df0-87f3-9481007c2e5a  westus      Succeeded
-DEMORG1          demovm222  e0f59516-1d69-4d54-b8a2-f6c4a5d031de  westus      Succeeded
+## <a name="filter-array-output-with-predicates"></a><span data-ttu-id="06e0d-135">述語を使用して配列出力をフィルター処理する</span><span class="sxs-lookup"><span data-stu-id="06e0d-135">Filter array output with predicates</span></span>
+
+<span data-ttu-id="06e0d-136">JMESPath には、表示されるデータを除外する[フィルター式](http://jmespath.org/specification.html#filterexpressions)が用意されています。</span><span class="sxs-lookup"><span data-stu-id="06e0d-136">JMESPath offers [filtering expressions](http://jmespath.org/specification.html#filterexpressions) to filter out the data displayed.</span></span> <span data-ttu-id="06e0d-137">これらの式は強力で、[JMESPath 組み込み関数](http://jmespath.org/specification.html#built-in-functions)と組み合わせて、部分一致を実行したり、標準的な形式へとデータを操作したりするときに特に有用です。</span><span class="sxs-lookup"><span data-stu-id="06e0d-137">These expressions are powerful, especially when combined with [JMESPath built-in functions](http://jmespath.org/specification.html#built-in-functions) to perform partial matches or manipulate data into a standard format.</span></span> <span data-ttu-id="06e0d-138">フィルター式は配列データに対してのみ機能し、その他の状況で使用した場合は `null` 値が返されます。</span><span class="sxs-lookup"><span data-stu-id="06e0d-138">Filtering expressions only work on array data, and when used in any other situation, return the `null` value.</span></span> <span data-ttu-id="06e0d-139">たとえば、`vm list` などのコマンドの出力を取得し、フィルター処理して特定の種類の VM を検索することができます。</span><span class="sxs-lookup"><span data-stu-id="06e0d-139">For example, you can take the output of commands like `vm list` and filter on it to look for specific types of VMs.</span></span> <span data-ttu-id="06e0d-140">次の例では、VM の種類を絞り込んで Windows VM のみを取得し、その名前を出力することで、前の例を強化しています。</span><span class="sxs-lookup"><span data-stu-id="06e0d-140">The following example expands on the previous by filtering out the VM type to capture only Windows VMs and print their name.</span></span>
+
+```azurecli
+az vm list --query '[?osProfile.windowsConfiguration!=null].name'
 ```
 
-## <a name="filter-with-grep"></a><span data-ttu-id="daa13-122">grep を使用したフィルター処理</span><span class="sxs-lookup"><span data-stu-id="daa13-122">Filter with grep</span></span>
-
-<span data-ttu-id="daa13-123">`tsv` 出力形式は、ヘッダーのない、タブ区切りのテキストです。</span><span class="sxs-lookup"><span data-stu-id="daa13-123">The `tsv` output format is a tab-separated text with no headers.</span></span> <span data-ttu-id="daa13-124">これを `grep` や `cut` のようなコマンドにパイプ処理して、`list` 出力から特定の値をさらに解析することができます。</span><span class="sxs-lookup"><span data-stu-id="daa13-124">It can be piped to commands like `grep` and `cut` to further parse specific values out of the `list` output.</span></span> <span data-ttu-id="daa13-125">次の例では、名前に "RGD" というテキストが含まれている VM のみを `grep` コマンドで選択します。</span><span class="sxs-lookup"><span data-stu-id="daa13-125">In the following example, the `grep` command selects only VMs that have text "RGD" in their name.</span></span>  <span data-ttu-id="daa13-126">`cut` コマンドは、出力に表示する、8 番目のフィールド (タブ区切り) の値のみを選択します。</span><span class="sxs-lookup"><span data-stu-id="daa13-126">The `cut` command selects only the 8th field (separated by tabs) value to show in the output.</span></span>
-
-```azurecli-interactive
-az vm list --out tsv | grep RGD | cut -f8
+```json
+[
+  "WinServ"
+]
 ```
 
-```
-KBDemo001VM
-KBDemo020
-```
+## <a name="experiment-with-queries-interactively"></a><span data-ttu-id="06e0d-141">対話形式でのクエリの実験</span><span class="sxs-lookup"><span data-stu-id="06e0d-141">Experiment with queries interactively</span></span>
 
-## <a name="explore-with-jpterm"></a><span data-ttu-id="daa13-127">jpterm を使用した調査</span><span class="sxs-lookup"><span data-stu-id="daa13-127">Explore with jpterm</span></span>
-
-<span data-ttu-id="daa13-128">コマンドの出力を [JMESPath-terminal](https://github.com/jmespath/jmespath.terminal) にパイプ処理して、そこで JMESPath クエリを使用して調べることもできます。</span><span class="sxs-lookup"><span data-stu-id="daa13-128">You can also pipe the command output to [JMESPath-terminal](https://github.com/jmespath/jmespath.terminal) and experiment with your JMESPath query there.</span></span>
+<span data-ttu-id="06e0d-142">JMESPath 式を試すにあたり、簡単にクエリを編集したり、出力を調べたりできる方法で作業することができます。</span><span class="sxs-lookup"><span data-stu-id="06e0d-142">To experiment with JMESPath expressions, you might want to work in a way where you can quickly edit queries and inspect the output.</span></span> <span data-ttu-id="06e0d-143">対話型環境が、[JMESPath ターミナル](https://github.com/jmespath/jmespath.terminal) Python パッケージによって提供されています。これにより、入力としてデータをパイプ処理し、そのデータを抽出するプログラム内クエリを記述できます。</span><span class="sxs-lookup"><span data-stu-id="06e0d-143">An interactive environment is offered by the [JMESPath-terminal](https://github.com/jmespath/jmespath.terminal) Python package, which allows for piping data as input and then writing in-program queries to extract the data.</span></span>
 
 ```bash
 pip install jmespath-terminal
 az vm list | jpterm
 ```
-
