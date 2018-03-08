@@ -3,20 +3,80 @@ title: "Azure CLI 2.0 リリース ノート"
 description: "Azure CLI 2.0 の最新情報について説明します"
 author: sptramer
 ms.author: sttramer
-manager: routlaw
-ms.date: 02/13/2018
+manager: carmonm
+ms.date: 02/27/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 480b646b7230c8fb22f10b28a9204287cd0acc19
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: 01078b7a3665f563f0a6b1d809c9a41f18d136d6
+ms.sourcegitcommit: f3ab5da6019083ef2482b62c7355817e6170dcfb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 02/28/2018
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 リリース ノート
+
+## <a name="february-27-2018"></a>2018 年 2 月 27 日
+
+バージョン 2.0.28
+
+### <a name="core"></a>コア
+
+* [#5184](https://github.com/Azure/azure-cli/issues/5184) を修正: Homebrew のインストールの問題
+* カスタム キーを使用した拡張機能のテレメトリのサポートを追加しました
+* HTTP ログを `--debug` に追加しました
+
+### <a name="acs"></a>ACS
+
+* 既定で `aks install-connector` の `virtual-kubelet-for-aks` Helm チャートを使用するように変更しました
+* 修正された問題: ACI コンテナー グループを作成するためのアクセス許可がサービス プリンシパルに不足している問題
+* `--aci-container-group`、`--location`、および `--image-tag` の各パラメーターを `aks install-connector` に追加しました
+* 非推奨に関する通知を `aks get-versions` から削除しました
+
+### <a name="appservice"></a>Appservice
+
+* 新しい SDK バージョン (azure-mgmt-web 0.35.0) の更新
+* [#5538](https://github.com/Azure/azure-cli/issues/5538) を修正: 無効な SKU として報告された `Free`
+
+### <a name="cognitive-services"></a>Cognitive Services
+
+* 新しい Cognitive Services アカウントを作成するときの "通知" を更新しました
+
+### <a name="consumption"></a>消費
+
+* pricesheet API の新しいコマンドを追加しました
+* 既存の使用方法の詳細と予約の詳細の形式を更新しました
+
+### <a name="container"></a>コンテナー
+
+* ACI でシークレットを使用するために `--secrets` と `--secrets-mount-path` の各引数を `container create` に追加しました
+
+### <a name="network"></a>ネットワーク
+
+* [#5559](https://github.com/Azure/azure-cli/issues/5559) を修正: `network vnet-gateway vpn-client generate` でクライアントが見つからない
+
+### <a name="resource"></a>リソース
+
+* エラー発生時にテンプレートとエラーの一部が表示されるように `group deployment export` を変更しました
+
+### <a name="role"></a>役割
+
+* サービス プリンシパル ロールの監査を許可するために `role assignment list-changelogs` を追加しました
+
+### <a name="sql"></a>SQL
+
+* 作成および更新時のデータベースとエラスティック プールのゾーン冗長性に対するサポートを追加しました
+
+### <a name="storage"></a>Storage
+
+* `storage blob [upload-batch|download-batch]` のターゲット パス/プレフィックスの指定を有効にしました
+
+### <a name="vm"></a>VM
+
+* 1 つの VMSS インスタンス上でのディスクの接続/デタッチのサポートを追加しました
+
 
 ## <a name="february-13-2018"></a>2018 年 2 月 13 日
 
@@ -1191,7 +1251,7 @@ vm (2.0.6)
 ### <a name="appservice"></a>AppService
 
 * 関数アプリ: 作成、表示、リスト、削除、ホスト名、SSL など、関数アプリに完全に対応するようになりました
-* Team Services (VSTS) が継続的な配信オプションとして "appservice web source-control config" に追加されました
+* Team Services (VSTS) が継続的デリバリー オプションとして "appservice web source-control config" に追加されました
 * "az webapp" が作成され "az app service web" が置き換えられています (下位互換性のために "az app service web" は 2 リリースだけ保持されます)
 * WebApp 作成時にデプロイと "ランタイム スタック" を構成するための引数が公開されました
 * "webapp list-runtimes" が公開されました
