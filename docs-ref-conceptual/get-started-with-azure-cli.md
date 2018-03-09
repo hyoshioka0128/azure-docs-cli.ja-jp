@@ -11,11 +11,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: c2758922d74080d3a3110b1e3a507ddf0f8d85d1
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: 3f5fe1b01a8ce691846126a6c03e7222e9b20e0d
+ms.sourcegitcommit: 29d7366a0902488f4f4d39c2cb0e89368d5186ea
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="get-started-with-azure-cli-20"></a>Azure CLI 2.0 を使ってみる
 
@@ -25,7 +25,7 @@ Azure CLI 2.0 へようこそ。 CLI は、Azure サービスを迅速かつ効�
 
 [CLI をインストール](install-azure-cli.md)するか、[Azure Cloud Shell](/azure/cloud-shell/overview) を試します (まだこの操作を行っていない場合)。
 
-ローカル インストールで CLI コマンドを使用する前に、[az login](/cli/azure/index#az_login) でログインする必要があります。
+ローカル インストールで CLI コマンドを使用する前に、[az login](/cli/azure/reference-index#az_login) でログインする必要があります。
 
 ```azurecli
 az login
@@ -53,7 +53,7 @@ az login
 CLI のコマンドは、"_グループ_" の "_サブコマンド_" として提供されます。
 各グループが、Azure によって提供されるサービスを表しており、サブグループによって、そのサービスのコマンドが論理グループに分かれています。
 
-コマンドを検索するには、[az find](/cli/azure/index#az_find) を使用します。 たとえば、`secret` を含むコマンド名を検索するには、次のコマンドを使用します。
+コマンドを検索するには、[az find](/cli/azure/reference-index#az_find) を使用します。 たとえば、`secret` を含むコマンド名を検索するには、次のコマンドを使用します。
 
 ```azurecli
 az find -q secret
@@ -95,8 +95,8 @@ Azure CLI 2.0 の使用を開始するには、詳細なチュートリアルを
 
 他のサービスに焦点を当てる必要がある場合、CLI を使用する Azure サービスについては、さまざまなクイックスタートがあります。
 
-* [Azure CLI を使用したストレージ アカウントの作成](/azure/storage/common/storage-quickstart-create-storage-account-cl)
-* [CLI を使用した Azure Blob Storage との間でのオブジェクトの転送](/storage/blobs/storage-quickstart-blobs-cli)
+* [Azure CLI を使用したストレージ アカウントの作成](/azure/storage/common/storage-quickstart-create-storage-account-cli)
+* [CLI を使用した Azure Blob Storage との間でのオブジェクトの転送](/azure/storage/blobs/storage-quickstart-blobs-cli)
 * [Azure CLI を使用した単一の Azure SQL データベースの作成](/azure/sql-database/sql-database-get-started-cli)
 * [Azure CLI を使用した Azure Database for MySQL サーバーの作成](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
 * [Azure CLI を使用した Azure Database for PostgreSQL の作成](/azure/postgresql/quickstart-create-server-database-azure-cli)
