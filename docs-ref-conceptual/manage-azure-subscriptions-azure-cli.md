@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 9f03e52fa72a8dbd5753904839a833db01ffb59b
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: b0c0b3f5e4d9bc651ad4781cb0906dc98d8531a3
+ms.sourcegitcommit: 29d7366a0902488f4f4d39c2cb0e89368d5186ea
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="manage-multiple-azure-subscriptions"></a>複数の Azure サブスクリプションの管理
 
@@ -26,6 +26,7 @@ Azure におけるテナント、ユーザー、サブスクリプションが�
 
 テナント、ユーザー、サブスクリプションの違いの詳細については、[Azure クラウド用語集](/azure/azure-glossary-cloud-terminology)のページをご覧ください。
 Azure Active Directory テナントに新しいサブスクリプションを追加する方法については、「[Azure サブスクリプションを Azure Active Directory に追加する方法](/azure/active-directory/active-directory-how-subscriptions-associated-directory)」をご覧ください。
+複数のテナントを使用するときは、特定のテナントへのログインが必要になる場合があります。 これを行うには、「[Azure CLI 2.0 を使用してログインする](/cli/azure/authenticate-azure-cli)」を参照してください。
 
 ## <a name="working-with-multiple-subscriptions"></a>複数のサブスクリプションの操作
 

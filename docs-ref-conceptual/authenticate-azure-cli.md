@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: a140f8f54ad72f7f3b5e2d63e2300d0aa2c061ac
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: 92c96b7e969de686689ef02bf068392b9f565698
+ms.sourcegitcommit: 29d7366a0902488f4f4d39c2cb0e89368d5186ea
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="log-in-with-azure-cli-20"></a>Azure CLI 2.0 を使用してログインする
 
@@ -42,6 +42,14 @@ Web ブラウザーから対話形式でログインします。
 az login -u <username> -p <password>
 ```
 
+## <a name="log-in-with-a-specific-tenant"></a>特定のテナントでログインする
+
+複数のテナントを使用する場合は、`--tenant` 引数を使用して、ログインするテナントを選択できます。 この引数の値として、`.onmicrosoft.com` ドメインまたはテナントの Azure オブジェクト ID を指定できます。 対話的にログインしたり、`--user` 引数と `--password` 引数で資格情報を指定したりできます。 
+
+```
+az login --tenant <tenant>
+```
+
 ## <a name="logging-in-with-a-service-principal"></a>サービス プリンシパルによるログイン
 
 サービス プリンシパルは、特定のユーザーに関連付けられていないアカウントであり、定義済みのロールによってアクセス許可を割り当てることができます。 サービス プリンシパルを使用した認証は、セキュリティで保護されたスクリプトやプログラムを記述するのに最適な方法で、アクセス許可の制限と、ローカルに保存された静的な資格情報の両方を適用できます。 サービス プリンシパルの詳細については、[Azure CLI を使用した Azure サービス プリンシパルの作成](create-an-azure-service-principal-azure-cli.md)に関するページをご覧ください。
@@ -52,10 +60,9 @@ az login -u <username> -p <password>
 az login --service-principal -u <user> -p <password-or-cert> --tenant <tenant>
 ```
 
-tenant 値は、サービス プリンシパルに関連付けられている Azure Active Directory テナントです。 値として、.onmicrosoft.com ドメインまたはテナントの Azure オブジェクト ID を指定できます。
+tenant 値は、サービス プリンシパルに関連付けられている Azure Active Directory テナントです。 値として、`.onmicrosoft.com` ドメインまたはテナントの Azure オブジェクト ID を指定できます。
 現在のログインのテナント オブジェクト ID を取得するには、次のコマンドを使用します。
 
 ```azurecli
 az account show --query 'tenantId' -o tsv
 ```
-
