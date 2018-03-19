@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 840e5e7d6531fe92d30235f621e381589266d1d3
-ms.sourcegitcommit: f82774a6f92598c41da9956284f563757f402774
+ms.openlocfilehash: 188e7dfded21bb5c7036b3a950b3e4cb10bc1d33
+ms.sourcegitcommit: 5c004b455eff196d853bfbe12901c6114a1652d7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="install-azure-cli-20-with-apt"></a>apt での Azure CLI 2.0 のインストール
 
@@ -62,6 +62,16 @@ gpg: keyserver receive failed: No dirmngr
 ```bash
 sudo apt-get install dirmngr
 ```
+
+### <a name="apt-key-hangs"></a>apt-key がハングする
+
+ファイアウォールの内側でポート 11371 への発信接続がブロックされている場合、`apt-key` コマンドが無期限にハングすることがあります。 発信接続用にファイアウォールで HTTP プロキシを使用する必要がある可能性があります。
+
+```bash
+sudo apt-key adv --keyserver-options http-proxy=http://<USER>:<PASSWORD>@<PROXY-HOST>:<PROXY-PORT>/ --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
+```
+
+プロキシがあるかどうかがわからない場合は、システム管理者に問い合わせてください。 プロキシでログインを必要としない場合は、ユーザー、パスワード、および `@` トークンを指定しないでください。
 
 ## <a name="update"></a>プライマリの
 
