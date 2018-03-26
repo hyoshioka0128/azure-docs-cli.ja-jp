@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 2.0 リリース ノート"
-description: "Azure CLI 2.0 の最新情報について説明します"
+title: Azure CLI 2.0 リリース ノート
+description: Azure CLI 2.0 の最新情報について説明します
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -10,13 +10,100 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 01078b7a3665f563f0a6b1d809c9a41f18d136d6
-ms.sourcegitcommit: f3ab5da6019083ef2482b62c7355817e6170dcfb
+ms.openlocfilehash: 116fa95e51399b9b97c1b35c38445f30db7efc94
+ms.sourcegitcommit: fefb5bb6a21cab30c44592c0577408a8d1a2ccc7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 リリース ノート
+
+## <a name="march-13-2018"></a>2018 年 3 月 13 日
+
+バージョン 2.0.29
+
+### <a name="acr"></a>ACR
+
+* `--image` パラメーターのサポートを `repository delete` に追加しました
+* `repository delete` コマンドの `--manifest` および `--tag` パラメーターを非推奨にしました
+* データを削除せずに、タグを削除する `repository untag` コマンドを追加しました
+
+### <a name="acs"></a>ACS
+
+* 既存のコネクタをアップグレードする `aks upgrade-connector` コマンドを追加しました
+* より読み取りやすいブロック スタイルの YAML を使用するように `kubectl` 構成ファイルを変更しました
+
+### <a name="advisor"></a>Advisor
+
+* [重大な変更] 名前を `advisor configuration get` から `advisor configuration list` に変更しました
+* [重大な変更] 名前を `advisor configuration set` から `advisor configuration update` に変更しました
+* [重大な変更] `advisor recommendation generate` を削除しました 
+* `--refresh` パラメーターを `advisor recommendation list` に追加しました
+* `advisor recommendation show` コマンドを追加しました
+
+### <a name="appservice"></a>Appservice
+
+* `[webapp|functionapp] assign-identity` を非推奨にしました
+* 管理対象 ID コマンド `webapp identity [assign|show]` および `functionapp identity [assign|show]` を追加しました
+
+### <a name="eventhubs"></a>イベント ハブ
+
+* 最初のリリース
+
+### <a name="extension"></a>内線番号
+
+* 使用しているディストリビューションがパッケージ ソース ファイルに格納されているものと異なる場合は、エラーが発生する可能性があるため、ユーザーに警告するチェックを追加しました
+
+### <a name="interactive"></a>対話
+
+* [#5625](https://github.com/Azure/azure-cli/issues/5625) を修正しました: 異なるセッション間で履歴が保持されます
+* [#3016](https://github.com/Azure/azure-cli/issues/3016) を修正しました: スコープ内にある間は履歴が記録されませんでした
+* [#5688](https://github.com/Azure/azure-cli/issues/5688) を修正しました: コマンド テーブルの読み込み中に例外が発生した場合、入力候補が表示されませんでした
+* 実行時間の長い操作の進行状況インジケーターを修正しました
+
+### <a name="monitor"></a>監視
+
+* `monitor autoscale-settings` コマンドを非推奨にしました
+* `monitor autoscale` コマンドを追加しました
+* `monitor autoscale profile` コマンドを追加しました
+* `monitor autoscale rule` コマンドを追加しました
+
+### <a name="network"></a>ネットワーク
+
+* [重大な変更] `route-filter rule create` から `--tags` パラメーターを削除しました
+* 次のコマンドの不適切な既定値を削除しました。
+  * `network express-route update`
+  * `network nsg rule update`
+  * `network public-ip update`
+  * `traffic-manager profile update`
+  * `network vnet-gateway update`
+* `network watcher connection-monitor` コマンドを追加しました
+* `--vnet` および `--subnet` パラメーターを `network watcher show-topology` に追加しました
+
+### <a name="profile"></a>プロファイル
+
+* `az login` の `--msi` パラメーターを非推奨にしました
+* `az login` の `--msi` パラメーターの代わりに `--identity` パラメーターを追加しました
+
+### <a name="rdbms"></a>RDBMS
+
+* [プレビュー] API 2017-12-01-preview を使用するように変更しました
+
+### <a name="service-bus"></a>Service Bus
+
+* 最初のリリース
+
+### <a name="storage"></a>Storage
+
+* [#4971](https://github.com/Azure/azure-cli/issues/4971) を修正しました: `storage blob copy` では他の Azure クラウドをサポートするようになりました。
+* [#5286](https://github.com/Azure/azure-cli/issues/5286) を修正しました: Batch コマンド `storage blob [delete-batch|download-batch|upload-batch]` の前提条件が満たされていなくても、エラーがスローされなくなりました
+
+### <a name="vm"></a>VM
+
+* 被管理対象データ ディスクを接続し、キャッシュを構成できるように `[vm|vmss] create` へのサポートを追加しました
+* `[vm|vmss] assign-identity` および `[vm|vmss] remove-identity` を非推奨にしました
+* 非推奨にしたコマンドの代わりに `vm identity [assign|remove|show]` および `vmss identity [assign|remove|show]` コマンドを追加しました
+* `vmss create` での既定の優先順位を None に変更しました
 
 ## <a name="february-27-2018"></a>2018 年 2 月 27 日
 
@@ -269,7 +356,7 @@ ms.lasthandoff: 02/28/2018
 * `browse` にカスタム URL のサポートを追加しました
 * `log tail` のスロットのサポートを修正しました
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>バックアップ
 
 * `backup item list` の `--container-name` オプションを省略可能に変更しました
 * `backup restore restore-disks` にストレージ アカウント オプションを追加しました
@@ -687,7 +774,7 @@ ms.lasthandoff: 02/28/2018
 
 * `webapp auth [update|show]` で認証設定を更新および表示する機能を追加しました
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>バックアップ
 
 * プレビュー リリース
 
