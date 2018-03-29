@@ -1,7 +1,7 @@
 ---
-title: "Azure CLI 2.0 の拡張機能"
-description: "Azure CLI 2.0 での拡張機能の使用"
-keywords: "Azure CLI, 拡張機能"
+title: Azure CLI 2.0 の拡張機能
+description: Azure CLI 2.0 での拡張機能の使用
+keywords: Azure CLI, 拡張機能
 author: sptramer
 ms.author: sttramer
 manager: routlaw
@@ -12,10 +12,10 @@ ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
 ms.openlocfilehash: 548c06c64cc98598a2bd24bcc5959e59bffb4930
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.sourcegitcommit: f57b5666523ef3642bee644eb0e0fe7085b3194a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="using-extensions-with-the-azure-cli-20"></a>Azure CLI 2.0 での拡張機能の使用
 
@@ -87,10 +87,8 @@ rm -rf $AZURE_EXTENSION_DIR/<extension-name>
 
 ### <a name="can-extensions-depend-upon-each-other"></a>拡張機能は相互に依存できますか。
 
-
 いいえ。 拡張機能は、相互に依存しない独立したパッケージである必要があります。 これは、CLI では拡張機能が読み込まれるタイミングが不明であるため、依存関係が満たされる保証がないからです。 拡張機能をインストールした場合、その拡張機能のみがインストールされます。また、他の拡張機能を削除しても、その拡張機能は動作し続けます。
 
 ### <a name="are-extensions-updated-along-with-the-cli"></a>拡張機能は CLI と共に更新されますか。
-
 
 いいえ。 「[拡張機能の更新](#updating-extensions)」で説明したように、拡張機能は個別に更新する必要があります。
