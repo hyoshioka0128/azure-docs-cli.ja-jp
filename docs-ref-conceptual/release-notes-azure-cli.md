@@ -10,13 +10,120 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 116fa95e51399b9b97c1b35c38445f30db7efc94
-ms.sourcegitcommit: fefb5bb6a21cab30c44592c0577408a8d1a2ccc7
+ms.openlocfilehash: 0e81f5723af47242f908b854045deb7d74c50c17
+ms.sourcegitcommit: b5a6296c006e3a44f66892729e47d7a967267d3e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 リリース ノート
+
+## <a name="march-27-2018"></a>2018 年 3 月 27 日
+
+バージョン 2.0.30
+
+### <a name="core"></a>コア
+
+* ヘルプでプレビュー版としてマークされている拡張機能に関するメッセージを表示します
+
+### <a name="acs"></a>ACS
+
+* Cloud Shell の `aks install-cli` での SSL 証明書の検証エラーを修正しました
+
+### <a name="appservice"></a>Appservice
+
+* `webapp update` に HTTPS 専用サポートを追加しました
+* `az webapp identity [assign|show]` と `az functionapp identity [assign|show]` にスロットのサポートを追加しました
+
+### <a name="backup"></a>バックアップ
+
+* 新しいコマンド `az backup protection isenabled-for-vm` を追加しました。 このコマンドは、VM がサブスクリプション内の任意のコンテナーによってバックアップされるかどうかを確認するときに使用できます
+* 次のコマンドの `--resource-group` パラメーターと `--vault-name` パラメーターに対して Azure のオブジェクト ID を有効にしました
+  * `backup container show`
+  * `backup item set-policy`
+  * `backup item show`
+  * `backup job show`
+  * `backup job stop`
+  * `backup job wait`
+  * `backup policy delete`
+  * `backup policy get-default-for-vm`
+  * `backup policy list-associated-items`
+  * `backup policy set`
+  * `backup policy show`
+  * `backup protection backup-now`
+  * `backup protection disable`
+  * `backup protection enable-for-vm`
+  * `backup recoverypoint show`
+  * `backup restore files mount-rp`
+  * `backup restore files unmount-rp`
+  * `backup restore restore-disks`
+  * `backup vault delete`
+  * `backup vault show`
+* `backup ... show` コマンドからの出力形式を受け入れるように、`--name` パラメーターを変更しました
+
+### <a name="container"></a>コンテナー
+
+* `container exec` コマンドを追加しました。 実行中のコンテナー グループのコンテナーでコマンドを実行します
+* コンテナー グループの作成および更新のために、テーブル出力が許可されます
+
+### <a name="extension"></a>内線番号
+
+* 拡張機能がプレビュー段階である場合に、`extension add` のメッセージを追加しました
+* `--show-details` を使用して完全な拡張機能データを表示できるように、`extension list-available` を変更しました
+* [重大な変更] 簡略化された拡張機能データを既定で表示するように、`extension list-available` を変更しました
+
+### <a name="interactive"></a>対話
+
+* コマンド テーブルの読み込みが完了するとすぐに入力候補がアクティブになるように変更しました
+* `--style` パラメーター使用時のバグを修正しました
+* 存在しない場合、コマンド テーブルのダンプ後に対話型レクサーがインスタンス化されました
+* 入力候補のサポートを強化しました
+
+### <a name="lab"></a>ラボ
+
+* `create environment` コマンドに関するバグを修正しました
+
+### <a name="monitor"></a>監視
+
+* `--top`、`--orderby`、`--namespace` のサポートを `metrics list`に追加しました [#5785](https://github.com/Azure/azure-cli/issues/5785)
+* [#4529](https://github.com/Azure/azure-cli/issues/5785) を修正しました: `metrics list` は、取得するメトリックのスペース区切りリストを受け入れます
+* `--namespace` のサポートを `metrics list-definitions` に追加しました [#5785](https://github.com/Azure/azure-cli/issues/5785)
+
+### <a name="network"></a>ネットワーク
+
+* プライベート DNS ゾーンのサポートを追加しました
+
+### <a name="profile"></a>プロファイル
+
+* `--identity-port` と `--msi-port` の警告を `login` に追加しました
+
+### <a name="rdbms"></a>RDBMS
+
+* ビジネス モデル GA API バージョン 2017-12-01 を追加しました
+
+### <a name="resource"></a>リソース
+
+* [重大な変更]: Changed `provider operation [list|show]` to not require `--api-version`
+
+### <a name="role"></a>役割
+
+* 必要なアクセス権の構成とネイティブ クライアントのサポートを `az ad app create` に追加しました
+* オブジェクトの解決時に 1000 未満の ID を返すように、`rbac` コマンドを変更しました
+* 資格情報管理コマンド `ad sp credential [reset|list|delete]` を追加しました
+* [重大な変更] `az role assignment [list|show]` の出力から 'properties' を削除しました
+* `dataActions` アクセス許可と `notDataActions` アクセス許可のサポートを `role definition` に追加しました
+
+### <a name="storage"></a>Storage
+
+* サイズが 195 ～ 200 GB のファイルをアップロードするときの問題を修正しました
+* [#4049](https://github.com/Azure/azure-cli/issues/4049) (追加 BLOB のアップロードで条件のパラメーターが無視される問題) を修正しました
+
+### <a name="vm"></a>VM
+
+* インスタンス数が 100 を超えるセットに対する今後の重大な変更に向けて、`vmss create` に警告を追加しました
+* ゾーン回復性のサポートを `vm [snapshot|image]` に追加しました
+* より適切に暗号化状態がレポートされるように、ディスクのインスタンス ビューを変更しました
+* [重大な変更] 出力を返さないように `vm extension delete` を変更しました
 
 ## <a name="march-13-2018"></a>2018 年 3 月 13 日
 
@@ -95,7 +202,7 @@ ms.lasthandoff: 03/17/2018
 
 ### <a name="storage"></a>Storage
 
-* [#4971](https://github.com/Azure/azure-cli/issues/4971) を修正しました: `storage blob copy` では他の Azure クラウドをサポートするようになりました。
+* [#4971](https://github.com/Azure/azure-cli/issues/4971) を修正しました: `storage blob copy` では他の Azure クラウドをサポートするようになりました
 * [#5286](https://github.com/Azure/azure-cli/issues/5286) を修正しました: Batch コマンド `storage blob [delete-batch|download-batch|upload-batch]` の前提条件が満たされていなくても、エラーがスローされなくなりました
 
 ### <a name="vm"></a>VM
@@ -218,8 +325,8 @@ ms.lasthandoff: 03/17/2018
 
 ### <a name="iot"></a>IoT
 
-* 成功時に `iot dps access policy [create|update]` が "検出不可" エラーを返す問題を修正しました。
-* 成功時に `iot dps linked-hub [create|update]` が "検出不可" エラーを返す問題を修正しました。
+* 成功時に `iot dps access policy [create|update]` が "検出不可" エラーを返す問題を修正しました
+* 成功時に `iot dps linked-hub [create|update]` が "検出不可" エラーを返す問題を修正しました
 * `--no-wait` のサポートを `iot dps access policy [create|update]` および `iot dps linked-hub [create|update]` に追加しました
 * パーティション数の指定を許可するように `iot hub create` を変更しました
 
@@ -799,15 +906,15 @@ ms.lasthandoff: 03/17/2018
 
 ### <a name="cdn"></a>CDN
 
-* `cdn custom-domain create` の "CustomDomain is not interable" バグを修正しました。
+* `cdn custom-domain create` の "CustomDomain is not interable" バグを修正しました
 
 ### <a name="extension"></a>内線番号
 
-* 最初のリリース。
+* 最初のリリース
 
 ### <a name="keyvault"></a>KeyVault
 
-* `keyvault set-policy` について、アクセス許可の大文字と小文字が区別される問題を修正しました。
+* `keyvault set-policy` について、アクセス許可の大文字と小文字が区別される問題を修正しました
 
 ### <a name="network"></a>ネットワーク
 
@@ -859,13 +966,13 @@ ms.lasthandoff: 03/17/2018
 
 ### <a name="cli"></a>CLI
 
-* `--version` に法的事項を追加しました。
+* `--version` に法的事項を追加しました
 
 ### <a name="acs"></a>ACS
 
-* プレビュー リージョンを修正しました。
-* 既定の `dns_name_prefix` を正しい形式にしました。
-* ACS コマンド出力を最適化しました。
+* プレビュー リージョンを修正しました
+* 既定の `dns_name_prefix` を正しい形式にしました
+* ACS コマンド出力を最適化しました
 
 ### <a name="appservice"></a>Appservice
 
@@ -1090,7 +1197,7 @@ vm (2.0.11)
 
 ### <a name="cdn"></a>CDN
 
-* `--profile-name` によって指定されたプロファイルが存在しない場合に表示される `cdn endpoint list` のエラー メッセージを、より適切な内容に変更しました。
+* `--profile-name` によって指定されたプロファイルが存在しない場合に表示される `cdn endpoint list` のエラー メッセージを、より適切な内容に変更しました
 
 ### <a name="cloud"></a>クラウド
 
@@ -1103,7 +1210,7 @@ vm (2.0.11)
 ### <a name="cosmosdb"></a>Cosmos DB
 
 * カスタム パーティション キーでコレクションを作成できるように修正しました
-* 既定のコレクション TTL のサポートを追加しました。
+* 既定のコレクション TTL のサポートを追加しました
 
 ### <a name="data-lake-analytics"></a>Data Lake Analytics
 
@@ -1257,7 +1364,7 @@ vm (2.0.11)
 * nsg の構成をサポートします
 * DNS サーバーが正しく構成されないバグを修正しました
 * 管理対象のサービス ID をサポートします
-* 既存のロード バランサーを使用する `cmss create` で `--backend-pool-name` が必要だった問題を修正しました。
+* 既存のロード バランサーを使用する `cmss create` で `--backend-pool-name` が必要だった問題を修正しました
 * `vm image create` で作成された datadisks の lun を 0 から開始します
 
 
@@ -1267,12 +1374,12 @@ vm (2.0.11)
 
 * documentdb から cosmosdb に名前が変更されました
 * rdbms (mysql、postgres) が追加されました
-* Data Lake Analytics モジュールと Data Lake Store モジュールが追加されました。
-* Cognitive Services モジュールが追加されました。
-* Service Fabric モジュールが追加されました。
-* 対話型モジュールが追加されました (az-shell の名前変更)。
-* CDN コマンドに対応するようになりました。
-* コンテナー モジュールが削除されました。
+* Data Lake Analytics モジュールと Data Lake Store モジュールが追加されました
+* Cognitive Services モジュールが追加されました
+* Service Fabric モジュールが追加されました
+* 対話型モジュールが追加されました (az-shell の名前変更)
+* CDN コマンドに対応するようになりました
+* コンテナー モジュールが削除されました
 * "az --version" のショートカットとして "az -v" が追加されました ([#2926](https://github.com/Azure/azure-cli/issues/2926))
 * パッケージ読み込みとコマンド実行のパフォーマンスが向上しています ([#2819](https://github.com/Azure/azure-cli/issues/2819))
 
@@ -1347,27 +1454,27 @@ vm (2.0.6)
 * appservice コマンドからのポーランド語のエラー ([#2948](https://github.com/Azure/azure-cli/issues/2948))
 * 証明書の操作に App Service プランのリソース グループが使用されます ([#2750](https://github.com/Azure/azure-cli/issues/2750))
 
-### <a name="cosmosdb"></a>CosmosDB
+### <a name="cosmosdb"></a>Cosmos DB
 
-* documentdb モジュールから cosmosdb に名前が変更されました。
+* documentdb モジュールから cosmosdb に名前が変更されました
 * DocumentDB データプレーン API: データベースとコレクション管理に対応するようになりました
 * データベース アカウントにおける自動フェールオーバーの有効化に対応するようになりました
 * 新しい一貫性ポリシー ConsistentPrefix に対応するようになりました
 
 ### <a name="data-lake-analytics"></a>Data Lake Analytics
 
-* ジョブ リストの結果と状態に対するフィルター処理でエラーがスローされるバグが修正されました。
+* ジョブ リストの結果と状態に対するフィルター処理でエラーがスローされるバグが修正されました
 * 新しいカタログ項目の種類: パッケージに対応するようになりました。 `az dla catalog package` を介してアクセスされます
 * 次のカタログ項目の一覧をデータベース内から表示できます (スキーマ仕様は不要です)。
 
   * テーブル
   * テーブル値関数
   * 表示
-  * テーブルの統計。 スキーマと一緒に表示することもできますが、テーブル名を指定する必要はありません。
+  * テーブルの統計。 スキーマと一緒に表示することもできますが、テーブル名を指定する必要はありません
 
 ### <a name="data-lake-store"></a>Data Lake Store
 
-* 基になるファイルシステム SDK のバージョンが更新され、サーバー側スロットル処理への対応が強化されました。
+* 基になるファイルシステム SDK のバージョンが更新され、サーバー側スロットル処理への対応が強化されました
 * パッケージ読み込みとコマンド実行のパフォーマンスが向上しています ([#2819](https://github.com/Azure/azure-cli/issues/2819))
 * access show のヘルプがなかったため、 追加しました  ([#2743](https://github.com/Azure/azure-cli/issues/2743))
 
@@ -1378,18 +1485,18 @@ vm (2.0.6)
 ### <a name="keyvault"></a>KeyVault
 
 * BC: `az keyvault certificate download` によって -e が文字列またはバイナリから PEM または DER に変更され、オプションの表現が向上しました
-* BC: --expires パラメーターと --not-before パラメーターはサービスでサポートされていないため、`keyvault certificate create` から削除されました。
+* BC: --expires パラメーターと --not-before パラメーターはサービスでサポートされていないため、`keyvault certificate create` から削除されました
 * --validity パラメーターが `keyvault certificate create` に追加され、--policy の値が選択的に上書きされます
-* "expires" と "not_before" が公開され、"validity_in_months" が公開されなかった場合に `keyvault certificate get-default-policy` で発生する問題が修正されました。
+* "expires" と "not_before" が公開され、"validity_in_months" が公開されなかった場合に `keyvault certificate get-default-policy` で発生する問題が修正されました
 * KeyVault における pem と pfx のインポートが修正されました ([#2754](https://github.com/Azure/azure-cli/issues/2754))
 
 ### <a name="lab"></a>ラボ
 
-* ラボ環境用の作成、表示、削除、およびリスト コマンドが追加されました。
-* ラボで ARM テンプレートを表示するための表示およびリスト コマンドが追加されました。
-* ラボ環境で VM をフィルター処理するための --environment フラグが `az lab vm list` に追加されました。
-* ラボの数式内でアーティファクト スキャフォールディングをエクスポートするための便利なコマンド `az lab formula export-artifacts` が追加されました。
-* ラボ内でシークレットを管理するためのコマンドが追加されました。
+* ラボ環境用の作成、表示、削除、およびリスト コマンドが追加されました
+* ラボで ARM テンプレートを表示するための表示およびリスト コマンドが追加されました
+* ラボ環境で VM をフィルター処理するための --environment フラグが `az lab vm list` に追加されました
+* ラボの数式内でアーティファクト スキャフォールディングをエクスポートするための便利なコマンド `az lab formula export-artifacts` が追加されました
+* ラボ内でシークレットを管理するためのコマンドが追加されました
 
 ### <a name="monitor"></a>監視
 
@@ -1398,22 +1505,22 @@ vm (2.0.6)
 
 ### <a name="network"></a>ネットワーク
 
-* `network watcher test-connectivity` コマンドが追加されました。
-* `network watcher packet-capture create` の `--filters` パラメーターに対応するようになりました。
-* Application Gateway 接続のドレインに対応するようになりました。
-* Application Gateway WAF 規則セットの構成に対応するようになりました。
-* ExpressRoute ルート フィルターとルールに対応するようになりました。
-* TrafficManager の地理的なルーティングに対応するようになりました。
-* VPN 接続ポリシー ベースのトラフィック セレクターに対応するようになりました。
-* VPN 接続 IPSec ポリシーに対応するようになりました。
-* `--no-wait` パラメーターまたは `--validate` パラメーターを使用するときの `vpn-connection create` のバグが修正されました。
+* `network watcher test-connectivity` コマンドが追加されました
+* `network watcher packet-capture create` の `--filters` パラメーターに対応するようになりました
+* Application Gateway 接続のドレインに対応するようになりました
+* Application Gateway WAF 規則セットの構成に対応するようになりました
+* ExpressRoute ルート フィルターとルールに対応するようになりました
+* TrafficManager の地理的なルーティングに対応するようになりました
+* VPN 接続ポリシー ベースのトラフィック セレクターに対応するようになりました
+* VPN 接続 IPSec ポリシーに対応するようになりました
+* `--no-wait` パラメーターまたは `--validate` パラメーターを使用するときの `vpn-connection create` のバグが修正されました
 * アクティブ/アクティブ VNet ゲートウェイに対応するようになりました
-* `network vpn-connection list/show` コマンドの出力から null 値が削除されました。
+* `network vpn-connection list/show` コマンドの出力から null 値が削除されました
 * BC: `vpn-connection create` の出力のバグが修正されました
-* "vpn-connection create" の "--key-length" 引数が適切に解析されないバグが修正されました。
-* `dns zone import` でレコードが適切にインポートされないバグが修正されました。
-* `traffic-manager endpoint update` が動作しないバグを修正しました。
-* "Network Watcher" プレビューのコマンドが追加されました。
+* "vpn-connection create" の "--key-length" 引数が適切に解析されないバグが修正されました
+* `dns zone import` でレコードが適切にインポートされないバグが修正されました
+* `traffic-manager endpoint update` が動作しないバグを修正しました
+* "Network Watcher" プレビューのコマンドが追加されました
 
 ### <a name="profile"></a>プロファイル
 
@@ -1423,7 +1530,7 @@ vm (2.0.6)
 ### <a name="redis"></a>Redis
 
 * Redis Cache のスケール機能も追加する更新コマンドが追加されました
-* "update-settings" コマンドが廃止されました。
+* "update-settings" コマンドが廃止されました
 
 ### <a name="resource"></a>リソース
 
@@ -1445,12 +1552,12 @@ vm (2.0.6)
 
 ### <a name="sql"></a>SQL
 
-* az sql server list-usages コマンドと az sql db list-usages コマンドが追加されました。
+* az sql server list-usages コマンドと az sql db list-usages コマンドが追加されました
 * SQL - リソース プロバイダーに直接接続できます ([#2832](https://github.com/Azure/azure-cli/issues/2832))
 
 ### <a name="storage"></a>Storage
 
-* `storage account create` のリソース グループの場所に対する既定の場所。
+* `storage account create` のリソース グループの場所に対する既定の場所
 * 増分 BLOB コピーに対応するようになりました
 * 大きなブロック BLOB アップロードに対応するようになりました
 * アップロードするファイルが 200 GB を超える場合にブロック サイズが 100 MB に変更されます
@@ -1471,7 +1578,7 @@ vm (2.0.6)
 
 バージョン 2.0.2
 
-このリリースでは、ACR、Batch、KeyVault、SQL コンポーネントをリリースしました。
+このリリースでは、ACR、Batch、KeyVault、SQL コンポーネントをリリースしました
 
 ```
 azure-cli (2.0.2)
@@ -1505,7 +1612,7 @@ vm (2.0.2)
 
 ### <a name="core"></a>コア
 
-* 既定の一覧に acr、lab、monitor、find モジュールを追加。
+* 既定の一覧に acr、lab、monitor、find モジュールを追加
 * ログイン: 誤ったテナントをスキップ ([#2634](https://github.com/Azure/azure-cli/pull/2634))
 * ログイン: 既定のサブスクリプションを "Enabled" の状態のサブスクリプションに設定 ([#2575](https://github.com/Azure/azure-cli/pull/2575))
 * wait コマンドと --no-wait のサポートをより多くのコマンドに追加 ([#2524](https://github.com/Azure/azure-cli/pull/2524))
@@ -1530,8 +1637,8 @@ vm (2.0.2)
 
 ### <a name="datalake"></a>DataLake
 
-* Data Lake Analytics モジュールの最初のリリース。
-* Data Lake Store モジュールの最初のリリース。
+* Data Lake Analytics モジュールの最初のリリース
+* Data Lake Store モジュールの最初のリリース
 
 ### <a name="docuemntdb"></a>DocuemntDB
 
@@ -1551,21 +1658,17 @@ vm (2.0.2)
 
 バージョン 2.0.0
 
-Azure CLI 2.0 のこのリリースは、最初の "一般公開" リリースです。
-一般公開に該当するのは、以下のコマンド モジュールです。
+Azure CLI 2.0 のこのリリースは、最初の "一般公開" リリースです。一般公開に該当するのは、以下のコマンド モジュールです。
 - コンテナー サービス (acs)
 - コンピューティング (Resource Manager、VM、仮想マシン スケール セット、Managed Disks など)
 - ネットワーク
 - Storage
 
-これらのコマンド モジュールは、運用環境で使用することができ、標準の Microsoft SLA でサポートされています。
-問題は、Microsoft サポートで直接開くことも、[github の問題一覧](https://github.com/azure/azure-cli/issues/)で開くこともできます。
-[azure-cli タグを使用して StackOverflow](http://stackoverflow.com/questions/tagged/azure-cli) で質問したり、製品チーム ([azfeedback@microsoft.com](mailto:azfeedback@microsoft.com)) に問い合わせたりすることもできます。`az feedback` コマンドを使用すると、コマンド ラインからフィードバックを送ることができます。
+これらのコマンド モジュールは、運用環境で使用することができ、標準の Microsoft SLA でサポートされています。問題は、Microsoft サポートで直接開くことも、[GitHub の問題一覧](https://github.com/azure/azure-cli/issues/)で開くこともできます。[azure-cli タグを使用して StackOverflow](http://stackoverflow.com/questions/tagged/azure-cli) で質問したり、製品チーム ([azfeedback@microsoft.com](mailto:azfeedback@microsoft.com)) に問い合わせたりすることもできます。`az feedback` コマンドを使用すると、コマンド ラインからフィードバックを送ることができます。
 
-これらのモジュールのコマンドは安定しており、Azure CLI のこのバージョンの今後のリリースで構文が変更されることは想定されていません。
+これらのモジュールのコマンドは安定しており、Azure CLI のこのバージョンの今後のリリースで構文が変更されることは想定されていません
 
-CLI のバージョンを確認するには、`az --version` を使用します。
-出力では、CLI 自体のバージョン (このリリースでは 2.0.0)、個々のコマンド モジュール、および使用している Python と GCC のバージョンが示されます。
+CLI のバージョンを確認するには、`az --version` を使用します。出力では、CLI 自体のバージョン (このリリースでは 2.0.0)、個々のコマンド モジュール、および使用している Python と GCC のバージョンが示されます。
 
 ```
 azure-cli (2.0.0)
@@ -1597,14 +1700,12 @@ Python (Darwin) 2.7.10 (default, Jul 30 2016, 19:40:32)
 ```
 
 > [!Note]
-> コマンド モジュールには、"b*n*" または "rc*n*" という接尾辞が付いているものがあります。
-> これらのコマンド モジュールはまだプレビュー段階であり、今後一般公開される予定です。
+> コマンド モジュールには、"b*n*" または "rc*n*" という接尾辞が付いているものがあります。これらのコマンド モジュールはまだプレビュー段階であり、今後一般公開される予定です
 
-CLI のナイトリー プレビュー ビルドもあります。
-詳細については、[ナイトリー ビルドの入手](https://github.com/Azure/azure-cli#nightly-builds)に関する手順と、[開発者向けセットアップおよび共同作成コード](https://github.com/Azure/azure-cli#developer-setup)に関する手順を参照してください。
+CLI のナイトリー プレビュー ビルドもあります。詳細については、[ナイトリー ビルドの入手](https://github.com/Azure/azure-cli#nightly-builds)に関する手順と、[開発者向けセットアップおよび共同作成コード](https://github.com/Azure/azure-cli#developer-setup)に関する手順を参照してください
 
 ナイトリー プレビュー ビルドの問題は、次の方法で報告することができます。
 - [github の問題一覧](https://github.com/azure/azure-cli/issues/)で問題を報告する。
-- 製品チーム ([azfeedback@microsoft.com](mailto:azfeedback@microsoft.com)) に問い合わせる。
-- `az feedback` コマンドを使用してコマンド ラインからフィードバックを送る。
+- 製品チーム ([azfeedback@microsoft.com](mailto:azfeedback@microsoft.com)) に問い合わせる
+- `az feedback` コマンドを使用してコマンド ラインからフィードバックを送る
 

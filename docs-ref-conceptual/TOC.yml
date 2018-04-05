@@ -52,7 +52,12 @@
     - name: クエリ
       href: query-azure-cli.md
     - name: 拡張機能
-      href: azure-cli-extensions.md
+      href: azure-cli-extensions-overview.md
+      items:
+        - name: 使用可能な拡張機能
+          href: azure-cli-extensions-list.md
+        - name: エイリアス拡張機能
+          href: azure-cli-extension-alias.md
     - name: 構成設定
       href: azure-cli-Configuration.md
     - name: リリース ノート
