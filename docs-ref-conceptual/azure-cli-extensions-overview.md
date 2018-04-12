@@ -11,11 +11,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 5695d1df42689b315dd9d8783232ce35205a0a0e
-ms.sourcegitcommit: b5a6296c006e3a44f66892729e47d7a967267d3e
+ms.openlocfilehash: a150edbc174ff77f4320a2cb60e031dc3c6ad1cc
+ms.sourcegitcommit: c9da729f4a42a839f13106f7589deaa0ca19cc4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="using-extensions-with-the-azure-cli-20"></a>Azure CLI 2.0 での拡張機能の使用
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/28/2018
 
 ## <a name="find-extensions"></a>拡張機能の検索
 
-使用できる拡張機能を確認するには、[az extension list-available](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available) を使用できます。 このコマンドにより、Microsoft によって提供および管理されている公式の拡張機能が一覧表示されます。
+使用できる拡張機能を確認するには、[az extension list-available](/cli/azure/extension#az-extension-list-available) を使用できます。 このコマンドにより、Microsoft によって提供および管理されている公式の拡張機能が一覧表示されます。
 
 ```azurecli
 az extension list-available --output table
@@ -35,7 +35,7 @@ Microsoft では、ドキュメント サイトで [Microsoft 拡張機能の一
 
 ## <a name="install-extensions"></a>拡張機能のインストール
 
-インストールする拡張機能を見つけたら、[az extension add](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-add) を使用して取得します。 その拡張機能が `az extension list-available` に表示される場合は、名前によってインストールすることができます。
+インストールする拡張機能を見つけたら、[az extension add](https://docs.microsoft.com/en-us/cli/azure/extension#az-extension-add) を使用して取得します。 その拡張機能が `az extension list-available` に表示される場合は、名前によってインストールすることができます。
 
 ```azurecli
 az extension add --name <extension-name>
@@ -51,7 +51,7 @@ az extension add --source <URL-or-path>
 
 ## <a name="update-extensions"></a>拡張機能の更新
 
-拡張機能を名前でインストールした場合、[az extension update](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-update) を使用してその拡張機能を更新できます。
+拡張機能を名前でインストールした場合、[az extension update](https://docs.microsoft.com/en-us/cli/azure/extension#az-extension-update) を使用してその拡張機能を更新できます。
 
 ```azurecli
 az extension update --name <extension-name>
@@ -63,7 +63,7 @@ CLI を使用して拡張機能の名前を解決できない場合は、アン�
 
 ## <a name="uninstall-extensions"></a>拡張機能のアンインストール
 
-不要になった拡張機能は、[az extension remove](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-remove) を使用して削除できます。
+不要になった拡張機能は、[az extension remove](https://docs.microsoft.com/en-us/cli/azure/extension#az-extension-remove) を使用して削除できます。
 
 ```azurecli
 az extension remove --name <extension-name>

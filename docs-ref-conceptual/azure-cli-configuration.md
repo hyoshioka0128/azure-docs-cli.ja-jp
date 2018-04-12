@@ -11,11 +11,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 6970844bf9eba5ccf18b7603115de629e995f2c4
-ms.sourcegitcommit: f57b5666523ef3642bee644eb0e0fe7085b3194a
+ms.openlocfilehash: 7ef6175815014ac3f822e8c1038b4f5af8bba9dc
+ms.sourcegitcommit: c9da729f4a42a839f13106f7589deaa0ca19cc4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cli-20-configuration"></a>Azure CLI 2.0 の構成
 
@@ -29,7 +29,7 @@ CLI が使用する構成値は、次の優先順位で上から順番に評価�
 
 ## <a name="cli-configuration-with-az-configure"></a>az configure での CLI 構成
 
-CLI の既定値を [az configure](/cli/azure/reference-index#az_configure) コマンドで設定します。
+CLI の既定値を [az configure](/cli/azure/reference-index#az-configure) コマンドで設定します。
 このコマンドは 1 つの引数 `--defaults` を取ります。この引数は、スペースで区切られた `key=value` ペアのリストです。 指定した値は、必須の引数の代わりに、CLI によって使用されます。
 
 使用できるキーの一覧を次に示します。

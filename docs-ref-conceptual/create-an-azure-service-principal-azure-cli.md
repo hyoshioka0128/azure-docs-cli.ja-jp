@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 2.0 で Azure サービス プリンシパルを使用する"
-description: "Azure CLI 2.0 でサービス プリンシパルを作成および使用する方法について説明します。"
+title: Azure CLI 2.0 で Azure サービス プリンシパルを使用する
+description: Azure CLI 2.0 でサービス プリンシパルを作成および使用する方法について説明します。
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: b46c735a14240bddd07659475ada1c33c75a1e67
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: fd615c762f997cb8bd4835d387cd96dd9c475928
+ms.sourcegitcommit: c9da729f4a42a839f13106f7589deaa0ca19cc4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Azure CLI 2.0 で Azure サービス プリンシパルを作成する
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 02/15/2018
 
 ## <a name="create-the-service-principal"></a>サービス プリンシパルを作成する
 
-サービス プリンシパルを作成するには、[az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) コマンドを使用します。 サービス プリンシパル名は、既存のアプリケーションまたはユーザー名には関連付けられていません。 任意の認証の種類を使用して、サービス プリンシパルを作成できます。
+サービス プリンシパルを作成するには、[az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) コマンドを使用します。 サービス プリンシパル名は、既存のアプリケーションまたはユーザー名には関連付けられていません。 任意の認証の種類を使用して、サービス プリンシパルを作成できます。
 
 * パスワード ベースの認証には `--password` が使用されます。 [Azure Active Directory のパスワードの規則と制約事項](/azure/active-directory/active-directory-passwords-policy)に従って、必ず強力なパスワードを作成してください。 自分でパスワードを指定しなかった場合、任意のパスワードが自動的に生成されます。
 
@@ -67,9 +67,9 @@ ms.lasthandoff: 02/15/2018
 
 Azure CLI 2.0 には、ロールの割り当てを管理するために、次のコマンドが用意されています。
 
-* [az role assignment list](/cli/azure/role/assignment#list)
-* [az role assignment create](/cli/azure/role/assignment#create)
-* [az role assignment delete](/cli/azure/role/assignment#delete)
+* [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list)
+* [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)
+* [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete)
 
 サービス プリンシパルの既定のロールは**共同作成者**です。 このロールは、Azure アカウントの読み取りと書き込みを行うための完全なアクセス許可が付与され、通常、アプリケーションには適していません。 **閲覧者**ロールは制限が厳しく、読み取り専用アクセスを提供します。  ロールベースのアクセス制御 (RBAC) とロールの詳細については、[RBAC: 組み込みロール](/azure/active-directory/role-based-access-built-in-roles)に関するページをご覧ください。
 
@@ -108,7 +108,7 @@ az login --service-principal --username APP_ID --tenant TENANT_ID --password PAT
 ```
 ## <a name="reset-credentials"></a>資格情報をリセットする
 
-サービス プリンシパルの資格情報を忘れた場合、その情報は、[az ad sp reset-credentials](https://docs.microsoft.com/en-us/cli/azure/ad/sp?view=azure-cli-latest#az_ad_sp_reset_credentials) コマンドでリセットできます。 新しいサービス プリンシパルを作成するときの制限事項とオプションと同じものが、ここでも適用されます。
+サービス プリンシパルの資格情報を忘れた場合、その情報は、[az ad sp reset-credentials](https://docs.microsoft.com/en-us/cli/azure/ad/sp#az-ad-sp-reset-credentials) コマンドでリセットできます。 新しいサービス プリンシパルを作成するときの制限事項とオプションと同じものが、ここでも適用されます。
 
 ```azurecli
 az ad sp reset-credentials --name APP_ID --password NEW_PASSWORD
