@@ -1,7 +1,7 @@
 ---
-title: "Azure CLI 2.0 を使ってみる"
-description: "コマンドの基本を学習し、Azure CLI 2.0 を使い始めます。"
-keywords: "Azure CLI, CLI ヘルプ, Azure ヘルプ, クエリ, 自動化,"
+title: Azure CLI 2.0 を使ってみる
+description: コマンドの基本を学習し、Azure CLI 2.0 を使い始めます。
+keywords: Azure CLI, CLI ヘルプ, Azure ヘルプ, クエリ, 自動化,
 author: sptramer
 ms.author: sttramer
 manager: routlaw
@@ -11,11 +11,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 3f5fe1b01a8ce691846126a6c03e7222e9b20e0d
-ms.sourcegitcommit: 29d7366a0902488f4f4d39c2cb0e89368d5186ea
+ms.openlocfilehash: 9eec3161a726d6cca53d92f80992059bfd056bf7
+ms.sourcegitcommit: c9da729f4a42a839f13106f7589deaa0ca19cc4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-azure-cli-20"></a>Azure CLI 2.0 を使ってみる
 
@@ -25,7 +25,7 @@ Azure CLI 2.0 へようこそ。 CLI は、Azure サービスを迅速かつ効�
 
 [CLI をインストール](install-azure-cli.md)するか、[Azure Cloud Shell](/azure/cloud-shell/overview) を試します (まだこの操作を行っていない場合)。
 
-ローカル インストールで CLI コマンドを使用する前に、[az login](/cli/azure/reference-index#az_login) でログインする必要があります。
+ローカル インストールで CLI コマンドを使用する前に、[az login](/cli/azure/reference-index#az-login) でログインする必要があります。
 
 ```azurecli
 az login
@@ -53,7 +53,7 @@ az login
 CLI のコマンドは、"_グループ_" の "_サブコマンド_" として提供されます。
 各グループが、Azure によって提供されるサービスを表しており、サブグループによって、そのサービスのコマンドが論理グループに分かれています。
 
-コマンドを検索するには、[az find](/cli/azure/reference-index#az_find) を使用します。 たとえば、`secret` を含むコマンド名を検索するには、次のコマンドを使用します。
+コマンドを検索するには、[az find](/cli/azure/reference-index#az-find) を使用します。 たとえば、`secret` を含むコマンド名を検索するには、次のコマンドを使用します。
 
 ```azurecli
 az find -q secret
@@ -80,7 +80,7 @@ CLI では Bash シェルにコマンドの完全タブ補完が用意されて�
 
 ## <a name="interactive-mode"></a>対話モード
 
-CLI には対話モードが用意されています。このモードでは、ヘルプ情報が自動的に表示され、サブコマンドが選択しやすくなっています。 対話モードには `az interactive` コマンドで切り替えます。 対話モードと、これが CLI の学習にどのように役立つかについての詳細は、[Azure CLI 2.0 の対話モード](interactive-azure-cli.md)に関するページをご覧ください。
+CLI には対話モードが用意されています。このモードでは、ヘルプ情報が自動的に表示され、サブコマンドが選択しやすくなっています。 対話モードには [az interactive](/cli/azure/reference-index#az-interactive) コマンドで切り替えます。 対話モードと、これが CLI の学習にどのように役立つかについての詳細は、[Azure CLI 2.0 の対話モード](interactive-azure-cli.md)に関するページをご覧ください。
 
 また、オートコンプリート、マウス オーバー ドキュメントなど、対話型エクスペリエンスを提供する [Visual Studio Code プラグイン](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)も用意されています。
 
@@ -105,7 +105,7 @@ Azure CLI 2.0 の使用を開始するには、詳細なチュートリアルを
 
 ## <a name="give-feedback"></a>フィードバックを送る
 
-機能強化とバグ解決に活かすために、CLI に関する皆様のご意見をお待ちしております。 [GitHub で問題を報告](https://github.com/azure/azure-cli/issues)するか、CLI の組み込み機能を使用して、`az feedback` コマンドで一般的なフィードバックをお寄せください。
+機能強化とバグ解決に活かすために、CLI に関する皆様のご意見をお待ちしております。 [GitHub で問題を報告](https://github.com/azure/azure-cli/issues)するか、CLI の組み込み機能を使用して、[az feedback](/cli/azure/reference-index#az-feedback) コマンドで一般的なフィードバックをお寄せください。
 
 ```azurecli
 az feedback

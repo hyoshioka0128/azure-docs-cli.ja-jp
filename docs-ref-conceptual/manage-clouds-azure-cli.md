@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 2.0 で複数のクラウドを管理する"
-description: "Azure CLI 2.0 で複数のクラウドの作成、ログイン、管理を行います。"
+title: Azure CLI 2.0 で複数のクラウドを管理する
+description: Azure CLI 2.0 で複数のクラウドの作成、ログイン、管理を行います。
 author: sptramer
 manager: routlaw
 ms.author: sttramer
@@ -9,11 +9,11 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
-ms.openlocfilehash: ee6b1b6b1e611229ba6e6e0c4b2ca2de6f7ceaee
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: c17506cc81adc859ff5778b109c1832c857764e6
+ms.sourcegitcommit: c9da729f4a42a839f13106f7589deaa0ca19cc4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="managing-multiple-clouds-with-azure-cli-20"></a>Azure CLI 2.0 で複数のクラウドを管理する
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 02/15/2018
 
 ## <a name="listing-clouds"></a>クラウドの一覧表示
 
-使用可能なクラウドを [cloud list](/cli/azure/cloud#list) コマンドで一覧表示することができます。 これにより、現在アクティブなクラウド、その現在のプロファイル、およびリージョン サフィックスとホスト名に関する情報が得られます。
+使用可能なクラウドを [az cloud list](/cli/azure/cloud#az-cloud-list) コマンドで一覧表示することができます。 これにより、現在アクティブなクラウド、その現在のプロファイル、およびリージョン サフィックスとホスト名に関する情報が得られます。
 
 アクティブなクラウドと、すべての使用可能クラウドの一覧を取得するには、次のように入力します。
 
@@ -73,7 +73,7 @@ az cloud show --name AzureChinaCloud --output json
 
 ## <a name="switching-the-active-cloud"></a>アクティブなクラウドの切り替え
 
-現在アクティブなクラウドを切り替えるには、[cloud set](/cli/azure/cloud#set) コマンドを実行します。 このコマンドは、1 つの必須の引数として、クラウドの名前を受け取ります。
+現在アクティブなクラウドを切り替えるには、[az cloud set](/cli/azure/cloud#az-cloud-set) コマンドを実行します。 このコマンドは、1 つの必須の引数として、クラウドの名前を受け取ります。
 
 ```azurecli
 az cloud set --name AzureChinaCloud
@@ -85,20 +85,20 @@ az cloud set --name AzureChinaCloud
 
 ## <a name="register-a-cloud"></a>クラウドを登録する
 
-Azure Stack 用の独自のエンドポイントがある場合は、新しいクラウドを登録します。 [cloud register](/cli/azure/cloud#register) コマンドを実行すると、クラウドが作成されます。 このコマンドは、名前と、関連するエンドポイントを持つ機能のセットを必要とします。 Azure Stack で使用するクラウドの登録方法については、[Azure Stack で使用する CLI のインストールと構成](/azure/azure-stack/user/azure-stack-connect-cli#connect-to-azure-stack)に関するページをご覧ください。
+Azure Stack 用の独自のエンドポイントがある場合は、新しいクラウドを登録します。 [az cloud register](/cli/azure/cloud#az-cloud-register) コマンドを実行すると、クラウドが作成されます。 このコマンドは、名前と、関連するエンドポイントを持つ機能のセットを必要とします。 Azure Stack で使用するクラウドの登録方法については、[Azure Stack で使用する CLI のインストールと構成](/azure/azure-stack/user/azure-stack-connect-cli#connect-to-azure-stack)に関するページをご覧ください。
 
-中国、米国政府、またはドイツのリージョンについては、独自のクラウドを登録する必要はありません。 これらは Microsoft が管理しているため、既定値で使用可能です。  使用可能なエンドポイント設定に関する詳細については、[`az cloud register` のドキュメント](/cli/azure/cloud?view=azure-cli-latest#az_cloud_register)を参照してください。
+中国、米国政府、またはドイツのリージョンについては、独自のクラウドを登録する必要はありません。 これらは Microsoft が管理しているため、既定値で使用可能です。  使用可能なエンドポイント設定に関する詳細については、[`az cloud register` のドキュメント](/cli/azure/cloud#az-cloud-register)を参照してください。
 
 クラウドを登録しても、自動的にそのクラウドに切り替わるわけではありません。 前述のように、`az cloud set` コマンドを使用して、新規作成したクラウドを選択してください。
 
 ## <a name="update-an-existing-cloud"></a>既存のクラウドを更新する
 
 権限がある場合は、既存のクラウドを更新することもできます。 この更新は、別の Azure プロファイルへの切り替え、エンドポイントの追加、またはエンドポイントの変更が必要な場合に行いますい。
-これは `az cloud update` コマンドを使用して実行します。このコマンドでは `az cloud register` と同じ引数を使用します。 詳細については、[`az cloud update` のドキュメント](/cli/azure/cloud?view=azure-cli-latest#az_cloud_update)を参照してください。
+これは [az cloud update](/cli/azure/cloud#az-cloud-update) コマンドを使用して実行します。このコマンドでは `az cloud register` と同じ引数を使用します。
 
 ## <a name="unregister-a-cloud"></a>クラウドを登録解除する
 
-登録済みのクラウドが不要になった場合は、次のように、[cloud unregister](/cli/azure/cloud#unregister) コマンドを使用して登録解除できます。
+登録済みのクラウドが不要になった場合は、次のように、[az cloud unregister](/cli/azure/cloud#az-cloud-unregister) コマンドを使用して登録解除できます。
 
 ```azurecli
 az cloud unregister --name MyCloud
