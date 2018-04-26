@@ -11,27 +11,27 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 5f42605844432002959e308a0c536ff990f97d4b
-ms.sourcegitcommit: d9e5743a4321684c412c1740d26e7c1e258af5b2
+ms.openlocfilehash: 878a7f1621aceb1e610d611f1faaee2fea4e7712
+ms.sourcegitcommit: 204fd027d3668959b98b936969ccb41eada0fd29
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="install-azure-cli-20"></a><span data-ttu-id="78e38-104">Azure CLI 2.0 のインストール</span><span class="sxs-lookup"><span data-stu-id="78e38-104">Install Azure CLI 2.0</span></span>
+# <a name="install-azure-cli-20"></a><span data-ttu-id="f4d93-104">Azure CLI 2.0 のインストール</span><span class="sxs-lookup"><span data-stu-id="f4d93-104">Install Azure CLI 2.0</span></span>
 
-<span data-ttu-id="78e38-105">Azure CLI 2.0 は、Azure リソースを管理するための優れたエクスペリエンスを提供するコマンドライン ツールです。</span><span class="sxs-lookup"><span data-stu-id="78e38-105">The Azure CLI 2.0 is a command-line tool providing a great experience for managing Azure resources.</span></span> <span data-ttu-id="78e38-106">CLI では、スクリプトを簡単に作成したり、データを柔軟に照会したりできます。また、長時間実行される操作を非ブロッキング プロセスとしてサポートします。</span><span class="sxs-lookup"><span data-stu-id="78e38-106">The CLI is designed to make scripting easy, flexibly query data, support long-running operations as non-blocking processes, and more.</span></span> <span data-ttu-id="78e38-107">今すぐお試しになり、CLI が提供する機能をご確認ください。</span><span class="sxs-lookup"><span data-stu-id="78e38-107">Try it today and find out what the CLI has to offer!</span></span>
+<span data-ttu-id="f4d93-105">Azure CLI 2.0 は、Azure リソースを管理するための優れたエクスペリエンスを提供するコマンドライン ツールです。</span><span class="sxs-lookup"><span data-stu-id="f4d93-105">The Azure CLI 2.0 is a command-line tool providing a great experience for managing Azure resources.</span></span> <span data-ttu-id="f4d93-106">CLI では、スクリプトを簡単に作成したり、データを柔軟に照会したりできます。また、長時間実行される操作を非ブロッキング プロセスとしてサポートします。</span><span class="sxs-lookup"><span data-stu-id="f4d93-106">The CLI is designed to make scripting easy, flexibly query data, support long-running operations as non-blocking processes, and more.</span></span> <span data-ttu-id="f4d93-107">今すぐお試しになり、CLI が提供する機能をご確認ください。</span><span class="sxs-lookup"><span data-stu-id="f4d93-107">Try it today and find out what the CLI has to offer!</span></span>
 
-<span data-ttu-id="78e38-108">CLI の現在のバージョンは __2.0.30__ です。</span><span class="sxs-lookup"><span data-stu-id="78e38-108">The current version of the CLI is __2.0.30__.</span></span> <span data-ttu-id="78e38-109">最新リリースについては、[リリース ノート](release-notes-azure-cli.md)をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="78e38-109">For information about the latest release, see the [release notes](release-notes-azure-cli.md).</span></span>
+<span data-ttu-id="f4d93-108">CLI の現在のバージョンは __2.0.31__ です。</span><span class="sxs-lookup"><span data-stu-id="f4d93-108">The current version of the CLI is __2.0.31__.</span></span> <span data-ttu-id="f4d93-109">最新リリースについては、[リリース ノート](release-notes-azure-cli.md)をご覧ください。</span><span class="sxs-lookup"><span data-stu-id="f4d93-109">For information about the latest release, see the [release notes](release-notes-azure-cli.md).</span></span>
 
-* [<span data-ttu-id="78e38-110">Windows へのインストール</span><span class="sxs-lookup"><span data-stu-id="78e38-110">Install on Windows</span></span>](install-azure-cli-windows.md)
-* [<span data-ttu-id="78e38-111">macOS へのインストール</span><span class="sxs-lookup"><span data-stu-id="78e38-111">Install on macOS</span></span>](install-azure-cli-macos.md)
-* <span data-ttu-id="78e38-112">Linux または Windows Subsystem for Linux (WSL) へのインストール</span><span class="sxs-lookup"><span data-stu-id="78e38-112">Install on Linux or Windows Subsystem for Linux (WSL)</span></span>
-  * [<span data-ttu-id="78e38-113">Debian または Ubuntu での apt を使用したインストール</span><span class="sxs-lookup"><span data-stu-id="78e38-113">Install with apt on Debian or Ubuntu</span></span>](install-azure-cli-apt.md)
-  * [<span data-ttu-id="78e38-114">RHEL、Fedora、または CentOS での yum を使用したインストール</span><span class="sxs-lookup"><span data-stu-id="78e38-114">Install with yum on RHEL, Fedora, or CentOS </span></span>](install-azure-cli-yum.md)
-  * [<span data-ttu-id="78e38-115">openSUSE または SLE での zypper を使用したインストール</span><span class="sxs-lookup"><span data-stu-id="78e38-115">Install with zypper on openSUSE or SLE </span></span>](install-azure-cli-zypper.md)
-  * [<span data-ttu-id="78e38-116">スクリプトからのインストール</span><span class="sxs-lookup"><span data-stu-id="78e38-116">Install from script</span></span>](install-azure-cli-linux.md)
-* [<span data-ttu-id="78e38-117">Docker コンテナーでの実行</span><span class="sxs-lookup"><span data-stu-id="78e38-117">Run in Docker container</span></span>](run-azure-cli-docker.md)
+* [<span data-ttu-id="f4d93-110">Windows へのインストール</span><span class="sxs-lookup"><span data-stu-id="f4d93-110">Install on Windows</span></span>](install-azure-cli-windows.md)
+* [<span data-ttu-id="f4d93-111">macOS へのインストール</span><span class="sxs-lookup"><span data-stu-id="f4d93-111">Install on macOS</span></span>](install-azure-cli-macos.md)
+* <span data-ttu-id="f4d93-112">Linux または Windows Subsystem for Linux (WSL) へのインストール</span><span class="sxs-lookup"><span data-stu-id="f4d93-112">Install on Linux or Windows Subsystem for Linux (WSL)</span></span>
+  * [<span data-ttu-id="f4d93-113">Debian または Ubuntu での apt を使用したインストール</span><span class="sxs-lookup"><span data-stu-id="f4d93-113">Install with apt on Debian or Ubuntu</span></span>](install-azure-cli-apt.md)
+  * [<span data-ttu-id="f4d93-114">RHEL、Fedora、または CentOS での yum を使用したインストール</span><span class="sxs-lookup"><span data-stu-id="f4d93-114">Install with yum on RHEL, Fedora, or CentOS </span></span>](install-azure-cli-yum.md)
+  * [<span data-ttu-id="f4d93-115">openSUSE または SLE での zypper を使用したインストール</span><span class="sxs-lookup"><span data-stu-id="f4d93-115">Install with zypper on openSUSE or SLE </span></span>](install-azure-cli-zypper.md)
+  * [<span data-ttu-id="f4d93-116">スクリプトからのインストール</span><span class="sxs-lookup"><span data-stu-id="f4d93-116">Install from script</span></span>](install-azure-cli-linux.md)
+* [<span data-ttu-id="f4d93-117">Docker コンテナーでの実行</span><span class="sxs-lookup"><span data-stu-id="f4d93-117">Run in Docker container</span></span>](run-azure-cli-docker.md)
 
 > [!NOTE]
-> <span data-ttu-id="78e38-118">Azure クラシック デプロイメント モデルを使用している場合は、[Azure CLI 1.0 をインストール](install-cli-version-1.0.md)してください。</span><span class="sxs-lookup"><span data-stu-id="78e38-118">If you are using the Azure classic deployment model, [install Azure CLI 1.0](install-cli-version-1.0.md).</span></span>
+> <span data-ttu-id="f4d93-118">Azure クラシック デプロイメント モデルを使用している場合は、[Azure CLI 1.0 をインストール](install-cli-version-1.0.md)してください。</span><span class="sxs-lookup"><span data-stu-id="f4d93-118">If you are using the Azure classic deployment model, [install Azure CLI 1.0](install-cli-version-1.0.md).</span></span>
 

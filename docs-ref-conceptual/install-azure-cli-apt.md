@@ -1,6 +1,6 @@
 ---
-title: "apt を使用して Linux に Azure CLI 2.0 をインストールする"
-description: "apt パッケージ マネージャーで Azure CLI 2.0 をインストールする方法"
+title: apt を使用して Linux に Azure CLI 2.0 をインストールする
+description: apt パッケージ マネージャーで Azure CLI 2.0 をインストールする方法
 author: sptramer
 ms.author: sttramer
 manager: routlaw
@@ -10,22 +10,22 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 188e7dfded21bb5c7036b3a950b3e4cb10bc1d33
-ms.sourcegitcommit: 5c004b455eff196d853bfbe12901c6114a1652d7
+ms.openlocfilehash: a2578c79ba961cb12f3f49e77a9eaa73c4fe97a2
+ms.sourcegitcommit: 0e9aafa07311526f43661c8bd3a7eba7cbc2caed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/20/2018
 ---
-# <a name="install-azure-cli-20-with-apt"></a><span data-ttu-id="dd2ab-103">apt での Azure CLI 2.0 のインストール</span><span class="sxs-lookup"><span data-stu-id="dd2ab-103">Install Azure CLI 2.0 with apt</span></span>
+# <a name="install-azure-cli-20-with-apt"></a><span data-ttu-id="fa16f-103">apt での Azure CLI 2.0 のインストール</span><span class="sxs-lookup"><span data-stu-id="fa16f-103">Install Azure CLI 2.0 with apt</span></span>
 
-<span data-ttu-id="dd2ab-104">Ubuntu や Debian など、`apt` が付属するディストリビューションを実行している場合は、Azure CLI 用の利用可能な 64 ビット パッケージがあります。</span><span class="sxs-lookup"><span data-stu-id="dd2ab-104">If you are running a distribution that comes with `apt`, such as Ubuntu or Debian, there is a 64-bit package available for the Azure CLI.</span></span> <span data-ttu-id="dd2ab-105">このパッケージは、以下でテストされています。</span><span class="sxs-lookup"><span data-stu-id="dd2ab-105">This package has been tested with:</span></span>
+<span data-ttu-id="fa16f-104">Ubuntu や Debian など、`apt` が付属するディストリビューションを実行している場合は、Azure CLI 用の利用可能な 64 ビット パッケージがあります。</span><span class="sxs-lookup"><span data-stu-id="fa16f-104">If you are running a distribution that comes with `apt`, such as Ubuntu or Debian, there is a 64-bit package available for the Azure CLI.</span></span> <span data-ttu-id="fa16f-105">このパッケージは、以下でテストされています。</span><span class="sxs-lookup"><span data-stu-id="fa16f-105">This package has been tested with:</span></span>
 
-* <span data-ttu-id="dd2ab-106">Ubuntu trusty、xenial、および artful</span><span class="sxs-lookup"><span data-stu-id="dd2ab-106">Ubuntu trusty, xenial, and artful</span></span>
-* <span data-ttu-id="dd2ab-107">Debian wheezy、jessie、および stretch</span><span class="sxs-lookup"><span data-stu-id="dd2ab-107">Debian wheezy, jessie, and stretch</span></span>
+* <span data-ttu-id="fa16f-106">Ubuntu trusty、xenial、および artful</span><span class="sxs-lookup"><span data-stu-id="fa16f-106">Ubuntu trusty, xenial, and artful</span></span>
+* <span data-ttu-id="fa16f-107">Debian wheezy、jessie、および stretch</span><span class="sxs-lookup"><span data-stu-id="fa16f-107">Debian wheezy, jessie, and stretch</span></span>
 
-## <a name="install"></a><span data-ttu-id="dd2ab-108">Install</span><span class="sxs-lookup"><span data-stu-id="dd2ab-108">Install</span></span>
+## <a name="install"></a><span data-ttu-id="fa16f-108">Install</span><span class="sxs-lookup"><span data-stu-id="fa16f-108">Install</span></span>
 
-1. <span data-ttu-id="dd2ab-109">ソース リストを変更します。</span><span class="sxs-lookup"><span data-stu-id="dd2ab-109">Modify your sources list:</span></span>
+1. <span data-ttu-id="fa16f-109">ソース リストを変更します。</span><span class="sxs-lookup"><span data-stu-id="fa16f-109">Modify your sources list:</span></span>
 
      ```bash
      AZ_REPO=$(lsb_release -cs)
@@ -33,23 +33,41 @@ ms.lasthandoff: 03/15/2018
           sudo tee /etc/apt/sources.list.d/azure-cli.list
      ```
 
-2. <span data-ttu-id="dd2ab-110">次の sudo コマンドを実行します。</span><span class="sxs-lookup"><span data-stu-id="dd2ab-110">Run the following sudo commands:</span></span>
+2. <span data-ttu-id="fa16f-110">Microsoft の署名キーを取得します。</span><span class="sxs-lookup"><span data-stu-id="fa16f-110">Get the Microsoft signing key:</span></span>
 
    ```bash
    sudo apt-key adv --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
+   ```
+
+  > [!WARNING]
+  > <span data-ttu-id="fa16f-111">この署名キーは非推奨であり、2018年 5 月末に置き換えられます。</span><span class="sxs-lookup"><span data-stu-id="fa16f-111">This signing key is deprecated, and will be replaced at the end of May 2018.</span></span> <span data-ttu-id="fa16f-112">`apt` で更新プログラムを引き続き取得するには、必ず新しいキーもインストールしてください。</span><span class="sxs-lookup"><span data-stu-id="fa16f-112">In order to keep getting updates with `apt`, make sure that you also install the new key:</span></span>
+  > 
+  > ```bash
+  > curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+  > ``` 
+
+3. <span data-ttu-id="fa16f-113">CLI をインストールします。</span><span class="sxs-lookup"><span data-stu-id="fa16f-113">Install the CLI:</span></span>
+
+   ```bash
    sudo apt-get install apt-transport-https
    sudo apt-get update && sudo apt-get install azure-cli
    ```
 
-<span data-ttu-id="dd2ab-111">Azure CLI は `az` コマンドで実行できます。</span><span class="sxs-lookup"><span data-stu-id="dd2ab-111">You can run the Azure CLI with the `az` command.</span></span>
+<span data-ttu-id="fa16f-114">その後、Azure CLI は `az` コマンドで実行できます。</span><span class="sxs-lookup"><span data-stu-id="fa16f-114">You can then run the Azure CLI with the `az` command.</span></span> <span data-ttu-id="fa16f-115">ログインするには、`az login` コマンドを実行します。</span><span class="sxs-lookup"><span data-stu-id="fa16f-115">To log in, run the `az login` command.</span></span>
 
-## <a name="troubleshooting"></a><span data-ttu-id="dd2ab-112">トラブルシューティング</span><span class="sxs-lookup"><span data-stu-id="dd2ab-112">Troubleshooting</span></span>
+```azurecli
+az login
+```
 
-<span data-ttu-id="dd2ab-113">ここでは、`apt` でのインストール時に発生する一般的な問題をいくつか示します。</span><span class="sxs-lookup"><span data-stu-id="dd2ab-113">Here are some common problems seen when installing with `apt`.</span></span> <span data-ttu-id="dd2ab-114">問題がここに示されていない場合は、[GitHub で問題を報告](https://github.com/Azure/azure-cli/issues)してください。</span><span class="sxs-lookup"><span data-stu-id="dd2ab-114">If your issue is not listed here, please [file an issue on github](https://github.com/Azure/azure-cli/issues).</span></span>
+<span data-ttu-id="fa16f-116">さまざまなログイン方法の詳細については、「[Azure CLI 2.0 を使用してログインする](authenticate-azure-cli.md)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="fa16f-116">To learn more about different login methods, see [Log in with Azure CLI 2.0](authenticate-azure-cli.md).</span></span>
 
-### <a name="apt-key-fails-with-no-dirmngr"></a><span data-ttu-id="dd2ab-115">"No dirmngr" で apt-key が失敗する</span><span class="sxs-lookup"><span data-stu-id="dd2ab-115">apt-key fails with "No dirmngr"</span></span>
+## <a name="troubleshooting"></a><span data-ttu-id="fa16f-117">トラブルシューティング</span><span class="sxs-lookup"><span data-stu-id="fa16f-117">Troubleshooting</span></span>
 
-<span data-ttu-id="dd2ab-116">`apt-key` コマンドの実行時に、次のようなエラーが出力されることがあります。</span><span class="sxs-lookup"><span data-stu-id="dd2ab-116">When running the `apt-key` command, you may see output similar to the following error:</span></span>
+<span data-ttu-id="fa16f-118">ここでは、`apt` でのインストール時に発生する一般的な問題をいくつか示します。</span><span class="sxs-lookup"><span data-stu-id="fa16f-118">Here are some common problems seen when installing with `apt`.</span></span> <span data-ttu-id="fa16f-119">問題がここに示されていない場合は、[GitHub で問題を報告](https://github.com/Azure/azure-cli/issues)してください。</span><span class="sxs-lookup"><span data-stu-id="fa16f-119">If your issue is not listed here, please [file an issue on github](https://github.com/Azure/azure-cli/issues).</span></span>
+
+### <a name="apt-key-fails-with-no-dirmngr"></a><span data-ttu-id="fa16f-120">"No dirmngr" で apt-key が失敗する</span><span class="sxs-lookup"><span data-stu-id="fa16f-120">apt-key fails with "No dirmngr"</span></span>
+
+<span data-ttu-id="fa16f-121">`apt-key` コマンドの実行時に、次のようなエラーが出力されることがあります。</span><span class="sxs-lookup"><span data-stu-id="fa16f-121">When running the `apt-key` command, you may see output similar to the following error:</span></span>
 
 ```output
 gpg: failed to start the dirmngr '/usr/bin/dirmngr': No such file or directory
@@ -57,54 +75,54 @@ gpg: connecting dirmngr at '/tmp/apt-key-gpghome.kt5zo27tp1/S.dirmngr' failed: N
 gpg: keyserver receive failed: No dirmngr
 ```
 
-<span data-ttu-id="dd2ab-117">このエラーは、`apt-key` に必要なコンポーネントがないためです。</span><span class="sxs-lookup"><span data-stu-id="dd2ab-117">The error is due to a missing component required by `apt-key`.</span></span> <span data-ttu-id="dd2ab-118">これを解決するには、`dirmngr` パッケージをインストールします。</span><span class="sxs-lookup"><span data-stu-id="dd2ab-118">You can resolve it by installing the `dirmngr` package.</span></span>
+<span data-ttu-id="fa16f-122">このエラーは、`apt-key` に必要なコンポーネントがないためです。</span><span class="sxs-lookup"><span data-stu-id="fa16f-122">The error is due to a missing component required by `apt-key`.</span></span> <span data-ttu-id="fa16f-123">これを解決するには、`dirmngr` パッケージをインストールします。</span><span class="sxs-lookup"><span data-stu-id="fa16f-123">You can resolve it by installing the `dirmngr` package.</span></span>
 
 ```bash
 sudo apt-get install dirmngr
 ```
 
-### <a name="apt-key-hangs"></a><span data-ttu-id="dd2ab-119">apt-key がハングする</span><span class="sxs-lookup"><span data-stu-id="dd2ab-119">apt-key hangs</span></span>
+### <a name="apt-key-hangs"></a><span data-ttu-id="fa16f-124">apt-key がハングする</span><span class="sxs-lookup"><span data-stu-id="fa16f-124">apt-key hangs</span></span>
 
-<span data-ttu-id="dd2ab-120">ファイアウォールの内側でポート 11371 への発信接続がブロックされている場合、`apt-key` コマンドが無期限にハングすることがあります。</span><span class="sxs-lookup"><span data-stu-id="dd2ab-120">When behind a firewall blocking outgoing connections to port 11371, the `apt-key` command might hang indefinitely.</span></span> <span data-ttu-id="dd2ab-121">発信接続用にファイアウォールで HTTP プロキシを使用する必要がある可能性があります。</span><span class="sxs-lookup"><span data-stu-id="dd2ab-121">Your firewall may require the use of an HTTP proxy for outgoing connections:</span></span>
+<span data-ttu-id="fa16f-125">ファイアウォールの内側でポート 11371 への発信接続がブロックされている場合、`apt-key` コマンドが無期限にハングすることがあります。</span><span class="sxs-lookup"><span data-stu-id="fa16f-125">When behind a firewall blocking outgoing connections to port 11371, the `apt-key` command might hang indefinitely.</span></span> <span data-ttu-id="fa16f-126">発信接続用にファイアウォールで HTTP プロキシを使用する必要がある可能性があります。</span><span class="sxs-lookup"><span data-stu-id="fa16f-126">Your firewall may require the use of an HTTP proxy for outgoing connections:</span></span>
 
 ```bash
 sudo apt-key adv --keyserver-options http-proxy=http://<USER>:<PASSWORD>@<PROXY-HOST>:<PROXY-PORT>/ --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
 ```
 
-<span data-ttu-id="dd2ab-122">プロキシがあるかどうかがわからない場合は、システム管理者に問い合わせてください。</span><span class="sxs-lookup"><span data-stu-id="dd2ab-122">If you do not know if you have a proxy, contact your system administrator.</span></span> <span data-ttu-id="dd2ab-123">プロキシでログインを必要としない場合は、ユーザー、パスワード、および `@` トークンを指定しないでください。</span><span class="sxs-lookup"><span data-stu-id="dd2ab-123">If your proxy does not require a login then leave out the user, password, and `@` token.</span></span>
+<span data-ttu-id="fa16f-127">プロキシがあるかどうかがわからない場合は、システム管理者に問い合わせてください。</span><span class="sxs-lookup"><span data-stu-id="fa16f-127">If you do not know if you have a proxy, contact your system administrator.</span></span> <span data-ttu-id="fa16f-128">プロキシでログインを必要としない場合は、ユーザー、パスワード、および `@` トークンを指定しないでください。</span><span class="sxs-lookup"><span data-stu-id="fa16f-128">If your proxy does not require a login then leave out the user, password, and `@` token.</span></span>
 
-## <a name="update"></a><span data-ttu-id="dd2ab-124">プライマリの</span><span class="sxs-lookup"><span data-stu-id="dd2ab-124">Update</span></span>
+## <a name="update"></a><span data-ttu-id="fa16f-129">プライマリの</span><span class="sxs-lookup"><span data-stu-id="fa16f-129">Update</span></span>
 
-<span data-ttu-id="dd2ab-125">CLI パッケージを更新するには、`apt-get upgrade` を使用します。</span><span class="sxs-lookup"><span data-stu-id="dd2ab-125">Use `apt-get upgrade` to update the CLI package.</span></span>
+<span data-ttu-id="fa16f-130">CLI パッケージを更新するには、`apt-get upgrade` を使用します。</span><span class="sxs-lookup"><span data-stu-id="fa16f-130">Use `apt-get upgrade` to update the CLI package.</span></span>
 
    ```bash
    sudo apt-get update && sudo apt-get upgrade
    ```
 
 > [!NOTE]
-> <span data-ttu-id="dd2ab-126">このコマンドにより、システムにインストールされている、依存関係が変更されていないすべてのパッケージがアップグレードされます。</span><span class="sxs-lookup"><span data-stu-id="dd2ab-126">This command upgrades all of the installed packages on your system that have not had a dependency change.</span></span>
-> <span data-ttu-id="dd2ab-127">CLI だけをアップグレードするには、`apt-get install` を使用します。</span><span class="sxs-lookup"><span data-stu-id="dd2ab-127">To upgrade the CLI only, use `apt-get install`.</span></span>
+> <span data-ttu-id="fa16f-131">このコマンドにより、システムにインストールされている、依存関係が変更されていないすべてのパッケージがアップグレードされます。</span><span class="sxs-lookup"><span data-stu-id="fa16f-131">This command upgrades all of the installed packages on your system that have not had a dependency change.</span></span>
+> <span data-ttu-id="fa16f-132">CLI だけをアップグレードするには、`apt-get install` を使用します。</span><span class="sxs-lookup"><span data-stu-id="fa16f-132">To upgrade the CLI only, use `apt-get install`.</span></span>
 > ```bash
 > sudo apt-get update && sudo apt-get install --only-upgrade -y azure-cli
 > ```
 
-## <a name="uninstall"></a><span data-ttu-id="dd2ab-128">アンインストール</span><span class="sxs-lookup"><span data-stu-id="dd2ab-128">Uninstall</span></span>
+## <a name="uninstall"></a><span data-ttu-id="fa16f-133">アンインストール</span><span class="sxs-lookup"><span data-stu-id="fa16f-133">Uninstall</span></span>
 
 [!INCLUDE [uninstall-boilerplate.md](includes/uninstall-boilerplate.md)]
 
-1. <span data-ttu-id="dd2ab-129">`apt-get remove` を使用してアンインストールします。</span><span class="sxs-lookup"><span data-stu-id="dd2ab-129">Uninstall with `apt-get remove`.</span></span>
+1. <span data-ttu-id="fa16f-134">`apt-get remove` を使用してアンインストールします。</span><span class="sxs-lookup"><span data-stu-id="fa16f-134">Uninstall with `apt-get remove`.</span></span>
 
     ```bash
     sudo apt-get remove -y azure-cli
     ```
 
-2. <span data-ttu-id="dd2ab-130">CLI を再インストールする予定がない場合は、Azure CLI リポジトリ情報を削除します。</span><span class="sxs-lookup"><span data-stu-id="dd2ab-130">If you do not plan to reinstall the CLI, remove the Azure CLI repository information.</span></span>
+2. <span data-ttu-id="fa16f-135">CLI を再インストールする予定がない場合は、Azure CLI リポジトリ情報を削除します。</span><span class="sxs-lookup"><span data-stu-id="fa16f-135">If you do not plan to reinstall the CLI, remove the Azure CLI repository information.</span></span>
 
    ```bash
    sudo rm /etc/apt/sources.list.d/azure-cli.list
    ```
 
-3. <span data-ttu-id="dd2ab-131">不要なパッケージを削除します。</span><span class="sxs-lookup"><span data-stu-id="dd2ab-131">Remove any unneeded packages.</span></span>
+3. <span data-ttu-id="fa16f-136">不要なパッケージを削除します。</span><span class="sxs-lookup"><span data-stu-id="fa16f-136">Remove any unneeded packages.</span></span>
 
    ```bash
    sudo apt autoremove
