@@ -4,23 +4,23 @@ description: Azure CLI 2.0 で公式にサポートされている拡張機能�
 author: derekbekoe
 ms.author: debekoe
 manager: routlaw
-ms.date: 04/02/18
+ms.date: 04/19/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 794ea005816b33fe78ca6c15b86dcf94ace3eaa8
-ms.sourcegitcommit: c9da729f4a42a839f13106f7589deaa0ca19cc4e
+ms.openlocfilehash: 049ad9bd657ed76cf80ba0ab3262028458718dec
+ms.sourcegitcommit: 0e9aafa07311526f43661c8bd3a7eba7cbc2caed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="available-extensions-for-the-azure-cli-20"></a>Azure CLI 2.0 で使用可能な拡張機能
 
 この記事では、Microsoft によって提供およびサポートされている、Azure CLI 2.0 で使用可能な拡張機能の完全な一覧を示します。
 
-拡張機能の一覧は、CLI から直接入手することもできます。 取得するには、[az extension list-available](/cli/azure/extension#az-extension-list-available) を実行します。
+拡張機能の一覧は、CLI から直接入手することもできます。 取得するには、[az extension list-available](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available) を実行します。
 
 ```azurecli
 az extension list-available --output table
@@ -28,14 +28,14 @@ az extension list-available --output table
 
 | Name | バージョン | まとめ | プレビュー |
 |------|---------|---------|---------|
-| [aem](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Azure Enhanced Monitoring Extension for SAP を管理します。 |  |
-| [alias](https://github.com/Azure/azure-cli-extensions) | 0.3.0 | コマンドのエイリアスをサポートします。 | [はい] |
-| [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 2.1.0 | その他のプレビューの Azure Batch コマンドです。 |  |
-| [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.4.1 | Azure IoT Hub、IoT Edge、および IoT Device Provisioning Service にデータ プレーン コマンド レイヤーを提供します。 |  |
-| [dns](https://github.com/Azure/azure-cli-extensions) | 0.0.2 | Azure プライベート DNS のパブリック プレビューをサポートします。 |  |
-| [image-copy-extension](https://github.com/Azure/azure-cli-extensions) | 0.0.5 | リージョン間でイメージをコピーします。 |  |
-| [managementgroups](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | 管理グループのプレビューをサポートします。 | [はい] |
-| [managementpartner](https://github.com/Azure/azure-cli-extensions) | 0.1.2 | 管理パートナーのプレビューをサポートします。 | [はい] |
-| [rdbms](https://github.com/Azure/azure-cli-extensions) | 0.0.5 | Azure MySQL および Azure PostgreSQL をサポートします。 |  |
-| [サブスクリプション](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | サブスクリプション定義のプレビューをサポートします。 | [はい] |
-| [webapp](https://github.com/Azure/azure-cli-extensions) | 0.2.0 | appservice リソースを作成してデプロイします。 | [はい] |
+| [aem](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Azure Enhanced Monitoring Extension for SAP を管理します |  |
+| [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.0 | コマンドのエイリアスをサポートします | [はい] |
+| [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 2.2.1 | Azure Batch サービスを操作するための追加コマンド |  |
+| [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.4.3 | Azure IoT Hub、IoT Edge、および IoT Device Provisioning Service にデータ プレーン コマンド レイヤーを提供します |  |
+| [dns](https://github.com/Azure/azure-cli-extensions) | 0.0.2 | DNS ゾーン向けの Azure CLI 拡張機能 |  |
+| [image-copy-extension](https://github.com/Azure/azure-cli-extensions) | 0.0.5 | リージョン間でイメージをコピーする Azure CLI 拡張機能。 |  |
+| [managementgroups](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | 管理グループ向け Azure CLI 拡張機能 |  |
+| [managementpartner](https://github.com/Azure/azure-cli-extensions) | 0.1.2 | 管理パートナーのプレビューをサポートします |  |
+| [rdbms](https://github.com/Azure/azure-cli-extensions) | 0.0.5 | Azure MySQL および Azure PostgreSQL をサポートする Azure CLI 拡張機能。 |  |
+| [サブスクリプション](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | サブスクリプション管理プレビューをサポートします。 |  |
+| [webapp](https://github.com/Azure/azure-cli-extensions) | 0.2.1 | appservice のリソースを管理する Azure CLI 拡張機能 | [はい] |

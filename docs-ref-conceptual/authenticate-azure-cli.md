@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 2.0 を使用してログインする"
-description: "対話形式またはローカル資格情報で Azure CLI 2.0 を使用してログインします"
+title: Azure CLI 2.0 を使用してログインする
+description: 対話形式またはローカル資格情報で Azure CLI 2.0 を使用してログインします
 author: sptramer
 ms.author: sttramer
 manager: routlaw
@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 92c96b7e969de686689ef02bf068392b9f565698
-ms.sourcegitcommit: 29d7366a0902488f4f4d39c2cb0e89368d5186ea
+ms.openlocfilehash: a8bdf99d12e988cc6fdfabb5038c99c9430a9acd
+ms.sourcegitcommit: 0e9aafa07311526f43661c8bd3a7eba7cbc2caed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="log-in-with-azure-cli-20"></a>Azure CLI 2.0 を使用してログインする
 
@@ -33,7 +33,7 @@ Web ブラウザーから対話形式でログインします。
 
 ## <a name="command-line"></a>コマンド ライン
 
-コマンド ラインで、資格情報を指定します。
+コマンド ラインで、Azure ユーザー資格情報を指定します。
 
 > [!Note]
 > この方法は、Microsoft アカウント、または 2 要素認証が有効になっているアカウントでは機能しません。
@@ -41,6 +41,22 @@ Web ブラウザーから対話形式でログインします。
 ```azurecli
 az login -u <username> -p <password>
 ```
+
+> [!IMPORTANT]
+> `az login` を対話形式で使用しているときに、コンソールにパスワードが表示されないようにするには、`bash` では `read -s` コマンドを使用します。
+> 
+> ```bash
+> read -sp "Azure password: " AZ_PASS && echo && az login -u <username> -p $AZ_PASS
+> ```
+>
+> PowerShell では、`Read-Host -AsSecureString` コマンドレットを使用して、文字列変換をセキュリティで保護します。
+> 
+> ```powershell
+> $securePass =  Read-Host "Azure password: " -AsSecureString;
+> $AzPass = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($securePass));
+> az login -u <username> -p $AzPass;
+> $AzPass = ""
+> ```
 
 ## <a name="log-in-with-a-specific-tenant"></a>特定のテナントでログインする
 
@@ -50,14 +66,14 @@ az login -u <username> -p <password>
 az login --tenant <tenant>
 ```
 
-## <a name="logging-in-with-a-service-principal"></a>サービス プリンシパルによるログイン
+## <a name="log-in-with-a-service-principal"></a>サービス プリンシパルによるログイン
 
 サービス プリンシパルは、特定のユーザーに関連付けられていないアカウントであり、定義済みのロールによってアクセス許可を割り当てることができます。 サービス プリンシパルを使用した認証は、セキュリティで保護されたスクリプトやプログラムを記述するのに最適な方法で、アクセス許可の制限と、ローカルに保存された静的な資格情報の両方を適用できます。 サービス プリンシパルの詳細については、[Azure CLI を使用した Azure サービス プリンシパルの作成](create-an-azure-service-principal-azure-cli.md)に関するページをご覧ください。
 
 サービス プリンシパルでログインするには、ユーザー名、パスワードまたは証明書 PEM ファイル、およびサービス プリンシパルに関連付けられているテナントを指定します。
 
 ```azurecli
-az login --service-principal -u <user> -p <password-or-cert> --tenant <tenant>
+az login --service-principal -u <app-url> -p <password-or-cert> --tenant <tenant>
 ```
 
 tenant 値は、サービス プリンシパルに関連付けられている Azure Active Directory テナントです。 値として、`.onmicrosoft.com` ドメインまたはテナントの Azure オブジェクト ID を指定できます。
@@ -66,3 +82,19 @@ tenant 値は、サービス プリンシパルに関連付けられている Az
 ```azurecli
 az account show --query 'tenantId' -o tsv
 ```
+
+> [!IMPORTANT]
+> `az login` を対話形式で使用しているときに、コンソールにパスワードが表示されないようにするには、`bash` では `read -s` コマンドを使用します。
+> 
+> ```bash
+> read -sp "Azure password: " AZ_PASS && echo && az login --service-principal -u <app-url> -p $AZ_PASS --tenant <tenant>
+> ```
+>
+> PowerShell では、`Read-Host -AsSecureString` コマンドレットを使用して、文字列変換をセキュリティで保護します。
+> 
+> ```powershell
+> $securePass =  Read-Host "Azure password: " -AsSecureString;
+> $AzPass = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($securePass));
+> az login --service-principal -u <app-url> -p $AzPass --tenant <tenant>;
+> $AzPass = ""
+> ```

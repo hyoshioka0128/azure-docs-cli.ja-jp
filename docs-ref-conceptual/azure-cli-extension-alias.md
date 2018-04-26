@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: e457d78b1009fe573554df36db18f525516e0b4a
-ms.sourcegitcommit: 335c11e6c34f7907e61a43507745ba84ed4e7469
+ms.openlocfilehash: d6eae7f5a6ca30af7214e77ae561c3a53a2cee26
+ms.sourcegitcommit: 204fd027d3668959b98b936969ccb41eada0fd29
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="the-azure-cli-20-alias-extension"></a>Azure CLI 2.0 のエイリアス拡張機能
 
@@ -36,14 +36,15 @@ az extension add --name alias
 [az extension list](/cli/azure/extension#az-extension-list) を使用して拡張機能のインストールを確認します。 エイリアス拡張機能が正しくインストールされていれば、コマンドの出力に表示されます。
 
 ```azurecli
-az extension list --output table
+az extension list --output table --query '[].{Name:name}'
 ```
 
 ```output
-ExtensionType    Name                       Version
----------------  -------------------------  ---------
-whl              alias                      0.2.0
+Name
+------
+alias
 ```
+
 
 ## <a name="keep-the-extension-up-to-date"></a>拡張機能を最新の状態に保つ
 
@@ -53,27 +54,23 @@ whl              alias                      0.2.0
 az extension update --name alias
 ```
 
-## <a name="alias-commands-file-format"></a>エイリアス コマンド ファイルの形式
 
-エイリアス コマンド定義は、`$AZURE_USER_CONFIG/alias` にある構成ファイルに書き込まれます。 `AZURE_USER_CONFIG` の既定値は、macOS と Linux の場合は `$HOME/.azure`、Windows の場合は `%USERPROFILE%\.azure` です。 エイリアス構成ファイルは、INI 構成ファイル形式で記述されます。 エイリアス コマンドの一般的な形式は次のとおりです。
+## <a name="manage-aliases-for-the-azure-cli"></a>Azure CLI のエイリアスを管理する
 
+エイリアスの拡張機能により、便利で使い慣れたエイリアス管理コマンドを利用できます。 使用可能なすべてのコマンドおよびパラメーターの詳細を表示するには、`--help` でエイリアス コマンドを呼び出します。
+
+```azurecli
+az alias --help
 ```
-[command_name]
-command = invoked_commands
-```
 
-コマンドの一部として `az` を含めないでください。
 
 ## <a name="create-simple-alias-commands"></a>単純なエイリアス コマンドを作成する
 
 エイリアスの用途の 1 つは、既存のコマンド グループやコマンド名の短縮です。 たとえば、`group` コマンド グループを `rg` に、`list` コマンドを `ls` に短縮できます。
 
-```
-[rg]
-command = group
-
-[ls]
-command = list
+```azurecli
+az alias create --name rg --command group
+az alias create --name ls --command list
 ```
 
 新しく定義したこれらのエイリアスは、定義が存在する任意の場所で使用できるようになります。
@@ -84,11 +81,12 @@ az rg ls
 az vm ls
 ```
 
+コマンドの一部として `az` を含めないでください。
+
 エイリアスは、完全なコマンドのショートカットにすることもできます。 次の例では、使用可能なリソース グループとその位置がテーブル出力で表示されています。
 
-```
-[ls-groups]
-command = group list --query '[].{Name:name, Location:location}' --output table
+```azurecli
+az alias create --name ls-groups --command "group list --query '[].{Name:name, Location:location}' --output table"
 ```
 
 これで `ls-groups` を他の CLI コマンドのように実行できます。
@@ -97,20 +95,22 @@ command = group list --query '[].{Name:name, Location:location}' --output table
 az ls-groups
 ```
 
+
 ## <a name="create-an-alias-command-with-arguments"></a>引数付きのエイリアス コマンドを作成する
 
 エイリアス名に `{{ arg_name }}` として含めることで、位置引数をエイリアス コマンドに追加することもできます。 中かっこ内には空白が必要です。
 
-```
-[alias_name {{ arg1 }} {{ arg2 }} ...]
-command = invoke_including_args
+```azurecli
+az alias create --name "alias_name {{ arg1 }} {{ arg2 }} ..." --command "invoke_including_args"
 ```
 
 次の例のエイリアスは、位置引数を使用して VM のパブリック IP アドレスを取得する方法を示しています。
 
-```
-[get-vm-ip {{ resourceGroup }} {{ vmName }}]
-command = vm list-ip-addresses --resource-group {{ resourceGroup }} --name {{ vmName }} --query [0].virtualMachine.network.publicIpAddresses[0].ipAddress
+```azurecli
+az alias create \
+    --name "get-vm-ip {{ resourceGroup }} {{ vmName }}" \
+    --command "vm list-ip-addresses --resource-group {{ resourceGroup }} --name {{ vmName }}
+        --query [0].virtualMachine.network.publicIpAddresses[0].ipAddress"
 ```
 
 このコマンドを実行するときに、位置引数に値を指定します。
@@ -121,10 +121,14 @@ az get-vm-ip MyResourceGroup MyVM
 
 エイリアスによって呼び出したコマンドで環境変数を使用することもできます。この環境変数は実行時に評価されます。 次の例では、`create-rg` エイリアスを追加します。これにより、`eastus` 内にリソース グループが作成され、`owner` タグが追加されます。 このタグには、ローカル環境変数 `USER` の値が割り当てられます。
 
+```azurecli
+az alias create \
+    --name "create-rg {{ groupName }}" \
+    --command "group create --name {{ groupName }} --location eastus --tags owner=\$USER"
 ```
-[create-rg {{ groupName }}]
-command = group create --name {{ groupName }} --location eastus --tags owner=$USER
-```
+
+エイリアスのコマンド内に環境変数を登録するには、ドル記号 `$` をエスケープする必要があります。
+
 
 ## <a name="process-arguments-using-jinja2-templates"></a>Jinja2 テンプレートを使用した引数の処理
 
@@ -132,12 +136,43 @@ command = group create --name {{ groupName }} --location eastus --tags owner=$US
 
 Jinja2 テンプレートにより、基になるコマンドとは異なるさまざまな種類の引数を受け入れるエイリアスを作成できます。 たとえば、ストレージ URL を受け入れるエイリアスを作成できます。 この URL が解析され、アカウント名とコンテナー名がストレージ コマンドに渡されます。
 
-```
-[storage-ls {{ url }}]
-command = storage blob list --account-name {{ url.replace('https://', '').split('.')[0] }} --container-name {{ url.replace('https://', '').split('/')[1] }}
+```azurecli
+az alias create \
+    --name 'storage-ls {{ url }}' \
+    --command "storage blob list
+        --account-name {{ url.replace('https://', '').split('.')[0] }}
+        --container-name {{ url.replace('https://', '').split('/')[1] }}"
 ```
 
 Jinja2 テンプレート エンジンについては、[Jinja2 のドキュメント](http://jinja.pocoo.org/docs/2.10/templates/)を参照してください。
+
+
+## <a name="alias-configuration-file"></a>エイリアス構成ファイル
+
+エイリアス構成ファイルを変更することで、エイリアスを作成および変更することもできます。 エイリアス コマンド定義は、`$AZURE_USER_CONFIG/alias` にある構成ファイルに書き込まれます。 `AZURE_USER_CONFIG` の既定値は、macOS と Linux の場合は `$HOME/.azure`、Windows の場合は `%USERPROFILE%\.azure` です。 エイリアス構成ファイルは、INI 構成ファイル形式で記述されます。 エイリアス コマンドの形式は次のとおりです。
+
+```ini
+[alias_name]
+command = invoked_commands
+```
+
+位置引数を含むエイリアスの場合、エイリアス コマンドの形式は次のとおりです。
+
+```ini
+[alias_name {{ arg1 }} {{ arg2 }} ...]
+command = invoked_commands_including_args
+```
+
+
+## <a name="create-an-alias-command-with-arguments-via-the-alias-configuration-file"></a>エイリアス構成ファイルで引数付きのエイリアス コマンドを作成する
+
+引数付きのサンプル エイリアス コマンドを含むエイリアス構成ファイルを次に示します。これは、VM のパブリック IP アドレスを取得します。 呼び出されたコマンドが単一行であることと、エイリアスで定義された引数が含まれることを確認してください。
+
+```ini
+[get-vm-ip {{ resourceGroup }} {{ vmName }}]
+command = vm list-ip-addresses --resource-group {{ resourceGroup }} --name {{ vmName }} --query [0].virtualMachine.network.publicIpAddresses[0].ipAddress
+```
+
 
 ## <a name="uninstall-the-alias-extension"></a>エイリアス拡張機能のアンインストール
 

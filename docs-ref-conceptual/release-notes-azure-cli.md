@@ -4,19 +4,136 @@ description: Azure CLI 2.0 の最新情報について説明します
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 02/27/2018
+ms.date: 04/10/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 0e81f5723af47242f908b854045deb7d74c50c17
-ms.sourcegitcommit: b5a6296c006e3a44f66892729e47d7a967267d3e
+ms.openlocfilehash: 1e6bd4cd8bab853fb417ed9c4dd71d56e5de7cdc
+ms.sourcegitcommit: 204fd027d3668959b98b936969ccb41eada0fd29
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 リリース ノート
+
+## <a name="april-10-2018"></a>2018 年 4 月 10 日
+
+バージョン 2.0.31
+
+### <a name="acr"></a>ACR
+
+* wincred フォールバックのエラー処理を改善しました
+
+### <a name="acs"></a>ACS
+
+* AKS で作成した SPN を変更して 5 年間有効にしました
+
+### <a name="appservice"></a>Appservice
+
+* [重大な変更]: Removed `assign-identity`
+* 存在しない webapp プランのキャッチされない例外を修正しました
+
+### <a name="batchai"></a>BatchAI
+
+* 2018-03-01 API のサポートを追加しました
+
+ - ジョブ レベルのマウント
+ - シークレット値を含む環境変数
+ - パフォーマンス カウンターの設定
+ - ジョブ固有のパス セグメントのレポート
+ - ファイルを一覧表示する API のサブフォルダーのサポート
+ - 使用状況と制限のレポート
+ - NFS サーバーのキャッシュの種類が指定可能
+ - カスタム イメージのサポート
+ - pyTorch ツールキットのサポートを追加しました
+
+* `job wait` コマンドを追加しました。このコマンドは、ジョブ完了を待機できるようにして、ジョブ終了コードをレポートします
+* `usage show` コマンドを追加しました。このコマンドは、さまざまなリージョンにおける現在の Batch AI リソースの使用状況と制限を一覧表示します
+* National Clouds がサポートされています
+* 構成ファイルに加え、ジョブ レベルでファイルシステムをマウントするジョブ コマンド ライン引数を追加しました
+* VM 優先順位、サブネット、自動スケール クラスターの初期ノード数、カスタム イメージの指定など、クラスターのカスタマイズ オプションを追加しました
+* Batch AI マネージド NFS のキャッシュの種類を指定するコマンド ライン オプションを追加しました
+* 構成ファイルでのファイルシステム マウントの指定を簡素化しました。 Azure ファイル共有および Azure BLOB コンテナーの資格情報を省略できます。不足している資格情報は、CLI によって、コマンド ライン パラメーターを介して提供された、または環境変数によって指定されたストレージ アカウント キーを使用して設定されるか、Azure Storage からキーが照会されます (ストレージ アカウントが現在のサブスクリプションに属している場合)
+* ジョブ ファイル ストリーム コマンドがオートコンプリートされるようになりました (成功、失敗、終了、または削除)
+* `show` 操作の `table` 出力を改善しました
+* クラスター作成の `--use-auto-storage` オプションを追加しました。 このオプションによって、ストレージ アカウントの管理と、クラスターへの Azure ファイル共有および Azure BLOB コンテナーのマウントがシンプルになります
+* `--generate-ssh-keys` オプションを `cluster create` と `file-server create` に追加しました
+* コマンド ラインでノードのセットアップ タスクを提供できるようにしました
+* [重大な変更] `job file` グループで `job stream-file` および `job list-files` コマンドを移行しました
+* [重大な変更] `cluster create` コマンドに合わせて、`file-server create` コマンドの `--admin-user-name` の名前を `--user-name` に変更しました
+
+### <a name="billing"></a>課金
+
+* 登録アカウント コマンドを追加しました
+
+### <a name="consumption"></a>消費
+
+* `marketplace` コマンドを追加しました
+* [重大な変更] 名前を `reservations summaries` から `reservation summary` に変更しました
+* [重大な変更] 名前を `reservations details` から `reservation detail` に変更しました
+* [重大な変更] `reservation` コマンドの `--reservation-order-id` および `--reservation-id` の短いオプションを削除しました
+* [重大な変更] `reservation summary` コマンドの `--grain` の短いオプションを削除しました
+* [重大な変更] `pricesheet` コマンドの `--include-meter-details` の短いオプションを削除しました
+
+### <a name="container"></a>コンテナー
+
+* Git リポジトリのボリューム マウント パラメーター `--gitrepo-url`、`--gitrepo-dir`、`--gitrepo-revision`、および `--gitrepo-mount-path` を追加しました
+* [#5926](https://github.com/Azure/azure-cli/issues/5926) (--container-name が指定されたときに `az container exec` が失敗する) を修正しました
+
+### <a name="extension"></a>内線番号
+
+* ディストリビューション チェック メッセージをデバッグ レベルに変更しました
+
+### <a name="interactive"></a>対話
+
+* 認識できないコマンドが入力されたときに入力候補が停止するように変更しました
+* コマンド サブツリーの作成前および作成後にイベント フックを追加しました
+* `--ids` パラメーターの入力候補を追加しました
+
+### <a name="network"></a>ネットワーク
+
+* [#5936](https://github.com/Azure/azure-cli/issues/5936) (`application-gateway create` タグを設定できない) を修正しました
+* `application-gateway http-settings [create|update]` の認証証明書をアタッチする引数 `--auth-certs` を追加しました。 [#4910](https://github.com/Azure/azure-cli/issues/4910)
+* DDoS 保護プランを作成する `ddos-protection` コマンドを追加しました 
+* `--ddos-protection-plan` のサポートを `vnet [create|update]` に追加して、VNet を DDoS 保護プランに関連付けました
+* `network route-table [create|update]` の `--disable-bgp-route-propagation` フラグに関する問題を修正しました
+* `network lb [create|update]` のダミー引数 `--public-ip-address-type` および `--subnet-type` を削除しました
+* RFC 1035 エスケープ シーケンスを含む TXT レコードのサポートを `network dns zone [import|export]` および `network dns record-set txt add-record` に追加しました
+
+### <a name="profile"></a>プロファイル
+
+* `account list` に Azure クラシック アカウントのサポートを追加しました
+* [重大な変更] `--msi` & `--msi-port` 引数を削除しました
+
+### <a name="rdbms"></a>RDBMS
+
+* `georestore` コマンドを追加しました
+* ストレージ サイズの制限を `create` コマンドから削除しました
+
+### <a name="resource"></a>リソース
+
+* `--metadata` のサポートを `policy definition create` に追加しました
+* `--metadata`、`--set`、`--add`、`--remove` のサポートを `policy definition update` に追加しました
+
+### <a name="sql"></a>SQL
+
+* `sql elastic-pool op list` および `sql elastic-pool op cancel` を追加しました
+
+### <a name="storage"></a>Storage
+
+* 無効な形式の接続文字列のエラー メッセージを改善しました
+
+### <a name="vm"></a>VM
+
+* プラットフォーム障害ドメイン数の構成サポートを `vmss create` に追加しました
+* ゾーンベースの大規模な、または single-placement-group が無効なスケールセットについて、`vmss create` の既定値が Standard LB になるように変更しました
+* [重大な変更]: Removed `vm assign-identity`, `vm remove-identity and `vm format-secret`
+* Public-IP SKU のサポートを `vm create` に追加しました
+* コマンドでコンテナー ID を解決できないシナリオをサポートするように、`--keyvault` 引数と `--resource-group` 引数を `vm secret format` に追加しました。 [#5718](https://github.com/Azure/azure-cli/issues/5718)
+* リソース グループの場所でゾーンがサポートされていない場合の、`[vm|vmss create]` のエラーを改善しました
+
 
 ## <a name="march-27-2018"></a>2018 年 3 月 27 日
 

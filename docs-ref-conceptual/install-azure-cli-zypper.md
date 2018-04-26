@@ -1,6 +1,6 @@
 ---
-title: "zypper を使用して Linux に Azure CLI 2.0 をインストールする"
-description: "zypper で Azure CLI 2.0 をインストールする方法"
+title: zypper を使用して Linux に Azure CLI 2.0 をインストールする
+description: zypper で Azure CLI 2.0 をインストールする方法
 author: sptramer
 ms.author: sttramer
 manager: routlaw
@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: 6ee3aff74f43fab0c80c58c7fe57c9fa74a6ef2f
-ms.sourcegitcommit: b93a19222e116d5880bbe64c03507c64e190331e
+ms.openlocfilehash: 01d293eff229ab8b0eb3a3ff4e23978ea9e00174
+ms.sourcegitcommit: 0e9aafa07311526f43661c8bd3a7eba7cbc2caed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="install-azure-cli-20-with-zypper"></a>zypper での Azure CLI 2.0 のインストール
 
@@ -50,7 +50,13 @@ openSUSE や SLES など、`zypper` が付属するディストリビューシ�
    sudo zypper install -y azure-cli
    ```
 
-CLI は `az` コマンドで実行できます。
+その後、Azure CLI は `az` コマンドで実行できます。 ログインするには、`az login` コマンドを実行します。
+
+```azurecli
+az login
+```
+
+さまざまなログイン方法の詳細については、「[Azure CLI 2.0 を使用してログインする](authenticate-azure-cli.md)」を参照してください。
 
 ## <a name="update"></a>プライマリの
 

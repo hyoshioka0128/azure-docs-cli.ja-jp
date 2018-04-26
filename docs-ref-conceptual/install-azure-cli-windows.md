@@ -1,6 +1,6 @@
 ---
-title: "Windows での Azure CLI のインストール"
-description: "Windows で Azure CLI 2.0 をインストールする方法"
+title: Windows での Azure CLI のインストール
+description: Windows で Azure CLI 2.0 をインストールする方法
 author: sptramer
 ms.author: sttramer
 manager: routlaw
@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure
 ms.devlang: azurecli
 ms.service: multiple
-ms.openlocfilehash: df1c2b33589c160525710845cc81d076082a9ecc
-ms.sourcegitcommit: def1a07bfccf26a4178ba6dd836764a1df205929
+ms.openlocfilehash: 30b9621c82af259e3de762127fd20b31eb249234
+ms.sourcegitcommit: 0e9aafa07311526f43661c8bd3a7eba7cbc2caed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="install-azure-cli-20-on-windows"></a>Windows での Azure CLI 2.0 のインストール
 
@@ -30,7 +30,13 @@ Windows Subsystem for Linux (WSL) を実行している場合は、お使いの 
 
 インストーラーによって、コンピューターに変更を加えるかどうかを尋ねるメッセージが表示されたら、[はい] をクリックします。
 
-これで、Windows コマンド プロンプトまたは PowerShell のいずれかから、`az` コマンドで Azure CLI を実行できるようになりました。 PowerShell は、CMD からは利用できないタブ補完機能を提供します。
+これで、Windows コマンド プロンプトまたは PowerShell のいずれかから、`az` コマンドで Azure CLI を実行できるようになりました。 PowerShell では、Windows コマンド プロンプトでは利用できないタブ補完機能が提供されます。 ログインするには、`az login` コマンドを実行します。
+
+```azurecli
+az login
+```
+
+さまざまなログイン方法の詳細については、「[Azure CLI 2.0 を使用してログインする](authenticate-azure-cli.md)」を参照してください。
 
 ## <a name="uninstall"></a>アンインストール
 
