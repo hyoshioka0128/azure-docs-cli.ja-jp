@@ -9,13 +9,144 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: fd5d82e34089a9a884c25c9a5620526f9d30577a
-ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.openlocfilehash: 254c7b306440d921cef6b611268839150fdf3196
+ms.sourcegitcommit: 15d6dfaee2075d0abceb2aa2423f0b6ef7b2ac9b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 リリース ノート
+
+## <a name="may-7-2018"></a>2018 年 5 月 7 日
+
+バージョン 2.0.32
+
+### <a name="core"></a>コア
+
+* 証明書を使用してサービス プリンシパル アカウントからシークレットを取得する際のハンドルされない例外を修正しました
+* 位置引数の制限付きサポートを追加しました
+* `--ids` で `--query` を使用できない問題を修正しました。 [#5591](https://github.com/Azure/azure-cli/issues/5591)
+* `--ids` を使用するときのコマンドのパイプ処理シナリオを改善しました。 `-o tsv` (クエリが指定されている場合) と `-o json` (クエリが指定されていない場合) がサポートされます
+* ユーザーが入力したコマンドに誤りがある場合のエラーにコマンドの候補を追加しました
+* ユーザーが「`az ''`」と入力したときのエラーを改善しました
+* コマンド モジュールとコマンド拡張機能でのカスタム リソースの種類のサポートを追加しました
+
+### <a name="acr"></a>ACR
+
+* ACR ビルドのコマンドを追加しました
+* リソースが見つからないというエラー メッセージを改善しました
+* リソース作成のパフォーマンスとエラー処理を改善しました
+* 非標準コンソールと WSL での ACR ログインを改善しました
+* リポジトリ コマンドのエラー メッセージを改善しました
+* テーブルの列と順序付けを更新しました
+
+### <a name="acs"></a>ACS
+
+* `az aks` がプレビュー サービスであることを示す警告を追加しました
+* `--aci-resource-group` が指定されていないときの `aks install-connector` でのアクセス許可の問題を修正しました
+
+### <a name="ams"></a>AMS
+
+* 最初のリリース - Azure Media Services リソースの管理
+
+### <a name="appservice"></a>Appservice
+
+* `--slot` を指定したときの `webapp delete` のバグを修正しました
+* `webapp auth update` から `--runtime-version` を削除しました
+* min\_tls\_version と https2.0 のサポートを追加しました
+* 複数コンテナーのサポートを追加しました
+
+### <a name="batch-ai"></a>Batch AI
+
+* クラスターの構成ファイルで構成されている VM 優先度を優先するように `batchai create cluster` を変更しました
+
+### <a name="cognitive-services"></a>Cognitive Services
+
+* `cognitiveservices account create` の例 ([#5603](https://github.com/Azure/azure-cli/issues/5603)) の誤りを修正しました
+
+### <a name="consumption"></a>消費
+
+* budget API の新しいコマンドを追加しました
+
+### <a name="container"></a>コンテナー
+
+* イメージ名にレジストリ サーバーが含まれている場合の `container create` での `--registry-server` の要件を削除しました
+
+### <a name="cosmos-db"></a>Cosmos DB
+
+* Azure CLI (Cosmos DB) での VNET サポートを導入しました
+
+### <a name="dms"></a>DMS
+
+* 最初のリリース - SQL から Azure SQL への移行シナリオのサポートを追加しました
+
+### <a name="extension"></a>内線番号
+
+* 拡張機能メタデータが表示されなくなるバグを修正しました
+
+### <a name="interactive"></a>対話
+
+* 対話型の入力候補が位置引数で機能するようになりました
+* ユーザーが「\'」と入力したときの出力をわかりやすくしました
+* ヘルプのないパラメーターの入力候補を修正しました
+* コマンド グループの説明を修正しました
+
+### <a name="lab"></a>ラボ
+
+* knack 変換からの回帰を修正しました
+
+### <a name="network"></a>ネットワーク
+
+* [重大な変更] 次の要素の `--ids` パラメーターを削除しました 
+  * `express-route auth list`
+  * `express-route peering list`
+  * `nic ip-config list`
+  * `nsg rule list`
+  * `route-filter rule list`
+  * `route-table route list`
+  * `traffic-manager endpoint list`
+
+### <a name="profile"></a>プロファイル
+
+* `disk create` のソース検出を修正しました
+* [重大な変更] `--msi-port` と `--identity-port` は使用されなくなったため削除しました
+* `account get-access-token` の概要の誤りを修正しました
+
+### <a name="redis"></a>Redis
+
+* `redis patch-schedule show` を優先して、`redis patch-schedule patch-schedule show` を非推奨にしました
+* `redis list-all` を非推奨にしました。 この機能は `redis list` に組み込まれました
+* `redis import` を優先して、`redis import-method` を非推奨にしました
+* さまざまなコマンドに `--ids` のサポートを追加しました
+
+### <a name="role"></a>役割
+
+* [重大な変更] 非推奨の `ad sp reset-credentials` を削除しました
+
+### <a name="storage"></a>Storage
+
+* ソース SAS とアカウント キーが指定されていない場合、コピー先の SAS トークンを BLOB コピーのソースに適用できます
+* BLOB のアップロードとダウンロードのための --socket-timeout を公開しました
+* パスの区切り記号で始まる BLOB 名は相対パスとして扱います
+* 先頭の文字が "?" のクエリで `storage blob copy --source-sas` を使用できます
+* key=values のリストを受け入れるように `storage entity query --marker` を修正しました
+
+### <a name="vm"></a>VM
+
+* 非管理対象の BLOB URI の無効な検出ロジックを修正しました
+* ユーザーが指定したサービス プリンシパルを使用しないディスク暗号化のサポートを追加しました
+* [重大な変更] MSI をサポートするために VM の "ManagedIdentityExtension" を使用しないでください
+* `vmss` に削除ポリシーのサポートを追加しました
+* [重大な変更] 次の要素から `--ids` を削除しました
+  * `vm extension list`
+  * `vm secret list`
+  * `vm unmanaged-disk list`
+  * `vmss nic list`
+* 書き込みアクセラレータのサポートを追加しました 
+* `vmss perform-maintenance` を追加しました
+* VM の OS の種類が確実に検出されるように `vm diagnostics set` を修正しました
+* 要求されたサイズが現在設定されているサイズと異なるかどうかをチェックし、変更時にのみ更新するように `vm resize` を変更しました
+
 
 ## <a name="april-10-2018"></a>2018 年 4 月 10 日
 
@@ -151,7 +282,7 @@ ms.lasthandoff: 04/28/2018
 * `webapp update` に HTTPS 専用サポートを追加しました
 * `az webapp identity [assign|show]` と `az functionapp identity [assign|show]` にスロットのサポートを追加しました
 
-### <a name="backup"></a>バックアップ
+### <a name="backup"></a>Backup
 
 * 新しいコマンド `az backup protection isenabled-for-vm` を追加しました。 このコマンドは、VM がサブスクリプション内の任意のコンテナーによってバックアップされるかどうかを確認するときに使用できます
 * 次のコマンドの `--resource-group` パラメーターと `--vault-name` パラメーターに対して Azure のオブジェクト ID を有効にしました
@@ -248,7 +379,7 @@ ms.lasthandoff: 04/28/2018
 ### <a name="acr"></a>ACR
 
 * `--image` パラメーターのサポートを `repository delete` に追加しました
-* `repository delete` コマンドの `--manifest` および `--tag` パラメーターを非推奨にしました
+* コマンドの `--manifest` および `--tag` パラメーターを非推奨にしました`repository delete`
 * データを削除せずに、タグを削除する `repository untag` コマンドを追加しました
 
 ### <a name="acs"></a>ACS
@@ -266,7 +397,7 @@ ms.lasthandoff: 04/28/2018
 
 ### <a name="appservice"></a>Appservice
 
-* `[webapp|functionapp] assign-identity` を非推奨にしました
+* を非推奨にしました `[webapp|functionapp] assign-identity`
 * 管理対象 ID コマンド `webapp identity [assign|show]` および `functionapp identity [assign|show]` を追加しました
 
 ### <a name="eventhubs"></a>イベント ハブ
@@ -286,7 +417,7 @@ ms.lasthandoff: 04/28/2018
 
 ### <a name="monitor"></a>監視
 
-* `monitor autoscale-settings` コマンドを非推奨にしました
+* コマンドを非推奨にしました `monitor autoscale-settings`
 * `monitor autoscale` コマンドを追加しました
 * `monitor autoscale profile` コマンドを追加しました
 * `monitor autoscale rule` コマンドを追加しました
@@ -305,7 +436,7 @@ ms.lasthandoff: 04/28/2018
 
 ### <a name="profile"></a>プロファイル
 
-* `az login` の `--msi` パラメーターを非推奨にしました
+* の `--msi` パラメーターを非推奨にしました `az login`
 * `az login` の `--msi` パラメーターの代わりに `--identity` パラメーターを追加しました
 
 ### <a name="rdbms"></a>RDBMS
@@ -324,8 +455,8 @@ ms.lasthandoff: 04/28/2018
 ### <a name="vm"></a>VM
 
 * 被管理対象データ ディスクを接続し、キャッシュを構成できるように `[vm|vmss] create` へのサポートを追加しました
-* `[vm|vmss] assign-identity` および `[vm|vmss] remove-identity` を非推奨にしました
-* 非推奨にしたコマンドの代わりに `vm identity [assign|remove|show]` および `vmss identity [assign|remove|show]` コマンドを追加しました
+* および `[vm|vmss] assign-identity` を非推奨にしました `[vm|vmss] remove-identity`
+* 非推奨のコマンドの代わりに `vm identity [assign|remove|show]` および `vmss identity [assign|remove|show]` コマンドを追加しました
 * `vmss create` での既定の優先順位を None に変更しました
 
 ## <a name="february-27-2018"></a>2018 年 2 月 27 日
@@ -579,7 +710,7 @@ ms.lasthandoff: 04/28/2018
 * `browse` にカスタム URL のサポートを追加しました
 * `log tail` のスロットのサポートを修正しました
 
-### <a name="backup"></a>バックアップ
+### <a name="backup"></a>Backup
 
 * `backup item list` の `--container-name` オプションを省略可能に変更しました
 * `backup restore restore-disks` にストレージ アカウント オプションを追加しました
@@ -749,7 +880,7 @@ ms.lasthandoff: 04/28/2018
 ### <a name="acs"></a>ACS
 
 * AKS の "エージェント" という用語をすべて "ノード" に変更しました
-* `acs create` の `--orchestrator-release` オプションを非推奨にしました
+* の `--orchestrator-release` オプションを非推奨にしました `acs create`
 * `Standard_D1_v2` に対する AKS の既定 VM サイズを変更しました
 * Windows での `az aks browse` を修正しました
 * Windows での `az aks get-credentials` を修正しました
@@ -997,7 +1128,7 @@ ms.lasthandoff: 04/28/2018
 
 * `webapp auth [update|show]` で認証設定を更新および表示する機能を追加しました
 
-### <a name="backup"></a>バックアップ
+### <a name="backup"></a>Backup
 
 * プレビュー リリース
 

@@ -66,6 +66,8 @@
   items:
     - name: 仮想マシンを作成する
       href: azure-cli-vm-tutorial.yml
+    - name: トレーニング - VM の作成
+      href: 'https://docs.microsoft.com/learn/azure-cli-2-0/index'
 - name: サンプル スクリプト
   items:
     - name: Linux VM
