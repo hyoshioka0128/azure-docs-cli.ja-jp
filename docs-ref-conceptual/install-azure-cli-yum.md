@@ -49,7 +49,7 @@ az login
 
 さまざまなログイン方法の詳細については、「[Azure CLI 2.0 を使用してログインする](authenticate-azure-cli.md)」を参照してください。
 
-## <a name="update"></a>プライマリの
+## <a name="update"></a>アップデート
 
 `yum update` コマンドで Azure CLI を更新します。
 
