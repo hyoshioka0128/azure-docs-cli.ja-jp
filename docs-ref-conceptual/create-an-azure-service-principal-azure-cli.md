@@ -4,17 +4,17 @@ description: Azure CLI 2.0 でサービス プリンシパルを作成および�
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 02/12/2018
+ms.date: 05/16/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
 ms.service: role-based-access-control
-ms.openlocfilehash: c7c993e54d3b9bcfa098d89ea89ec15eecba359f
-ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.openlocfilehash: 86fa8b448089bd9f6ede46c92b7e95abb7c88dad
+ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Azure CLI 2.0 で Azure サービス プリンシパルを作成する
 
@@ -26,31 +26,31 @@ ms.lasthandoff: 04/28/2018
 
 * パスワード ベースの認証には `--password` が使用されます。 [Azure Active Directory のパスワードの規則と制約事項](/azure/active-directory/active-directory-passwords-policy)に従って、必ず強力なパスワードを作成してください。 自分でパスワードを指定しなかった場合、任意のパスワードが自動的に生成されます。
 
-  ```azurecli
+  ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --password PASSWORD
   ```
 
 * 既存の証明書に対する証明書ベースの認証には、`--cert` が、PEM または DER パブリック文字列、あるいは `@{file}` として使用され、ファイルが読み込まれます。
 
-  ```azurecli
+  ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --cert {CertStringOrFile} 
   ```
 
   `--keyvault` 引数を追加すると、証明書が Azure Key Vault に格納されていることを指定できます。 ここでは、`--cert` 値は Key Vault 内の証明書の名前を表します。
 
-  ```azurecli
+  ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --cert CertName --keyvault VaultName
   ```
 
 * `--create-cert` は、認証用の "_自己署名_" 証明書を作成します。 `--cert` 引数が指定されていない場合は、ランダムな証明書名が生成されます。
 
-  ```azurecli
+  ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --create-cert
   ```
 
   `--keyvault` 引数を追加すると、証明書を Azure Key Vault に格納できます。 `--keyvault` を使用する場合は、`--cert` 引数も必要です。
 
-  ```azurecli
+  ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --create-cert --cert CertName --keyvault VaultName
   ```
 
@@ -85,7 +85,7 @@ Azure CLI 2.0 には、ロールの割り当てを管理するために、次の
 
 この例では、**閲覧者**ロールを追加し、**共同作成者**ロールを削除します。
 
-```azurecli
+```azurecli-interactive
 az role assignment create --assignee APP_ID --role Reader
 az role assignment delete --assignee APP_ID --role Contributor
 ```
@@ -94,7 +94,7 @@ az role assignment delete --assignee APP_ID --role Contributor
 
 変更を確認するには、割り当てられているロールの一覧を表示します。
 
-```azurecli
+```azurecli-interactive
 az role assignment list --assignee APP_ID
 ```
 
@@ -107,19 +107,20 @@ az role assignment list --assignee APP_ID
 
 パスワードでログインをするには、そのパスワードを引数パラメーターとして指定します。
 
-```azurecli
+```azurecli-interactive
 az login --service-principal --username APP_ID --password PASSWORD --tenant TENANT_ID
 ```
 
 証明書でログインする場合、その証明書は、PEM または DER ファイルとしてローカルで使用できる必要があります。
 
-```azurecli
+```azurecli-interactive
 az login --service-principal --username APP_ID --tenant TENANT_ID --password PATH_TO_CERT
 ```
+
 ## <a name="reset-credentials"></a>資格情報をリセットする
 
 サービス プリンシパルの資格情報を忘れた場合、その情報は、[az ad sp reset-credentials](https://docs.microsoft.com/en-us/cli/azure/ad/sp#az-ad-sp-reset-credentials) コマンドでリセットできます。 新しいサービス プリンシパルを作成するときの制限事項とオプションと同じものが、ここでも適用されます。
 
-```azurecli
+```azurecli-interactive
 az ad sp reset-credentials --name APP_ID --password NEW_PASSWORD
 ```

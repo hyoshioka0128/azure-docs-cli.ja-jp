@@ -4,16 +4,16 @@ description: Azure CLI 2.0 のエイリアス拡張機能を使用する方法
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 03/14/2018
+ms.date: 05/16/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 40a43f5013a5dd0d7bb65b21140bb4fc82769267
-ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.openlocfilehash: 39996693d6b796c2d9a45cd909121829f00291a8
+ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="the-azure-cli-20-alias-extension"></a>Azure CLI 2.0 のエイリアス拡張機能
 
@@ -28,13 +28,13 @@ ms.lasthandoff: 04/28/2018
 
 [az extension add](/cli/azure/extension#az-extension-add) コマンドを使用して拡張機能をインストールします。
 
-```azurecli
+```azurecli-interactive
 az extension add --name alias
 ```
 
 [az extension list](/cli/azure/extension#az-extension-list) を使用して拡張機能のインストールを確認します。 エイリアス拡張機能が正しくインストールされていれば、コマンドの出力に表示されます。
 
-```azurecli
+```azurecli-interactive
 az extension list --output table --query '[].{Name:name}'
 ```
 
@@ -44,37 +44,34 @@ Name
 alias
 ```
 
-
 ## <a name="keep-the-extension-up-to-date"></a>拡張機能を最新の状態に保つ
 
 エイリアス拡張機能は活発に開発が行われており、新しいバージョンが定期的にリリースされます。 CLI を更新したときに、新しいバージョンが自動的にインストールされるわけではありません。 [az extension update](/cli/azure/extension#az-extension-update) を使用して拡張機能の更新プログラムをインストールします。
 
-```azurecli
+```azurecli-interactive
 az extension update --name alias
 ```
-
 
 ## <a name="manage-aliases-for-the-azure-cli"></a>Azure CLI のエイリアスを管理する
 
 エイリアスの拡張機能により、便利で使い慣れたエイリアス管理コマンドを利用できます。 使用可能なすべてのコマンドおよびパラメーターの詳細を表示するには、`--help` でエイリアス コマンドを呼び出します。
 
-```azurecli
+```azurecli-interactive
 az alias --help
 ```
-
 
 ## <a name="create-simple-alias-commands"></a>単純なエイリアス コマンドを作成する
 
 エイリアスの用途の 1 つは、既存のコマンド グループやコマンド名の短縮です。 たとえば、`group` コマンド グループを `rg` に、`list` コマンドを `ls` に短縮できます。
 
-```azurecli
+```azurecli-interactive
 az alias create --name rg --command group
 az alias create --name ls --command list
 ```
 
 新しく定義したこれらのエイリアスは、定義が存在する任意の場所で使用できるようになります。
 
-```azurecli
+```azurecli-interactive
 az rg list
 az rg ls
 az vm ls
@@ -84,28 +81,27 @@ az vm ls
 
 エイリアスは、完全なコマンドのショートカットにすることもできます。 次の例では、使用可能なリソース グループとその位置がテーブル出力で表示されています。
 
-```azurecli
+```azurecli-interactive
 az alias create --name ls-groups --command "group list --query '[].{Name:name, Location:location}' --output table"
 ```
 
 これで `ls-groups` を他の CLI コマンドのように実行できます。
 
-```azurecli
+```azurecli-interactive
 az ls-groups
 ```
-
 
 ## <a name="create-an-alias-command-with-arguments"></a>引数付きのエイリアス コマンドを作成する
 
 エイリアス名に `{{ arg_name }}` として含めることで、位置引数をエイリアス コマンドに追加することもできます。 中かっこ内には空白が必要です。
 
-```azurecli
+```azurecli-interactive
 az alias create --name "alias_name {{ arg1 }} {{ arg2 }} ..." --command "invoke_including_args"
 ```
 
 次の例のエイリアスは、位置引数を使用して VM のパブリック IP アドレスを取得する方法を示しています。
 
-```azurecli
+```azurecli-interactive
 az alias create \
     --name "get-vm-ip {{ resourceGroup }} {{ vmName }}" \
     --command "vm list-ip-addresses --resource-group {{ resourceGroup }} --name {{ vmName }}
@@ -114,13 +110,13 @@ az alias create \
 
 このコマンドを実行するときに、位置引数に値を指定します。
 
-```azurecli
+```azurecli-interactive
 az get-vm-ip MyResourceGroup MyVM
 ```
 
 エイリアスによって呼び出したコマンドで環境変数を使用することもできます。この環境変数は実行時に評価されます。 次の例では、`create-rg` エイリアスを追加します。これにより、`eastus` 内にリソース グループが作成され、`owner` タグが追加されます。 このタグには、ローカル環境変数 `USER` の値が割り当てられます。
 
-```azurecli
+```azurecli-interactive
 az alias create \
     --name "create-rg {{ groupName }}" \
     --command "group create --name {{ groupName }} --location eastus --tags owner=\$USER"
@@ -128,14 +124,13 @@ az alias create \
 
 エイリアスのコマンド内に環境変数を登録するには、ドル記号 `$` をエスケープする必要があります。
 
-
 ## <a name="process-arguments-using-jinja2-templates"></a>Jinja2 テンプレートを使用した引数の処理
 
 エイリアス拡張機能での引数の置換は、[Jinja2](http://jinja.pocoo.org/docs/2.10/) によって実行されるため、ユーザーは Jinja2 テンプレート エンジンの機能にフル アクセスできるようになります。 テンプレートを使用すると、文字列上のデータの抽出や置換などのアクションを実行できます。
 
 Jinja2 テンプレートにより、基になるコマンドとは異なるさまざまな種類の引数を受け入れるエイリアスを作成できます。 たとえば、ストレージ URL を受け入れるエイリアスを作成できます。 この URL が解析され、アカウント名とコンテナー名がストレージ コマンドに渡されます。
 
-```azurecli
+```azurecli-interactive
 az alias create \
     --name 'storage-ls {{ url }}' \
     --command "storage blob list
@@ -144,7 +139,6 @@ az alias create \
 ```
 
 Jinja2 テンプレート エンジンについては、[Jinja2 のドキュメント](http://jinja.pocoo.org/docs/2.10/templates/)を参照してください。
-
 
 ## <a name="alias-configuration-file"></a>エイリアス構成ファイル
 
@@ -162,7 +156,6 @@ command = invoked_commands
 command = invoked_commands_including_args
 ```
 
-
 ## <a name="create-an-alias-command-with-arguments-via-the-alias-configuration-file"></a>エイリアス構成ファイルで引数付きのエイリアス コマンドを作成する
 
 引数付きのサンプル エイリアス コマンドを含むエイリアス構成ファイルを次に示します。これは、VM のパブリック IP アドレスを取得します。 呼び出されたコマンドが単一行であることと、エイリアスで定義された引数が含まれることを確認してください。
@@ -172,12 +165,11 @@ command = invoked_commands_including_args
 command = vm list-ip-addresses --resource-group {{ resourceGroup }} --name {{ vmName }} --query [0].virtualMachine.network.publicIpAddresses[0].ipAddress
 ```
 
-
 ## <a name="uninstall-the-alias-extension"></a>エイリアス拡張機能のアンインストール
 
 拡張機能をアンインストールするには、[az extension remove](/cli/azure/extension#az-extension-remove) コマンドを使用します。
 
-```azurecli
+```azurecli-interactive
 az extension remove --name alias
 ```
 

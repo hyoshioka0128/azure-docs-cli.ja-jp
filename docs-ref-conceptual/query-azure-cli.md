@@ -4,16 +4,16 @@ description: Azure CLI 2.0 コマンドの出力に対して JMESPath クエリ�
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 02/22/2018
+ms.date: 05/16/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: eb9311686bf950a450db4bc450da363bbe409f49
-ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.openlocfilehash: ed8f8ac160dd8225170ffcfff9619d94b92e456a
+ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="use-jmespath-queries-with-azure-cli-20"></a>Azure CLI 2.0 で JMESPath クエリを使用する
 
@@ -25,13 +25,13 @@ Azure CLI 2.0 では、`--query` 引数を使用して、コマンドの結果�
 
 JSON ディクショナリを返すコマンドは、キー名のみで探索できます。 キーのパスは、`.` 文字を区切り記号として使用します。 次の例では、Linux VM に接続できる SSH 公開キーの一覧を取得します。
 
-```azurecli
+```azurecli-interactive
 az vm show -g QueryDemo -n TestVM --query osProfile.linuxConfiguration.ssh.publicKeys
 ```
 
 複数の値を取得して、順序付けられた配列に配置することもできます。 この配列にキー情報はありませんが、配列の要素の順序はクエリ対象のキーの順序と一致します。 次の例では、Azure のイメージ オファリング名と OS ディスクのサイズを取得する方法を示します。
 
-```azurecli
+```azurecli-interactive
 az vm show -g QueryDemo -n TestVM --query 'storageProfile.[imageReference.offer, osDisk.diskSizeGb]'
 ```
 
@@ -44,7 +44,7 @@ az vm show -g QueryDemo -n TestVM --query 'storageProfile.[imageReference.offer,
 
 出力にキーが必要な場合は、代替ディクショナリ構文を使用できます。 ディクショナリに複数の要素を選択すると、`{displayKey:keyPath, ...}` の書式を使用して `keyPath` JMESPath 式でフィルター処理が行われます。 これは、`{displayKey: value}` として出力に表示されます。 次の例では、すぐ前の例のクエリを受け取り、出力にキーを割り当てることでわかりやすくしています。
 
-```azurecli
+```azurecli-interactive
 az vm show -g QueryDemo -n TestVM --query 'storageProfile.{image:imageReference.offer, diskSize:osDisk.diskSizeGb}'
 ```
 
@@ -68,7 +68,7 @@ az vm show -g QueryDemo -n TestVM --query 'storageProfile.{image:imageReference.
 
 複数の値を返す可能性のある CLI コマンドは、常に配列を返します。 配列の要素にはインデックスでアクセスできますが、CLI では順序が保証されていません。 値の配列にクエリを実行する最善の方法は、`[]` 演算子でそれらをフラット化することです。 この演算子は、配列のキーの後、または式の最初の要素として記述します。 フラット化に続いて配列の各要素に対してクエリが実行され、結果の値を新しい配列に配置します。 次の例では、名前とリソース グループ内の各 VM で実行されている OS を出力します。 
 
-```azurecli
+```azurecli-interactive
 az vm list -g QueryDemo --query '[].{name:name, image:storageProfile.imageReference.offer}'
 ```
 
@@ -99,7 +99,7 @@ az vm list -g QueryDemo --query '[].{name:name, image:storageProfile.imageRefere
 
 キーのパスの一部である配列も、同様にフラット化することができます。 次の例は、VM が接続されている NIC の Azure オブジェクト ID を取得するクエリを示しています。
 
-```azurecli
+```azurecli-interactive
 az vm show -g QueryDemo -n TestVM --query 'networkProfile.networkInterfaces[].id'
 ```
 
@@ -107,7 +107,7 @@ az vm show -g QueryDemo -n TestVM --query 'networkProfile.networkInterfaces[].id
 
 JMESPath には、表示されるデータを除外する[フィルター式](http://jmespath.org/specification.html#filterexpressions)が用意されています。 これらの式は強力で、[JMESPath 組み込み関数](http://jmespath.org/specification.html#built-in-functions)と組み合わせて、部分一致を実行したり、標準的な形式へとデータを操作したりするときに特に有用です。 フィルター式は配列データに対してのみ機能し、その他の状況で使用した場合は `null` 値が返されます。 たとえば、`vm list` などのコマンドの出力を取得し、フィルター処理して特定の種類の VM を検索することができます。 次の例では、VM の種類を絞り込んで Windows VM のみを取得し、その名前を出力することで、前の例を強化しています。
 
-```azurecli
+```azurecli-interactive
 az vm list --query '[?osProfile.windowsConfiguration!=null].name'
 ```
 

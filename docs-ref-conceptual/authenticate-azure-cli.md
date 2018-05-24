@@ -11,11 +11,11 @@ ms.technology: azure-cli
 ms.devlang: azurecli
 ms.service: active-directory
 ms.component: authentication
-ms.openlocfilehash: db676c7d81d1ea5628ebb52f3bcead763c5527f9
-ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.openlocfilehash: 11f81e5d710763c818a2ed3cdf347dc657a6f664
+ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="log-in-with-azure-cli-20"></a>Azure CLI 2.0 を使用してログインする
 
@@ -63,7 +63,7 @@ az login -u <username> -p <password>
 
 複数のテナントを使用する場合は、`--tenant` 引数を使用して、ログインするテナントを選択できます。 この引数の値として、`.onmicrosoft.com` ドメインまたはテナントの Azure オブジェクト ID を指定できます。 対話的にログインしたり、`--user` 引数と `--password` 引数で資格情報を指定したりできます。 
 
-```
+```azurecli
 az login --tenant <tenant>
 ```
 
@@ -80,7 +80,7 @@ az login --service-principal -u <app-url> -p <password-or-cert> --tenant <tenant
 tenant 値は、サービス プリンシパルに関連付けられている Azure Active Directory テナントです。 値として、`.onmicrosoft.com` ドメインまたはテナントの Azure オブジェクト ID を指定できます。
 現在のログインのテナント オブジェクト ID を取得するには、次のコマンドを使用します。
 
-```azurecli
+```azurecli-interactive
 az account show --query 'tenantId' -o tsv
 ```
 

@@ -4,16 +4,16 @@ description: テーブル、リスト、または JSON への Azure CLI 2.0 の�
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 02/15/2018
+ms.date: 05/16/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 1eb0fa1421fc2a5f52ccebec7d535824c2434ed2
-ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.openlocfilehash: 016465080e95af3ab0650146e955dd8cffc569e8
+ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="output-formats-for-azure-cli-20-commands"></a>Azure CLI 2.0 コマンドの出力形式
 
@@ -30,7 +30,7 @@ Azure CLI 2.0 では、既定の出力オプションとして JSON が使用さ
 
 次の例では、既定の JSON 形式で、サブスクリプション内の仮想マシンの一覧が表示されます。
 
-```azurecli
+```azurecli-interactive
 az vm list --output json
 ```
 
@@ -68,7 +68,7 @@ az vm list --output json
 
 `table` 出力形式では、行と列に並んだデータとして書式設定されたわかりやすい出力が提供されるため、簡単に読み取ったりスキャンしたりできます。 入れ子になったオブジェクトはテーブル出力には含まれませんが、クエリの一部としてフィルター処理することもできます。 この形式ではテーブル データから一部のフィールドが除外されるため、人の目ですばやく検索できるデータ概要が必要な場合に最適です。
 
-```azurecli
+```azurecli-interactive
 az vm list --out table
 ```
 
@@ -81,13 +81,14 @@ demovm213    DEMORG1          westus
 KBDemo001VM  RGDEMO001        westus
 KBDemo020    RGDEMO001        westus
 ```
+
 `--query` パラメーターを使用すると、一覧の出力に表示するプロパティと列をカスタマイズすることができます。 次の例は、`list` コマンドで VM 名とリソース グループ名だけを選択する方法を示しています。
 
 ```azurecli
 az vm list --query "[].{resource:resourceGroup, name:name}" -o table
 ```
 
-```
+```output
 Resource    Name
 ----------  -----------
 DEMORG1     DemoVM010
@@ -112,7 +113,7 @@ RGDEMO001   KBDemo020
 
 前の例で `tsv` オプションを使用すると、タブ区切りの結果が出力されます。
 
-```azurecli
+```azurecli-interactive
 az vm list --out tsv
 ```
 
@@ -141,7 +142,7 @@ KBDemo020
 
 対話型の `az configure` コマンドを使用して、環境を設定し、出力形式の既定の設定を確立します。 既定の出力形式は `json` です。 
 
-```azurecli
+```azurecli-interactive
 az configure
 ```
 

@@ -5,16 +5,16 @@ keywords: Azure CLI, 拡張機能
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 03/15/2018
+ms.date: 05/16/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 01d7b3d58bf24d5a30386564fb64630d4db055e3
-ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.openlocfilehash: fde52c29a3ec82a1c6a03438a5d84dd4684e296a
+ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="using-extensions-with-the-azure-cli-20"></a>Azure CLI 2.0 での拡張機能の使用
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 04/28/2018
 
 使用できる拡張機能を確認するには、[az extension list-available](/cli/azure/extension#az-extension-list-available) を使用できます。 このコマンドにより、Microsoft によって提供および管理されている公式の拡張機能が一覧表示されます。
 
-```azurecli
+```azurecli-interactive
 az extension list-available --output table
 ```
 
@@ -36,13 +36,13 @@ Microsoft では、ドキュメント サイトで [Microsoft 拡張機能の一
 
 インストールする拡張機能を見つけたら、[az extension add](https://docs.microsoft.com/en-us/cli/azure/extension#az-extension-add) を使用して取得します。 その拡張機能が `az extension list-available` に表示される場合は、名前によってインストールすることができます。
 
-```azurecli
+```azurecli-interactive
 az extension add --name <extension-name>
 ```
 
 拡張機能のソースが外部リソースであるか、その拡張機能への直接リンクがある場合は、ソース URL またはローカル パスを指定できます。 これは、コンパイルされた Python の wheel 形式ファイルである "_必要があります_"。
 
-```azurecli
+```azurecli-interactive
 az extension add --source <URL-or-path>
 ```
 
@@ -52,7 +52,7 @@ az extension add --source <URL-or-path>
 
 拡張機能を名前でインストールした場合、[az extension update](https://docs.microsoft.com/en-us/cli/azure/extension#az-extension-update) を使用してその拡張機能を更新できます。
 
-```azurecli
+```azurecli-interactive
 az extension update --name <extension-name>
 ```
 
@@ -64,7 +64,7 @@ CLI を使用して拡張機能の名前を解決できない場合は、アン�
 
 不要になった拡張機能は、[az extension remove](https://docs.microsoft.com/en-us/cli/azure/extension#az-extension-remove) を使用して削除できます。
 
-```azurecli
+```azurecli-interactive
 az extension remove --name <extension-name>
 ```
 
