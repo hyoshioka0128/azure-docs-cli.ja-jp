@@ -5,22 +5,23 @@ keywords: Azure CLI, 構成, 設定, Azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 12/13/2017
+ms.date: 05/16/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: dac383fa0dbd785f9448514e3d0a3242e4853038
-ms.sourcegitcommit: 42f1ba77b2f562d89dadd302655d1f02ee4b6130
+ms.openlocfilehash: b0d26beac83a7ce3bba44d5e64d129a211c82836
+ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305878"
 ---
 # <a name="azure-cli-20-configuration"></a>Azure CLI 2.0 の構成
 
 Azure CLI 2.0 を使用すると、ユーザー構成によってログ記録、データ収集などの内部設定を上書きして、一部の必須パラメーターに対して既定のオプションを指定できます。 CLI は、こういった値のいくつかを管理するための便利なコマンド `az configure` を提供します。他の値については、構成ファイルまたは環境変数で設定できます。
 
-CLI が使用する構成値は、次の優先順位で上から順番に評価されます。
+CLI で使用される構成値は、次の優先順位で上から順番に評価されます。
 
 1. コマンドライン パラメーター
 2. 環境変数
@@ -45,7 +46,7 @@ CLI の既定値を [az configure](/cli/azure/reference-index#az-configure) コ�
 
 例として、すべてのコマンドの既定のリソース グループと場所を設定する方法を次に示します。
 
-```azurecli
+```azurecli-interactive
 az configure --defaults location=westus2 group=MyResourceGroup
 ```
 
@@ -61,7 +62,7 @@ CLI 構成ファイルには、CLI の動作の管理に使用されるその他
 
 次の例は、確認のプロンプトを無効にして、`/var/log/azure` ディレクトリへのログ記録を設定する CLI 構成ファイルです。
 
-```
+```ini
 [core]
 disable_confirm_prompt=Yes
 

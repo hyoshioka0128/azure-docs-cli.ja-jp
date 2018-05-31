@@ -4,16 +4,17 @@ description: Azure CLI 2.0 で公式にサポートされている拡張機能�
 author: derekbekoe
 ms.author: debekoe
 manager: routlaw
-ms.date: 05/16/2018
+ms.date: 05/23/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 82f2aec902ff7a9061f056139551990334ff6fb9
-ms.sourcegitcommit: 42f1ba77b2f562d89dadd302655d1f02ee4b6130
+ms.openlocfilehash: fdf67f7d041f95b194beb5c72e2c3b905b9b3133
+ms.sourcegitcommit: bdc7db76b48e007a2022e4c2b23fdd1bc1d25600
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/23/2018
+ms.locfileid: "34470188"
 ---
 # <a name="available-extensions-for-the-azure-cli-20"></a>Azure CLI 2.0 で使用可能な拡張機能
 
@@ -30,9 +31,9 @@ az extension list-available --output table
 | [aem](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Azure Enhanced Monitoring Extension for SAP を管理します |  |
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.1 | コマンドのエイリアスをサポートします | [はい] |
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 2.2.2 | Azure Batch サービスを操作するための追加コマンド |  |
-| [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.4.4 | Azure IoT Hub、IoT Edge、および IoT Device Provisioning Service にデータ プレーン コマンド レイヤーを提供します |  |
+| [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.4.5 | Azure IoT Hub、IoT Edge、および IoT Device Provisioning Service にデータ プレーン コマンド レイヤーを提供します |  |
 | [botservice](https://github.com/Azure/azure-cli-extensions) | 0.0.1 | Azure Bot Service 2017-12-01 プレビュー機能をサポートします | [はい] |
-| [dev-spaces-preview](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Dev Spaces は、高速で反復的な Kubernetes 開発エクスペリエンスをチームに提供します。 | [はい] |
+| [dev-spaces-preview](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Dev Spaces は、高速で反復的な Kubernetes 開発エクスペリエンスをチームに提供します。 | [はい] |
 | [dns](https://github.com/Azure/azure-cli-extensions) | 0.0.2 | DNS ゾーン向けの Azure CLI 拡張機能 |  |
 | [eventgrid](https://github.com/Azure/azure-cli-extensions) | 0.2.0 | Azure EventGrid 2018-05-01 プレビュー機能をサポートします | [はい] |
 | [image-copy-extension](https://github.com/Azure/azure-cli-extensions) | 0.0.6 | リージョン間での管理対象 VM イメージのコピーをサポートします |  |

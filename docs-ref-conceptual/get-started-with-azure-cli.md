@@ -5,16 +5,17 @@ keywords: Azure CLI, CLI ヘルプ, Azure ヘルプ, クエリ, 自動化,
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 02/05/2018
+ms.date: 05/16/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: afed3b187f9e5437ecd42217a374b82fb12699b8
-ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.openlocfilehash: 0c7746e70125dcc1678ed19f93322efea8a2b01b
+ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34306099"
 ---
 # <a name="get-started-with-azure-cli-20"></a>Azure CLI 2.0 を使ってみる
 
@@ -54,13 +55,13 @@ CLI のコマンドは、"_グループ_" の "_サブコマンド_" として�
 
 コマンドを検索するには、[az find](/cli/azure/reference-index#az-find) を使用します。 たとえば、`secret` を含むコマンド名を検索するには、次のコマンドを使用します。
 
-```azurecli
+```azurecli-interactive
 az find -q secret
 ```
 
 使用するコマンドのグループがわかっている場合は、`--help` 引数の方が適していることがあります。 これにより、コマンドの詳細情報が表示されます。また、コマンド グループで使用すると、利用可能なすべてのサブコマンドが表示されます。 たとえば、ネットワーク セキュリティ グループ (NSG) で使用すると、利用可能な NSG サブグループとコマンドを確認できます。
 
-```azurecli
+```azurecli-interactive
 az network nsg --help
 ```
 
@@ -79,11 +80,15 @@ CLI では Bash シェルにコマンドの完全タブ補完が用意されて�
 
 ## <a name="interactive-mode"></a>対話モード
 
-CLI には対話モードが用意されています。このモードでは、ヘルプ情報が自動的に表示され、サブコマンドが選択しやすくなっています。 対話モードには [az interactive](/cli/azure/reference-index#az-interactive) コマンドで切り替えます。 対話モードと、これが CLI の学習にどのように役立つかについての詳細は、[Azure CLI 2.0 の対話モード](interactive-azure-cli.md)に関するページをご覧ください。
+CLI には対話モードが用意されています。このモードでは、ヘルプ情報が自動的に表示され、サブコマンドが選択しやすくなっています。 対話モードには [az interactive](/cli/azure/reference-index#az-interactive) コマンドで切り替えます。
+
+```azurecli-interactive
+az interactive
+```
+
+対話モードの詳細については、[Azure CLI 2.0 対話モード](interactive-azure-cli.md)に関する記事をご覧ください。
 
 また、オートコンプリート、マウス オーバー ドキュメントなど、対話型エクスペリエンスを提供する [Visual Studio Code プラグイン](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)も用意されています。
-
-
 
 ## <a name="learn-cli-basics-with-quickstarts-and-tutorials"></a>クイックスタートとチュートリアルを利用して CLI の基本について学習する
 
@@ -106,6 +111,6 @@ Azure CLI 2.0 の使用を開始するには、詳細なチュートリアルを
 
 機能強化とバグ解決に活かすために、CLI に関する皆様のご意見をお待ちしております。 [GitHub で問題を報告](https://github.com/azure/azure-cli/issues)するか、CLI の組み込み機能を使用して、[az feedback](/cli/azure/reference-index#az-feedback) コマンドで一般的なフィードバックをお寄せください。
 
-```azurecli
+```azurecli-interactive
 az feedback
 ```
