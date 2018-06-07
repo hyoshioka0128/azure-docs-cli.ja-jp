@@ -10,11 +10,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: fde52c29a3ec82a1c6a03438a5d84dd4684e296a
-ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
+ms.openlocfilehash: 1b983faef4c1678763b3483192e94a6c96e24f32
+ms.sourcegitcommit: 80189ff103c91f8c47ab8ebf586df815fff5dd5d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34479479"
 ---
 # <a name="using-extensions-with-the-azure-cli-20"></a>Azure CLI 2.0 での拡張機能の使用
 
@@ -34,7 +35,7 @@ Microsoft では、ドキュメント サイトで [Microsoft 拡張機能の一
 
 ## <a name="install-extensions"></a>拡張機能のインストール
 
-インストールする拡張機能を見つけたら、[az extension add](https://docs.microsoft.com/en-us/cli/azure/extension#az-extension-add) を使用して取得します。 その拡張機能が `az extension list-available` に表示される場合は、名前によってインストールすることができます。
+インストールする拡張機能を見つけたら、[az extension add](https://docs.microsoft.com/cli/azure/extension#az-extension-add) を使用して取得します。 その拡張機能が `az extension list-available` に表示される場合は、名前によってインストールすることができます。
 
 ```azurecli-interactive
 az extension add --name <extension-name>
@@ -50,7 +51,7 @@ az extension add --source <URL-or-path>
 
 ## <a name="update-extensions"></a>拡張機能の更新
 
-拡張機能を名前でインストールした場合、[az extension update](https://docs.microsoft.com/en-us/cli/azure/extension#az-extension-update) を使用してその拡張機能を更新できます。
+拡張機能を名前でインストールした場合、[az extension update](https://docs.microsoft.com/cli/azure/extension#az-extension-update) を使用してその拡張機能を更新できます。
 
 ```azurecli-interactive
 az extension update --name <extension-name>
@@ -62,7 +63,7 @@ CLI を使用して拡張機能の名前を解決できない場合は、アン�
 
 ## <a name="uninstall-extensions"></a>拡張機能のアンインストール
 
-不要になった拡張機能は、[az extension remove](https://docs.microsoft.com/en-us/cli/azure/extension#az-extension-remove) を使用して削除できます。
+不要になった拡張機能は、[az extension remove](https://docs.microsoft.com/cli/azure/extension#az-extension-remove) を使用して削除できます。
 
 ```azurecli-interactive
 az extension remove --name <extension-name>
