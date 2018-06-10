@@ -104,7 +104,7 @@ sudo apt-key adv --keyserver-options http-proxy=http://<USER>:<PASSWORD>@<PROXY-
 
 プロキシがあるかどうかがわからない場合は、システム管理者に問い合わせてください。 プロキシでログインを必要としない場合は、ユーザー、パスワード、および `@` トークンを指定しないでください。
 
-## <a name="update"></a>プライマリの
+## <a name="update"></a>アップデート
 
 CLI パッケージを更新するには、`apt-get upgrade` を使用します。
 
