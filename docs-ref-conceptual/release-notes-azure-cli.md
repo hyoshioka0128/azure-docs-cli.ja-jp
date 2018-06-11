@@ -4,18 +4,153 @@ description: Azure CLI 2.0 の最新情報について説明します
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 04/10/2018
+ms.date: 06/01/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 254c7b306440d921cef6b611268839150fdf3196
-ms.sourcegitcommit: 15d6dfaee2075d0abceb2aa2423f0b6ef7b2ac9b
+ms.openlocfilehash: 57f13c7d17e2d248132e2e9c49bb0b4994f041f5
+ms.sourcegitcommit: 80189ff103c91f8c47ab8ebf586df815fff5dd5d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34799262"
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 リリース ノート
+
+## <a name="june-5-2018"></a>2018 年 6 月 5 日
+
+バージョン 2.0.34
+
+### <a name="core"></a>コア
+
+* テナント リソース相互参照のサポートを追加しました
+* 製品利用統計情報のアップロードの信頼性を強化しました
+
+### <a name="acr"></a>ACR
+
+* リモート ソースの場所として VSTS のサポートを追加しました
+* `acr import` コマンドを追加しました
+
+### <a name="aks"></a>AKS
+
+* より安全なファイルシステム アクセス許可を使用して kube 構成ファイルが作成されるように `aks get-credentials` を変更しました
+
+### <a name="batch"></a>Batch
+
+* プール リスト テーブルのフォーマットのバグ [[Issue #4378](https://github.com/Azure/azure-cli/issues/4378)] を修正しました
+
+### <a name="iot"></a>IoT
+
+* Basic レベルの IoT ハブを作成するためのサポートを追加しました
+
+### <a name="network"></a>ネットワーク
+
+* `network vnet peering` を強化しました
+
+### <a name="policy-insights"></a>ポリシーの分析情報
+
+* 最初のリリース
+
+### <a name="arm"></a>ARM
+
+* `account management-group` コマンドを追加しました。
+
+### <a name="sql"></a>SQL
+
+* 新しいマネージド インスタンス コマンドを追加しました。
+  * `sql mi create`
+  * `sql mi show`
+  * `sql mi list`
+  * `sql mi update`
+  * `sql mi delete`
+* 新しいマネージド データベース コマンドを追加しました。
+  * `sql midb create`
+  * `sql midb show`
+  * `sql midb list`
+  * `sql midb restore`
+  * `sql midb delete`
+
+### <a name="storage"></a>Storage
+
+* ファイル名拡張子から JSON および JavaScript が推論されるように、mimetype を追加しました
+
+### <a name="vm"></a>VM
+
+* 固定列が使用されるように `vm list-skus` を変更し、`Tier` と `Size` が削除されることを知らせる警告を追加しました
+* `--accelerated-networking` オプションを `vm create` に追加しました
+* `--tags` を `identity create` に追加しました
+
+## <a name="may-22-2018"></a>2018 年 5 月 22 日
+
+バージョン 2.0.33
+
+### <a name="core"></a>コア
+
+* ファイル名で `@` を展開するためのサポートを追加しました
+
+### <a name="acs"></a>ACS
+
+* 新しい Dev Space コマンド `aks use-dev-spaces` と `aks remove-dev-spaces` を追加しました
+* ヘルプ メッセージの誤りを修正しました
+
+### <a name="appservice"></a>AppService
+
+* 汎用的な更新コマンドを強化しました
+* `webapp deployment source config-zip` の非同期サポートを追加しました
+
+### <a name="container"></a>コンテナー
+
+* YAML 形式のコンテナー グループをエクスポートするためのサポートを追加しました
+* YAML ファイルを使用してコンテナー グループを作成/更新するためのサポートを追加しました
+
+### <a name="extension"></a>内線番号
+
+* 拡張機能の削除機能を強化しました
+
+### <a name="interactive"></a>対話
+
+* ミュート パーサーへの完了のログ記録を変更しました
+* 正しくないヘルプ キャッシュの処理を強化しました
+
+### <a name="keyvault"></a>KeyVault
+
+* ID を持つ VM またはクラウド シェルで動作するように KeyVault コマンドを修正しました
+
+### <a name="network"></a>ネットワーク
+
+* `network watcher show-topology` が VNet またはサブネット名で動作しない問題 ([#6326](https://github.com/Azure/azure-cli/issues/6326)) を修正しました
+* 実際は有効になっているリージョンについて Network Watcher が、一部の `network watcher` コマンドによって、有効になっていないと通知される問題 ([#6264](https://github.com/Azure/azure-cli/issues/6264)) を修正しました
+
+### <a name="sql"></a>SQL
+
+* [破壊的変更] `db` コマンドおよび `dw` コマンドから返される応答オブジェクトを変更しました。
+    * `serviceLevelObjective` プロパティの名前を `currentServiceObjectiveName` に変更しました
+    * `currentServiceObjectiveId` プロパティと `requestedServiceObjectiveId` プロパティを削除しました 
+    * `maxSizeBytes` プロパティを、文字列ではなく整数値に変更しました
+* [破壊的変更] 次の `db` プロパティと `dw` プロパティを読み取り専用に変更しました。
+    * `requestedServiceObjectiveName`  更新するには、`--service-objective` パラメーターを使用するか、`sku.name` プロパティを設定します
+    * `edition` 更新するには、`--edition` パラメーターを使用するか、`sku.tier` プロパティを設定します
+    * `elasticPoolName` 更新するには、`--elastic-pool` パラメーターを使用するか、`elasticPoolId` プロパティを設定します
+* [破壊的変更] 次の `elastic-pool` プロパティを読み取り専用に変更しました。
+    * `edition` 更新するには、`--edition` パラメーターを使用します
+    * `dtu` 更新するには、`--capacity` パラメーターを使用します
+    *  `databaseDtuMin` 更新するには、`--db-min-capacity` パラメーターを使用します
+    *  `databaseDtuMax` 更新するには、`--db-max-capacity` パラメーターを使用します
+* `--family` パラメーターと `--capacity` パラメーターを、`db`、`dw`、`elastic-pool` の各コマンドに追加しました。
+* テーブル フォーマッタを、`db`、`dw`、`elastic-pool` の各コマンドに追加しました。
+
+### <a name="storage"></a>Storage
+
+* `--account-name` 引数の入力候補を追加しました
+* `storage entity query` の問題を修正しました
+
+### <a name="vm"></a>VM
+
+* [破壊的変更] `--write-accelerator` を `vm create` から削除しました。 同じサポートに、`vm update` または `vm disk attach` を使用してアクセスできます
+* `[vm|vmss] extension` で一致する拡張機能イメージを修正しました
+* ブート ログがキャプチャされるように `--boot-diagnostics-storage` を `vm create` に追加しました
+* `--license-type` を `[vm|vmss] update` に追加しました
 
 ## <a name="may-7-2018"></a>2018 年 5 月 7 日
 
@@ -97,7 +232,7 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="network"></a>ネットワーク
 
-* [重大な変更] 次の要素の `--ids` パラメーターを削除しました 
+* [破壊的変更] 次の要素の `--ids` パラメーターを削除しました 
   * `express-route auth list`
   * `express-route peering list`
   * `nic ip-config list`
@@ -109,7 +244,7 @@ ms.lasthandoff: 05/07/2018
 ### <a name="profile"></a>プロファイル
 
 * `disk create` のソース検出を修正しました
-* [重大な変更] `--msi-port` と `--identity-port` は使用されなくなったため削除しました
+* [破壊的変更] `--msi-port` と `--identity-port` は使用されなくなったため削除しました
 * `account get-access-token` の概要の誤りを修正しました
 
 ### <a name="redis"></a>Redis
@@ -121,7 +256,7 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="role"></a>役割
 
-* [重大な変更] 非推奨の `ad sp reset-credentials` を削除しました
+* [破壊的変更] 非推奨の `ad sp reset-credentials` を削除しました
 
 ### <a name="storage"></a>Storage
 
@@ -135,9 +270,9 @@ ms.lasthandoff: 05/07/2018
 
 * 非管理対象の BLOB URI の無効な検出ロジックを修正しました
 * ユーザーが指定したサービス プリンシパルを使用しないディスク暗号化のサポートを追加しました
-* [重大な変更] MSI をサポートするために VM の "ManagedIdentityExtension" を使用しないでください
+* [破壊的変更] MSI をサポートするために VM の "ManagedIdentityExtension" を使用しないでください
 * `vmss` に削除ポリシーのサポートを追加しました
-* [重大な変更] 次の要素から `--ids` を削除しました
+* [破壊的変更] 次の要素から `--ids` を削除しました
   * `vm extension list`
   * `vm secret list`
   * `vm unmanaged-disk list`
@@ -162,7 +297,7 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="appservice"></a>Appservice
 
-* [重大な変更]: Removed `assign-identity`
+* [破壊的変更]: Removed `assign-identity`
 * 存在しない webapp プランのキャッチされない例外を修正しました
 
 ### <a name="batchai"></a>BatchAI
@@ -191,8 +326,8 @@ ms.lasthandoff: 05/07/2018
 * クラスター作成の `--use-auto-storage` オプションを追加しました。 このオプションによって、ストレージ アカウントの管理と、クラスターへの Azure ファイル共有および Azure BLOB コンテナーのマウントがシンプルになります
 * `--generate-ssh-keys` オプションを `cluster create` と `file-server create` に追加しました
 * コマンド ラインでノードのセットアップ タスクを提供できるようにしました
-* [重大な変更] `job file` グループで `job stream-file` および `job list-files` コマンドを移行しました
-* [重大な変更] `cluster create` コマンドに合わせて、`file-server create` コマンドの `--admin-user-name` の名前を `--user-name` に変更しました
+* [破壊的変更] `job file` グループで `job stream-file` および `job list-files` コマンドを移行しました
+* [破壊的変更] `cluster create` コマンドに合わせて、`file-server create` コマンドの `--admin-user-name` の名前を `--user-name` に変更しました
 
 ### <a name="billing"></a>課金
 
@@ -201,11 +336,11 @@ ms.lasthandoff: 05/07/2018
 ### <a name="consumption"></a>消費
 
 * `marketplace` コマンドを追加しました
-* [重大な変更] 名前を `reservations summaries` から `reservation summary` に変更しました
-* [重大な変更] 名前を `reservations details` から `reservation detail` に変更しました
-* [重大な変更] `reservation` コマンドの `--reservation-order-id` および `--reservation-id` の短いオプションを削除しました
-* [重大な変更] `reservation summary` コマンドの `--grain` の短いオプションを削除しました
-* [重大な変更] `pricesheet` コマンドの `--include-meter-details` の短いオプションを削除しました
+* [破壊的変更] 名前を `reservations summaries` から `reservation summary` に変更しました
+* [破壊的変更] 名前を `reservations details` から `reservation detail` に変更しました
+* [破壊的変更] `reservation` コマンドの `--reservation-order-id` および `--reservation-id` の短いオプションを削除しました
+* [破壊的変更] `reservation summary` コマンドの `--grain` の短いオプションを削除しました
+* [破壊的変更] `pricesheet` コマンドの `--include-meter-details` の短いオプションを削除しました
 
 ### <a name="container"></a>コンテナー
 
@@ -235,7 +370,7 @@ ms.lasthandoff: 05/07/2018
 ### <a name="profile"></a>プロファイル
 
 * `account list` に Azure クラシック アカウントのサポートを追加しました
-* [重大な変更] `--msi` & `--msi-port` 引数を削除しました
+* [破壊的変更] `--msi` & `--msi-port` 引数を削除しました
 
 ### <a name="rdbms"></a>RDBMS
 
@@ -284,6 +419,7 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="backup"></a>Backup
 
+
 * 新しいコマンド `az backup protection isenabled-for-vm` を追加しました。 このコマンドは、VM がサブスクリプション内の任意のコンテナーによってバックアップされるかどうかを確認するときに使用できます
 * 次のコマンドの `--resource-group` パラメーターと `--vault-name` パラメーターに対して Azure のオブジェクト ID を有効にしました
   * `backup container show`
@@ -317,7 +453,7 @@ ms.lasthandoff: 05/07/2018
 
 * 拡張機能がプレビュー段階である場合に、`extension add` のメッセージを追加しました
 * `--show-details` を使用して完全な拡張機能データを表示できるように、`extension list-available` を変更しました
-* [重大な変更] 簡略化された拡張機能データを既定で表示するように、`extension list-available` を変更しました
+* [破壊的変更] 簡略化された拡張機能データを既定で表示するように、`extension list-available` を変更しました
 
 ### <a name="interactive"></a>対話
 
@@ -357,7 +493,7 @@ ms.lasthandoff: 05/07/2018
 * 必要なアクセス権の構成とネイティブ クライアントのサポートを `az ad app create` に追加しました
 * オブジェクトの解決時に 1000 未満の ID を返すように、`rbac` コマンドを変更しました
 * 資格情報管理コマンド `ad sp credential [reset|list|delete]` を追加しました
-* [重大な変更] `az role assignment [list|show]` の出力から 'properties' を削除しました
+* [破壊的変更] `az role assignment [list|show]` の出力から 'properties' を削除しました
 * `dataActions` アクセス許可と `notDataActions` アクセス許可のサポートを `role definition` に追加しました
 
 ### <a name="storage"></a>Storage
@@ -370,7 +506,7 @@ ms.lasthandoff: 05/07/2018
 * インスタンス数が 100 を超えるセットに対する今後の重大な変更に向けて、`vmss create` に警告を追加しました
 * ゾーン回復性のサポートを `vm [snapshot|image]` に追加しました
 * より適切に暗号化状態がレポートされるように、ディスクのインスタンス ビューを変更しました
-* [重大な変更] 出力を返さないように `vm extension delete` を変更しました
+* [破壊的変更] 出力を返さないように `vm extension delete` を変更しました
 
 ## <a name="march-13-2018"></a>2018 年 3 月 13 日
 
@@ -379,7 +515,7 @@ ms.lasthandoff: 05/07/2018
 ### <a name="acr"></a>ACR
 
 * `--image` パラメーターのサポートを `repository delete` に追加しました
-* コマンドの `--manifest` および `--tag` パラメーターを非推奨にしました`repository delete`
+* `--manifest` コマンドの `--tag` および `repository delete` パラメーターを非推奨にしました
 * データを削除せずに、タグを削除する `repository untag` コマンドを追加しました
 
 ### <a name="acs"></a>ACS
@@ -389,9 +525,9 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="advisor"></a>Advisor
 
-* [重大な変更] 名前を `advisor configuration get` から `advisor configuration list` に変更しました
-* [重大な変更] 名前を `advisor configuration set` から `advisor configuration update` に変更しました
-* [重大な変更] `advisor recommendation generate` を削除しました 
+* [破壊的変更] 名前を `advisor configuration get` から `advisor configuration list` に変更しました
+* [破壊的変更] 名前を `advisor configuration set` から `advisor configuration update` に変更しました
+* [破壊的変更] `advisor recommendation generate` を削除しました 
 * `--refresh` パラメーターを `advisor recommendation list` に追加しました
 * `advisor recommendation show` コマンドを追加しました
 
@@ -424,7 +560,7 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="network"></a>ネットワーク
 
-* [重大な変更] `route-filter rule create` から `--tags` パラメーターを削除しました
+* [破壊的変更] `route-filter rule create` から `--tags` パラメーターを削除しました
 * 次のコマンドの不適切な既定値を削除しました。
   * `network express-route update`
   * `network nsg rule update`
@@ -455,7 +591,7 @@ ms.lasthandoff: 05/07/2018
 ### <a name="vm"></a>VM
 
 * 被管理対象データ ディスクを接続し、キャッシュを構成できるように `[vm|vmss] create` へのサポートを追加しました
-* および `[vm|vmss] assign-identity` を非推奨にしました `[vm|vmss] remove-identity`
+* `[vm|vmss] assign-identity` および `[vm|vmss] remove-identity` を非推奨にしました
 * 非推奨のコマンドの代わりに `vm identity [assign|remove|show]` および `vmss identity [assign|remove|show]` コマンドを追加しました
 * `vmss create` での既定の優先順位を None に変更しました
 
@@ -529,7 +665,7 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="acs"></a>ACS
 
-* [重大な変更] 精度のために名前を `aks get-versions` から `aks get-upgrades` に変更しました
+* [破壊的変更] 精度のために名前を `aks get-versions` から `aks get-upgrades` に変更しました
 * `aks create` で使用可能な Kubernetes バージョンが表示されるように `aks get-versions` を変更しました
 * サーバーで Kubernetes のバージョンを選択できるように `aks create` 既定値を変更しました
 * AKS によって生成されたサービス プリンシパルを参照するヘルプ メッセージを更新しました
@@ -712,6 +848,7 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="backup"></a>Backup
 
+
 * `backup item list` の `--container-name` オプションを省略可能に変更しました
 * `backup restore restore-disks` にストレージ アカウント オプションを追加しました
 * `backup protection enable-for-vm` での場所のチェックを、大文字と小文字が区別されないように修正しました
@@ -732,9 +869,9 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="event-grid"></a>Event Grid
 
-* [重大な変更] `az eventgrid topic event-subscription` コマンドを `eventgrid event-subscription` に移行しました
-* [重大な変更] `az eventgrid resource event-subscription` コマンドを `eventgrid event-subscription` に移行しました
-* [重大な変更] `eventgrid event-subscription show-endpoint-url` コマンドを削除しました 代わりに `eventgrid event-subscription show --include-full-endpoint-url` を使用してください
+* [破壊的変更] `az eventgrid topic event-subscription` コマンドを `eventgrid event-subscription` に移行しました
+* [破壊的変更] `az eventgrid resource event-subscription` コマンドを `eventgrid event-subscription` に移行しました
+* [破壊的変更] `eventgrid event-subscription show-endpoint-url` コマンドを削除しました 代わりに `eventgrid event-subscription show --include-full-endpoint-url` を使用してください
 * `eventgrid topic update` コマンドを追加しました
 * `eventgrid event-subscription update` コマンドを追加しました
 * `eventgrid topic` コマンドの `--ids` パラメーターを追加しました
@@ -778,8 +915,8 @@ ms.lasthandoff: 05/07/2018
 ### <a name="vm"></a>VM
 
 * [プレビュー] `vmss` のクロス ゾーンのサポート
-* [重大な変更] 単一ゾーン `vmss` の既定値を "Standard" ロード バランサーに変更しました
-* [重大な変更] EMSI の `externalIdentities` を `userAssignedIdentities` に変更しました
+* [破壊的変更] 単一ゾーン `vmss` の既定値を "Standard" ロード バランサーに変更しました
+* [破壊的変更] EMSI の `externalIdentities` を `userAssignedIdentities` に変更しました
 * [プレビュー] OS ディスク スワップのサポートを追加しました
 * 他のサブスクリプションの VM イメージの使用のサポートを追加しました
 * `--plan-name`、`--plan-product`、`--plan-promotion-code`、`--plan-publisher` の各引数を `[vm|vmss] create` に追加しました
@@ -880,7 +1017,7 @@ ms.lasthandoff: 05/07/2018
 ### <a name="acs"></a>ACS
 
 * AKS の "エージェント" という用語をすべて "ノード" に変更しました
-* の `--orchestrator-release` オプションを非推奨にしました `acs create`
+* `--orchestrator-release` の `acs create` オプションを非推奨にしました
 * `Standard_D1_v2` に対する AKS の既定 VM サイズを変更しました
 * Windows での `az aks browse` を修正しました
 * Windows での `az aks get-credentials` を修正しました
@@ -1082,7 +1219,7 @@ ms.lasthandoff: 05/07/2018
 * 組み込みのポリシー定義を表示するためのサポートを追加しました
 * ポリシー定義を作成するためのサポート モード パラメーターを追加しました
 * UI の定義とテンプレートのサポートを `managedapp definition create` に追加しました
-* [重大な変更] `managedapp` のリソースの種類を `appliances` から `applications`、`applianceDefinitions` から `applicationDefinitions` に変更しました
+* [破壊的変更] `managedapp` のリソースの種類を `appliances` から `applications`、`applianceDefinitions` から `applicationDefinitions` に変更しました
 
 ### <a name="network"></a>ネットワーク
 
@@ -1129,6 +1266,7 @@ ms.lasthandoff: 05/07/2018
 * `webapp auth [update|show]` で認証設定を更新および表示する機能を追加しました
 
 ### <a name="backup"></a>Backup
+
 
 * プレビュー リリース
 
@@ -1223,7 +1361,7 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="appservice"></a>Appservice
 
-* [重大な変更] `az webapp config appsettings [delete|set]` の出力の不整合を修正しました
+* [破壊的変更] `az webapp config appsettings [delete|set]` の出力の不整合を修正しました
 * `az webapp config container set --docker-custom-image-name` の `-i` の新しいエイリアスを追加しました
 * `az webapp log show` を公開しました
 * App Service プラン、メトリック、または DNS 登録を保持するために、`az webapp delete` の新しい引数を公開しました
@@ -1235,8 +1373,8 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="network"></a>ネットワーク
 
-* [重大な変更] 名前を `vnet list-private-access-services` から `vnet list-endpoint-services` に変更しました
-* [重大な変更] `vnet subnet [create|update]` のオプション `--private-access-services` の名前を `--service-endpoints` に変更しました
+* [破壊的変更] 名前を `vnet list-private-access-services` から `vnet list-endpoint-services` に変更しました
+* [破壊的変更] `vnet subnet [create|update]` のオプション `--private-access-services` の名前を `--service-endpoints` に変更しました
 * `nsg rule [create|update]` に対する複数 IP およびポート範囲のサポートを追加しました
 * `lb create` に対する SKU のサポートを追加しました
 * `public-ip create` に対する SKU のサポートを追加しました
@@ -1258,7 +1396,7 @@ ms.lasthandoff: 05/07/2018
 * サービス トンネリングをサポートするために、`--bypass` 引数と `--default-action` 引数を `storage account [create|update]` に追加しました
 * VNET ルールと IP ベースのルールを `storage account network-rule` に追加するためのコマンドを追加しました
 * 顧客管理キーによるサービスの暗号化を有効にしました
-* [重大な変更] `az storage account create and az storage account update` コマンドの `--encryption` オプションの名前を `--encryption-services` に変更しました
+* [破壊的変更] `az storage account create and az storage account update` コマンドの `--encryption` オプションの名前を `--encryption-services` に変更しました
 * 修正済み #4220: `az storage account update encryption` - 構文の不一致
 
 ### <a name="vm"></a>VM
@@ -1352,7 +1490,7 @@ ms.lasthandoff: 05/07/2018
 * コンテナー コマンドを追加しました
 * 請求および使用量モジュールを追加しました
 
-```
+```text
 azure-cli (2.0.12)
 
 acr (2.0.9)
@@ -1630,7 +1768,7 @@ vm (2.0.11)
 * "az --version" のショートカットとして "az -v" が追加されました ([#2926](https://github.com/Azure/azure-cli/issues/2926))
 * パッケージ読み込みとコマンド実行のパフォーマンスが向上しています ([#2819](https://github.com/Azure/azure-cli/issues/2819))
 
-```
+```text
 azure-cli (2.0.6)
 
 acr (2.0.4)
@@ -1733,7 +1871,7 @@ vm (2.0.6)
 
 * BC: `az keyvault certificate download` によって -e が文字列またはバイナリから PEM または DER に変更され、オプションの表現が向上しました
 * BC: --expires パラメーターと --not-before パラメーターはサービスでサポートされていないため、`keyvault certificate create` から削除されました
-* --validity パラメーターが `keyvault certificate create` に追加され、--policy の値が選択的に上書きされます
+* --validity パラメーターが `keyvault certificate create` に追加され、--policy の値が選択的にオーバーライドされます
 * "expires" と "not_before" が公開され、"validity_in_months" が公開されなかった場合に `keyvault certificate get-default-policy` で発生する問題が修正されました
 * KeyVault における pem と pfx のインポートが修正されました ([#2754](https://github.com/Azure/azure-cli/issues/2754))
 
@@ -1827,7 +1965,7 @@ vm (2.0.6)
 
 このリリースでは、ACR、Batch、KeyVault、SQL コンポーネントをリリースしました
 
-```
+```text
 azure-cli (2.0.2)
 
 acr (2.0.0)
@@ -1917,7 +2055,7 @@ Azure CLI 2.0 のこのリリースは、最初の "一般公開" リリース�
 
 CLI のバージョンを確認するには、`az --version` を使用します。出力では、CLI 自体のバージョン (このリリースでは 2.0.0)、個々のコマンド モジュール、および使用している Python と GCC のバージョンが示されます。
 
-```
+```text
 azure-cli (2.0.0)
 
 acs (2.0.0)
