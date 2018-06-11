@@ -4,16 +4,17 @@ description: apt パッケージ マネージャーで Azure CLI 2.0 をイン�
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 02/06/2018
+ms.date: 05/24/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 7eb04b408f403264f3951bf663d43686601c4ab8
-ms.sourcegitcommit: 1d18f667af28b59f5524a3499a4b7dc12af5163d
+ms.openlocfilehash: 7b5835581bf1e14e2d9fdc7c9584c704d1a5d82f
+ms.sourcegitcommit: 38549f60d76d4b6b65d180367e83749769fe6e43
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/09/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34703181"
 ---
 # <a name="install-azure-cli-20-with-apt"></a>apt での Azure CLI 2.0 のインストール
 
@@ -24,26 +25,19 @@ Ubuntu や Debian など、`apt` が付属するディストリビューショ�
 
 ## <a name="install"></a>Install
 
-1. ソース リストを変更します。
+1. <a name="install-step-1"/>お使いのソース リストを変更します。
 
-     ```bash
-     AZ_REPO=$(lsb_release -cs)
-     echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | \
-          sudo tee /etc/apt/sources.list.d/azure-cli.list
-     ```
+    ```bash
+    AZ_REPO=$(lsb_release -cs)
+    echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | \
+        sudo tee /etc/apt/sources.list.d/azure-cli.list
+    ```
 
-2. Microsoft の署名キーを取得します。
+2. <a name="signingKey"></a>Microsoft の署名キーを取得します。
 
    ```bash
-   sudo apt-key adv --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
+   curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
    ```
-
-  > [!WARNING]
-  > この署名キーは非推奨であり、2018年 5 月末に置き換えられます。 `apt` で更新プログラムを引き続き取得するには、必ず新しいキーもインストールしてください。
-  > 
-  > ```bash
-  > curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-  > ``` 
 
 3. CLI をインストールします。
 
@@ -51,6 +45,9 @@ Ubuntu や Debian など、`apt` が付属するディストリビューショ�
    sudo apt-get install apt-transport-https
    sudo apt-get update && sudo apt-get install azure-cli
    ```
+
+   > [!WARNING]
+   > 署名キーは 2018 年 5 月に更新され、置き換えられました。 署名キーのエラーが発生した場合は、[最新の署名キーを取得済み](#signingKey)であることを確認してください。
 
 その後、Azure CLI は `az` コマンドで実行できます。 ログインするには、`az login` コマンドを実行します。
 
@@ -78,6 +75,10 @@ az login
 sudo apt-get install lsb-release
 ```
 
+### <a name="lsbrelease-does-not-return-the-base-distribution-version"></a>lsb_release では、ベース ディストリビューション バージョンが返されません
+
+Linux Mint など、Ubuntu や Debian から派生する一部のディストリビューションでは、正しいバージョン名が `lsb_release` から返されない場合があります。 この値は、インストール プロセスで、インストールするパッケージを特定するときに使用されます。 ディストリビューションの派生元バージョンの名前がわかっている場合は、[インストール手順 1.](#install-step-1) で `AZ_REPO` 値を手動で設定できます。 それ以外の場合は、ご自身のディストリビューションについて、ベース ディストリビューション名を調べて、`AZ_REPO` を正しい値に設定する方法をご確認ください。
+
 ### <a name="apt-key-fails-with-no-dirmngr"></a>"No dirmngr" で apt-key が失敗する
 
 `apt-key` コマンドの実行時に、次のようなエラーが出力されることがあります。
@@ -104,7 +105,7 @@ sudo apt-key adv --keyserver-options http-proxy=http://<USER>:<PASSWORD>@<PROXY-
 
 プロキシがあるかどうかがわからない場合は、システム管理者に問い合わせてください。 プロキシでログインを必要としない場合は、ユーザー、パスワード、および `@` トークンを指定しないでください。
 
-## <a name="update"></a>プライマリの
+## <a name="update"></a>アップデート
 
 CLI パッケージを更新するには、`apt-get upgrade` を使用します。
 
@@ -112,6 +113,9 @@ CLI パッケージを更新するには、`apt-get upgrade` を使用します�
    sudo apt-get update && sudo apt-get upgrade
    ```
 
+> [!WARNING]
+> 署名キーは 2018 年 5 月に更新され、置き換えられました。 署名キーのエラーが発生した場合は、[最新の署名キーを取得済み](#signingKey)であることを確認してください。
+   
 > [!NOTE]
 > このコマンドにより、システムにインストールされている、依存関係が変更されていないすべてのパッケージがアップグレードされます。
 > CLI だけをアップグレードするには、`apt-get install` を使用します。
