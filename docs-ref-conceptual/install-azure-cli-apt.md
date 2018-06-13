@@ -1,4 +1,4 @@
-﻿---
+---
 title: apt を使用して Linux に Azure CLI 2.0 をインストールする
 description: apt パッケージ マネージャーで Azure CLI 2.0 をインストールする方法
 author: sptramer
