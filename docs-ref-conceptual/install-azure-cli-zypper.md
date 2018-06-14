@@ -9,11 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: dde90e78f3ec53d323ca78c816ceefb8cf65608b
-ms.sourcegitcommit: 15d6dfaee2075d0abceb2aa2423f0b6ef7b2ac9b
+ms.openlocfilehash: a862cca17adb1bfa0201af250819158081c29813
+ms.sourcegitcommit: 5c80e96e96f9608c92a94fa4a9c4afb25099f3fc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35512973"
 ---
 # <a name="install-azure-cli-20-with-zypper"></a>zypper での Azure CLI 2.0 のインストール
 
@@ -26,7 +27,6 @@ openSUSE や SLES など、`zypper` が付属するディストリビューシ�
 1. `curl` をインストールします。
 
    ```bash
-   sudo zypper refresh
    sudo zypper install -y curl
    ```
 
@@ -39,13 +39,12 @@ openSUSE や SLES など、`zypper` が付属するディストリビューシ�
 3. ローカル `azure-cli` リポジトリ情報を作成します。
 
    ```bash
-   sudo sh -c 'echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/zypp/repos.d/azure-cli.repo'
+   sudo zypper addrepo --name 'Azure CLI' --check https://packages.microsoft.com/yumrepos/azure-cli azure-cli
    ```
 
 4. `zypper` パッケージのインデックスを更新し、インストールを行います。
 
    ```bash
-   sudo zypper refresh
    sudo zypper install --from azure-cli -y azure-cli
    ```
 
@@ -57,7 +56,7 @@ az login
 
 さまざまなログイン方法の詳細については、「[Azure CLI 2.0 を使用してログインする](authenticate-azure-cli.md)」を参照してください。
 
-## <a name="update"></a>プライマリの
+## <a name="update"></a>アップデート
 
 `zypper update` コマンドでパッケージを更新できます。
 
@@ -79,7 +78,7 @@ sudo zypper update azure-cli
 2. CLI を再インストールする予定がない場合は、リポジトリ情報を削除します。
 
   ```bash
-  sudo rm /etc/zypp/repos.d/azure-cli.repo
+  sudo zypper removerepo azure-cli
   ```
 
 3. リポジトリ情報を削除した場合は、Microsoft GPG 署名キーも削除します。
