@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34306167"
 ---
 # <a name="use-jmespath-queries-with-azure-cli-20"></a><span data-ttu-id="4226f-103">Azure CLI 2.0 で JMESPath クエリを使用する</span><span class="sxs-lookup"><span data-stu-id="4226f-103">Use JMESPath queries with Azure CLI 2.0</span></span>
 

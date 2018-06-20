@@ -14,6 +14,7 @@ ms.sourcegitcommit: 15d6dfaee2075d0abceb2aa2423f0b6ef7b2ac9b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33815978"
 ---
 # <a name="install-azure-cli-20-on-windows"></a><span data-ttu-id="992d5-103">Windows での Azure CLI 2.0 のインストール</span><span class="sxs-lookup"><span data-stu-id="992d5-103">Install Azure CLI 2.0 on Windows</span></span>
 
