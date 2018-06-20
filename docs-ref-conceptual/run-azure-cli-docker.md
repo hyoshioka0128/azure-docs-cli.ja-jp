@@ -14,6 +14,7 @@ ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32043722"
 ---
 # <a name="run-azure-cli-20-in-a-docker-container"></a>Docker コンテナーでの Azure CLI 2.0 の実行
 
