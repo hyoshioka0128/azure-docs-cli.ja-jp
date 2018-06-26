@@ -4,17 +4,17 @@ description: Azure CLI 2.0 で公式にサポートされている拡張機能�
 author: derekbekoe
 ms.author: debekoe
 manager: routlaw
-ms.date: 06/05/2018
+ms.date: 06/19/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 080dd3d67fe7aa1860cce91c217cd6f8d81ae398
-ms.sourcegitcommit: 44f2b6feb980be78050632dae224399488a8d5fa
+ms.openlocfilehash: 93ec0ae1da6dd3527ad6c108e2b13e8026f9e456
+ms.sourcegitcommit: 1a38729d6ae93c49137b3d49b6a9ec8a75eff190
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34758221"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36262626"
 ---
 # <a name="available-extensions-for-the-azure-cli-20"></a>Azure CLI 2.0 で使用可能な拡張機能
 
@@ -32,11 +32,11 @@ az extension list-available --output table
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.1 | コマンドのエイリアスをサポートします | [はい] |
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 2.2.2 | Azure Batch サービスを操作するための追加コマンド |  |
 | [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.4.5 | Azure IoT Hub、IoT Edge、および IoT Device Provisioning Service にデータ プレーン コマンド レイヤーを提供します |  |
-| [botservice](https://github.com/Azure/azure-cli-extensions) | 0.0.2 | Azure Bot Service 2017-12-01 プレビュー機能をサポートします | [はい] |
+| [botservice](https://github.com/Azure/azure-cli-extensions) | 0.0.3 | Azure Bot Service 2017-12-01 プレビュー機能をサポートします | [はい] |
 | [dev-spaces-preview](https://github.com/Azure/azure-cli-extensions) | 0.1.3 | Dev Spaces は、高速で反復的な Kubernetes 開発エクスペリエンスをチームに提供します。 | [はい] |
 | [dns](https://github.com/Azure/azure-cli-extensions) | 0.0.2 | DNS ゾーン向けの Azure CLI 拡張機能 |  |
 | [eventgrid](https://github.com/Azure/azure-cli-extensions) | 0.2.1 | Azure EventGrid 2018-05-01 プレビュー機能をサポートします | [はい] |
-| [image-copy-extension](https://github.com/Azure/azure-cli-extensions) | 0.0.6 | リージョン間での管理対象 VM イメージのコピーをサポートします |  |
+| [image-copy-extension](https://github.com/Azure/azure-cli-extensions) | 0.0.7 | リージョン間での管理対象 VM イメージのコピーをサポートします |  |
 | [keyvault-preview](https://github.com/Azure/azure-keyvault-cli-extension) | 0.1.3 | Azure Key Vault のコマンドをプレビューします。 | [はい] |
 | [managementgroups](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | 管理グループ向け Azure CLI 拡張機能 |  |
 | [managementpartner](https://github.com/Azure/azure-cli-extensions) | 0.1.2 | 管理パートナーのプレビューをサポートします |  |
