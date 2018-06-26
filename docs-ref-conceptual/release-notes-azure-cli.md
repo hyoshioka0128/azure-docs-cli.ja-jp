@@ -9,14 +9,109 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 72e667d74ff8d55f26ecbf3b3c8845c9c03b56be
-ms.sourcegitcommit: 5c80e96e96f9608c92a94fa4a9c4afb25099f3fc
+ms.openlocfilehash: 64db2b58ca883518757d8e189bf7263ed818b283
+ms.sourcegitcommit: 1a38729d6ae93c49137b3d49b6a9ec8a75eff190
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35512905"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36262660"
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 リリース ノート
+
+## <a name="june-19-2018"></a>2018 年 6 月 19 日
+
+バージョン 2.0.38
+
+### <a name="core"></a>コア
+
+* `--subscription` のグローバル サポートをほとんどのコマンドに追加しました
+
+### <a name="acr"></a>ACR
+
+* `azure-storage-blob` を依存関係として追加しました
+* 2 コアが使用されるように `acr build-task create` での既定の CPU 構成を変更しました
+
+### <a name="acs"></a>ACS
+
+* `aks use-dev-spaces` コマンドのオプションを更新しました。 `--update` のサポートを追加しました
+* `$HOME/.kube/config` のユーザー コンテキストが置き換えられないように `aks get-credentials --admin` を変更しました
+* マネージド クラスターで読み取り専用の `nodeResourceGroup` プロパティを公開しました
+* `acs browse` コマンド エラーを修正しました
+* `aks install-connector`、`aks upgrade-connector`、および `aks remove-connector` について、`--connector-name` を省略可能にしました
+* `aks install-connector` の新しい Azure コンテナー インスタンス リージョンを追加しました
+* Helm のリリース名とノード名への正規化された場所を `aks install-connector` に追加しました 
+
+### <a name="appservice"></a>AppService
+
+* urllib の新しいバージョンのサポートを追加しました
+* 外部リソース グループから appservice プランが使用されるようにサポートを `functionapp create` に追加しました
+
+### <a name="batch"></a>Batch
+
+* `azure-batch-extensions` 依存関係を削除しました
+
+### <a name="batch-ai"></a>Batch AI
+
+* ワークスペースのサポートを追加しました。 ワークスペースを使用すると、クラスター、ファイル サーバー、および実験をグループ化できるため、作成できるリソースの数に対する制限がなくなります
+* 実験のサポートを追加しました。 実験を使用すると、ジョブをグループ化できるため、作成されたジョブの数に対する制限がなくなります
+* Docker コンテナーで実行されているジョブに対して `/dev/shm` を構成するためのサポートを追加しました
+* `batchai cluster node exec` コマンドと `batchai job node exec` コマンドを追加しました。 これらのコマンドを使用すると、すべてのコマンドをノードで直接実行して、ポート フォワーディングの機能を提供できます。
+* `--ids` のサポートを `batchai` コマンドに追加しました 
+* [重大な変更] すべてのクラスターおよびファイルサーバーをワークスペースに作成する必要があります
+* [重大な変更] ジョブを実験に作成する必要があります
+* [重大な変更] `--nfs-resource-group` を `cluster create` コマンドおよび `job create` コマンドから削除しました。 別のワークスペース/リソース グループに属している NFS をマウントするには、`--nfs` オプションによってファイル サーバーの ARM ID を指定します
+* [重大な変更] `--cluster-resource-group` を `job create` コマンドから削除しました。 別のワークスペース/リソース グループに属しているクラスターでジョブを送信するには、`--cluster` オプションによってクラスターの ARM ID を指定します
+* [重大な変更] `location` 属性をジョブ、クラスター、およびファイル サーバーから削除しました。 現在の場所はワークスペースの属性です。
+* [重大な変更] `--location` を `job create` コマンド、`cluster create` コマンド、および `file-server create` コマンドから削除しました
+* [重大な変更] インターフェイスの一貫性を向上させるために短いオプションの名前を変更しました。
+ - [`--config`, `-c`] の名前を [`--config-file`, `-f`] に変更しました
+ - [`--cluster`, `-r`] の名前を [`--cluster`, `-c`] に変更しました
+ - [`--cluster`, `-n`] の名前を [`--cluster`, `-c`] に変更しました
+ - [`--job`, `-n`] の名前を [`--job`, `-j`] に変更しました
+
+### <a name="maps"></a>マップ
+
+* [重大な変更] 対話形式のプロンプトまたは `--accept-tos` フラグによるサービス利用規約への同意を必要とするように `maps account create` を変更しました
+
+### <a name="network"></a>ネットワーク
+
+* `https` のサポートを `network lb probe create` に追加しました [#6571](https://github.com/Azure/azure-cli/issues/6571)
+* `--endpoint-status` で大文字と小文字が区別されていた問題を修正しました。 [#6502](https://github.com/Azure/azure-cli/issues/6502)
+
+### <a name="reservations"></a>Reservations
+
+* [重大な変更] 必要なパラメーター `ReservedResourceType` を `reservations catalog show` に追加しました
+* パラメーター `Location` を `reservations catalog show` に追加しました
+* [重大な変更] `kind` を `ReservationProperties` から削除しました
+* [重大な変更] `Catalog` で `capabilities` の名前を `sku_properties` に変更しました
+* [重大な変更] `Catalog` から `size` プロパティおよび `tier` プロパティを削除しました
+* パラメーター `InstanceFlexibility` を `reservations reservation update` に追加しました
+
+### <a name="role"></a>役割
+
+* エラー処理を改善しました
+
+### <a name="sql"></a>SQL
+
+* ご自身のサブスクリプションで利用できない場所で `az sql db list-editions` 実行しているときに発生するわかりにくいエラーを修正しました
+
+### <a name="storage"></a>Storage
+
+* `storage blob download` のテーブル出力を読みやすくしました
+
+### <a name="vm"></a>VM
+
+* `vm create` で高速化されたネットワークをサポートするために、VM サイズの絞り込みチェックを改善しました
+* 既定の VM サイズが `Standard_D1_v2` から `Standard_DS1_v2` に切り替わるこという `vmss create` に対する警告を追加しました
+* 構成が変更されていない場合でも拡張機能が更新されるように `--force-update` を `[vm|vmss] extension set` に追加しました
+
+## <a name="june-13-2018"></a>2018 年 6 月 13 日
+
+バージョン 2.0.37
+
+### <a name="core"></a>コア
+
+* 対話形式の利用統計情報を改善しました
 
 ## <a name="june-13-2018"></a>2018 年 6 月 13 日
 
@@ -153,8 +248,8 @@ ms.locfileid: "35512905"
     * `currentServiceObjectiveId` プロパティと `requestedServiceObjectiveId` プロパティを削除しました 
     * `maxSizeBytes` プロパティを、文字列ではなく整数値に変更しました
 * [重大な変更] 次の `db` プロパティと `dw` プロパティを読み取り専用に変更しました。
-    * `requestedServiceObjectiveName`  更新するには、`--service-objective` パラメーターを使用するか、`sku.name` プロパティを設定します
-    * `edition` 更新するには、`--edition` パラメーターを使用するか、`sku.tier` プロパティを設定します
+    * `requestedServiceObjectiveName` .  更新するには、`--service-objective` パラメーターを使用するか、`sku.name` プロパティを設定します
+    * `edition` . 更新するには、`--edition` パラメーターを使用するか、`sku.tier` プロパティを設定します
     * `elasticPoolName` 更新するには、`--elastic-pool` パラメーターを使用するか、`elasticPoolId` プロパティを設定します
 * [重大な変更] 次の `elastic-pool` プロパティを読み取り専用に変更しました。
     * `edition` 更新するには、`--edition` パラメーターを使用します
@@ -443,7 +538,6 @@ ms.locfileid: "35512905"
 
 ### <a name="backup"></a>Backup
 
-
 * 新しいコマンド `az backup protection isenabled-for-vm` を追加しました。 このコマンドは、VM がサブスクリプション内の任意のコンテナーによってバックアップされるかどうかを確認するときに使用できます
 * 次のコマンドの `--resource-group` パラメーターと `--vault-name` パラメーターに対して Azure のオブジェクト ID を有効にしました
   * `backup container show`
@@ -539,7 +633,7 @@ ms.locfileid: "35512905"
 ### <a name="acr"></a>ACR
 
 * `--image` パラメーターのサポートを `repository delete` に追加しました
-* `repository delete` コマンドの `--manifest` および `--tag` パラメーターを非推奨にしました
+* `--manifest` コマンドの `--tag` および `repository delete` パラメーターを非推奨にしました
 * データを削除せずに、タグを削除する `repository untag` コマンドを追加しました
 
 ### <a name="acs"></a>ACS
@@ -872,7 +966,6 @@ ms.locfileid: "35512905"
 
 ### <a name="backup"></a>Backup
 
-
 * `backup item list` の `--container-name` オプションを省略可能に変更しました
 * `backup restore restore-disks` にストレージ アカウント オプションを追加しました
 * `backup protection enable-for-vm` での場所のチェックを、大文字と小文字が区別されないように修正しました
@@ -1041,7 +1134,7 @@ ms.locfileid: "35512905"
 ### <a name="acs"></a>ACS
 
 * AKS の "エージェント" という用語をすべて "ノード" に変更しました
-* `acs create` の `--orchestrator-release` オプションを非推奨にしました
+* ph x="2" /&gt; の `--orchestrator-release` オプションを非推奨にしました
 * `Standard_D1_v2` に対する AKS の既定 VM サイズを変更しました
 * Windows での `az aks browse` を修正しました
 * Windows での `az aks get-credentials` を修正しました
@@ -1290,7 +1383,6 @@ ms.locfileid: "35512905"
 * `webapp auth [update|show]` で認証設定を更新および表示する機能を追加しました
 
 ### <a name="backup"></a>Backup
-
 
 * プレビュー リリース
 
