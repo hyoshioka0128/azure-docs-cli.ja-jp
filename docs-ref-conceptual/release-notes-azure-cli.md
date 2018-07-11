@@ -4,19 +4,100 @@ description: Azure CLI 2.0 の最新情報について説明します
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 06/01/2018
+ms.date: 07/03/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 64db2b58ca883518757d8e189bf7263ed818b283
-ms.sourcegitcommit: 1a38729d6ae93c49137b3d49b6a9ec8a75eff190
+ms.openlocfilehash: 102152b7d99de253ccb2fea09b99be91e3c9135e
+ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36262660"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37439671"
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 リリース ノート
+
+## <a name="july-3-2018"></a>2018 年 7 月 3 日
+
+バージョン 2.0.41
+
+### <a name="aks"></a>AKS
+
+* サブスクリプション ID を使用するように監視を変更しました
+
+## <a name="july-3-2018"></a>2018 年 7 月 3 日
+
+バージョン 2.0.40
+
+### <a name="core"></a>コア
+
+* 対話型ログインの新しい承認コード フローを追加しました
+
+### <a name="acr"></a>ACR
+
+* ビルド状態のポーリングを追加しました
+* 大文字と小文字が区別されない列挙型の値のサポ―トを追加しました
+* `show-manifests` の `--top` および `--orderby` パラメーターを追加しました
+
+### <a name="acs"></a>ACS
+
+* [重大な変更] Kubernetes のロールベースのアクセス制御を既定で有効にしました
+* `--disable-rbac` 引数を追加しました。また、`--enable-rbac` は現在の既定値なので非推奨にしました
+* `aks browse` コマンドのオプションを更新しました。 `--listen-port` のサポートを追加しました
+* `aks install-connector` コマンドの既定の Helm チャート パッケージを更新しました。 virtual-kubelet-for-aks-latest.tgz を使用します
+* 既存のクラスターを更新するための `aks enable-addons` コマンドと `aks disable-addons` コマンドを追加しました
+
+### <a name="appservice"></a>AppService
+
+* `webapp identity remove` による ID の無効化に対応するようになりました
+* ID 機能の `preview` タグを削除しました
+
+### <a name="backup"></a>Backup
+
+* モジュール定義を更新しました
+
+### <a name="batchai"></a>BatchAI
+
+* `batchai cluster node list` コマンドと `batchai job node list` コマンドのテーブル出力を修正しました
+
+### <a name="cloud"></a>クラウド
+
+* `acr login` サーバー サフィックスをクラウド構成に追加しました
+
+### <a name="container"></a>コンテナー
+
+* `container create` の既定値が実行時間の長い操作に設定されるように変更しました
+* Log Analytics の `--log-analytics-workspace` パラメーターと `--log-analytics-workspace-key` パラメーターを追加しました
+* 使用するネットワーク プロトコルを指定する `--protocol` パラメーターを追加しました
+
+### <a name="extension"></a>内線番号
+
+* CLI バージョンと互換性のある拡張機能のみが表示されるように `extension list-available` を変更しました
+
+### <a name="network"></a>ネットワーク
+
+* レコードの種類で大文字と小文字が区別される問題 ([#6602](https://github.com/Azure/azure-cli/issues/6602)) を修正しました
+
+### <a name="rdbms"></a>Rdbms
+
+* `[postgres|myql] server vnet-rule` コマンドを追加しました
+
+### <a name="resource"></a>リソース
+
+* 新しい操作グループ `deployment` を追加しました
+
+### <a name="vm"></a>VM
+
+* システム割り当て ID の削除に対応するようになりました
+
+## <a name="june-25-2018"></a>2018 年 6 月 25 日
+
+バージョン 2.0.39
+
+### <a name="cli"></a>CLI
+
+* 拡張機能のインストールの問題を解決するために MSI インストーラーのファイルのトリミングを更新しました
 
 ## <a name="june-19-2018"></a>2018 年 6 月 19 日
 
@@ -248,8 +329,8 @@ ms.locfileid: "36262660"
     * `currentServiceObjectiveId` プロパティと `requestedServiceObjectiveId` プロパティを削除しました 
     * `maxSizeBytes` プロパティを、文字列ではなく整数値に変更しました
 * [重大な変更] 次の `db` プロパティと `dw` プロパティを読み取り専用に変更しました。
-    * `requestedServiceObjectiveName` .  更新するには、`--service-objective` パラメーターを使用するか、`sku.name` プロパティを設定します
-    * `edition` . 更新するには、`--edition` パラメーターを使用するか、`sku.tier` プロパティを設定します
+    * `requestedServiceObjectiveName`  更新するには、`--service-objective` パラメーターを使用するか、`sku.name` プロパティを設定します
+    * `edition` 更新するには、`--edition` パラメーターを使用するか、`sku.tier` プロパティを設定します
     * `elasticPoolName` 更新するには、`--elastic-pool` パラメーターを使用するか、`elasticPoolId` プロパティを設定します
 * [重大な変更] 次の `elastic-pool` プロパティを読み取り専用に変更しました。
     * `edition` 更新するには、`--edition` パラメーターを使用します
@@ -633,7 +714,7 @@ ms.locfileid: "36262660"
 ### <a name="acr"></a>ACR
 
 * `--image` パラメーターのサポートを `repository delete` に追加しました
-* `--manifest` コマンドの `--tag` および `repository delete` パラメーターを非推奨にしました
+* ph x="3" /&gt; コマンドの `--manifest` および `--tag` パラメーターを非推奨にしました
 * データを削除せずに、タグを削除する `repository untag` コマンドを追加しました
 
 ### <a name="acs"></a>ACS
@@ -709,7 +790,7 @@ ms.locfileid: "36262660"
 ### <a name="vm"></a>VM
 
 * 被管理対象データ ディスクを接続し、キャッシュを構成できるように `[vm|vmss] create` へのサポートを追加しました
-* `[vm|vmss] assign-identity` および `[vm|vmss] remove-identity` を非推奨にしました
+* ph x="1" /&gt; および `[vm|vmss] remove-identity` を非推奨にしました
 * 非推奨のコマンドの代わりに `vm identity [assign|remove|show]` および `vmss identity [assign|remove|show]` コマンドを追加しました
 * `vmss create` での既定の優先順位を None に変更しました
 
