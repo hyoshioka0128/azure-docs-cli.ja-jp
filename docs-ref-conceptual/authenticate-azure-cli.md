@@ -10,12 +10,12 @@ ms.technology: azure-cli
 ms.devlang: azurecli
 ms.service: active-directory
 ms.component: authentication
-ms.openlocfilehash: 4d5bee6514477c494ec53d2bd7bba778301ba490
-ms.sourcegitcommit: 38549f60d76d4b6b65d180367e83749769fe6e43
+ms.openlocfilehash: bbd64458b49d3e6c6a533a489d5c8105f364d3d7
+ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34703147"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37439875"
 ---
 # <a name="log-in-with-azure-cli-20"></a>Azure CLI 2.0 を使用してログインする
 
@@ -26,9 +26,9 @@ Azure CLI を使用してログインと認証を行うには、いくつかの�
 
 ログインすると、CLI コマンドが既定のサブスクリプションに対して実行されます。 複数のサブスクリプションがある場合は、[既定のサブスクリプションを変更](manage-azure-subscriptions-azure-cli.md)できます。
 
-## <a name="interactive-log-in"></a>対話形式のログイン
+## <a name="interactive-sign-in"></a>対話形式でのサインイン
 
-Web ブラウザーから対話形式でログインします。
+Azure CLI の既定の認証方法では、お使いの Web ブラウザーから対話形式でサインインします。
 
 [!INCLUDE [interactive_login](includes/interactive-login.md)]
 

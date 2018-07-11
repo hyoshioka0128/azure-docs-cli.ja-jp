@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 8448ac19127ceefd048a23904d9e692e3b68c9bb
-ms.sourcegitcommit: 1a38729d6ae93c49137b3d49b6a9ec8a75eff190
+ms.openlocfilehash: f5923592b465d01e12737211a6eaa5aa2a6ee68a
+ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36262728"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37439977"
 ---
 # <a name="install-azure-cli-20"></a>Azure CLI 2.0 のインストール
 
 Azure CLI 2.0 は、Azure リソースを管理するための優れたエクスペリエンスを提供するコマンドライン ツールです。 CLI では、スクリプトを簡単に作成したり、データを柔軟に照会したりできます。また、長時間実行される操作を非ブロッキング プロセスとしてサポートします。 今すぐお試しになり、CLI が提供する機能をご確認ください。
 
-CLI の現在のバージョンは __2.0.38__ です。 最新リリースについては、[リリース ノート](release-notes-azure-cli.md)をご覧ください。
+CLI の現在のバージョンは __2.0.41__ です。 最新リリースについては、[リリース ノート](release-notes-azure-cli.md)をご覧ください。
 
 * [Windows へのインストール](install-azure-cli-windows.md)
 * [macOS へのインストール](install-azure-cli-macos.md)

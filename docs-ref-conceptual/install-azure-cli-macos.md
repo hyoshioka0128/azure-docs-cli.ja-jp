@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 37358e991f96dd517d169e3b3ac651d513897d6d
-ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.openlocfilehash: e8190ba91006bd6d83eb0ef90b492ee7df4dda4c
+ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32044113"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37439909"
 ---
 # <a name="install-azure-cli-20-on-macos"></a>macOS での Azure CLI 2.0 のインストール
 
@@ -31,11 +31,9 @@ CLI をインストールするには、brew リポジトリ情報を更新し�
 brew update && brew install azure-cli
 ```
 
-その後、Azure CLI は `az` コマンドで実行できます。 ログインするには、`az login` コマンドを実行します。
+その後、Azure CLI は `az` コマンドで実行できます。 サインインするには、[az login](/cli/azure/reference-index#az-login) コマンドを使用します。
 
-```azurecli
-az login
-```
+[!INCLUDE [interactive-login](includes/interactive-login.md)]
 
 さまざまなログイン方法の詳細については、「[Azure CLI 2.0 を使用してログインする](authenticate-azure-cli.md)」を参照してください。
 

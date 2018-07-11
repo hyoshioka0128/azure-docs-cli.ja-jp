@@ -2,23 +2,23 @@
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/16/2018
+ms.date: 07/02/2018
 ms.topic: include
-ms.openlocfilehash: cace08e129e67c91d3fe45cd1712fcf27ab75204
-ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
+ms.openlocfilehash: d1ea5227b0a93bc66672a659779099bec83c8baf
+ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34443527"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37439994"
 ---
-1. ログイン コマンドを実行します。
+1. `login` コマンドを実行します。
 
     ```azurecli-interactive
     az login
     ```
 
-   使用するコードは次の手順で示します。
+    CLI によって既定のブラウザーを確認し、アクセスして、開くことができる場合は、サインイン ページにすぐにリダイレクトされます。
 
-2. Web ブラウザーを使用して [https://aka.ms/devicelogin](https://aka.ms/devicelogin) ページを開き、コードを入力して認証を行います。
+    それ以外の場合は、ブラウザー ページを開いて、お使いのブラウザーで [https://aka.ms/devicelogin](https://aka.ms/devicelogin) に移動した後、コマンド ラインの指示に従って認証コードを入力します。
 
-3. ブラウザーでアカウントの資格情報を使用してログインします。
+2. ブラウザーでアカウントの資格情報を使用してサインインします。

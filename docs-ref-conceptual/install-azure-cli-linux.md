@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: b11ab99626227cb53a604d429fa32c560e4255d9
-ms.sourcegitcommit: 38549f60d76d4b6b65d180367e83749769fe6e43
+ms.openlocfilehash: dade772f178ed9fd321ff45727aea991acd6d311
+ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34703130"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37439637"
 ---
 # <a name="install-azure-cli-20-on-linux-manually"></a>Linux での Azure CLI 2.0 の手動インストール
 
@@ -41,11 +41,9 @@ curl -L https://aka.ms/InstallAzureCli | bash
 
 代わりに、スクリプトをダウンロードしてローカルで実行することもできます。 変更を有効にするために、シェルの再起動が必要になる場合があります。 
 
-その後、Azure CLI は `az` コマンドで実行できます。 ログインするには、`az login` コマンドを実行します。
+その後、Azure CLI は `az` コマンドで実行できます。 サインインするには、[az login](/cli/azure/reference-index#az-login) コマンドを使用します。
 
-```azurecli
-az login
-```
+[!INCLUDE [interactive-login](includes/interactive-login.md)]
 
 さまざまなログイン方法の詳細については、「[Azure CLI 2.0 を使用してログインする](authenticate-azure-cli.md)」を参照してください。
 

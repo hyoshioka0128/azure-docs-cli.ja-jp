@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: abbffb1c474d752130dfffa8e60937b3d632fa14
-ms.sourcegitcommit: c6c3058254974b3a1d5d2fa2cd231a900c53d321
+ms.openlocfilehash: 3f52f1545dc4bad44280c7e58ad17ec2302fd436
+ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37126584"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37439620"
 ---
 # <a name="install-azure-cli-20-with-apt"></a>apt での Azure CLI 2.0 のインストール
 
@@ -49,11 +49,9 @@ Ubuntu や Debian など、`apt` が付属するディストリビューショ�
    > [!WARNING]
    > 署名キーは 2018 年 5 月に更新され、置き換えられました。 署名キーのエラーが発生した場合は、[最新の署名キーを取得済み](#signingKey)であることを確認してください。
 
-その後、Azure CLI は `az` コマンドで実行できます。 ログインするには、`az login` コマンドを実行します。
+その後、Azure CLI は `az` コマンドで実行できます。 ログインするには、[az login](/cli/azure/reference-index#az-login) コマンドを使用します。
 
-```azurecli
-az login
-```
+[!INCLUDE [interactive-login](includes/interactive-login.md)]
 
 さまざまなログイン方法の詳細については、「[Azure CLI 2.0 を使用してログインする](authenticate-azure-cli.md)」を参照してください。
 

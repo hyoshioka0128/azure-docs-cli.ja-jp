@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: a862cca17adb1bfa0201af250819158081c29813
-ms.sourcegitcommit: 5c80e96e96f9608c92a94fa4a9c4afb25099f3fc
+ms.openlocfilehash: 3a63c491b883c5a28e7309145e7a5eeb41e36b46
+ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35512973"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37439926"
 ---
 # <a name="install-azure-cli-20-with-zypper"></a>zypper での Azure CLI 2.0 のインストール
 
@@ -48,11 +48,9 @@ openSUSE や SLES など、`zypper` が付属するディストリビューシ�
    sudo zypper install --from azure-cli -y azure-cli
    ```
 
-その後、Azure CLI は `az` コマンドで実行できます。 ログインするには、`az login` コマンドを実行します。
+その後、Azure CLI は `az` コマンドで実行できます。 サインインするには、[az login](/cli/azure/reference-index#az-login) コマンドを使用します。
 
-```azurecli
-az login
-```
+[!INCLUDE [interactive-login](includes/interactive-login.md)]
 
 さまざまなログイン方法の詳細については、「[Azure CLI 2.0 を使用してログインする](authenticate-azure-cli.md)」を参照してください。
 

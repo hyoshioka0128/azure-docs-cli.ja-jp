@@ -10,28 +10,26 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: dbb6233e8fed15b440282b8396d3b3bd056e80f7
-ms.sourcegitcommit: 5c80e96e96f9608c92a94fa4a9c4afb25099f3fc
+ms.openlocfilehash: c973d31312fbe0f9232bf3f0f3ed5f3b70b6559a
+ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35512939"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37439943"
 ---
 # <a name="get-started-with-azure-cli-20"></a>Azure CLI 2.0 を使ってみる
 
 Azure CLI 2.0 へようこそ。 CLI は、Azure サービスを迅速かつ効率的に使用するためのツールで、オートメーションに重点が置されています。 この記事では、CLI の機能と、生産性の向上に役立つリソースへのリンクを紹介します。
 
-## <a name="install-and-log-in"></a>インストールしてログインする
+## <a name="install-and-sign-in"></a>インストールとサインイン
 
 [CLI をインストール](install-azure-cli.md)するか、[Azure Cloud Shell](/azure/cloud-shell/overview) を試します (まだこの操作を行っていない場合)。
 
-ローカル インストールで CLI コマンドを使用する前に、[az login](/cli/azure/reference-index#az-login) でログインする必要があります。
+ローカル インストールで CLI コマンドを使用する前に、[az login](/cli/azure/reference-index#az-login) でサインインする必要があります。
 
-```azurecli
-az login
-```
+[!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-このコマンドにより、Web サイトから認証コードを使用してログインするように求められます。 対話形式以外でログインする方法も用意されています。詳細については、「[Log in with Azure CLI 2.0 (Azure CLI 2.0 を使用してログインする)](authenticate-azure-cli.md)」を参照してください。
+対話型以外のサインイン方法も用意されています。詳細については、「[Azure CLI 2.0 を使用してログインする](authenticate-azure-cli.md)」を参照してください。
 
 ## <a name="common-commands"></a>一般的なコマンド
 
