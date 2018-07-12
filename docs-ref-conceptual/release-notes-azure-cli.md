@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 102152b7d99de253ccb2fea09b99be91e3c9135e
-ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
+ms.openlocfilehash: b44a387a144b9d7daca8d87309d8a5e1a47b078a
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37439671"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967879"
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 リリース ノート
 
@@ -120,7 +120,7 @@ ms.locfileid: "37439671"
 * `acs browse` コマンド エラーを修正しました
 * `aks install-connector`、`aks upgrade-connector`、および `aks remove-connector` について、`--connector-name` を省略可能にしました
 * `aks install-connector` の新しい Azure コンテナー インスタンス リージョンを追加しました
-* Helm のリリース名とノード名への正規化された場所を `aks install-connector` に追加しました 
+* Helm のリリース名とノード名への正規化された場所を `aks install-connector` に追加しました
 
 ### <a name="appservice"></a>AppService
 
@@ -137,7 +137,7 @@ ms.locfileid: "37439671"
 * 実験のサポートを追加しました。 実験を使用すると、ジョブをグループ化できるため、作成されたジョブの数に対する制限がなくなります
 * Docker コンテナーで実行されているジョブに対して `/dev/shm` を構成するためのサポートを追加しました
 * `batchai cluster node exec` コマンドと `batchai job node exec` コマンドを追加しました。 これらのコマンドを使用すると、すべてのコマンドをノードで直接実行して、ポート フォワーディングの機能を提供できます。
-* `--ids` のサポートを `batchai` コマンドに追加しました 
+* `--ids` のサポートを `batchai` コマンドに追加しました
 * [重大な変更] すべてのクラスターおよびファイルサーバーをワークスペースに作成する必要があります
 * [重大な変更] ジョブを実験に作成する必要があります
 * [重大な変更] `--nfs-resource-group` を `cluster create` コマンドおよび `job create` コマンドから削除しました。 別のワークスペース/リソース グループに属している NFS をマウントするには、`--nfs` オプションによってファイル サーバーの ARM ID を指定します
@@ -168,7 +168,7 @@ ms.locfileid: "37439671"
 * [重大な変更] `Catalog` から `size` プロパティおよび `tier` プロパティを削除しました
 * パラメーター `InstanceFlexibility` を `reservations reservation update` に追加しました
 
-### <a name="role"></a>役割
+### <a name="role"></a>Role
 
 * エラー処理を改善しました
 
@@ -201,7 +201,7 @@ ms.locfileid: "37439671"
 ### <a name="aks"></a>AKS
 
 * 高度なネットワーク オプションを `aks create` に追加しました
-* 引数を `aks create` に追加して、監視と HTTP ルーティングを有効にしました 
+* 引数を `aks create` に追加して、監視と HTTP ルーティングを有効にしました
 * `--no-ssh-key` 引数を `aks create` に追加しました
 * `--enable-rbac` 引数を `aks create` に追加しました
 * [プレビュー] Azure Active Directory 認証のサポートを `aks create` に追加しました
@@ -326,7 +326,7 @@ ms.locfileid: "37439671"
 
 * [重大な変更] `db` コマンドおよび `dw` コマンドから返される応答オブジェクトを変更しました。
     * `serviceLevelObjective` プロパティの名前を `currentServiceObjectiveName` に変更しました
-    * `currentServiceObjectiveId` プロパティと `requestedServiceObjectiveId` プロパティを削除しました 
+    * `currentServiceObjectiveId` プロパティと `requestedServiceObjectiveId` プロパティを削除しました
     * `maxSizeBytes` プロパティを、文字列ではなく整数値に変更しました
 * [重大な変更] 次の `db` プロパティと `dw` プロパティを読み取り専用に変更しました。
     * `requestedServiceObjectiveName`  更新するには、`--service-objective` パラメーターを使用するか、`sku.name` プロパティを設定します
@@ -432,7 +432,7 @@ ms.locfileid: "37439671"
 
 ### <a name="network"></a>ネットワーク
 
-* [重大な変更] 次の要素の `--ids` パラメーターを削除しました 
+* [重大な変更] 次の要素の `--ids` パラメーターを削除しました
   * `express-route auth list`
   * `express-route peering list`
   * `nic ip-config list`
@@ -454,7 +454,7 @@ ms.locfileid: "37439671"
 * `redis import` を優先して、`redis import-method` を非推奨にしました
 * さまざまなコマンドに `--ids` のサポートを追加しました
 
-### <a name="role"></a>役割
+### <a name="role"></a>Role
 
 * [重大な変更] 非推奨の `ad sp reset-credentials` を削除しました
 
@@ -477,7 +477,7 @@ ms.locfileid: "37439671"
   * `vm secret list`
   * `vm unmanaged-disk list`
   * `vmss nic list`
-* 書き込みアクセラレータのサポートを追加しました 
+* 書き込みアクセラレータのサポートを追加しました
 * `vmss perform-maintenance` を追加しました
 * VM の OS の種類が確実に検出されるように `vm diagnostics set` を修正しました
 * 要求されたサイズが現在設定されているサイズと異なるかどうかをチェックし、変更時にのみ更新するように `vm resize` を変更しました
@@ -561,7 +561,7 @@ ms.locfileid: "37439671"
 
 * [#5936](https://github.com/Azure/azure-cli/issues/5936) (`application-gateway create` タグを設定できない) を修正しました
 * `application-gateway http-settings [create|update]` の認証証明書をアタッチする引数 `--auth-certs` を追加しました。 [#4910](https://github.com/Azure/azure-cli/issues/4910)
-* DDoS 保護プランを作成する `ddos-protection` コマンドを追加しました 
+* DDoS 保護プランを作成する `ddos-protection` コマンドを追加しました
 * `--ddos-protection-plan` のサポートを `vnet [create|update]` に追加して、VNet を DDoS 保護プランに関連付けました
 * `network route-table [create|update]` の `--disable-bgp-route-propagation` フラグに関する問題を修正しました
 * `network lb [create|update]` のダミー引数 `--public-ip-address-type` および `--subnet-type` を削除しました
@@ -687,7 +687,7 @@ ms.locfileid: "37439671"
 
 * [重大な変更]: Changed `provider operation [list|show]` to not require `--api-version`
 
-### <a name="role"></a>役割
+### <a name="role"></a>Role
 
 * 必要なアクセス権の構成とネイティブ クライアントのサポートを `az ad app create` に追加しました
 * オブジェクトの解決時に 1000 未満の ID を返すように、`rbac` コマンドを変更しました
@@ -714,7 +714,7 @@ ms.locfileid: "37439671"
 ### <a name="acr"></a>ACR
 
 * `--image` パラメーターのサポートを `repository delete` に追加しました
-* ph x="3" /&gt; コマンドの `--manifest` および `--tag` パラメーターを非推奨にしました
+* `--manifest` コマンドの `--tag` および `repository delete` パラメーターを非推奨にしました
 * データを削除せずに、タグを削除する `repository untag` コマンドを追加しました
 
 ### <a name="acs"></a>ACS
@@ -726,7 +726,7 @@ ms.locfileid: "37439671"
 
 * [重大な変更] 名前を `advisor configuration get` から `advisor configuration list` に変更しました
 * [重大な変更] 名前を `advisor configuration set` から `advisor configuration update` に変更しました
-* [重大な変更] `advisor recommendation generate` を削除しました 
+* [重大な変更] `advisor recommendation generate` を削除しました
 * `--refresh` パラメーターを `advisor recommendation list` に追加しました
 * `advisor recommendation show` コマンドを追加しました
 
@@ -790,7 +790,7 @@ ms.locfileid: "37439671"
 ### <a name="vm"></a>VM
 
 * 被管理対象データ ディスクを接続し、キャッシュを構成できるように `[vm|vmss] create` へのサポートを追加しました
-* ph x="1" /&gt; および `[vm|vmss] remove-identity` を非推奨にしました
+* `[vm|vmss] assign-identity` および `[vm|vmss] remove-identity` を非推奨にしました
 * 非推奨のコマンドの代わりに `vm identity [assign|remove|show]` および `vmss identity [assign|remove|show]` コマンドを追加しました
 * `vmss create` での既定の優先順位を None に変更しました
 
@@ -837,7 +837,7 @@ ms.locfileid: "37439671"
 
 * エラー発生時にテンプレートとエラーの一部が表示されるように `group deployment export` を変更しました
 
-### <a name="role"></a>役割
+### <a name="role"></a>Role
 
 * サービス プリンシパル ロールの監査を許可するために `role assignment list-changelogs` を追加しました
 
@@ -934,7 +934,7 @@ ms.locfileid: "37439671"
 
 * `feature show` を再び追加しました
 
-### <a name="role"></a>役割
+### <a name="role"></a>Role
 
 * `--available-to-other-tenants` 引数を `ad app update` に追加しました
 
@@ -998,7 +998,7 @@ ms.locfileid: "37439671"
 * `dns zone export` の次の問題を修正しました。
   * 長い TXT レコードが誤ってエクスポートされる問題を修正しました
   * 引用符で囲まれた TXT レコードが、エスケープされた引用符なしで誤ってエクスポートされる問題を修正しました
-* 特定のレコードが `dns zone import` で 2 回インポートされる問題を修正しました 
+* 特定のレコードが `dns zone import` で 2 回インポートされる問題を修正しました
 * `vnet-gateway root-cert` コマンドと `vnet-gateway revoked-cert` コマンドを復元しました
 
 ### <a name="profile"></a>プロファイル
@@ -1013,7 +1013,7 @@ ms.locfileid: "37439671"
 
 * ストレージ V1 からストレージ V2 へのアカウント移行の問題を修正しました
 * すべてのアップロード/ダウンロード コマンドについて、進行状況レポートを追加しました
-* `storage account check-name` で "-n" 引数オプションが妨げられるバグを修正しました  
+* `storage account check-name` で "-n" 引数オプションが妨げられるバグを修正しました
 * "snapshot" 列を `blob [list|show]` のテーブル出力に追加しました
 * 整数として解析する必要があるさまざまなパラメーターのバグを修正しました
 
@@ -1101,7 +1101,7 @@ ms.locfileid: "37439671"
 
 * ユーザーが割り当てた ID でのログインのサポートを追加しました
 
-### <a name="role"></a>役割
+### <a name="role"></a>Role
 
 * グラフ クエリをバイパスするために、`role assignment create` に `--assignee-object-id` 引数を追加しました
 
@@ -1187,7 +1187,7 @@ ms.locfileid: "37439671"
 
 * `--include-response-body` 引数を `resource show` に追加しました
 
-### <a name="role"></a>役割
+### <a name="role"></a>Role
 
 * `role assignment list` に、"従来の" 管理者の既定の割り当ての表示を追加しました
 * `ad sp reset-credentials` で、上書きではなく、資格情報を追加できるようにしました
@@ -1215,7 +1215,7 @@ ms.locfileid: "37439671"
 ### <a name="acs"></a>ACS
 
 * AKS の "エージェント" という用語をすべて "ノード" に変更しました
-* ph x="2" /&gt; の `--orchestrator-release` オプションを非推奨にしました
+* `acs create` の `--orchestrator-release` オプションを非推奨にしました
 * `Standard_D1_v2` に対する AKS の既定 VM サイズを変更しました
 * Windows での `az aks browse` を修正しました
 * Windows での `az aks get-credentials` を修正しました
@@ -1913,7 +1913,7 @@ vm (2.0.11)
 * テンプレート リンク テンプレートのパラメーター チェックを追加しました (#3629)
 * `KEY=VALUE` 構文でデプロイ パラメーターを指定するためのサポートを追加しました
 
-### <a name="role"></a>役割
+### <a name="role"></a>Role
 
 * `create-for-rbac` で SDK 認証ファイル形式での出力をサポートします
 * サービス プリンシパルを削除するときに、ロールの割り当てと、関連する AAD アプリケーションがクリーンアップされるようになりました (#3610)
@@ -2125,7 +2125,7 @@ vm (2.0.6)
 * [コンピューティング] VMSS と VM の可用性セットの更新に関する問題が修正されました。 ([#2773](https://github.com/Azure/azure-cli/issues/2773))
 * parent-resource-path が None の場合のロックの作成と削除が修正されました ([#2742](https://github.com/Azure/azure-cli/issues/2742))
 
-### <a name="role"></a>役割
+### <a name="role"></a>Role
 
 * create-for-rbac: SP の終了日が、確実に証明書の有効期限の前に設定されます ([#2989](https://github.com/Azure/azure-cli/issues/2989))
 * RBAC: "ad group" が完全にサポートされるようになりました ([#2016](https://github.com/Azure/azure-cli/issues/2016))

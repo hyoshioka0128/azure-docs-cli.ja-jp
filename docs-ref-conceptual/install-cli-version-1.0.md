@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 92714f32736e0a1a0ea7c8dd4a615b158c955931
-ms.sourcegitcommit: ae72b6c8916aeb372a92188090529037e63930ba
+ms.openlocfilehash: 5f185e02217d6a3b54a9c252825c0f3fed3ab09e
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32044011"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967675"
 ---
 # <a name="install-the-azure-cli-10"></a>Azure CLI 1.0 のインストール
 
 > [!IMPORTANT]
-> このトピックでは、Azure CLI 1.0 のインストール方法について説明します。 この CLI は廃止されており、"従来の" リソースを使用した Azure サービス管理 (ASM) モデルのサポートにのみ使用されます。
+> このトピックでは、Azure CLI 1.0 のインストール方法について説明します。 この CLI は非推奨となっており、"従来の" リソースを使用した Azure サービス管理 (ASM) モデルのサポートにのみ使用されます。
 > Azure Resource Manager のデプロイには、[Azure CLI 2.0](/cli/azure) を使用します。
 
 Azure コマンド ライン インターフェイス (Azure CLI 1.0) を簡単にインストールして、コマンド ライン シェルからオープン ソースのコマンドを使って Microsoft Azure 上のリソースを作成したり管理したりすることができます。 お使いのコンピューターにこれらのクロスプラットフォーム ツールをインストールするオプションは複数あります。
@@ -33,6 +33,7 @@ Azure コマンド ライン インターフェイス (Azure CLI 1.0) を簡単�
 Azure CLI 1.0 をインストールした後、[Azure サブスクリプションに接続](/cli/azure/authenticate-azure-cli)し、コマンド ライン インターフェイス (Bash、ターミナル、コマンド プロンプトなど) から **azure** コマンドを実行して、Azure リソースを操作します。
 
 ## <a name="option-1-install-an-npm-package"></a>オプション 1: npm パッケージのインストール
+
 CLI を npm パッケージからインストールするには、[最新の Node.js と npm](https://nodejs.org/en/download/package-manager/) をダウンロードし、インストールしていることを確認してください。 次に、**npm install** を実行して、azure-cli パッケージをインストールします。
 
 ```bash
@@ -55,6 +56,7 @@ npm install -g <path to downloaded tar file>
 ```
 
 ## <a name="option-2-use-an-installer"></a>オプション 2: インストーラーの使用
+
 Mac または Windows コンピューターを使用する場合、次の CLI インストーラーをダウンロードに使用できます。
 
 * [Mac OS X インストーラー][mac-installer]
@@ -64,6 +66,7 @@ Mac または Windows コンピューターを使用する場合、次の CLI �
 > Windows では、 [Web プラットフォーム インストーラー](https://go.microsoft.com/?linkid=9828653) をダウンロードして CLI をインストールすることもできます。 このインストーラーを使用すると、CLI をインストールした後で、その他の Azure SDK とコマンド ライン ツールをインストールすることもできます。
 
 ## <a name="option-3-use-a-docker-container"></a>オプション 3: Docker コンテナーの使用
+
 お使いのコンピューターを [Docker](https://docs.docker.com/engine/understanding-docker/) ホストとして設定すると、Docker コンテナーで最新の Azure CLI 1.0 を実行できるようになります。 次のコマンドを実行します (Linux ディストリビューションの場合、**sudo** の使用が必要になる場合があります)。
 
 ```bash
@@ -71,6 +74,7 @@ docker run -it microsoft/azure-cli:0.10.17
 ```
 
 ## <a name="run-azure-cli-10-commands"></a>Azure CLI 1.0 コマンドの実行
+
 Azure CLI 1.0 をインストールした後、コマンド ライン ユーザー インターフェイス (Bash、ターミナル、コマンド プロンプトなど) から **azure** コマンドを実行します。 たとえば、ヘルプ コマンドを実行するには、次のように入力します。
 
 ```azurecli
@@ -96,6 +100,7 @@ azure --version
 > Azure CLI を初めて使用する場合、Microsoft が使用状況についての情報を収集することを許可するかどうかをたずねるメッセージが表示されます。 参加は任意です。 参加した後でも、 `azure telemetry --disable`を実行するといつでも停止できます。 参加を有効にするには、任意のタイミングで `azure telemetry --enable`を実行します。
 
 ## <a name="update-the-cli"></a>CLI の更新
+
 マイクロソフトは、Azure CLI の更新バージョンを頻繁にリリースしています。 ご使用のオペレーティング システム用のインストーラーを使用するか、最新の Docker コンテナーを実行して、CLI を再インストールします。 または、最新の Node.js と npm がインストールされている場合は、次のコマンドを入力して更新します (Linux ディストリビューションでは、 **sudo**の使用が必要になる場合があります)。
 
 ```bash
@@ -103,6 +108,7 @@ npm update -g azure-cli
 ```
 
 ## <a name="enable-tab-completion"></a>タブ補完の有効化
+
 Mac と Linux では、CLI コマンドのタブ補完がサポートされます。
 
 zsh で有効化する場合は、次のコマンドを実行します。
@@ -118,12 +124,11 @@ azure --completion >> ~/azure.completion.sh
 echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 ```
 
-
 ## <a name="next-steps"></a>次の手順
+
 * [CLI から Azure サブスクリプションへの接続](/cli/azure/authenticate-azure-cli) を行い、Azure リソースを作成および管理します。
 * Azure CLI の詳細、ソース コードのダウンロード、問題のレポート、プロジェクトへの協力については、 [GitHub リポジトリの Azure CLI](https://github.com/azure/azure-xplat-cli)のページを参照してください。
 * Azure CLI または Azure の使用に関してご不明な点がある場合は、 [Azure のフォーラム](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting)をご覧ください。
-
 
 [mac-installer]: http://aka.ms/mac-azure-cli
 [windows-installer]: http://aka.ms/webpi-azure-cli

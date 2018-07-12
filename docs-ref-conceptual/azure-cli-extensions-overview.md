@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 1b983faef4c1678763b3483192e94a6c96e24f32
-ms.sourcegitcommit: 80189ff103c91f8c47ab8ebf586df815fff5dd5d
+ms.openlocfilehash: b503c51ffc55ceda30738e34171c7da92532f328
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34479479"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967726"
 ---
 # <a name="using-extensions-with-the-azure-cli-20"></a>Azure CLI 2.0 での拡張機能の使用
 
@@ -59,7 +59,7 @@ az extension update --name <extension-name>
 
 それ以外の場合は、「[拡張機能のインストール](#install-extensions)」の説明に従って、ソースから拡張機能を更新できます。
 
-CLI を使用して拡張機能の名前を解決できない場合は、アンインストールしてから再インストールを試みてください。 拡張機能がプレビューから移行し、CLI の組み込みコマンドになった可能性もあります。 「[Azure CLI 2.0 のインストール](install-azure-cli.md)」の説明に従って CLI の更新を試み、拡張機能のコマンドが追加されているかどうかを確認してください。 
+CLI を使用して拡張機能の名前を解決できない場合は、アンインストールしてから再インストールを試みてください。 拡張機能がプレビューから移行し、CLI の組み込みコマンドになった可能性もあります。 「[Azure CLI 2.0 のインストール](install-azure-cli.md)」の説明に従って CLI の更新を試み、拡張機能のコマンドが追加されているかどうかを確認してください。
 
 ## <a name="uninstall-extensions"></a>拡張機能のアンインストール
 
@@ -69,7 +69,8 @@ CLI を使用して拡張機能の名前を解決できない場合は、アン�
 az extension remove --name <extension-name>
 ```
 
-また、手動で削除することもできます。それには、インストールした場所から拡張機能を削除します。 これは、`$AZURE_EXTENSION_DIR` シェル変数の値になります。 この変数が設定されていない場合、既定では、この値は `$HOME/.azure/cliextensions` (Linux と macOS の場合) または `%USERPROFILE%\.azure\cliextensions` (Windows の場合) になります。
+また、手動で削除することもできます。それには、インストールした場所から拡張機能を削除します。 これは、`$AZURE_EXTENSION_DIR` シェル変数の値になります。
+この変数が設定されていない場合、既定では、この値は `$HOME/.azure/cliextensions` (Linux と macOS の場合) または `%USERPROFILE%\.azure\cliextensions` (Windows の場合) になります。
 
 ```bash
 rm -rf $AZURE_EXTENSION_DIR/<extension-name>
