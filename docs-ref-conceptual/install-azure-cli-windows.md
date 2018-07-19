@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: d662333f828c65fa709fa622de7de3a18bea58d8
-ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
+ms.openlocfilehash: e614f0d108cef0702525e033d166e0498a94729f
+ms.sourcegitcommit: fb3fed8701aff6c46af856e8fdc3e56ff9a678bc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37439835"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38228977"
 ---
 # <a name="install-azure-cli-20-on-windows"></a>Windows での Azure CLI 2.0 のインストール
 
@@ -34,7 +34,7 @@ Windows Subsystem for Linux (WSL) を実行している場合は、お使いの 
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-さまざまなログイン方法の詳細については、「[Azure CLI 2.0 を使用してログインする](authenticate-azure-cli.md)」を参照してください。
+さまざまな認証方法の詳細については、「[Azure CLI 2.0 を使用してサインインする](authenticate-azure-cli.md)」を参照してください。
 
 ## <a name="uninstall"></a>アンインストール
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 3f52f1545dc4bad44280c7e58ad17ec2302fd436
-ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
+ms.openlocfilehash: a0908c5b5bda7ec903b702eecb61eabbbedaf533
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37439620"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967845"
 ---
 # <a name="install-azure-cli-20-with-apt"></a>apt での Azure CLI 2.0 のインストール
 
@@ -25,7 +25,7 @@ Ubuntu や Debian など、`apt` が付属するディストリビューショ�
 
 ## <a name="install"></a>Install
 
-1. <a name="install-step-1"/>お使いのソース リストを変更します。
+1. <div id="install-step-1"/>ソース リストを変更します。
 
     ```bash
     AZ_REPO=$(lsb_release -cs)
@@ -33,7 +33,7 @@ Ubuntu や Debian など、`apt` が付属するディストリビューショ�
         sudo tee /etc/apt/sources.list.d/azure-cli.list
     ```
 
-2. <a name="signingKey"></a>Microsoft の署名キーを取得します。
+2. <div id="signingKey"/>Microsoft の署名キーを取得します。
 
    ```bash
    curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
@@ -49,11 +49,11 @@ Ubuntu や Debian など、`apt` が付属するディストリビューショ�
    > [!WARNING]
    > 署名キーは 2018 年 5 月に更新され、置き換えられました。 署名キーのエラーが発生した場合は、[最新の署名キーを取得済み](#signingKey)であることを確認してください。
 
-その後、Azure CLI は `az` コマンドで実行できます。 ログインするには、[az login](/cli/azure/reference-index#az-login) コマンドを使用します。
+その後、Azure CLI は `az` コマンドで実行できます。 サインインするには、[az login](/cli/azure/reference-index#az-login) コマンドを使用します。
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-さまざまなログイン方法の詳細については、「[Azure CLI 2.0 を使用してログインする](authenticate-azure-cli.md)」を参照してください。
+さまざまな認証方法の詳細については、「[Azure CLI 2.0 を使用してサインインする](authenticate-azure-cli.md)」を参照してください。
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 
@@ -113,7 +113,7 @@ CLI パッケージを更新するには、`apt-get upgrade` を使用します�
 
 > [!WARNING]
 > 署名キーは 2018 年 5 月に更新され、置き換えられました。 署名キーのエラーが発生した場合は、[最新の署名キーを取得済み](#signingKey)であることを確認してください。
-   
+>
 > [!NOTE]
 > このコマンドにより、システムにインストールされている、依存関係が変更されていないすべてのパッケージがアップグレードされます。
 > CLI だけをアップグレードするには、`apt-get install` を使用します。

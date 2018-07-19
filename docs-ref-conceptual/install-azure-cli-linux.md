@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: dade772f178ed9fd321ff45727aea991acd6d311
-ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
+ms.openlocfilehash: 7e73ae8bbbba80bf48c6f01fc1c37a3c32c6eb31
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37439637"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967556"
 ---
 # <a name="install-azure-cli-20-on-linux-manually"></a>Linux での Azure CLI 2.0 の手動インストール
 
@@ -39,17 +39,18 @@ CLI をインストールするか更新するかに関わらず、完全イン�
 curl -L https://aka.ms/InstallAzureCli | bash
 ```
 
-代わりに、スクリプトをダウンロードしてローカルで実行することもできます。 変更を有効にするために、シェルの再起動が必要になる場合があります。 
+代わりに、スクリプトをダウンロードしてローカルで実行することもできます。 変更を有効にするために、シェルの再起動が必要になる場合があります。
 
 その後、Azure CLI は `az` コマンドで実行できます。 サインインするには、[az login](/cli/azure/reference-index#az-login) コマンドを使用します。
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-さまざまなログイン方法の詳細については、「[Azure CLI 2.0 を使用してログインする](authenticate-azure-cli.md)」を参照してください。
+さまざまな認証方法の詳細については、「[Azure CLI 2.0 を使用してサインインする](authenticate-azure-cli.md)」を参照してください。
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 
 ここでは、手動インストール中に発生する一般的な問題をいくつか示します。 問題がここに示されていない場合は、[GitHub で問題を報告](https://github.com/Azure/azure-cli/issues)してください。
+
 ### <a name="curl-object-moved-error"></a>curl の "Object Moved" エラー
 
 `curl` で `-L` パラメーターに関連するエラーが発生した場合や、"Object Moved" というテキストが含まれているエラー メッセージが表示された場合は、次のように、`aka.ms` リダイレクトの代わりに完全な URL を使用してみてください。
@@ -60,7 +61,7 @@ curl https://azurecliprod.blob.core.windows.net/install | bash
 
 ### <a name="az-command-not-found"></a>`az` コマンドが見つからない
 
-インストール後に、`bash` または `zsh` でコマンドを実行できない場合は、シェルのコマンド ハッシュのキャッシュをクリアします。 実行
+インストール後に、`bash` または `zsh` でコマンドを実行できない場合は、シェルのコマンド ハッシュのキャッシュをクリアします。 ラン
 
 ```bash
 hash -r
@@ -86,6 +87,7 @@ CLI をアンインストールするには、インストール時に選択し�
   rm -r <install location>/lib/azure-cli
   rm <install location>/bin/az
   ```
+
 2. `$HOME/.bash_profile` ファイルを変更して、次の行を削除します。
 
   ```text

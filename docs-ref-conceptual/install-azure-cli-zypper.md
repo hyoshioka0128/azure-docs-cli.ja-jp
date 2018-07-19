@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 3a63c491b883c5a28e7309145e7a5eeb41e36b46
-ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
+ms.openlocfilehash: a7329784f26edfaeebc3520b63d12faed11fe38f
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37439926"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967539"
 ---
 # <a name="install-azure-cli-20-with-zypper"></a>zypper での Azure CLI 2.0 のインストール
 
@@ -52,7 +52,7 @@ openSUSE や SLES など、`zypper` が付属するディストリビューシ�
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-さまざまなログイン方法の詳細については、「[Azure CLI 2.0 を使用してログインする](authenticate-azure-cli.md)」を参照してください。
+さまざまな認証方法の詳細については、「[Azure CLI 2.0 を使用してサインインする](authenticate-azure-cli.md)」を参照してください。
 
 ## <a name="update"></a>アップデート
 
@@ -85,4 +85,3 @@ sudo zypper update azure-cli
   MSFT_KEY=`rpm -qa gpg-pubkey /* --qf "%{version}-%{release} %{summary}\n" | grep Microsoft | awk '{print $1}'`
   sudo rpm -e --allmatches gpg-pubkey-$MSFT_KEY
   ```
-

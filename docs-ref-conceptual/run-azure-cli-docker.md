@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 0eb3694c8dcb085e1aeb8cde54a21ac16157b26b
-ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
+ms.openlocfilehash: 65d8140bd12a260c127efa2adb064c2f9294810b
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37439832"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967777"
 ---
 # <a name="run-azure-cli-20-in-a-docker-container"></a>Docker コンテナーでの Azure CLI 2.0 の実行
 
@@ -30,17 +30,16 @@ Docker を使用して、Azure CLI 2.0 がプレインストールされたス�
 
 > [!NOTE]
 > ユーザー環境から SSH キーを取得する場合は、`-v ${HOME}:/root` を使用して、$HOME を `/root` としてマウントできます。
-
+>
 > ```bash
 > docker run -it -v ${HOME}:/root microsoft/azure-cli
 > ```
 
-CLI は、`/usr/local/bin` の `az` コマンドとしてイメージにインストールされます。 ログインするには、[az login](/cli/azure/reference-index#az-login) コマンドを実行します。
+CLI は、`/usr/local/bin` の `az` コマンドとしてイメージにインストールされます。 サインインするには、[az login](/cli/azure/reference-index#az-login) コマンドを実行します。
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-さまざまなログイン方法の詳細については、「[Azure CLI 2.0 を使用してログインする](authenticate-azure-cli.md)」を参照してください。
-
+さまざまな認証方法の詳細については、「[Azure CLI 2.0 を使用してサインインする](authenticate-azure-cli.md)」を参照してください。
 
 ## <a name="update-docker-image"></a>Docker イメージの更新
 

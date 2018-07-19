@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: c973d31312fbe0f9232bf3f0f3ed5f3b70b6559a
-ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
+ms.openlocfilehash: f45c3acfdb4edb82cde755472d240ae18d82aba2
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37439943"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967743"
 ---
 # <a name="get-started-with-azure-cli-20"></a>Azure CLI 2.0 を使ってみる
 
@@ -29,7 +29,7 @@ Azure CLI 2.0 へようこそ。 CLI は、Azure サービスを迅速かつ効�
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-対話型以外のサインイン方法も用意されています。詳細については、「[Azure CLI 2.0 を使用してログインする](authenticate-azure-cli.md)」を参照してください。
+対話型以外のサインイン方法も用意されています。詳細については、「[Azure CLI 2.0 を使用してサインインする](authenticate-azure-cli.md)」を参照してください。
 
 ## <a name="common-commands"></a>一般的なコマンド
 
@@ -38,7 +38,7 @@ Azure CLI 2.0 へようこそ。 CLI は、Azure サービスを迅速かつ効�
 
 | リソースの種類 | Azure CLI コマンド グループ |
 |---------------|-------------------------|
-| [[リソース グループ]](/azure/azure-resource-manager/resource-group-overview) | [az group](/cli/azure/group) |
+| [リソース グループ](/azure/azure-resource-manager/resource-group-overview) | [az group](/cli/azure/group) |
 | [仮想マシン](/azure/virtual-machines) | [az vm](/cli/azure/vm) |
 | [ストレージ アカウント](/azure/storage/common/storage-introduction) | [az storage account](/cli/azure/storage/account) |
 | [Key Vault](/azure/key-vault/key-vault-whatis) | [az keyvault](/cli/azure/keyvault) |
@@ -74,7 +74,6 @@ CLI では Bash シェルにコマンドの完全タブ補完が用意されて�
 * `--query` は、[JMESPath クエリ言語](http://jmespath.org/)を使用して、Azure サービスから返された出力をフィルター処理します。 クエリの詳細については、[Azure CLI 2.0 でのコマンド結果に対するクエリの実行](query-azure-cli.md)に関するページ、および「[JMESPath tutorial (JMESPath チュートリアル)](http://jmespath.org/tutorial.html)」を参照してください。
 * `--verbose` は、操作中に Azure で作成されたリソースに関する情報と、その他の有用な情報を出力します。
 * `--debug` は、デバッグの目的で使用する、CLI 操作に関する詳細情報を出力します。 バグが発生した場合は、バグ レポートを送信するときに、`--debug` フラグをオンにして生成した出力を提供します。
-
 
 ## <a name="interactive-mode"></a>対話モード
 

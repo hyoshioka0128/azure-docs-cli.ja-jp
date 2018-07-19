@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azure-cli
 ms.service: role-based-access-control
-ms.openlocfilehash: cd9a41b66d18410afa091ede50ca24e7d4b5e9ed
-ms.sourcegitcommit: 308f9eb433a05b814999ac404f63d181169fffeb
+ms.openlocfilehash: 956a1c10c3e4321651df58f86f6f2c21ede5061f
+ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37439960"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38967913"
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Azure CLI 2.0 で Azure サービス プリンシパルを作成する
 
-アクセス制限を使用して個別のログインを作成するには、サービス プリンシパルを使用します。 サービス プリンシパルは、アカウントに関連付けることができる個別の ID です。 サービス プリンシパルは、自動化する必要があるアプリケーションとタスクを操作するうえで役に立ちます。 この記事では、サービス プリンシパルを作成する手順について説明します。
+アクセス制限を使用して個別のサインインを作成するには、サービス プリンシパルを使用します。 サービス プリンシパルは、アカウントに関連付けることができる個別の ID です。 サービス プリンシパルは、自動化する必要があるアプリケーションとタスクを操作するうえで役に立ちます。 この記事では、サービス プリンシパルを作成する手順について説明します。
 
 ## <a name="create-the-service-principal"></a>サービス プリンシパルを作成する
 
@@ -33,7 +33,7 @@ ms.locfileid: "37439960"
 * 既存の証明書に対する証明書ベースの認証には、`--cert` が、PEM または DER パブリック文字列、あるいは `@{file}` として使用され、ファイルが読み込まれます。
 
   ```azurecli-interactive
-  az ad sp create-for-rbac --name ServicePrincipalName --cert {CertStringOrFile} 
+  az ad sp create-for-rbac --name ServicePrincipalName --cert {CertStringOrFile}
   ```
 
   `--keyvault` 引数を追加すると、証明書が Azure Key Vault に格納されていることを指定できます。 ここでは、`--cert` 値は Key Vault 内の証明書の名前を表します。
@@ -73,7 +73,7 @@ ms.locfileid: "37439960"
 > [!NOTE]
 > ご利用のアカウントにサービス プリンシパルを作成するための十分なアクセス許可がない場合は、"この操作を完了するのに十分な特権がありません" というエラー メッセージが表示されます。 サービス プリンシパルを作成するには、Azure Active Directory 管理者にお問い合わせください。
 
-## <a name="manage-service-principal-roles"></a>サービス プリンシパル ロールを管理する 
+## <a name="manage-service-principal-roles"></a>サービス プリンシパル ロールを管理する
 
 Azure CLI 2.0 には、ロールの割り当てを管理するために、次のコマンドが用意されています。
 
@@ -98,20 +98,20 @@ az role assignment delete --assignee APP_ID --role Contributor
 az role assignment list --assignee APP_ID
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > ロールを割り当てるためのアクセス許可がアカウントにない場合は、アカウントに "'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}' のアクションを実行するためのアクセス権限がありません" というエラー メッセージが表示されます。ロールを管理するには、Azure Active Directory 管理者にお問い合わせください。
 
 ## <a name="sign-in-using-the-service-principal"></a>サービス プリンシパルを使ってサインインする
 
-新しいサービス プリンシパルのログインとアクセス許可をテストするには、Azure CLI 内でそのサービス プリンシパルとしてログインします。 新しいサービス プリンシパルには、`appId`、`tenant`、および資格情報の値を使用してログインします。 指定する認証情報は、サービス プリンシパルの作成にパスワードまたは証明書のどちらを使用したかに基づいて異なります。
+新しいサービス プリンシパルの資格情報とアクセス許可をテストするには、Azure CLI 内でそのサービス プリンシパルとしてサインインします。 新しいサービス プリンシパルには、`appId`、`tenant`、および資格情報の値を使用してサインインします。 指定する認証情報は、サービス プリンシパルの作成にパスワードまたは証明書のどちらを使用したかに基づいて異なります。
 
-パスワードでログインをするには、そのパスワードを引数パラメーターとして指定します。
+パスワードでサインインするには、そのパスワードを引数パラメーターとして指定します。
 
 ```azurecli-interactive
 az login --service-principal --username APP_ID --password PASSWORD --tenant TENANT_ID
 ```
 
-証明書でログインする場合、その証明書は、PEM または DER ファイルとしてローカルで使用できる必要があります。
+証明書でサインインする場合、その証明書は、PEM または DER ファイルとしてローカルで使用できる必要があります。
 
 ```azurecli-interactive
 az login --service-principal --username APP_ID --tenant TENANT_ID --password PATH_TO_CERT

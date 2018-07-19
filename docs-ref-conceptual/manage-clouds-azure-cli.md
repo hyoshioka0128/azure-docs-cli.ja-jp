@@ -1,6 +1,6 @@
 ---
 title: Azure CLI 2.0 で複数のクラウドを管理する
-description: Azure CLI 2.0 で複数のクラウドの作成、ログイン、管理を行います。
+description: Azure CLI 2.0 で複数のクラウドの作成、サインイン、管理を行います。
 author: sptramer
 manager: carmonm
 ms.author: sttramer
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 7ccee3a336f4c596f29783a70ba0cd4398e20b95
-ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
+ms.openlocfilehash: 836bf920adaae7bff8482c697bf105f0d457c658
+ms.sourcegitcommit: fb3fed8701aff6c46af856e8fdc3e56ff9a678bc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34306184"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38228939"
 ---
 # <a name="managing-multiple-clouds-with-azure-cli-20"></a>Azure CLI 2.0 で複数のクラウドを管理する
 
@@ -82,7 +82,7 @@ az cloud set --name AzureChinaCloud
 
 > [!IMPORTANT]
 > アクティブ化されたクラウドの認証が期限切れになった場合は、他の CLI タスクを実行する前に、再認証を行う必要があります。 新しいクラウドに初めて切り替える場合は、アクティブなサブスクリプションの設定も行う必要があります。
-> 認証の手順については、「[Log in with Azure CLI 2.0 (Azure CLI 2.0 を使用してログインする)](authenticate-azure-cli.md)」を参照してください。 サブスクリプションの管理については、[Azure CLI 2.0 での Azure サブスクリプションの管理](manage-azure-subscriptions-azure-cli.md)に関するページをご覧ください。
+> 認証の手順については、「[Azure CLI 2.0 を使用してサインインする](authenticate-azure-cli.md)」を参照してください。 サブスクリプションの管理については、[Azure CLI 2.0 での Azure サブスクリプションの管理](manage-azure-subscriptions-azure-cli.md)に関するページをご覧ください。
 
 ## <a name="register-a-cloud"></a>クラウドを登録する
 
