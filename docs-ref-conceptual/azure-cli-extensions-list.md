@@ -4,17 +4,17 @@ description: Azure CLI 2.0 で公式にサポートされている拡張機能�
 author: derekbekoe
 ms.author: debekoe
 manager: routlaw
-ms.date: 07/02/2018
+ms.date: 07/30/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 80af5542b222754ae94c35392a183d8d3c2372ac
-ms.sourcegitcommit: e3d060c045d93fabe5000ef66e21efbe680b9dac
+ms.openlocfilehash: 92d2ac36d0176469f8f5a77e7a27d0b11ab6d947
+ms.sourcegitcommit: 70bb8b115f7b9079ca1fdb65c7f5582b060a466f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347225"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39356609"
 ---
 # <a name="available-extensions-for-the-azure-cli-20"></a>Azure CLI 2.0 で使用可能な拡張機能
 
@@ -26,20 +26,22 @@ ms.locfileid: "37347225"
 az extension list-available --output table
 ```
 
-| Name | バージョン | まとめ | プレビュー |
+| Name | Version | まとめ | プレビュー |
 |------|---------|---------|---------|
 | [aem](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Azure Enhanced Monitoring Extension for SAP を管理します |  |
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.1 | コマンドのエイリアスをサポートします | [はい] |
-| [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 2.3.0 | Azure Batch サービスを操作するための追加コマンド |  |
-| [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.5.0 | Azure IoT Hub、IoT Edge、および IoT Device Provisioning Service にデータ プレーン コマンド レイヤーを提供します |  |
+| [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 2.4.1 | Azure Batch サービスを操作するための追加コマンド |  |
+| [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.5.1 | Azure IoT Hub、IoT Edge、および IoT Device Provisioning Service にデータ プレーン コマンド レイヤーを提供します |  |
 | [botservice](https://github.com/Azure/azure-cli-extensions) | 0.0.3 | Azure Bot Service 2017-12-01 プレビュー機能をサポートします | [はい] |
 | [dev-spaces-preview](https://github.com/Azure/azure-cli-extensions) | 0.1.6 | Dev Spaces は、高速で反復的な Kubernetes 開発エクスペリエンスをチームに提供します。 | [はい] |
 | [dns](https://github.com/Azure/azure-cli-extensions) | 0.0.2 | DNS ゾーン向けの Azure CLI 拡張機能 |  |
 | [eventgrid](https://github.com/Azure/azure-cli-extensions) | 0.2.1 | Azure EventGrid 2018-05-01 プレビュー機能をサポートします | [はい] |
 | [image-copy-extension](https://github.com/Azure/azure-cli-extensions) | 0.0.7 | リージョン間での管理対象 VM イメージのコピーをサポートします |  |
 | [keyvault-preview](https://github.com/Azure/azure-keyvault-cli-extension) | 0.1.3 | Azure Key Vault のコマンドをプレビューします。 | [はい] |
+| [log-analytics](https://github.com/Azure/azure-cli-extensions/tree/master/src/log-analytics) | 0.1.2 | Azure Log Analytics のクエリ機能をサポートします。 | [はい] |
 | [managementgroups](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | 管理グループ向け Azure CLI 拡張機能 |  |
 | [managementpartner](https://github.com/Azure/azure-cli-extensions) | 0.1.2 | 管理パートナーのプレビューをサポートします |  |
+| [mesh](https://github.com/Azure/azure-cli-extensions) | 0.9.1 | Microsoft Azure Service Fabric Mesh のサポート - パブリック プレビュー | [はい] |
 | [rdbms-vnet](https://github.com/Azure/azure-cli-extensions) | 10.0.0 | Azure MySQL および Azure PostgreSQL のリソースで仮想ネットワーク ルールをサポートします |  |
 | [signalr](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | SignalR 管理プレビューをサポートします。 | [はい] |
 | [storage-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) | 0.1.3 | 次期ストレージ機能のプレビューを提供します。 | [はい] |

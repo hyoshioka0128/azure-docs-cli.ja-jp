@@ -9,14 +9,72 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 8d4f0879a18d2cf99ea7a284155bec86413406f8
-ms.sourcegitcommit: da34d0eecf19c676826bd32ab254a92bd0976124
+ms.openlocfilehash: d0f8c01495cc95ecfbf6a41d510eb4bc54d47ba2
+ms.sourcegitcommit: 8019690502e9f89c083839d83a0a245cc812e8b6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39138238"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39392355"
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 リリース ノート
+
+## <a name="july-31-2018"></a>2018 年 7 月 31日
+
+バージョン 2.0.43
+
+### <a name="acr"></a>ACR
+
+* `--with-secure-properties` フラグを `acr build-task show` コマンドに追加しました
+* `acr build-task update-build` コマンドを追加しました
+
+### <a name="acs"></a>ACS
+
+* Ctrl + C キーを押して `az aks browse` を終了すると、戻り値 0 (成功) が返されるように変更しました
+
+### <a name="batch"></a>Batch
+
+* CloudShell で AAD トークンを表示する際のバグを修正しました
+
+### <a name="container"></a>コンテナー
+
+* サブスクリプションの設定時に、名または ID が求められる `--log-analytics-workspace-key` の要件を削除しました
+
+### <a name="network"></a>ネットワーク
+
+* Azure Stack の 2017-03-09-profile に DNS のサポートを追加しました 
+
+### <a name="resource"></a>リソース
+
+* エラー時に既知の正常なデプロイが実行されるように、`group deployment create` に `--rollback-on-error` を追加しました
+* `group deployment create` を指定した `--parameters {}` がエラーになる問題を修正しました
+
+### <a name="role"></a>Role
+
+* Stack プロファイル 2017-03-09-profile のサポートを追加しました
+* `app update` に対する汎用更新パラメーターが正しく機能しない問題を修正しました
+
+### <a name="search"></a>Search
+
+* Azure Search サービスのコマンドを追加しました
+
+### <a name="service-bus"></a>Service Bus
+
+* Service Bus Standard から Premium に名前空間を移行する移行コマンド グループを追加しました
+* Service Bus キューおよびサブスクリプションに、新しい省略可能なプロパティを追加しました
+  *  `queue` の `--enable-batched-operations` および `--enable-dead-lettering-on-message-expiration`
+  *  `subscriptions` の `--dead-letter-on-filter-exceptions`
+
+### <a name="storage"></a>Storage
+
+* 1 つの接続を使用した大きなファイルのダウンロードがサポートされるようになりました
+* リソースが見つからないときに終了コード 3 で失敗しそこなっていた `show` コマンドを変換しました
+
+### <a name="vm"></a>VM
+
+* サブスクリプションごとに可用性セットを一覧表示できるようになりました
+* `StandardSSD_LRS` のサポートを追加しました
+* VM スケール セットの作成でアプリケーション セキュリティ グループのサポートを追加しました
+* [重大な変更] ディクショナリ形式でユーザー割り当て ID を出力するように、`[vm|vmss] create`、`[vm|vmss] identity assign`、および `[vm|vmss] identity remove` を変更しました
 
 ## <a name="july-18-2018"></a>2018 年 7 月 18 日
 
@@ -64,7 +122,7 @@ ms.locfileid: "39138238"
 * `network vnet [subnet|peering] list` の `--ids` 引数を非推奨にしました
 * `network nsg rule list` の出力に既定のセキュリティ規則を含める `--include-default` フラグを追加しました  
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * `group deployment delete` に `--no-wait` のサポートを追加しました
 * `deployment delete` に `--no-wait` のサポートを追加しました
@@ -152,7 +210,7 @@ ms.locfileid: "39138238"
 
 * `[postgres|myql] server vnet-rule` コマンドを追加しました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * 新しい操作グループ `deployment` を追加しました
 
@@ -283,7 +341,7 @@ ms.locfileid: "39138238"
 
 バージョン 2.0.35
 
-### <a name="interactive"></a>対話
+### <a name="interactive"></a>Interactive
 
 * 対話モードの依存関係に対する制限を追加しました
 
@@ -377,7 +435,7 @@ ms.locfileid: "39138238"
 
 * 拡張機能の削除機能を強化しました
 
-### <a name="interactive"></a>対話
+### <a name="interactive"></a>Interactive
 
 * ミュート パーサーへの完了のログ記録を変更しました
 * 正しくないヘルプ キャッシュの処理を強化しました
@@ -488,7 +546,7 @@ ms.locfileid: "39138238"
 
 * 拡張機能メタデータが表示されなくなるバグを修正しました
 
-### <a name="interactive"></a>対話
+### <a name="interactive"></a>Interactive
 
 * 対話型の入力候補が位置引数で機能するようになりました
 * ユーザーが「\'」と入力したときの出力をわかりやすくしました
@@ -620,7 +678,7 @@ ms.locfileid: "39138238"
 
 * ディストリビューション チェック メッセージをデバッグ レベルに変更しました
 
-### <a name="interactive"></a>対話
+### <a name="interactive"></a>Interactive
 
 * 認識できないコマンドが入力されたときに入力候補が停止するように変更しました
 * コマンド サブツリーの作成前および作成後にイベント フックを追加しました
@@ -646,7 +704,7 @@ ms.locfileid: "39138238"
 * `georestore` コマンドを追加しました
 * ストレージ サイズの制限を `create` コマンドから削除しました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * `--metadata` のサポートを `policy definition create` に追加しました
 * `--metadata`、`--set`、`--add`、`--remove` のサポートを `policy definition update` に追加しました
@@ -723,7 +781,7 @@ ms.locfileid: "39138238"
 * `--show-details` を使用して完全な拡張機能データを表示できるように、`extension list-available` を変更しました
 * [重大な変更] 簡略化された拡張機能データを既定で表示するように、`extension list-available` を変更しました
 
-### <a name="interactive"></a>対話
+### <a name="interactive"></a>Interactive
 
 * コマンド テーブルの読み込みが完了するとすぐに入力候補がアクティブになるように変更しました
 * `--style` パラメーター使用時のバグを修正しました
@@ -752,7 +810,7 @@ ms.locfileid: "39138238"
 
 * ビジネス モデル GA API バージョン 2017-12-01 を追加しました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * [重大な変更]: Changed `provider operation [list|show]` to not require `--api-version`
 
@@ -801,7 +859,7 @@ ms.locfileid: "39138238"
 
 ### <a name="appservice"></a>Appservice
 
-* を非推奨にしました `[webapp|functionapp] assign-identity`
+* `[webapp|functionapp] assign-identity` を非推奨にしました
 * 管理対象 ID コマンド `webapp identity [assign|show]` および `functionapp identity [assign|show]` を追加しました
 
 ### <a name="eventhubs"></a>イベント ハブ
@@ -812,7 +870,7 @@ ms.locfileid: "39138238"
 
 * 使用しているディストリビューションがパッケージ ソース ファイルに格納されているものと異なる場合は、エラーが発生する可能性があるため、ユーザーに警告するチェックを追加しました
 
-### <a name="interactive"></a>対話
+### <a name="interactive"></a>Interactive
 
 * [#5625](https://github.com/Azure/azure-cli/issues/5625) を修正しました: 異なるセッション間で履歴が保持されます
 * [#3016](https://github.com/Azure/azure-cli/issues/3016) を修正しました: スコープ内にある間は履歴が記録されませんでした
@@ -821,7 +879,7 @@ ms.locfileid: "39138238"
 
 ### <a name="monitor"></a>監視
 
-* コマンドを非推奨にしました `monitor autoscale-settings`
+* `monitor autoscale-settings` コマンドを非推奨にしました
 * `monitor autoscale` コマンドを追加しました
 * `monitor autoscale profile` コマンドを追加しました
 * `monitor autoscale rule` コマンドを追加しました
@@ -840,7 +898,7 @@ ms.locfileid: "39138238"
 
 ### <a name="profile"></a>プロファイル
 
-* の `--msi` パラメーターを非推奨にしました `az login`
+* `az login` の `--msi` パラメーターを非推奨にしました
 * `az login` の `--msi` パラメーターの代わりに `--identity` パラメーターを追加しました
 
 ### <a name="rdbms"></a>RDBMS
@@ -902,7 +960,7 @@ ms.locfileid: "39138238"
 
 * [#5559](https://github.com/Azure/azure-cli/issues/5559) を修正: `network vnet-gateway vpn-client generate` でクライアントが見つからない
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * エラー発生時にテンプレートとエラーの一部が表示されるように `group deployment export` を変更しました
 
@@ -969,7 +1027,7 @@ ms.locfileid: "39138238"
 
 * 拡張機能の情報を利用統計情報に追加しました
 
-### <a name="interactive"></a>対話
+### <a name="interactive"></a>Interactive
 
 * Cloud Shell で対話モードを使用するときにユーザーのログインが求められる問題を修正しました
 * パラメーター不足での完了による回帰を修正しました
@@ -999,7 +1057,7 @@ ms.locfileid: "39138238"
 
 * 対話モードで `az login` を有効にしました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * `feature show` を再び追加しました
 
@@ -1053,7 +1111,7 @@ ms.locfileid: "39138238"
 
 * フェールオーバー ポリシーのパラメーターの説明を修正しました
 
-### <a name="interactive"></a>対話
+### <a name="interactive"></a>Interactive
 
 * コマンド オプションの完了が表示されなくなった問題を修正しました
 
@@ -1074,7 +1132,7 @@ ms.locfileid: "39138238"
 
 * ID を使用して VM 内で動作するように `get-access-token` を修正しました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * テンプレートの "type" フィールドに大文字の値が含まれているときに警告が誤って表示される `deployment [create|validate]` のバグを修正しました
 
@@ -1144,7 +1202,7 @@ ms.locfileid: "39138238"
 * `eventgrid topic` コマンドの `--ids` パラメーターを追加しました
 * トピック名のタブ補完のサポートを追加しました
 
-### <a name="interactive"></a>対話
+### <a name="interactive"></a>Interactive
 
 * Python 2.x で対話モードが機能しない問題を解決しました
 * 起動時のエラーを修正しました
@@ -1252,7 +1310,7 @@ ms.locfileid: "39138238"
 
 * メトリック コマンドに多次元のサポートを追加しました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * `--include-response-body` 引数を `resource show` に追加しました
 
@@ -1352,7 +1410,7 @@ ms.locfileid: "39138238"
 
 * 初期プレビュー リリース
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * リソース ID のサポートを `--resource` パラメーターとリソースレベル ロックに追加しました
 
@@ -1409,7 +1467,7 @@ ms.locfileid: "39138238"
 
 * `action-group` コマンドを追加しました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * `group export` における msrest の依存関係の最新バージョンとの非互換性を修正しました
 * 組み込みのポリシー定義とポリシーセットの定義を使用するように `policy assignment create` を修正しました
@@ -1451,7 +1509,7 @@ ms.locfileid: "39138238"
 * アドレス プールを空にできるように `application-gateway address-pool create` の `--server` 引数を省略可能に変更しました
 * 最新機能をサポートするように `traffic-manager` を更新しました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * リソース グループ名に関する `--resource-group/-g` オプションのサポートを `group` に追加しました
 * サブスクリプション レベルのロックを処理するための `account lock` 用のコマンドを追加しました
@@ -1481,7 +1539,7 @@ ms.locfileid: "39138238"
 
 バージョン 2.0.18
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * 組み込みのポリシー定義を表示するためのサポートを追加しました
 * ポリシー定義を作成するためのサポート モード パラメーターを追加しました
@@ -1575,7 +1633,7 @@ ms.locfileid: "39138238"
 * `lb create` に対する SKU のサポートを追加しました
 * `public-ip create` に対する SKU のサポートを追加しました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * `policy definition create` と `policy definition update` でリソース ポリシーのパラメーター定義を渡せるようにします
 * `policy assignment create` でパラメーター値を渡せるようにします
@@ -1971,7 +2029,7 @@ vm (2.0.11)
 * ドキュメント ソース マップを修正し、検証するための CI タスクを追加しました (#3361)
 * MySQL および PostgreSQL のヘルプを修正しました (#3369)
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * `group deployment create` の不足しているパラメーターの指定を求めるメッセージを改善しました
 * `--parameters KEY=VALUE` 構文の解析を改善しました
@@ -2183,7 +2241,7 @@ vm (2.0.6)
 * Redis Cache のスケール機能も追加する更新コマンドが追加されました
 * "update-settings" コマンドが廃止されました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * managedapp と managedapp の定義コマンドが追加されました ([#2985](https://github.com/Azure/azure-cli/issues/2985))
 * "provider operation" コマンドに対応するようになりました ([#2908](https://github.com/Azure/azure-cli/issues/2908))
