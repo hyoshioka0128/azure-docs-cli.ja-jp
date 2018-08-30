@@ -9,54 +9,54 @@ ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azure-cli
 ms.service: role-based-access-control
-ms.openlocfilehash: 956a1c10c3e4321651df58f86f6f2c21ede5061f
-ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
+ms.openlocfilehash: 3f20892e846bd07f8e97ccf788d05c4305fe3301
+ms.sourcegitcommit: 83826ca154c9f32c6091c63ce4b3e480694ba8d1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967913"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "43144921"
 ---
-# <a name="create-an-azure-service-principal-with-azure-cli-20"></a><span data-ttu-id="5bd40-103">Azure CLI 2.0 で Azure サービス プリンシパルを作成する</span><span class="sxs-lookup"><span data-stu-id="5bd40-103">Create an Azure service principal with Azure CLI 2.0</span></span>
+# <a name="create-an-azure-service-principal-with-azure-cli-20"></a><span data-ttu-id="6b033-103">Azure CLI 2.0 で Azure サービス プリンシパルを作成する</span><span class="sxs-lookup"><span data-stu-id="6b033-103">Create an Azure service principal with Azure CLI 2.0</span></span>
 
-<span data-ttu-id="5bd40-104">アクセス制限を使用して個別のサインインを作成するには、サービス プリンシパルを使用します。</span><span class="sxs-lookup"><span data-stu-id="5bd40-104">If you want to create a separate sign in with access restrictions, you can do so through a service principal.</span></span> <span data-ttu-id="5bd40-105">サービス プリンシパルは、アカウントに関連付けることができる個別の ID です。</span><span class="sxs-lookup"><span data-stu-id="5bd40-105">Service principals are separate identities that can be associated with an account.</span></span> <span data-ttu-id="5bd40-106">サービス プリンシパルは、自動化する必要があるアプリケーションとタスクを操作するうえで役に立ちます。</span><span class="sxs-lookup"><span data-stu-id="5bd40-106">Service principals are useful for working with applications and tasks that must be automated.</span></span> <span data-ttu-id="5bd40-107">この記事では、サービス プリンシパルを作成する手順について説明します。</span><span class="sxs-lookup"><span data-stu-id="5bd40-107">This article runs you through the steps for creating a service principal.</span></span>
+<span data-ttu-id="6b033-104">アクセス制限を使用して個別のサインインを作成するには、サービス プリンシパルを使用します。</span><span class="sxs-lookup"><span data-stu-id="6b033-104">If you want to create a separate sign in with access restrictions, you can do so through a service principal.</span></span> <span data-ttu-id="6b033-105">サービス プリンシパルは、アカウントに関連付けることができる個別の ID です。</span><span class="sxs-lookup"><span data-stu-id="6b033-105">Service principals are separate identities that can be associated with an account.</span></span> <span data-ttu-id="6b033-106">サービス プリンシパルは、自動化する必要があるアプリケーションとタスクを操作するうえで役に立ちます。</span><span class="sxs-lookup"><span data-stu-id="6b033-106">Service principals are useful for working with applications and tasks that must be automated.</span></span> <span data-ttu-id="6b033-107">この記事では、サービス プリンシパルを作成する手順について説明します。</span><span class="sxs-lookup"><span data-stu-id="6b033-107">This article runs you through the steps for creating a service principal.</span></span>
 
-## <a name="create-the-service-principal"></a><span data-ttu-id="5bd40-108">サービス プリンシパルを作成する</span><span class="sxs-lookup"><span data-stu-id="5bd40-108">Create the service principal</span></span>
+## <a name="create-the-service-principal"></a><span data-ttu-id="6b033-108">サービス プリンシパルを作成する</span><span class="sxs-lookup"><span data-stu-id="6b033-108">Create the service principal</span></span>
 
-<span data-ttu-id="5bd40-109">サービス プリンシパルを作成するには、[az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) コマンドを使用します。</span><span class="sxs-lookup"><span data-stu-id="5bd40-109">Use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a service principal.</span></span> <span data-ttu-id="5bd40-110">サービス プリンシパル名は、既存のアプリケーションまたはユーザー名には関連付けられていません。</span><span class="sxs-lookup"><span data-stu-id="5bd40-110">The Service Principal's name isn't tied to any existing application or user name.</span></span> <span data-ttu-id="5bd40-111">任意の認証の種類を使用して、サービス プリンシパルを作成できます。</span><span class="sxs-lookup"><span data-stu-id="5bd40-111">You can create a service principal with your choice of authentication type.</span></span>
+<span data-ttu-id="6b033-109">サービス プリンシパルを作成するには、[az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) コマンドを使用します。</span><span class="sxs-lookup"><span data-stu-id="6b033-109">Use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a service principal.</span></span> <span data-ttu-id="6b033-110">サービス プリンシパル名は、既存のアプリケーションまたはユーザー名には関連付けられていません。</span><span class="sxs-lookup"><span data-stu-id="6b033-110">The Service Principal's name isn't tied to any existing application or user name.</span></span> <span data-ttu-id="6b033-111">任意の認証の種類を使用して、サービス プリンシパルを作成できます。</span><span class="sxs-lookup"><span data-stu-id="6b033-111">You can create a service principal with your choice of authentication type.</span></span>
 
-* <span data-ttu-id="5bd40-112">パスワード ベースの認証には `--password` が使用されます。</span><span class="sxs-lookup"><span data-stu-id="5bd40-112">`--password` is used for password-based authentication.</span></span> <span data-ttu-id="5bd40-113">[Azure Active Directory のパスワードの規則と制約事項](/azure/active-directory/active-directory-passwords-policy)に従って、必ず強力なパスワードを作成してください。</span><span class="sxs-lookup"><span data-stu-id="5bd40-113">Make sure that you create a strong password by following the [Azure Active Directory password rules and restrictions](/azure/active-directory/active-directory-passwords-policy).</span></span> <span data-ttu-id="5bd40-114">自分でパスワードを指定しなかった場合、任意のパスワードが自動的に生成されます。</span><span class="sxs-lookup"><span data-stu-id="5bd40-114">If you don't specify a password, one is created for you.</span></span>
+* <span data-ttu-id="6b033-112">パスワード ベースの認証には `--password` が使用されます。</span><span class="sxs-lookup"><span data-stu-id="6b033-112">`--password` is used for password-based authentication.</span></span> <span data-ttu-id="6b033-113">[Azure Active Directory のパスワードの規則と制約事項](/azure/active-directory/active-directory-passwords-policy)に従って、必ず強力なパスワードを作成してください。</span><span class="sxs-lookup"><span data-stu-id="6b033-113">Make sure that you create a strong password by following the [Azure Active Directory password rules and restrictions](/azure/active-directory/active-directory-passwords-policy).</span></span> <span data-ttu-id="6b033-114">自分でパスワードを指定しなかった場合、任意のパスワードが自動的に生成されます。</span><span class="sxs-lookup"><span data-stu-id="6b033-114">If you don't specify a password, one is created for you.</span></span>
 
   ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --password PASSWORD
   ```
 
-* <span data-ttu-id="5bd40-115">既存の証明書に対する証明書ベースの認証には、`--cert` が、PEM または DER パブリック文字列、あるいは `@{file}` として使用され、ファイルが読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="5bd40-115">`--cert` is used for certificate-based authentication for an existing certificate, either as a PEM or DER public string, or `@{file}` to load a file.</span></span>
+* <span data-ttu-id="6b033-115">既存の証明書に対する証明書ベースの認証には、`--cert` が、PEM または DER パブリック文字列、あるいは `@{file}` として使用され、ファイルが読み込まれます。</span><span class="sxs-lookup"><span data-stu-id="6b033-115">`--cert` is used for certificate-based authentication for an existing certificate, either as a PEM or DER public string, or `@{file}` to load a file.</span></span>
 
   ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --cert {CertStringOrFile}
   ```
 
-  <span data-ttu-id="5bd40-116">`--keyvault` 引数を追加すると、証明書が Azure Key Vault に格納されていることを指定できます。</span><span class="sxs-lookup"><span data-stu-id="5bd40-116">The `--keyvault` argument can be added to indicate the cert is stored in Azure Key Vault.</span></span> <span data-ttu-id="5bd40-117">ここでは、`--cert` 値は Key Vault 内の証明書の名前を表します。</span><span class="sxs-lookup"><span data-stu-id="5bd40-117">In this case, the `--cert` value refers to the name of the certificate in Key Vault.</span></span>
+  <span data-ttu-id="6b033-116">`--keyvault` 引数を追加すると、証明書が Azure Key Vault に格納されていることを指定できます。</span><span class="sxs-lookup"><span data-stu-id="6b033-116">The `--keyvault` argument can be added to indicate the cert is stored in Azure Key Vault.</span></span> <span data-ttu-id="6b033-117">ここでは、`--cert` 値は Key Vault 内の証明書の名前を表します。</span><span class="sxs-lookup"><span data-stu-id="6b033-117">In this case, the `--cert` value refers to the name of the certificate in Key Vault.</span></span>
 
   ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --cert CertName --keyvault VaultName
   ```
 
-* <span data-ttu-id="5bd40-118">`--create-cert` は、認証用の "_自己署名_" 証明書を作成します。</span><span class="sxs-lookup"><span data-stu-id="5bd40-118">`--create-cert` creates a _self-signed_ certificate for authentication.</span></span> <span data-ttu-id="5bd40-119">`--cert` 引数が指定されていない場合は、ランダムな証明書名が生成されます。</span><span class="sxs-lookup"><span data-stu-id="5bd40-119">If the `--cert` argument is not provided, a random certificate name is generated.</span></span>
+* <span data-ttu-id="6b033-118">`--create-cert` は、認証用の "_自己署名_" 証明書を作成します。</span><span class="sxs-lookup"><span data-stu-id="6b033-118">`--create-cert` creates a _self-signed_ certificate for authentication.</span></span> <span data-ttu-id="6b033-119">`--cert` 引数が指定されていない場合は、ランダムな証明書名が生成されます。</span><span class="sxs-lookup"><span data-stu-id="6b033-119">If the `--cert` argument is not provided, a random certificate name is generated.</span></span>
 
   ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --create-cert
   ```
 
-  <span data-ttu-id="5bd40-120">`--keyvault` 引数を追加すると、証明書を Azure Key Vault に格納できます。</span><span class="sxs-lookup"><span data-stu-id="5bd40-120">The `--keyvault` argument can be added to store the certificate in Azure Key Vault.</span></span> <span data-ttu-id="5bd40-121">`--keyvault` を使用する場合は、`--cert` 引数も必要です。</span><span class="sxs-lookup"><span data-stu-id="5bd40-121">When using `--keyvault`, the `--cert` argument is also required.</span></span>
+  <span data-ttu-id="6b033-120">`--keyvault` 引数を追加すると、証明書を Azure Key Vault に格納できます。</span><span class="sxs-lookup"><span data-stu-id="6b033-120">The `--keyvault` argument can be added to store the certificate in Azure Key Vault.</span></span> <span data-ttu-id="6b033-121">`--keyvault` を使用する場合は、`--cert` 引数も必要です。</span><span class="sxs-lookup"><span data-stu-id="6b033-121">When using `--keyvault`, the `--cert` argument is also required.</span></span>
 
   ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName --create-cert --cert CertName --keyvault VaultName
   ```
 
-<span data-ttu-id="5bd40-122">認証の種類を示す引数が含まれていない場合は、`--password` が既定で使用されます。</span><span class="sxs-lookup"><span data-stu-id="5bd40-122">If an argument indicating the authentication type isn't included, `--password` is used by default.</span></span>
+<span data-ttu-id="6b033-122">認証の種類を示す引数が含まれていない場合は、`--password` が既定で使用されます。</span><span class="sxs-lookup"><span data-stu-id="6b033-122">If an argument indicating the authentication type isn't included, `--password` is used by default.</span></span>
 
-<span data-ttu-id="5bd40-123">`create-for-rbac` コマンドの出力の形式は次のとおりです。</span><span class="sxs-lookup"><span data-stu-id="5bd40-123">The output of the `create-for-rbac` command is in the following format:</span></span>
+<span data-ttu-id="6b033-123">`create-for-rbac` コマンドの出力の形式は次のとおりです。</span><span class="sxs-lookup"><span data-stu-id="6b033-123">The output of the `create-for-rbac` command is in the following format:</span></span>
 
 ```json
 {
@@ -68,59 +68,59 @@ ms.locfileid: "38967913"
 }
 ```
 
-<span data-ttu-id="5bd40-124">認証の値として、`appId`、`tenant`、および `password` が使用されています。</span><span class="sxs-lookup"><span data-stu-id="5bd40-124">The `appId`, `tenant`, and `password` values are used for authentication.</span></span> <span data-ttu-id="5bd40-125">`displayName` は、既存のサービス プリンシパルを検索するときに使用されます。</span><span class="sxs-lookup"><span data-stu-id="5bd40-125">The `displayName` is used when searching for an existing service principal.</span></span>
+<span data-ttu-id="6b033-124">認証の値として、`appId`、`tenant`、および `password` が使用されています。</span><span class="sxs-lookup"><span data-stu-id="6b033-124">The `appId`, `tenant`, and `password` values are used for authentication.</span></span> <span data-ttu-id="6b033-125">`displayName` は、既存のサービス プリンシパルを検索するときに使用されます。</span><span class="sxs-lookup"><span data-stu-id="6b033-125">The `displayName` is used when searching for an existing service principal.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="5bd40-126">ご利用のアカウントにサービス プリンシパルを作成するための十分なアクセス許可がない場合は、"この操作を完了するのに十分な特権がありません" というエラー メッセージが表示されます。</span><span class="sxs-lookup"><span data-stu-id="5bd40-126">If your account does not have sufficient permissions to create a service principal, you see an error message containing "Insufficient privileges to complete the operation."</span></span> <span data-ttu-id="5bd40-127">サービス プリンシパルを作成するには、Azure Active Directory 管理者にお問い合わせください。</span><span class="sxs-lookup"><span data-stu-id="5bd40-127">Contact your Azure Active Directory admin to create a service principal.</span></span>
+> <span data-ttu-id="6b033-126">ご利用のアカウントにサービス プリンシパルを作成するための十分なアクセス許可がない場合は、"この操作を完了するのに十分な特権がありません" というエラー メッセージが表示されます。</span><span class="sxs-lookup"><span data-stu-id="6b033-126">If your account does not have sufficient permissions to create a service principal, you see an error message containing "Insufficient privileges to complete the operation."</span></span> <span data-ttu-id="6b033-127">サービス プリンシパルを作成するには、Azure Active Directory 管理者にお問い合わせください。</span><span class="sxs-lookup"><span data-stu-id="6b033-127">Contact your Azure Active Directory admin to create a service principal.</span></span>
 
-## <a name="manage-service-principal-roles"></a><span data-ttu-id="5bd40-128">サービス プリンシパル ロールを管理する</span><span class="sxs-lookup"><span data-stu-id="5bd40-128">Manage service principal roles</span></span>
+## <a name="manage-service-principal-roles"></a><span data-ttu-id="6b033-128">サービス プリンシパル ロールを管理する</span><span class="sxs-lookup"><span data-stu-id="6b033-128">Manage service principal roles</span></span>
 
-<span data-ttu-id="5bd40-129">Azure CLI 2.0 には、ロールの割り当てを管理するために、次のコマンドが用意されています。</span><span class="sxs-lookup"><span data-stu-id="5bd40-129">The Azure CLI 2.0 provides the following commands to manage role assignments.</span></span>
+<span data-ttu-id="6b033-129">Azure CLI 2.0 には、ロールの割り当てを管理するために、次のコマンドが用意されています。</span><span class="sxs-lookup"><span data-stu-id="6b033-129">The Azure CLI 2.0 provides the following commands to manage role assignments.</span></span>
 
-* [<span data-ttu-id="5bd40-130">az role assignment list</span><span class="sxs-lookup"><span data-stu-id="5bd40-130">az role assignment list</span></span>](/cli/azure/role/assignment#az-role-assignment-list)
-* [<span data-ttu-id="5bd40-131">az role assignment create</span><span class="sxs-lookup"><span data-stu-id="5bd40-131">az role assignment create</span></span>](/cli/azure/role/assignment#az-role-assignment-create)
-* [<span data-ttu-id="5bd40-132">az role assignment delete</span><span class="sxs-lookup"><span data-stu-id="5bd40-132">az role assignment delete</span></span>](/cli/azure/role/assignment#az-role-assignment-delete)
+* [<span data-ttu-id="6b033-130">az role assignment list</span><span class="sxs-lookup"><span data-stu-id="6b033-130">az role assignment list</span></span>](/cli/azure/role/assignment#az-role-assignment-list)
+* [<span data-ttu-id="6b033-131">az role assignment create</span><span class="sxs-lookup"><span data-stu-id="6b033-131">az role assignment create</span></span>](/cli/azure/role/assignment#az-role-assignment-create)
+* [<span data-ttu-id="6b033-132">az role assignment delete</span><span class="sxs-lookup"><span data-stu-id="6b033-132">az role assignment delete</span></span>](/cli/azure/role/assignment#az-role-assignment-delete)
 
-<span data-ttu-id="5bd40-133">サービス プリンシパルの既定のロールは**共同作成者**です。</span><span class="sxs-lookup"><span data-stu-id="5bd40-133">The default role for a service principal is **Contributor**.</span></span> <span data-ttu-id="5bd40-134">このロールは、Azure アカウントの読み取りと書き込みを行うための完全なアクセス許可が付与され、通常、アプリケーションには適していません。</span><span class="sxs-lookup"><span data-stu-id="5bd40-134">This role has full permissions to read and write to an Azure account, and is usually not appropriate for applications.</span></span> <span data-ttu-id="5bd40-135">**閲覧者**ロールは制限が厳しく、読み取り専用アクセスを提供します。</span><span class="sxs-lookup"><span data-stu-id="5bd40-135">The **Reader** role is more restrictive, providing read-only access.</span></span>  <span data-ttu-id="5bd40-136">ロールベースのアクセス制御 (RBAC) とロールの詳細については、[RBAC: 組み込みロール](/azure/active-directory/role-based-access-built-in-roles)に関するページをご覧ください。</span><span class="sxs-lookup"><span data-stu-id="5bd40-136">For more information on Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).</span></span>
+<span data-ttu-id="6b033-133">サービス プリンシパルの既定のロールは**共同作成者**です。</span><span class="sxs-lookup"><span data-stu-id="6b033-133">The default role for a service principal is **Contributor**.</span></span> <span data-ttu-id="6b033-134">このロールは、Azure アカウントの読み取りと書き込みを行うための完全なアクセス許可が付与され、通常、アプリケーションには適していません。</span><span class="sxs-lookup"><span data-stu-id="6b033-134">This role has full permissions to read and write to an Azure account, and is usually not appropriate for applications.</span></span> <span data-ttu-id="6b033-135">**閲覧者**ロールは制限が厳しく、読み取り専用アクセスを提供します。</span><span class="sxs-lookup"><span data-stu-id="6b033-135">The **Reader** role is more restrictive, providing read-only access.</span></span>  <span data-ttu-id="6b033-136">ロールベースのアクセス制御 (RBAC) とロールの詳細については、[RBAC: 組み込みロール](/azure/active-directory/role-based-access-built-in-roles)に関するページをご覧ください。</span><span class="sxs-lookup"><span data-stu-id="6b033-136">For more information on Role-Based Access Control (RBAC) and roles, see [RBAC: Built-in roles](/azure/active-directory/role-based-access-built-in-roles).</span></span>
 
-<span data-ttu-id="5bd40-137">この例では、**閲覧者**ロールを追加し、**共同作成者**ロールを削除します。</span><span class="sxs-lookup"><span data-stu-id="5bd40-137">This example adds the **Reader** role and deletes the **Contributor** one.</span></span>
+<span data-ttu-id="6b033-137">この例では、**閲覧者**ロールを追加し、**共同作成者**ロールを削除します。</span><span class="sxs-lookup"><span data-stu-id="6b033-137">This example adds the **Reader** role and deletes the **Contributor** one.</span></span>
 
 ```azurecli-interactive
 az role assignment create --assignee APP_ID --role Reader
 az role assignment delete --assignee APP_ID --role Contributor
 ```
 
-<span data-ttu-id="5bd40-138">ロールを追加しても、以前に割り当てられたアクセス許可は変更され "_ません_"。</span><span class="sxs-lookup"><span data-stu-id="5bd40-138">Adding a role does _not_ change any previously assigned permissions.</span></span> <span data-ttu-id="5bd40-139">サービス プリンシパルのアクセス許可を制限するときは、__共同作成者__ロールを必ず削除する必要があります。</span><span class="sxs-lookup"><span data-stu-id="5bd40-139">When restricting a service principal's permissions, the __Contributor__ role should always be removed.</span></span>
+<span data-ttu-id="6b033-138">ロールを追加しても、以前に割り当てられたアクセス許可は変更され "_ません_"。</span><span class="sxs-lookup"><span data-stu-id="6b033-138">Adding a role does _not_ change any previously assigned permissions.</span></span> <span data-ttu-id="6b033-139">サービス プリンシパルのアクセス許可を制限するときは、__共同作成者__ロールを必ず削除する必要があります。</span><span class="sxs-lookup"><span data-stu-id="6b033-139">When restricting a service principal's permissions, the __Contributor__ role should always be removed.</span></span>
 
-<span data-ttu-id="5bd40-140">変更を確認するには、割り当てられているロールの一覧を表示します。</span><span class="sxs-lookup"><span data-stu-id="5bd40-140">The changes can be verified by listing the assigned roles.</span></span>
+<span data-ttu-id="6b033-140">変更を確認するには、割り当てられているロールの一覧を表示します。</span><span class="sxs-lookup"><span data-stu-id="6b033-140">The changes can be verified by listing the assigned roles.</span></span>
 
 ```azurecli-interactive
 az role assignment list --assignee APP_ID
 ```
 
 > [!NOTE]
-> <span data-ttu-id="5bd40-141">ロールを割り当てるためのアクセス許可がアカウントにない場合は、アカウントに "'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}' のアクションを実行するためのアクセス権限がありません" というエラー メッセージが表示されます。ロールを管理するには、Azure Active Directory 管理者にお問い合わせください。</span><span class="sxs-lookup"><span data-stu-id="5bd40-141">If your account doesn't have the permissions to assign a role, you see an error message that your account "does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'." Contact your Azure Active Directory admin to manage roles.</span></span>
+> <span data-ttu-id="6b033-141">ロールを割り当てるためのアクセス許可がアカウントにない場合は、アカウントに "'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}' のアクションを実行するためのアクセス権限がありません" というエラー メッセージが表示されます。ロールを管理するには、Azure Active Directory 管理者にお問い合わせください。</span><span class="sxs-lookup"><span data-stu-id="6b033-141">If your account doesn't have the permissions to assign a role, you see an error message that your account "does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'." Contact your Azure Active Directory admin to manage roles.</span></span>
 
-## <a name="sign-in-using-the-service-principal"></a><span data-ttu-id="5bd40-142">サービス プリンシパルを使ってサインインする</span><span class="sxs-lookup"><span data-stu-id="5bd40-142">Sign in using the service principal</span></span>
+## <a name="sign-in-using-the-service-principal"></a><span data-ttu-id="6b033-142">サービス プリンシパルを使ってサインインする</span><span class="sxs-lookup"><span data-stu-id="6b033-142">Sign in using the service principal</span></span>
 
-<span data-ttu-id="5bd40-143">新しいサービス プリンシパルの資格情報とアクセス許可をテストするには、Azure CLI 内でそのサービス プリンシパルとしてサインインします。</span><span class="sxs-lookup"><span data-stu-id="5bd40-143">You can test the new service principal's credentials and permissions by signing in under it within the Azure CLI.</span></span> <span data-ttu-id="5bd40-144">新しいサービス プリンシパルには、`appId`、`tenant`、および資格情報の値を使用してサインインします。</span><span class="sxs-lookup"><span data-stu-id="5bd40-144">Sign in as the new service principal using the `appId`, `tenant`, and credentials values.</span></span> <span data-ttu-id="5bd40-145">指定する認証情報は、サービス プリンシパルの作成にパスワードまたは証明書のどちらを使用したかに基づいて異なります。</span><span class="sxs-lookup"><span data-stu-id="5bd40-145">The authentication information you provide changes based on whether you chose to create the service principal with a password, or a certificate.</span></span>
+<span data-ttu-id="6b033-143">新しいサービス プリンシパルの資格情報とアクセス許可をテストするには、Azure CLI 内でそのサービス プリンシパルとしてサインインします。</span><span class="sxs-lookup"><span data-stu-id="6b033-143">You can test the new service principal's credentials and permissions by signing in under it within the Azure CLI.</span></span> <span data-ttu-id="6b033-144">新しいサービス プリンシパルには、`appId`、`tenant`、および資格情報の値を使用してサインインします。</span><span class="sxs-lookup"><span data-stu-id="6b033-144">Sign in as the new service principal using the `appId`, `tenant`, and credentials values.</span></span> <span data-ttu-id="6b033-145">指定する認証情報は、サービス プリンシパルの作成にパスワードまたは証明書のどちらを使用したかに基づいて異なります。</span><span class="sxs-lookup"><span data-stu-id="6b033-145">The authentication information you provide changes based on whether you chose to create the service principal with a password, or a certificate.</span></span>
 
-<span data-ttu-id="5bd40-146">パスワードでサインインするには、そのパスワードを引数パラメーターとして指定します。</span><span class="sxs-lookup"><span data-stu-id="5bd40-146">To sign in with a password, provide it as an argument parameter.</span></span>
+<span data-ttu-id="6b033-146">パスワードでサインインするには、そのパスワードを引数パラメーターとして指定します。</span><span class="sxs-lookup"><span data-stu-id="6b033-146">To sign in with a password, provide it as an argument parameter.</span></span>
 
 ```azurecli-interactive
 az login --service-principal --username APP_ID --password PASSWORD --tenant TENANT_ID
 ```
 
-<span data-ttu-id="5bd40-147">証明書でサインインする場合、その証明書は、PEM または DER ファイルとしてローカルで使用できる必要があります。</span><span class="sxs-lookup"><span data-stu-id="5bd40-147">To sign in with a certificate, it must be available locally as a PEM or DER file.</span></span>
+<span data-ttu-id="6b033-147">証明書でサインインする場合、その証明書は、PEM または DER ファイルとしてローカルで使用できる必要があります。</span><span class="sxs-lookup"><span data-stu-id="6b033-147">To sign in with a certificate, it must be available locally as a PEM or DER file.</span></span>
 
 ```azurecli-interactive
 az login --service-principal --username APP_ID --tenant TENANT_ID --password PATH_TO_CERT
 ```
 
-## <a name="reset-credentials"></a><span data-ttu-id="5bd40-148">資格情報をリセットする</span><span class="sxs-lookup"><span data-stu-id="5bd40-148">Reset credentials</span></span>
+## <a name="reset-credentials"></a><span data-ttu-id="6b033-148">資格情報をリセットする</span><span class="sxs-lookup"><span data-stu-id="6b033-148">Reset credentials</span></span>
 
-<span data-ttu-id="5bd40-149">サービス プリンシパルの資格情報を忘れた場合、その情報は、[az ad sp reset-credentials](https://docs.microsoft.com/en-us/cli/azure/ad/sp#az-ad-sp-reset-credentials) コマンドでリセットできます。</span><span class="sxs-lookup"><span data-stu-id="5bd40-149">In the event that you forget the credentials for a service principal, they can be reset with the [az ad sp reset-credentials](https://docs.microsoft.com/en-us/cli/azure/ad/sp#az-ad-sp-reset-credentials) command.</span></span> <span data-ttu-id="5bd40-150">新しいサービス プリンシパルを作成するときの制限事項とオプションと同じものが、ここでも適用されます。</span><span class="sxs-lookup"><span data-stu-id="5bd40-150">The same restrictions and options for creating a new service principal also apply here.</span></span>
+<span data-ttu-id="6b033-149">サービス プリンシパルの資格情報を忘れた場合、その情報は、[az ad sp reset-credentials](https://docs.microsoft.com/en-us/cli/azure/ad/sp#az-ad-sp-reset-credentials) コマンドでリセットできます。</span><span class="sxs-lookup"><span data-stu-id="6b033-149">In the event that you forget the credentials for a service principal, they can be reset with the [az ad sp reset-credentials](https://docs.microsoft.com/en-us/cli/azure/ad/sp#az-ad-sp-reset-credentials) command.</span></span> <span data-ttu-id="6b033-150">新しいサービス プリンシパルを作成するときの制限事項とオプションと同じものが、ここでも適用されます。</span><span class="sxs-lookup"><span data-stu-id="6b033-150">The same restrictions and options for creating a new service principal also apply here.</span></span>
 
 ```azurecli-interactive
-az ad sp reset-credentials --name APP_ID --password NEW_PASSWORD
+az ad sp credential reset --name APP_ID --password NEW_PASSWORD
 ```
