@@ -4,19 +4,159 @@ description: Azure CLI 2.0 の最新情報について説明します
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 07/03/2018
+ms.date: 08/28/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 549317fb3ffffbe5f392e7a2bbc5cb4ed10b7e89
-ms.sourcegitcommit: 772aad0d9696156d6e87fa00e255dfd0b6394d23
+ms.openlocfilehash: 62e57d048666f478b670f182bb9348dba90de6a0
+ms.sourcegitcommit: 8f060bc009278eafc0ed448bad4b7d08c742ff63
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39718016"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43145092"
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 リリース ノート
+
+## <a name="auguest-28-2018"></a>2018 年 8 月 28 日
+
+バージョン 2.0.45
+
+### <a name="core"></a>コア
+
+* 空の構成ファイルの読み込みに関する問題を修正しました
+* Azure Stack におけるプロファイル `2018-03-01-hybrid` のサポートを追加しました
+
+### <a name="acr"></a>ACR
+
+* ARM 要求がないランタイム操作に対する回避策を追加しました
+* `build` コマンドで、アップロードされた tar からバージョン コントロール ファイル (git、gitignore など) が既定で除外されるように変更しました
+
+### <a name="acs"></a>ACS
+
+* `Standard_DS2_v2` VM が既定で設定されるように `aks create` を変更しました
+* 新しい API を呼び出して、クラスター資格情報を取得するように `aks get-credentials` を変更しました
+
+### <a name="appservice"></a>AppService
+
+* 関数アプリおよび Web アプリで CORS のサポートを追加しました
+* 作成コマンドに ARM タグのサポートを追加しました
+* リソースが見つからないときにコード 3 で終了するように `[webapp|functionapp] identity show` を変更しました
+
+### <a name="backup"></a>Backup
+
+* リソースが見つからないときにコード 3 で終了するように `backup vault backup-properties show` を変更しました
+
+### <a name="bot-service"></a>ボット サービス
+
+* 初期ボット サービス CLI リリース
+
+### <a name="cognitive-services"></a>Cognitive Services
+
+* 一部のサービスの作成に必要な新しいパラメーター `--api-properties,` を追加しました
+
+### <a name="iot"></a>IoT
+
+* リンクされたハブの関連付けに関する問題を修正しました
+
+### <a name="monitor"></a>監視
+
+* ほぼリアルタイムのメトリック アラートのための `monitor metrics alert` コマンドを追加しました
+* `monitor alert` コマンドを非推奨にしました
+
+### <a name="network"></a>ネットワーク
+
+* リソースが見つからないときにコード 3 で終了するように `network application-gateway ssl-policy predefined show` を変更しました
+
+### <a name="resource"></a>リソース
+
+* リソースが見つからないときにコード 3 で終了するように `provider operation show` を変更しました
+
+### <a name="storage"></a>Storage
+
+* リソースが見つからないときにコード 3 で終了するように `storage share policy show` を変更しました
+
+### <a name="vm"></a>VM
+
+* リソースが見つからないときにコード 3 で終了するように `vm/vmss identity show` を変更しました 
+* `vm create` を使用できるため `--storage-caching` を非推奨にしました
+
+## <a name="auguest-14-2018"></a>2018 年 8 月 14 日
+
+バージョン 2.0.44
+
+### <a name="core"></a>コア
+
+* `table` 出力の数値表示を修正しました
+* YAML 出力形式を追加しました
+
+### <a name="telemetry"></a>テレメトリ
+
+* テレメトリ レポートを改善しました
+
+### <a name="acr"></a>ACR
+
+* `content-trust policy` コマンドを追加しました
+* `.dockerignore` が適切に処理されない問題を修正しました
+
+### <a name="acs"></a>ACS
+
+* Windows で `%USERPROFILE%\.azure-kubectl` にインストールされるように `az acs/aks install-cli` を変更しました
+* クラスターに RBAC が含まれるかどうかを検出し、ACI コネクタを適切に構成するように `az aks install-connector` を変更しました
+* サブネットが指定されている場合、そのサブネットにロールが割り当てられるように変更しました
+* サブネットが指定されている場合、そのサブネットについて "ロールの割り当てをスキップ" する新しいオプションを追加しました                                 
+* サブネットへのロールの割り当てが既に存在する場合、その割り当てをスキップするように変更しました                
+
+### <a name="appservice"></a>AppService
+
+* 外部のリソース グループのストレージ アカウントを使用した関数アプリの作成を妨げるバグを修正しました
+* zip デプロイ上のクラッシュを修正しました
+
+### <a name="batchai"></a>BatchAI
+
+* "resource *group*" が指定されるように、自動ストレージ アカウント作成のロガー出力を変更しました。        
+
+### <a name="container"></a>コンテナー
+
+* セキュリティで保護された環境変数をコンテナーに渡すための `--secure-environment-variables` を追加しました      
+
+### <a name="iot"></a>IoT
+
+* [重大な変更] iot 拡張機能に移動された非推奨のコマンドを削除しました
+* `azure-devices.net` ドメインを想定しないように要素を更新しました
+
+### <a name="iot-central"></a>Iot Central
+
+* IoT Central モジュールの最初のリリース
+
+### <a name="keyvault"></a>KeyVault
+
+
+* ストレージ アカウントと SAS 定義を管理するためのコマンドを追加しました
+* network-rules 用のコマンドを追加しました                                                           
+* `--id` パラメーターをシークレット、キー、および証明書の操作に追加しました
+* KV 管理マルチ API バージョンのサポートを追加しました
+* KV データ プレーン マルチ API バージョンのサポートを追加しました
+
+### <a name="relay"></a>リレー
+
+* 最初のリリース
+
+### <a name="sql"></a>SQL
+
+* `sql failover-group` コマンドを追加しました
+
+### <a name="storage"></a>Storage
+
+* [重大な変更] `--location` パラメーターを必要とするように `storage account show-usage` を変更しました。リージョンごとに表示されます
+* `storage account` コマンドで省略できるように `--resource-group` パラメーターを変更しました
+* バッチ コマンドの個々のエラーを表す "前提条件が満たされていない" という警告を削除し、1 つのメッセージに集約しました
+* null の配列が出力されないように `[blob|file] delete-batch` コマンドを変更しました
+* コンテナー URL から SAS トークンが読み取られるように `blob [download|upload|delete-batch]` コマンドを変更しました
+
+### <a name="vm"></a>VM
+
+* 使いやすくするために、共通フィルターを `vm list-skus` に追加しました
 
 ## <a name="july-31-2018"></a>2018 年 7 月 31日
 
