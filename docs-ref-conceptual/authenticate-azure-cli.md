@@ -10,19 +10,19 @@ ms.technology: azure-cli
 ms.devlang: azurecli
 ms.service: active-directory
 ms.component: authentication
-ms.openlocfilehash: a0e05b3306cc273486b1b5fc887ceedbf78cb779
-ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
+ms.openlocfilehash: a9476937af004609b35fae7a748d8c254f370541
+ms.sourcegitcommit: 252e5e1b5d0ab868044a9c03f2c9fefc22d362b4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967760"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43380902"
 ---
 # <a name="sign-in-with-azure-cli-20"></a>Azure CLI 2.0 を使用してサインインする
 
 Azure CLI を使用して認証を行うには、いくつかの方法があります。 最も簡単に始められるのは、Azure Cloud Shell または `az login` コマンドのいずれかを使用して、ブラウザーから対話形式でサインインする方法です。
 アクセス許可が制限されたアカウントである、サービス プリンシパルを使用することをお勧めします。 サービス プリンシパルに必要とされる適切なアクセス許可だけを付与することによって、自動化スクリプトをより安全にすることができます。
 
-プライベートの資格情報はローカルに保存されません。 代わりに、認証トークンが Azure によって生成され、保存されます。 サインイン後、認証トークンは、使用しなくても 14 日間経過するまでは有効です。 その時点で、再認証する必要があります。
+プライベートの資格情報はローカルに保存されません。 代わりに、認証トークンが Azure によって生成され、保存されます。 サインイン後、認証トークンは、使用しなくても 90 日経過するまでは有効です。 その時点で、再認証する必要があります。
 
 サインインすると、CLI コマンドが既定のサブスクリプションに対して実行されます。 複数のサブスクリプションがある場合は、[既定のサブスクリプションを変更](manage-azure-subscriptions-azure-cli.md)できます。
 

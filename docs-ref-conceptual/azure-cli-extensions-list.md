@@ -4,17 +4,17 @@ description: Azure CLI 2.0 で公式にサポートされている拡張機能�
 author: derekbekoe
 ms.author: debekoe
 manager: routlaw
-ms.date: 08/13/2018
+ms.date: 08/31/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 09735708946e40fd0d515bcd43bbf4798c70673d
-ms.sourcegitcommit: 4cf5784b741dd55c0a4240443d3180d8ec83526c
+ms.openlocfilehash: 11125445d09ec8f0c62b1f508093bdfef9ad9e44
+ms.sourcegitcommit: 252e5e1b5d0ab868044a9c03f2c9fefc22d362b4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "43144899"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43380919"
 ---
 # <a name="available-extensions-for-the-azure-cli-20"></a>Azure CLI 2.0 で使用可能な拡張機能
 
@@ -38,7 +38,7 @@ az extension list-available --output table
 | [eventgrid](https://github.com/Azure/azure-cli-extensions) | 0.2.1 | Azure EventGrid 2018-05-01 プレビュー機能をサポートします | [はい] |
 | [express-route-cross-connection](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route-cross-connection) | 0.1.0 | ExpressRoute のクロス接続を使用して、顧客の ExpressRoute 回線を管理します。 |  |
 | [find](https://github.com/Azure/azure-cli-extensions/tree/master/src/find) | 0.1.0 | CLI 情報に対するインテリジェントな照会。 | [はい] |
-| [image-copy-extension](https://github.com/Azure/azure-cli-extensions) | 0.0.7 | リージョン間での管理対象 VM イメージのコピーをサポートします |  |
+| [image-copy-extension](https://github.com/Azure/azure-cli-extensions) | 0.0.8 | リージョン間での管理対象 VM イメージのコピーをサポートします |  |
 | [keyvault-preview](https://github.com/Azure/azure-keyvault-cli-extension) | 0.1.3 | Azure Key Vault のコマンドをプレビューします。 | [はい] |
 | [log-analytics](https://github.com/Azure/azure-cli-extensions/tree/master/src/log-analytics) | 0.1.2 | Azure Log Analytics のクエリ機能をサポートします。 | [はい] |
 | [managementgroups](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | 管理グループ向け Azure CLI 拡張機能 |  |
@@ -46,6 +46,6 @@ az extension list-available --output table
 | [mesh](https://github.com/Azure/azure-cli-extensions) | 0.9.1 | Microsoft Azure Service Fabric Mesh のサポート - パブリック プレビュー | [はい] |
 | [rdbms-vnet](https://github.com/Azure/azure-cli-extensions) | 10.0.0 | Azure MySQL および Azure PostgreSQL のリソースで仮想ネットワーク ルールをサポートします |  |
 | [signalr](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | SignalR 管理プレビューをサポートします。 | [はい] |
-| [storage-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) | 0.1.3 | 次期ストレージ機能のプレビューを提供します。 | [はい] |
+| [storage-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) | 0.1.4 | 次期ストレージ機能のプレビューを提供します。 | [はい] |
 | [サブスクリプション](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | サブスクリプション管理プレビューをサポートします。 |  |
-| [webapp](https://github.com/Azure/azure-cli-extensions) | 0.2.7 | appservice のリソースを管理する Azure CLI 拡張機能 | [はい] |
+| [webapp](https://github.com/Azure/azure-cli-extensions) | 0.2.8 | appservice のリソースを管理する Azure CLI 拡張機能 | [はい] |
