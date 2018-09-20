@@ -4,21 +4,21 @@ description: macOS で Azure CLI 2.0 をインストールする方法
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 01/29/2018
+ms.date: 09/09/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 76b9afec92aa3da916382b85d2261547b6877e03
-ms.sourcegitcommit: fb3fed8701aff6c46af856e8fdc3e56ff9a678bc
+ms.openlocfilehash: fd829c6ff9162b660a889d3e08615a76f42aeb97
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38228922"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388475"
 ---
 # <a name="install-azure-cli-20-on-macos"></a>macOS での Azure CLI 2.0 のインストール
 
-macOS プラットフォームの場合は、[Homebrew パッケージ マネージャー](http://brew.sh)で Azure CLI をインストールできます。 Homebrew を使用すると、CLI のインストールを最新の状態に保つことが容易になります。 CLI パッケージは、macOS バージョン 10.9 以降でテストされています。
+macOS プラットフォームの場合は、[Homebrew パッケージ マネージャー](https://brew.sh)で Azure CLI をインストールできます。 Homebrew を使用すると、CLI のインストールを最新の状態に保つことが容易になります。 CLI パッケージは、macOS バージョン 10.9 以降でテストされています。
 
 ## <a name="install"></a>Install
 
@@ -39,13 +39,14 @@ brew update && brew install azure-cli
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 
-Homebrew を使用した CLI のインストール時に問題が発生した場合、一般的なエラーを以下に示します。 問題がここに示されていない場合は、[GitHub で問題を報告](https://github.com/Azure/azure-cli/issues)してください。
+Homebrew を使用した CLI のインストール時に問題が発生した場合、一般的なエラーを以下に示します。 ここで取り上げていない問題が発生した場合は、[GitHub で問題を報告](https://github.com/Azure/azure-cli/issues)してください。
 
 ### <a name="unable-to-find-python-or-installed-packages"></a>Python またはインストールされているパッケージが見つかりません
 
-インストール時に Python またはインストールされているパッケージが見つからない場合、マイナー バージョンの不一致があるか、Homebrew のインストール中に別の問題が発生した可能性があります。 CLI では Python 仮想環境を使用しないため、適切な Python バージョンを見つけることができる必要があります。 Python インストールを再リンクすることで、これらの問題を解決できる場合があります。
+Homebrew のインストール中に、マイナー バージョンの不一致またはその他の問題が発生した可能性があります。 CLI では Python 仮想環境を使用しないため、インストールされている Python バージョンを見つけることができる必要があります。 考えられる修正案は、Homebrew から `python3` の依存関係をインストールして再リンクすることです。
 
 ```bash
+brew update && brew install python3 && brew upgrade python3
 brew link --overwrite python3
 ```
 

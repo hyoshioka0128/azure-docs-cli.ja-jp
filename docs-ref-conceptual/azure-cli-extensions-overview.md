@@ -5,33 +5,32 @@ keywords: Azure CLI, 拡張機能
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/16/2018
+ms.date: 09/07/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: b503c51ffc55ceda30738e34171c7da92532f328
-ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
+ms.openlocfilehash: 8df4c82253e958fdad37ef1551c051f3d17fb191
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967726"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388543"
 ---
-# <a name="using-extensions-with-the-azure-cli-20"></a>Azure CLI 2.0 での拡張機能の使用
+# <a name="use-extensions-with-azure-cli-20"></a>Azure CLI 2.0 で拡張機能を使用する
 
-拡張機能は、Azure CLI 自体に付属していない独立したモジュールです。この拡張機能により、新しいコマンドで機能が追加されます。 これは試験段階またはリリース前のサービス、Microsoft の特別なツール、またはご自身で作成したカスタム機能である可能性があります。 拡張機能により、ご自身のニーズに合わせてある程度柔軟に CLI を変更できます。コア機能セットの一部として見なされない多数の追加パッケージを出荷する必要はありません。
-
-この記事は、CLI 用の拡張機能をインストール、更新、および削除する方法を理解するうえで役立ちます。 また、拡張機能の動作に関する一般的な質問にも回答します。
+Azure CLI 2.0 には、拡張機能を読み込む機能が用意されています。 拡張機能は Python の wheel 形式で、CLI には付属していませんが CLI コマンドとして実行できます。
+拡張機能を使用すると、独自の CLI インターフェイスを記述する機能と共に、リリース前の実験的なコマンドにアクセスすることができます。 この記事では、拡張機能の管理方法について説明し、その使用に関する一般的な質問に回答します。
 
 ## <a name="find-extensions"></a>拡張機能の検索
 
-使用できる拡張機能を確認するには、[az extension list-available](/cli/azure/extension#az-extension-list-available) を使用できます。 このコマンドにより、Microsoft によって提供および管理されている公式の拡張機能が一覧表示されます。
+Microsoft によって提供および管理されている拡張機能を確認するには、[az extension list-available](/cli/azure/extension#az-extension-list-available) コマンドを使用します。
 
 ```azurecli-interactive
 az extension list-available --output table
 ```
 
-Microsoft では、ドキュメント サイトで [Microsoft 拡張機能の一覧](azure-cli-extensions-list.md)もホストしています。
+Microsoft では、ドキュメント サイトでも[拡張機能の一覧](azure-cli-extensions-list.md)をホストしています。
 
 ## <a name="install-extensions"></a>拡張機能のインストール
 
@@ -41,7 +40,7 @@ Microsoft では、ドキュメント サイトで [Microsoft 拡張機能の一
 az extension add --name <extension-name>
 ```
 
-拡張機能のソースが外部リソースであるか、その拡張機能への直接リンクがある場合は、ソース URL またはローカル パスを指定できます。 これは、コンパイルされた Python の wheel 形式ファイルである "_必要があります_"。
+拡張機能のソースが外部リソースであるか、その拡張機能への直接リンクがある場合は、ソース URL またはローカル パスを指定します。 拡張機能は、コンパイルされた Python の wheel 形式ファイルである "_必要があります_"。
 
 ```azurecli-interactive
 az extension add --source <URL-or-path>
@@ -51,7 +50,7 @@ az extension add --source <URL-or-path>
 
 ## <a name="update-extensions"></a>拡張機能の更新
 
-拡張機能を名前でインストールした場合、[az extension update](https://docs.microsoft.com/cli/azure/extension#az-extension-update) を使用してその拡張機能を更新できます。
+拡張機能を名前でインストールした場合、[az extension update](https://docs.microsoft.com/cli/azure/extension#az-extension-update) を使用してその拡張機能を更新します。
 
 ```azurecli-interactive
 az extension update --name <extension-name>
@@ -59,24 +58,23 @@ az extension update --name <extension-name>
 
 それ以外の場合は、「[拡張機能のインストール](#install-extensions)」の説明に従って、ソースから拡張機能を更新できます。
 
-CLI を使用して拡張機能の名前を解決できない場合は、アンインストールしてから再インストールを試みてください。 拡張機能がプレビューから移行し、CLI の組み込みコマンドになった可能性もあります。 「[Azure CLI 2.0 のインストール](install-azure-cli.md)」の説明に従って CLI の更新を試み、拡張機能のコマンドが追加されているかどうかを確認してください。
+CLI で拡張機能の名前を解決できない場合は、アンインストールしてから再インストールを試みてください。 拡張機能が、基本 CLI の一部になっている可能性もあります。
+「[Azure CLI 2.0 のインストール](install-azure-cli.md)」の説明に従って CLI の更新を試み、拡張機能のコマンドが追加されているかどうかを確認してください。
 
 ## <a name="uninstall-extensions"></a>拡張機能のアンインストール
 
-不要になった拡張機能は、[az extension remove](https://docs.microsoft.com/cli/azure/extension#az-extension-remove) を使用して削除できます。
+拡張機能が不要になった場合は、[az extension remove](https://docs.microsoft.com/cli/azure/extension#az-extension-remove) を使用して削除します。
 
 ```azurecli-interactive
 az extension remove --name <extension-name>
 ```
 
-また、手動で削除することもできます。それには、インストールした場所から拡張機能を削除します。 これは、`$AZURE_EXTENSION_DIR` シェル変数の値になります。
+また、手動で削除することもできます。それには、インストールした場所から拡張機能を削除します。 `$AZURE_EXTENSION_DIR` シェル変数によって、モジュールがインストールされている場所が定義されています。
 この変数が設定されていない場合、既定では、この値は `$HOME/.azure/cliextensions` (Linux と macOS の場合) または `%USERPROFILE%\.azure\cliextensions` (Windows の場合) になります。
 
 ```bash
 rm -rf $AZURE_EXTENSION_DIR/<extension-name>
 ```
-
-`az extension remove` を使用してアンインストールすることをお勧めします。
 
 ## <a name="faq"></a>FAQ
 
@@ -92,11 +90,11 @@ rm -rf $AZURE_EXTENSION_DIR/<extension-name>
 
 ### <a name="how-can-i-tell-if-an-extension-is-in-pre-release"></a>拡張機能がプレリリースかどうかをどのように確認できますか。
 
-拡張機能がプレリリースかどうかは、それ自体のドキュメントとバージョン管理に示されています。 また、Microsoft では、通常、CLI のプレビュー コマンドを拡張機能としてリリースし、製品がプレビュー段階を脱した時点で、その拡張機能をメインの CLI インターフェイスに移行させる予定です。
+拡張機能がプレリリースに含まれているかどうかは、拡張機能のドキュメントとバージョン管理に示されています。 Microsoft では、多くの場合、プレビューのコマンドを CLI 拡張機能としてリリースしますが、後でそのコマンドをメインの CLI 製品に追加します。 コマンドが拡張機能から移動された場合は、古い拡張機能をアンインストールする必要があります。 
 
 ### <a name="can-extensions-depend-upon-each-other"></a>拡張機能は相互に依存できますか。
 
-いいえ。 拡張機能は、相互に依存しない独立したパッケージである必要があります。 これは、CLI では拡張機能が読み込まれるタイミングが不明であるため、依存関係が満たされる保証がないからです。 拡張機能をインストールした場合、その拡張機能のみがインストールされます。また、他の拡張機能を削除しても、その拡張機能は動作し続けます。
+いいえ。 CLI では読み込みの順序が保証されていないため、依存関係が満たされていないことがあります。 拡張機能を削除しても、他の拡張機能には影響しません。
 
 ### <a name="are-extensions-updated-along-with-the-cli"></a>拡張機能は CLI と共に更新されますか。
 

@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 7a50682d549f6383e68128f2c2aef02dc2877a8e
-ms.sourcegitcommit: 83826ca154c9f32c6091c63ce4b3e480694ba8d1
+ms.openlocfilehash: 277d9d3423af4941fb7f7fb57130fa1b7af7d32e
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "43144913"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388339"
 ---
 # <a name="run-azure-cli-20-in-a-docker-container"></a>Docker コンテナーでの Azure CLI 2.0 の実行
 
-Docker を使用して、Azure CLI 2.0 がプレインストールされたスタンドアロン Linux コンテナーを実行できます。 Docker を使用すると、CLI を試すことができる環境をすばやく準備して、CLI が自分に適しているかどうかを判断したり、独自のデプロイのベースとしてイメージを使用したりできます。
+Docker を使用して、Azure CLI 2.0 がプレインストールされたスタンドアロン Linux コンテナーを実行できます。 Docker を使用すると、CLI を実行する分離環境をすぐに準備できます。 独自のデプロイのベースとしてイメージを使用することもできます。
 
 ## <a name="run-in-a-docker-container"></a>Docker コンテナーでの実行
 
@@ -29,7 +29,7 @@ Docker を使用して、Azure CLI 2.0 がプレインストールされたス�
    ```
 
 > [!NOTE]
-> お使いのユーザー環境から SSH キーを取得する場合は、`-v ${HOME}/.ssh:/root/.ssh` を使用して、その環境にご自身の SSH キーをマウントできます。
+> お使いのユーザー環境から SSH キーを取得する場合は、`-v ${HOME}/.ssh:/root/.ssh` を使用して、その環境にご自身の SSH キーをマウントします。
 >
 > ```bash
 > docker run -it -v ${HOME}/.ssh:/root/.ssh microsoft/azure-cli
@@ -43,7 +43,7 @@ CLI は、`/usr/local/bin` の `az` コマンドとしてイメージにイン�
 
 ## <a name="update-docker-image"></a>Docker イメージの更新
 
-Docker で更新するには、新しいイメージをプルし、さらに既存のすべてのコンテナーを再作成する必要があります。 そのため、CLI をデータ ストアとしてホストするコンテナーの使用は避けるようにしてください。
+Docker で更新するには、新しいイメージをプルし、さらに既存のすべてのコンテナーを再作成する必要があります。 そのため、CLI をホストするコンテナーをデータ ストアとして使用することは避けるようにしてください。
 
 `docker pull` でローカル イメージを更新します。
 

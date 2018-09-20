@@ -4,17 +4,17 @@ description: Mac、Linux、および Windows に Azure CLI 1.0 をインスト�
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 03/20/2017
+ms.date: 09/09/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 5f185e02217d6a3b54a9c252825c0f3fed3ab09e
-ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
+ms.openlocfilehash: dd2d8658819c03742ae65c639717837ca940659e
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967675"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388611"
 ---
 # <a name="install-the-azure-cli-10"></a>Azure CLI 1.0 のインストール
 
@@ -67,7 +67,7 @@ Mac または Windows コンピューターを使用する場合、次の CLI �
 
 ## <a name="option-3-use-a-docker-container"></a>オプション 3: Docker コンテナーの使用
 
-お使いのコンピューターを [Docker](https://docs.docker.com/engine/understanding-docker/) ホストとして設定すると、Docker コンテナーで最新の Azure CLI 1.0 を実行できるようになります。 次のコマンドを実行します (Linux ディストリビューションの場合、**sudo** の使用が必要になる場合があります)。
+お使いのコンピューターを [Docker](https://docs.docker.com/engine/understanding-docker/) ホストとして設定すると、Docker コンテナーで最新の Azure CLI 1.0 を実行できるようになります。 コマンドを実行します (Linux ディストリビューションの場合、**sudo** の使用が必要になる場合があります)。
 
 ```bash
 docker run -it microsoft/azure-cli:0.10.17
@@ -75,7 +75,7 @@ docker run -it microsoft/azure-cli:0.10.17
 
 ## <a name="run-azure-cli-10-commands"></a>Azure CLI 1.0 コマンドの実行
 
-Azure CLI 1.0 をインストールした後、コマンド ライン ユーザー インターフェイス (Bash、ターミナル、コマンド プロンプトなど) から **azure** コマンドを実行します。 たとえば、ヘルプ コマンドを実行するには、次のように入力します。
+Azure CLI 1.0 をインストールしたら、コマンド ライン ユーザー インターフェイスから **azure** コマンドを実行します。 たとえば、ヘルプ コマンドを実行するには、次のように入力します。
 
 ```azurecli
 azure help
@@ -88,13 +88,13 @@ azure help
 sudo ln -s /usr/bin/nodejs /usr/bin/node
 ```
 
-インストールした Azure CLI 1.0 のバージョンを確認するには、次のように入力します。
+インストールした Azure CLI 1.0 のバージョンを確認するには、次のコマンドを入力します。
 
 ```azurecli
 azure --version
 ```
 
-これで準備が整いました。 すべての CLI コマンドにアクセスして独自のリソースを操作するには、 [Azure CLI から Azure サブスクリプションに接続](/cli/azure/authenticate-azure-cli)します。
+すべての CLI コマンドにアクセスするには、[Azure CLI から Azure サブスクリプションに接続](/cli/azure/authenticate-azure-cli)します。
 
 > [!NOTE]
 > Azure CLI を初めて使用する場合、Microsoft が使用状況についての情報を収集することを許可するかどうかをたずねるメッセージが表示されます。 参加は任意です。 参加した後でも、 `azure telemetry --disable`を実行するといつでも停止できます。 参加を有効にするには、任意のタイミングで `azure telemetry --enable`を実行します。
@@ -130,8 +130,8 @@ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 * Azure CLI の詳細、ソース コードのダウンロード、問題のレポート、プロジェクトへの協力については、 [GitHub リポジトリの Azure CLI](https://github.com/azure/azure-xplat-cli)のページを参照してください。
 * Azure CLI または Azure の使用に関してご不明な点がある場合は、 [Azure のフォーラム](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurescripting)をご覧ください。
 
-[mac-installer]: http://aka.ms/mac-azure-cli
-[windows-installer]: http://aka.ms/webpi-azure-cli
-[linux-installer]: http://aka.ms/linux-azure-cli
+[mac-installer]: https://aka.ms/mac-azure-cli
+[windows-installer]: https://aka.ms/webpi-azure-cli
+[linux-installer]: https://aka.ms/linux-azure-cli
 [cliasm]: /cli/azure/get-started-with-az-cli2
 [cliarm]: ./virtual-machines/azure-cli-arm-commands.md

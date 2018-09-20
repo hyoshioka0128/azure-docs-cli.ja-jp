@@ -4,21 +4,21 @@ description: Azure CLI 2.0 のエイリアス拡張機能を使用する方法
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/16/2018
+ms.date: 09/07/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 39996693d6b796c2d9a45cd909121829f00291a8
-ms.sourcegitcommit: 8b4629a42ceecf30c1efbc6fdddf512f4dddfab0
+ms.openlocfilehash: a2cd277640ab0a55d2e1da5ecb491e72eee1e0df
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34306269"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388628"
 ---
 # <a name="the-azure-cli-20-alias-extension"></a>Azure CLI 2.0 のエイリアス拡張機能
 
-エイリアス拡張機能を使用すると、既存のコマンドを使用して、Azure CLI のカスタム コマンドを定義することができます。 エイリアスを使用すると、ショートカットが許可され、位置引数を使用する機能が提供されるため、ワークフローを簡潔でシンプルに保つことができます。 エイリアスには Jinja2 テンプレート エンジンが使用されているため、高度な引数の処理にも対応できます。
+エイリアス拡張機能を使用すると、既存のコマンドを使用して、Azure CLI のカスタム コマンドを定義することができます。 エイリアスではショートカットが使用できるので、ワークフローをシンプルに保つことができます。 エイリアスには Jinja2 テンプレート エンジンが使用されているため、高度な引数の処理にも対応できます。
 
 > [!NOTE]
 > エイリアス拡張機能はパブリック プレビュー段階にあります。 機能と構成ファイルの形式は変更される可能性があります。
@@ -47,7 +47,7 @@ alias
 
 ## <a name="keep-the-extension-up-to-date"></a>拡張機能を最新の状態に保つ
 
-エイリアス拡張機能は活発に開発が行われており、新しいバージョンが定期的にリリースされます。 CLI を更新したときに、新しいバージョンが自動的にインストールされるわけではありません。 [az extension update](/cli/azure/extension#az-extension-update) を使用して拡張機能の更新プログラムをインストールします。
+エイリアス拡張機能は活発に開発が行われており、新しいバージョンが定期的にリリースされます。 CLI を更新しても、新しいバージョンがインストールされるわけではありません。 [az extension update](/cli/azure/extension#az-extension-update) を使用して拡張機能の更新プログラムをインストールします。
 
 ```azurecli-interactive
 az extension update --name alias
@@ -55,7 +55,7 @@ az extension update --name alias
 
 ## <a name="manage-aliases-for-the-azure-cli"></a>Azure CLI のエイリアスを管理する
 
-エイリアスの拡張機能により、便利で使い慣れたエイリアス管理コマンドを利用できます。 使用可能なすべてのコマンドおよびパラメーターの詳細を表示するには、`--help` でエイリアス コマンドを呼び出します。
+エイリアス拡張機能を使用すると、他の CLI コマンドのエイリアスを作成して管理できます。 使用可能なすべてのコマンドおよびパラメーターの詳細を表示するには、`--help` でエイリアス コマンドを実行します。
 
 ```azurecli-interactive
 az alias --help
@@ -115,7 +115,7 @@ az alias create \
 az get-vm-ip MyResourceGroup MyVM
 ```
 
-エイリアスによって呼び出したコマンドで環境変数を使用することもできます。この環境変数は実行時に評価されます。 次の例では、`create-rg` エイリアスを追加します。これにより、`eastus` 内にリソース グループが作成され、`owner` タグが追加されます。 このタグには、ローカル環境変数 `USER` の値が割り当てられます。
+エイリアス化されたコマンドで環境変数を使用することもできます。この環境変数は実行時に評価されます。 次の例では、`create-rg` エイリアスを追加します。これにより、`eastus` 内にリソース グループが作成され、`owner` タグが追加されます。 このタグには、ローカル環境変数 `USER` の値が割り当てられます。
 
 ```azurecli-interactive
 az alias create \
@@ -127,9 +127,9 @@ az alias create \
 
 ## <a name="process-arguments-using-jinja2-templates"></a>Jinja2 テンプレートを使用した引数の処理
 
-エイリアス拡張機能での引数の置換は、[Jinja2](http://jinja.pocoo.org/docs/2.10/) によって実行されるため、ユーザーは Jinja2 テンプレート エンジンの機能にフル アクセスできるようになります。 テンプレートを使用すると、文字列上のデータの抽出や置換などのアクションを実行できます。
+エイリアス拡張機能での引数の置換は、[Jinja2](http://jinja.pocoo.org/docs/2.10/) によって実行されます。 Jinja2 テンプレートでは、引数を操作することができます。
 
-Jinja2 テンプレートにより、基になるコマンドとは異なるさまざまな種類の引数を受け入れるエイリアスを作成できます。 たとえば、ストレージ URL を受け入れるエイリアスを作成できます。 この URL が解析され、アカウント名とコンテナー名がストレージ コマンドに渡されます。
+Jinja2 テンプレートを使用すると、基になるコマンドとは異なる型の引数を受け入れるエイリアスを作成できます。 たとえば、ストレージ URL を受け入れるエイリアスを作成できます。 この URL が解析され、アカウント名とコンテナー名がストレージ コマンドに渡されます。
 
 ```azurecli-interactive
 az alias create \
@@ -159,7 +159,7 @@ command = invoked_commands_including_args
 
 ## <a name="create-an-alias-command-with-arguments-via-the-alias-configuration-file"></a>エイリアス構成ファイルで引数付きのエイリアス コマンドを作成する
 
-引数付きのサンプル エイリアス コマンドを含むエイリアス構成ファイルを次に示します。これは、VM のパブリック IP アドレスを取得します。 呼び出されたコマンドが単一行であることと、エイリアスで定義された引数が含まれることを確認してください。
+次の例では、引数が指定されたコマンドのエイリアスを示します。 このコマンドにより、VM のパブリック IP アドレスが取得されます。 エイリアス化されたコマンドは、1 行で全体を指定する必要があります。また、エイリアス名にはすべての引数を含める必要があります。
 
 ```ini
 [get-vm-ip {{ resourceGroup }} {{ vmName }}]

@@ -4,21 +4,21 @@ description: apt パッケージ マネージャーで Azure CLI 2.0 をイン�
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/24/2018
+ms.date: 09/07/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: a0908c5b5bda7ec903b702eecb61eabbbedaf533
-ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
+ms.openlocfilehash: 88b4570f62858ec1e12898aea51a5dbce6d677b5
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967845"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388424"
 ---
 # <a name="install-azure-cli-20-with-apt"></a>apt での Azure CLI 2.0 のインストール
 
-Ubuntu や Debian など、`apt` が付属するディストリビューションを実行している場合は、Azure CLI 用の利用可能な 64 ビット パッケージがあります。 このパッケージは、以下でテストされています。
+Ubuntu や Debian など、`apt` が付属するディストリビューションを実行している場合は、Azure CLI 用に 64 ビット パッケージを使用できます。 このパッケージは、以下でテストされています。
 
 * Ubuntu trusty、xenial、artful、および bionic
 * Debian wheezy、jessie、および stretch
@@ -57,7 +57,7 @@ Ubuntu や Debian など、`apt` が付属するディストリビューショ�
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 
-ここでは、`apt` でのインストール時に発生する一般的な問題をいくつか示します。 問題がここに示されていない場合は、[GitHub で問題を報告](https://github.com/Azure/azure-cli/issues)してください。
+ここでは、`apt` でのインストール時に発生する一般的な問題をいくつか示します。 ここで取り上げていない問題が発生した場合は、[GitHub で問題を報告](https://github.com/Azure/azure-cli/issues)してください。
 
 ### <a name="lsbrelease-fails-with-command-not-found"></a>"コマンドが見つかりません" が発生して lsb_release が失敗する
 
@@ -67,7 +67,7 @@ Ubuntu や Debian など、`apt` が付属するディストリビューショ�
 -bash: lsb_release: command not found
 ```
 
-このエラーは、lsb_release がインストールされていないことが原因です。 これを解決するには、`lsb-release` パッケージをインストールします。
+このエラーは、`lsb_release` コマンドがインストールされていないことが原因です。 これを解決するには、`lsb-release` パッケージをインストールします。
 
 ```bash
 sudo apt-get install lsb-release
@@ -101,7 +101,7 @@ sudo apt-get install dirmngr
 sudo apt-key adv --keyserver-options http-proxy=http://<USER>:<PASSWORD>@<PROXY-HOST>:<PROXY-PORT>/ --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
 ```
 
-プロキシがあるかどうかがわからない場合は、システム管理者に問い合わせてください。 プロキシでログインを必要としない場合は、ユーザー、パスワード、および `@` トークンを指定しないでください。
+プロキシがあるかどうかを確認するには、システム管理者に問い合わせてください。 プロキシでログインを必要としない場合は、ユーザー、パスワード、および `@` トークンを指定しないでください。
 
 ## <a name="update"></a>アップデート
 

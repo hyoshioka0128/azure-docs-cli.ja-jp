@@ -4,21 +4,21 @@ description: Azure CLI 2.0 コマンドの出力に対して JMESPath クエリ�
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/16/2018
+ms.date: 09/09/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 97fcd9d5b5a65480957734cec0ead68029918a49
-ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
+ms.openlocfilehash: 55880b87e1bffc37bbdeaeb84206deb5b9b7b227
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967794"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388375"
 ---
 # <a name="use-jmespath-queries-with-azure-cli-20"></a>Azure CLI 2.0 で JMESPath クエリを使用する
 
-Azure CLI 2.0 では、`--query` 引数を使用して、コマンドの結果に対して [JMESPath クエリ](http://jmespath.org)を実行します。 JMESPath は、CLI の出力からデータを選択して表示できるようにする、JSON 用のクエリ言語です。 これらのクエリは、その他の表示書式設定を実行する前に、JSON 出力に対して実行されます。
+Azure CLI 2.0 では、`--query` 引数を使用して、コマンドの結果に対して [JMESPath クエリ](http://jmespath.org)を実行します。 JMESPath は、CLI の出力からデータを選択して表示できるようにする、JSON 用のクエリ言語です。 これらのクエリは、表示書式設定の前に、JSON 出力に対して実行されます。
 
 `--query` 引数は、Azure CLI のすべてのコマンドでサポートされています。 この記事の例では、一般的なユース ケースについて説明し、JMESPath の機能を使用する方法を示します。
 
@@ -30,7 +30,7 @@ JSON ディクショナリを返すコマンドは、キー名のみで探索で
 az vm show -g QueryDemo -n TestVM --query osProfile.linuxConfiguration.ssh.publicKeys
 ```
 
-複数の値を取得して、順序付けられた配列に配置することもできます。 この配列にキー情報はありませんが、配列の要素の順序はクエリ対象のキーの順序と一致します。 次の例では、Azure のイメージ オファリング名と OS ディスクのサイズを取得する方法を示します。
+複数値は、順序付けられた配列に配置できます。 次の例では、Azure のイメージ オファリング名と OS ディスクのサイズを取得する方法を示します。
 
 ```azurecli-interactive
 az vm show -g QueryDemo -n TestVM --query 'storageProfile.[imageReference.offer, osDisk.diskSizeGb]'
@@ -43,7 +43,7 @@ az vm show -g QueryDemo -n TestVM --query 'storageProfile.[imageReference.offer,
 ]
 ```
 
-出力にキーが必要な場合は、代替ディクショナリ構文を使用できます。 ディクショナリに複数の要素を選択すると、`{displayKey:keyPath, ...}` の書式を使用して `keyPath` JMESPath 式でフィルター処理が行われます。 これは、`{displayKey: value}` として出力に表示されます。 次の例では、すぐ前の例のクエリを受け取り、出力にキーを割り当てることでわかりやすくしています。
+出力にキーが必要な場合は、代替ディクショナリ構文を使用できます。  ディクショナリに要素を選択すると、`{displayKey:keyPath, ...}` の書式を使用して `keyPath` JMESPath 式でフィルター処理が行われます。 出力値では、キー/値のペアが `{displayKey: value}` に変更されます。 次の例では、すぐ前の例のクエリを受け取り、出力にキーを割り当てることでわかりやすくしています。
 
 ```azurecli-interactive
 az vm show -g QueryDemo -n TestVM --query 'storageProfile.{image:imageReference.offer, diskSize:osDisk.diskSizeGb}'
@@ -56,7 +56,7 @@ az vm show -g QueryDemo -n TestVM --query 'storageProfile.{image:imageReference.
 }
 ```
 
-`table` 出力形式で情報を表示する場合は、ディクショナリ表示が特に便利です。 これにより独自の列ヘッダーを設定できるため、出力がいっそう読みやすくなります。 出力形式の詳細については、「[Azure CLI 2.0 コマンドの出力形式](/cli/azure/format-output-azure-cli)」を参照してください。
+`table` 出力形式で情報を表示する場合は、ディクショナリ表示を使用すると独自の列ヘッダーを設定できます。 出力形式の詳細については、「[Azure CLI 2.0 コマンドの出力形式](/cli/azure/format-output-azure-cli)」を参照してください。
 
 > [!NOTE]
 > 特定のキーはフィルター処理され、テーブル ビューには出力されません。 これらのキーは、`id`、`type`、および`etag` です。 この情報を表示する必要がある場合は、キーの名前を変更し、フィルター処理を回避することができます。
@@ -67,7 +67,9 @@ az vm show -g QueryDemo -n TestVM --query 'storageProfile.{image:imageReference.
 
 ## <a name="work-with-list-output"></a>一覧の出力を使用する
 
-複数の値を返す可能性のある CLI コマンドは、常に配列を返します。 配列の要素にはインデックスでアクセスできますが、CLI では順序が保証されていません。 値の配列にクエリを実行する最善の方法は、`[]` 演算子でそれらをフラット化することです。 この演算子は、配列のキーの後、または式の最初の要素として記述します。 フラット化に続いて配列の各要素に対してクエリが実行され、結果の値を新しい配列に配置します。 次の例では、名前とリソース グループ内の各 VM で実行されている OS を出力します。
+複数の値を返すことができる CLI コマンドは、配列を返します。 配列要素にはインデックスでアクセスしますが、毎回同じ順序で返されるとは限りません。 `[]` 演算子を使用して配列要素をフラット化することで、すべての配列要素に対して一度にクエリを実行できます。 この演算子は、配列の後、または式の最初の要素として配置します。 配列をフラット化すると、その後、配列の各要素に対してクエリが実行されます。
+
+次の例では、名前とリソース グループ内の各 VM で実行されている OS を出力します。
 
 ```azurecli-interactive
 az vm list -g QueryDemo --query '[].{name:name, image:storageProfile.imageReference.offer}'
@@ -98,7 +100,7 @@ az vm list -g QueryDemo --query '[].{name:name, image:storageProfile.imageRefere
 ]
 ```
 
-キーのパスの一部である配列も、同様にフラット化することができます。 次の例は、VM が接続されている NIC の Azure オブジェクト ID を取得するクエリを示しています。
+キーのパスの一部である配列も、同様にフラット化することができます。 次のクエリにより、VM が接続されている NIC の Azure オブジェクト ID が取得されます。
 
 ```azurecli-interactive
 az vm show -g QueryDemo -n TestVM --query 'networkProfile.networkInterfaces[].id'
@@ -120,7 +122,7 @@ az vm list --query '[?osProfile.windowsConfiguration!=null].name'
 
 ## <a name="experiment-with-queries-interactively"></a>対話形式でのクエリの実験
 
-JMESPath 式を試すにあたり、簡単にクエリを編集したり、出力を調べたりできる方法で作業することができます。 対話型環境が、[JMESPath ターミナル](https://github.com/jmespath/jmespath.terminal) Python パッケージによって提供されています。これにより、入力としてデータをパイプ処理し、そのデータを抽出するプログラム内クエリを記述できます。
+JMESPath の学習を開始できるように、[JMESPath-terminal](https://github.com/jmespath/jmespath.terminal) Python パッケージには、クエリの実験を行うための対話型環境が用意されています。 データを入力としてパイプ処理してから、データを抽出するようにプログラム内クエリを記述および編集できます。
 
 ```bash
 pip install jmespath-terminal

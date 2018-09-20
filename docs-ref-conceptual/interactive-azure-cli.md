@@ -4,22 +4,22 @@ description: 対話モードで Azure CLI 2.0 を使用します。
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 04/06/2017
+ms.date: 09/09/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 1ee7da8dfdde402d4d536f7ab4bb0599a8f3fa1d
-ms.sourcegitcommit: fb3fed8701aff6c46af856e8fdc3e56ff9a678bc
+ms.openlocfilehash: f07689a323314c076f1eb2a8844875d9543d4b2e
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38229194"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388577"
 ---
 # <a name="interactive-azure-cli-20"></a>対話型 Azure CLI 2.0
 
 Azure CLI 2.0 を対話モードで使用するには、`az interactive` コマンドを実行します。
-これにより対話型シェルに移動します。このシェルでは、コマンドがオートコンプリート入力されるほか、コマンドやそのパラメーターの説明、およびコマンドの例にアクセスできます。
+このモードにより対話型シェルに移動することで、オートコンプリート、コマンドの説明、および例にアクセスできるようになります。
 
 ![対話モード](./media/interactive-azure-cli/webapp-create.png)
 

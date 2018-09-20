@@ -5,17 +5,17 @@ keywords: Azure CLI, CLI ヘルプ, Azure ヘルプ, クエリ, 自動化,
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/16/2018
+ms.date: 09/07/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: f45c3acfdb4edb82cde755472d240ae18d82aba2
-ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
+ms.openlocfilehash: 165da295d187edf7dbc19a332670fd49d8f8bdd5
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967743"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388560"
 ---
 # <a name="get-started-with-azure-cli-20"></a>Azure CLI 2.0 を使ってみる
 
@@ -33,8 +33,7 @@ Azure CLI 2.0 へようこそ。 CLI は、Azure サービスを迅速かつ効�
 
 ## <a name="common-commands"></a>一般的なコマンド
 
-次の表は、CLI で使用される一般的なコマンドをいくつか示しており、それぞれが、リファレンス内の関連ドキュメント ページにリンクされています。
-こうしたグループのすべてのサブコマンドおよびそのドキュメントは、オンライン リファレンスまたは `--help` 引数を使用して確認できます。
+次の表は、CLI で使用される一般的なコマンドの一部を示しており、リファレンス ドキュメントにリンクされています。
 
 | リソースの種類 | Azure CLI コマンド グループ |
 |---------------|-------------------------|
@@ -48,8 +47,7 @@ Azure CLI 2.0 へようこそ。 CLI は、Azure サービスを迅速かつ効�
 
 ## <a name="finding-commands"></a>コマンドを見つける
 
-CLI のコマンドは、"_グループ_" の "_サブコマンド_" として提供されます。
-各グループが、Azure によって提供されるサービスを表しており、サブグループによって、そのサービスのコマンドが論理グループに分かれています。
+CLI のコマンドは、"_グループ_" の "_サブコマンド_" として整理されています。 各グループは、Azure のサービスを表し、コマンドはそのサービスに対して動作します。
 
 コマンドを検索するには、[az find](/cli/azure/reference-index#az-find) を使用します。 たとえば、`secret` を含むコマンド名を検索するには、次のコマンドを使用します。
 
@@ -57,7 +55,7 @@ CLI のコマンドは、"_グループ_" の "_サブコマンド_" として�
 az find -q secret
 ```
 
-使用するコマンドのグループがわかっている場合は、`--help` 引数の方が適していることがあります。 これにより、コマンドの詳細情報が表示されます。また、コマンド グループで使用すると、利用可能なすべてのサブコマンドが表示されます。 たとえば、ネットワーク セキュリティ グループ (NSG) で使用すると、利用可能な NSG サブグループとコマンドを確認できます。
+コマンドと、グループのサブグループの完全な一覧を取得するには、`--help` 引数を使用します。 たとえば、ネットワーク セキュリティ グループ (NSG) で使用する CLI コマンドを確認するには、次のコマンドを使用します。
 
 ```azurecli-interactive
 az network nsg --help
@@ -73,7 +71,7 @@ CLI では Bash シェルにコマンドの完全タブ補完が用意されて�
 * `--output` は出力形式を変更します。 使用可能な出力形式は `json`、`jsonc` (色付けされた JSON)、`tsv` (タブ区切り値)、および `table` (人間が判読できる ASCII テーブル) です。 既定では、CLI は `json` を出力します。 使用可能な出力形式の詳細については、[Azure CLI 2.0 の出力形式](format-output-azure-cli.md)に関するページをご覧ください。
 * `--query` は、[JMESPath クエリ言語](http://jmespath.org/)を使用して、Azure サービスから返された出力をフィルター処理します。 クエリの詳細については、[Azure CLI 2.0 でのコマンド結果に対するクエリの実行](query-azure-cli.md)に関するページ、および「[JMESPath tutorial (JMESPath チュートリアル)](http://jmespath.org/tutorial.html)」を参照してください。
 * `--verbose` は、操作中に Azure で作成されたリソースに関する情報と、その他の有用な情報を出力します。
-* `--debug` は、デバッグの目的で使用する、CLI 操作に関する詳細情報を出力します。 バグが発生した場合は、バグ レポートを送信するときに、`--debug` フラグをオンにして生成した出力を提供します。
+* `--debug` は、デバッグの目的で使用する、CLI 操作に関する詳細情報を出力します。 バグを見つけた場合は、バグ レポートを送信するときに、`--debug` フラグをオンにして生成した出力を提供してください。
 
 ## <a name="interactive-mode"></a>対話モード
 
@@ -94,7 +92,7 @@ Azure CLI 2.0 の使用を開始するには、詳細なチュートリアルを
 > [!div class="nextstepaction"]
 > [Azure CLI 2.0 での仮想マシンの作成チュートリアル](azure-cli-vm-tutorial.yml)
 
-他のサービスに焦点を当てる必要がある場合、CLI を使用する Azure サービスについては、さまざまなクイックスタートがあります。
+その他の人気のあるサービス用のクイック スタートもあります。
 
 * [Azure CLI を使用したストレージ アカウントの作成](/azure/storage/common/storage-quickstart-create-storage-account-cli)
 * [CLI を使用した Azure Blob Storage との間でのオブジェクトの転送](/azure/storage/blobs/storage-quickstart-blobs-cli)

@@ -4,21 +4,21 @@ description: テーブル、リスト、または JSON への Azure CLI 2.0 の�
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/16/2018
+ms.date: 09/07/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: b402ce89cbf51adb3d521a604e992dd1fb5a42fa
-ms.sourcegitcommit: 64f2c628e83d687d0e172c01f13d71c8c39a8040
+ms.openlocfilehash: 07a5e9d913257d6aeb20a68263a6256ffadbe627
+ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38967607"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44388509"
 ---
 # <a name="output-formats-for-azure-cli-20-commands"></a>Azure CLI 2.0 コマンドの出力形式
 
-Azure CLI 2.0 では、既定の出力オプションとして JSON が使用されますが、任意のコマンドの出力形式を設定するためのさまざまな方法が用意されています。  `--output` (または `--out` か `-o`) パラメーターを使用して、コマンドの出力形式を、次の表に記載されている出力の種類のいずれかに設定します。
+Azure CLI 2.0 では既定の出力形式として JSON が使用されますが、他の形式も用意されています。  CLI の出力を書式設定するには、`--output` (`--out` または `-o`) パラメーターを使用します。 引数値と出力の種類は、次のとおりです。
 
 --output | 説明
 ---------|-------------------------------
@@ -67,7 +67,7 @@ az vm list --output json
 
 ## <a name="table-output-format"></a>テーブル出力形式
 
-`table` 出力形式では、行と列に並んだデータとして書式設定されたわかりやすい出力が提供されるため、簡単に読み取ったりスキャンしたりできます。 入れ子になったオブジェクトはテーブル出力には含まれませんが、クエリの一部としてフィルター処理することもできます。 この形式ではテーブル データから一部のフィールドが除外されるため、人の目ですばやく検索できるデータ概要が必要な場合に最適です。
+`table` 形式では出力が ASCII テーブルとして生成されるため、読み取りやスキャンが容易になります。 入れ子になったオブジェクトはテーブル出力には含まれませんが、クエリの一部としてフィルター処理することもできます。 この形式では一部のフィールドがテーブルに含まれないため、人の目ですばやく検索できるデータ概要が必要な場合に最適です。
 
 ```azurecli-interactive
 az vm list --out table
@@ -100,7 +100,7 @@ RGDEMO001   KBDemo020
 ```
 
 > [!NOTE]
-> 特定のキーはフィルター処理され、テーブル ビューには出力されません。 `id`、`type`、および `etag` が、これに相当します。 出力でこれらを表示する必要がある場合は、JMESPath キー更新機能を使用してキー名を変更し、フィルター処理を回避します。
+> 一部のキーは、既定でテーブル ビューには出力されません。 `id`、`type`、および `etag` が、これに相当します。 出力でこれらを表示する必要がある場合は、JMESPath キー更新機能を使用してキー名を変更し、フィルター処理を回避します。
 >
 > ```azurecli
 > az vm list --query "[].{objectID:id}" -o table
@@ -110,7 +110,7 @@ RGDEMO001   KBDemo020
 
 ## <a name="tsv-output-format"></a>TSV 出力形式
 
-`tsv` 出力形式では、追加の書式設定、キー、またはその他の記号なしで、タブと改行で区切られた値が返されます。 この形式を使用すると、なんらかの形式でテキストを処理する必要がある他のコマンドやツールで出力を簡単に利用できるようになります。 `table` 形式と同じく、`tsv` 出力オプションでは、入れ子になったオブジェクトは出力されません。
+`tsv` 出力形式では、追加の書式設定、キー、またはその他の記号なしで、タブと改行で区切られた値が返されます。 この形式を使用すると、なんらかの形式でテキストを処理する必要がある他のコマンドやツールで出力を簡単に利用できるようになります。 `table` 形式と同じく、`tsv` では、入れ子になったオブジェクトは出力されません。
 
 前の例で `tsv` オプションを使用すると、タブ区切りの結果が出力されます。
 
@@ -126,7 +126,7 @@ None    None        /subscriptions/.../resourceGroups/RGDEMO001/providers/Micros
 None    None        /subscriptions/.../resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo02None    None    westus    KBDemo020            None    Succeeded    RGDEMO001    None            Microsoft.Compute/virtualMachines    36baa9-9b80-48a8-b4a9-854c7a858ece
 ```
 
-次の例は、`tsv` の出力を UNIX システムの他のコマンドにパイプ処理し、特定のデータを抽出する方法を示しています。 `grep` コマンドは "RGD" というテキストが含まれている項目を選択し、`cut` コマンドは 8 番目のフィールド (タブ区切り) の値を選択して、VM の名前を出力に表示します。
+次の例は、`tsv` の出力を Bash の他のコマンドにパイプ処理する方法を示しています。 `grep` によって "RGD" というテキストが含まれている項目を選択し、`cut` コマンドによって 8 番目のフィールドの値を選択して、VM の名前を出力に表示します。
 
 ```bash
 az vm list --out tsv | grep RGD | cut -f8
