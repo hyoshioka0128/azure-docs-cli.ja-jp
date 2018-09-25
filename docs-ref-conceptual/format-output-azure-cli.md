@@ -9,33 +9,34 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 07a5e9d913257d6aeb20a68263a6256ffadbe627
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 1430d817a7e6c10a8f8021cf9d763f62d560ba71
+ms.sourcegitcommit: 8318ce761c279afa4cd45a81a58d83fc38c616bc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388509"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45561560"
 ---
-# <a name="output-formats-for-azure-cli-20-commands"></a><span data-ttu-id="7f396-103">Azure CLI 2.0 コマンドの出力形式</span><span class="sxs-lookup"><span data-stu-id="7f396-103">Output formats for Azure CLI 2.0 commands</span></span>
+# <a name="output-formats-for-azure-cli-20-commands"></a><span data-ttu-id="429e1-103">Azure CLI 2.0 コマンドの出力形式</span><span class="sxs-lookup"><span data-stu-id="429e1-103">Output formats for Azure CLI 2.0 commands</span></span>
 
-<span data-ttu-id="7f396-104">Azure CLI 2.0 では既定の出力形式として JSON が使用されますが、他の形式も用意されています。</span><span class="sxs-lookup"><span data-stu-id="7f396-104">Azure CLI 2.0 uses JSON as its default output format, but offers other formats.</span></span>  <span data-ttu-id="7f396-105">CLI の出力を書式設定するには、`--output` (`--out` または `-o`) パラメーターを使用します。</span><span class="sxs-lookup"><span data-stu-id="7f396-105">Use the `--output` (`--out` or `-o`) parameter to format CLI output.</span></span> <span data-ttu-id="7f396-106">引数値と出力の種類は、次のとおりです。</span><span class="sxs-lookup"><span data-stu-id="7f396-106">The argument values and types of output are:</span></span>
+<span data-ttu-id="429e1-104">Azure CLI 2.0 では既定の出力形式として JSON が使用されますが、他の形式も用意されています。</span><span class="sxs-lookup"><span data-stu-id="429e1-104">Azure CLI 2.0 uses JSON as its default output format, but offers other formats.</span></span>  <span data-ttu-id="429e1-105">CLI の出力を書式設定するには、`--output` (`--out` または `-o`) パラメーターを使用します。</span><span class="sxs-lookup"><span data-stu-id="429e1-105">Use the `--output` (`--out` or `-o`) parameter to format CLI output.</span></span> <span data-ttu-id="429e1-106">引数値と出力の種類は、次のとおりです。</span><span class="sxs-lookup"><span data-stu-id="429e1-106">The argument values and types of output are:</span></span>
 
-<span data-ttu-id="7f396-107">--output</span><span class="sxs-lookup"><span data-stu-id="7f396-107">--output</span></span> | <span data-ttu-id="7f396-108">説明</span><span class="sxs-lookup"><span data-stu-id="7f396-108">Description</span></span>
+<span data-ttu-id="429e1-107">--output</span><span class="sxs-lookup"><span data-stu-id="429e1-107">--output</span></span> | <span data-ttu-id="429e1-108">説明</span><span class="sxs-lookup"><span data-stu-id="429e1-108">Description</span></span>
 ---------|-------------------------------
-`json`   | <span data-ttu-id="7f396-109">JSON 文字列。</span><span class="sxs-lookup"><span data-stu-id="7f396-109">JSON string.</span></span> <span data-ttu-id="7f396-110">これは、既定の設定です。</span><span class="sxs-lookup"><span data-stu-id="7f396-110">This setting is the default.</span></span>
-`jsonc`  | <span data-ttu-id="7f396-111">色付けされた JSON。</span><span class="sxs-lookup"><span data-stu-id="7f396-111">Colorized JSON.</span></span>
-`table`  | <span data-ttu-id="7f396-112">列見出しとしてキーが使用されている ASCII テーブル。</span><span class="sxs-lookup"><span data-stu-id="7f396-112">ASCII table with keys as column headings.</span></span>
-`tsv`    | <span data-ttu-id="7f396-113">タブ区切りの値 (キーなし)</span><span class="sxs-lookup"><span data-stu-id="7f396-113">Tab-separated values, with no keys</span></span>
+`json`   | <span data-ttu-id="429e1-109">JSON 文字列。</span><span class="sxs-lookup"><span data-stu-id="429e1-109">JSON string.</span></span> <span data-ttu-id="429e1-110">これは、既定の設定です。</span><span class="sxs-lookup"><span data-stu-id="429e1-110">This setting is the default.</span></span>
+`jsonc`  | <span data-ttu-id="429e1-111">色付けされた JSON。</span><span class="sxs-lookup"><span data-stu-id="429e1-111">Colorized JSON.</span></span>
+`yaml`   | <span data-ttu-id="429e1-112">YAML。JSON に代わる、コンピューターが読み取り可能な形式。</span><span class="sxs-lookup"><span data-stu-id="429e1-112">YAML, a machine-readable alternative to JSON.</span></span>
+`table`  | <span data-ttu-id="429e1-113">列見出しとしてキーが使用されている ASCII テーブル。</span><span class="sxs-lookup"><span data-stu-id="429e1-113">ASCII table with keys as column headings.</span></span>
+`tsv`    | <span data-ttu-id="429e1-114">タブ区切りの値 (キーなし)</span><span class="sxs-lookup"><span data-stu-id="429e1-114">Tab-separated values, with no keys</span></span>
 
-## <a name="json-output-format"></a><span data-ttu-id="7f396-114">JSON 出力形式</span><span class="sxs-lookup"><span data-stu-id="7f396-114">JSON output format</span></span>
+## <a name="json-output-format"></a><span data-ttu-id="429e1-115">JSON 出力形式</span><span class="sxs-lookup"><span data-stu-id="429e1-115">JSON output format</span></span>
 
-<span data-ttu-id="7f396-115">次の例では、既定の JSON 形式で、サブスクリプション内の仮想マシンの一覧が表示されます。</span><span class="sxs-lookup"><span data-stu-id="7f396-115">The following example displays the list of virtual machines in your subscriptions in the default json format.</span></span>
+<span data-ttu-id="429e1-116">次の例では、既定の JSON 形式で、サブスクリプション内の仮想マシンの一覧が表示されます。</span><span class="sxs-lookup"><span data-stu-id="429e1-116">The following example displays the list of virtual machines in your subscriptions in the default json format.</span></span>
 
 ```azurecli-interactive
 az vm list --output json
 ```
 
-<span data-ttu-id="7f396-116">次の出力では、簡潔にするため、また置き換えた情報を識別するために、一部のフィールドが省略されています。</span><span class="sxs-lookup"><span data-stu-id="7f396-116">The following output has some fields omitted for brevity, and identifying information replaced.</span></span>
+<span data-ttu-id="429e1-117">次の出力では、簡潔にするため、また置き換えた情報を識別するために、一部のフィールドが省略されています。</span><span class="sxs-lookup"><span data-stu-id="429e1-117">The following output has some fields omitted for brevity, and identifying information replaced.</span></span>
 
 ```json
 [
@@ -65,9 +66,39 @@ az vm list --output json
 ]
 ```
 
-## <a name="table-output-format"></a><span data-ttu-id="7f396-117">テーブル出力形式</span><span class="sxs-lookup"><span data-stu-id="7f396-117">Table output format</span></span>
+## <a name="yaml-output-format"></a><span data-ttu-id="429e1-118">YAML 出力形式</span><span class="sxs-lookup"><span data-stu-id="429e1-118">YAML output format</span></span>
 
-<span data-ttu-id="7f396-118">`table` 形式では出力が ASCII テーブルとして生成されるため、読み取りやスキャンが容易になります。</span><span class="sxs-lookup"><span data-stu-id="7f396-118">The `table` format prints output as an ASCII table, making it easy to read and scan.</span></span> <span data-ttu-id="7f396-119">入れ子になったオブジェクトはテーブル出力には含まれませんが、クエリの一部としてフィルター処理することもできます。</span><span class="sxs-lookup"><span data-stu-id="7f396-119">Nested objects aren't included in table output, but can still be filtered as part of a query.</span></span> <span data-ttu-id="7f396-120">この形式では一部のフィールドがテーブルに含まれないため、人の目ですばやく検索できるデータ概要が必要な場合に最適です。</span><span class="sxs-lookup"><span data-stu-id="7f396-120">Some fields aren't included in the table, so this format is best when you want a quick, human-searchable overview of data.</span></span>
+<span data-ttu-id="429e1-119">`yaml` 形式では、出力が [YAML](http://yaml.org/) として、つまりプレーン テキスト データのシリアル化形式として出力されます。</span><span class="sxs-lookup"><span data-stu-id="429e1-119">The `yaml` format prints output as [YAML](http://yaml.org/), a plain-text data serialization format.</span></span> <span data-ttu-id="429e1-120">YAML は JSON より読みやすくなる傾向があり、その形式に簡単にマップされます。</span><span class="sxs-lookup"><span data-stu-id="429e1-120">YAML tends to be easier to read than JSON, and easily maps to that format.</span></span> <span data-ttu-id="429e1-121">一部のアプリケーションおよび CLI コマンドは、構成の入力として、JSON ではなく YAML を受け取ります。</span><span class="sxs-lookup"><span data-stu-id="429e1-121">Some applications and CLI commands take YAML as configuration input, instead of JSON.</span></span>
+
+```azurecli-interactive
+az vm list --out yaml
+```
+
+<span data-ttu-id="429e1-122">次の出力では、簡潔にするため、また置き換えた情報を識別するために、一部のフィールドが省略されています。</span><span class="sxs-lookup"><span data-stu-id="429e1-122">The following output has some fields omitted for brevity, and identifying information replaced.</span></span>
+
+```yaml
+- availabilitySet: null
+  diagnosticsProfile: null
+  hardwareProfile:
+    vmSize: Standard_DS1_v2
+  id: /subscriptions/.../resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/DemoVM010
+  identity: null
+  instanceView: null
+  licenseType: null
+  location: westus
+  name: ExampleVM1
+  networkProfile:
+    networkInterfaces:
+    - id: /subscriptions/.../resourceGroups/DemoRG1/providers/Microsoft.Network/networkInterfaces/DemoVM010Nic
+      primary: null
+      resourceGroup: DemoRG1
+  ...
+...
+```
+
+## <a name="table-output-format"></a><span data-ttu-id="429e1-123">テーブル出力形式</span><span class="sxs-lookup"><span data-stu-id="429e1-123">Table output format</span></span>
+
+<span data-ttu-id="429e1-124">`table` 形式では出力が ASCII テーブルとして生成されるため、読み取りやスキャンが容易になります。</span><span class="sxs-lookup"><span data-stu-id="429e1-124">The `table` format prints output as an ASCII table, making it easy to read and scan.</span></span> <span data-ttu-id="429e1-125">入れ子になったオブジェクトはテーブル出力には含まれませんが、クエリの一部としてフィルター処理することもできます。</span><span class="sxs-lookup"><span data-stu-id="429e1-125">Nested objects aren't included in table output, but can still be filtered as part of a query.</span></span> <span data-ttu-id="429e1-126">この形式では一部のフィールドがテーブルに含まれないため、人の目ですばやく検索できるデータ概要が必要な場合に最適です。</span><span class="sxs-lookup"><span data-stu-id="429e1-126">Some fields aren't included in the table, so this format is best when you want a quick, human-searchable overview of data.</span></span>
 
 ```azurecli-interactive
 az vm list --out table
@@ -83,7 +114,7 @@ KBDemo001VM  RGDEMO001        westus
 KBDemo020    RGDEMO001        westus
 ```
 
-<span data-ttu-id="7f396-121">`--query` パラメーターを使用すると、一覧の出力に表示するプロパティと列をカスタマイズすることができます。</span><span class="sxs-lookup"><span data-stu-id="7f396-121">You can use the `--query` parameter to customize the properties and columns you want to show in the list output.</span></span> <span data-ttu-id="7f396-122">次の例は、`list` コマンドで VM 名とリソース グループ名だけを選択する方法を示しています。</span><span class="sxs-lookup"><span data-stu-id="7f396-122">The following example shows how to select just the VM Name and the Resource Group Name in the `list` command.</span></span>
+<span data-ttu-id="429e1-127">`--query` パラメーターを使用すると、一覧の出力に表示するプロパティと列をカスタマイズすることができます。</span><span class="sxs-lookup"><span data-stu-id="429e1-127">You can use the `--query` parameter to customize the properties and columns you want to show in the list output.</span></span> <span data-ttu-id="429e1-128">次の例は、`list` コマンドで VM 名とリソース グループ名だけを選択する方法を示しています。</span><span class="sxs-lookup"><span data-stu-id="429e1-128">The following example shows how to select just the VM Name and the Resource Group Name in the `list` command.</span></span>
 
 ```azurecli
 az vm list --query "[].{resource:resourceGroup, name:name}" -o table
@@ -100,19 +131,19 @@ RGDEMO001   KBDemo020
 ```
 
 > [!NOTE]
-> <span data-ttu-id="7f396-123">一部のキーは、既定でテーブル ビューには出力されません。</span><span class="sxs-lookup"><span data-stu-id="7f396-123">Some keys are not printed in the table view by default.</span></span> <span data-ttu-id="7f396-124">`id`、`type`、および `etag` が、これに相当します。</span><span class="sxs-lookup"><span data-stu-id="7f396-124">These are `id`, `type`, and `etag`.</span></span> <span data-ttu-id="7f396-125">出力でこれらを表示する必要がある場合は、JMESPath キー更新機能を使用してキー名を変更し、フィルター処理を回避します。</span><span class="sxs-lookup"><span data-stu-id="7f396-125">If you need to see these in your output, you can use the JMESPath re-keying feature to change the key name and avoid filtering.</span></span>
+> <span data-ttu-id="429e1-129">一部のキーは、既定でテーブル ビューには出力されません。</span><span class="sxs-lookup"><span data-stu-id="429e1-129">Some keys are not printed in the table view by default.</span></span> <span data-ttu-id="429e1-130">`id`、`type`、および `etag` が、これに相当します。</span><span class="sxs-lookup"><span data-stu-id="429e1-130">These are `id`, `type`, and `etag`.</span></span> <span data-ttu-id="429e1-131">出力でこれらを表示する必要がある場合は、JMESPath キー更新機能を使用してキー名を変更し、フィルター処理を回避します。</span><span class="sxs-lookup"><span data-stu-id="429e1-131">If you need to see these in your output, you can use the JMESPath re-keying feature to change the key name and avoid filtering.</span></span>
 >
 > ```azurecli
 > az vm list --query "[].{objectID:id}" -o table
 > ```
 
-<span data-ttu-id="7f396-126">クエリを使用してデータをフィルター処理する方法の詳細については、「[Azure CLI 2.0 で JMESPath クエリを使用する](/cli/azure/query-azure-cli)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="7f396-126">For more about using queries to filter data, see [Use JMESPath queries with Azure CLI 2.0](/cli/azure/query-azure-cli).</span></span>
+<span data-ttu-id="429e1-132">クエリを使用してデータをフィルター処理する方法の詳細については、「[Azure CLI 2.0 で JMESPath クエリを使用する](/cli/azure/query-azure-cli)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="429e1-132">For more about using queries to filter data, see [Use JMESPath queries with Azure CLI 2.0](/cli/azure/query-azure-cli).</span></span>
 
-## <a name="tsv-output-format"></a><span data-ttu-id="7f396-127">TSV 出力形式</span><span class="sxs-lookup"><span data-stu-id="7f396-127">TSV output format</span></span>
+## <a name="tsv-output-format"></a><span data-ttu-id="429e1-133">TSV 出力形式</span><span class="sxs-lookup"><span data-stu-id="429e1-133">TSV output format</span></span>
 
-<span data-ttu-id="7f396-128">`tsv` 出力形式では、追加の書式設定、キー、またはその他の記号なしで、タブと改行で区切られた値が返されます。</span><span class="sxs-lookup"><span data-stu-id="7f396-128">The `tsv` output format returns tab- and newline-separated values without additional formatting, keys, or other symbols.</span></span> <span data-ttu-id="7f396-129">この形式を使用すると、なんらかの形式でテキストを処理する必要がある他のコマンドやツールで出力を簡単に利用できるようになります。</span><span class="sxs-lookup"><span data-stu-id="7f396-129">This format makes it easy to consume the output into other commands and tools that need to process the text in some form.</span></span> <span data-ttu-id="7f396-130">`table` 形式と同じく、`tsv` では、入れ子になったオブジェクトは出力されません。</span><span class="sxs-lookup"><span data-stu-id="7f396-130">Like the `table` format, `tsv` doesn't print nested objects.</span></span>
+<span data-ttu-id="429e1-134">`tsv` 出力形式では、追加の書式設定、キー、またはその他の記号なしで、タブと改行で区切られた値が返されます。</span><span class="sxs-lookup"><span data-stu-id="429e1-134">The `tsv` output format returns tab- and newline-separated values without additional formatting, keys, or other symbols.</span></span> <span data-ttu-id="429e1-135">この形式を使用すると、なんらかの形式でテキストを処理する必要がある他のコマンドやツールで出力を簡単に利用できるようになります。</span><span class="sxs-lookup"><span data-stu-id="429e1-135">This format makes it easy to consume the output into other commands and tools that need to process the text in some form.</span></span> <span data-ttu-id="429e1-136">`table` 形式と同じく、`tsv` では、入れ子になったオブジェクトは出力されません。</span><span class="sxs-lookup"><span data-stu-id="429e1-136">Like the `table` format, `tsv` doesn't print nested objects.</span></span>
 
-<span data-ttu-id="7f396-131">前の例で `tsv` オプションを使用すると、タブ区切りの結果が出力されます。</span><span class="sxs-lookup"><span data-stu-id="7f396-131">Using the preceding example with the `tsv` option outputs the tab-separated result.</span></span>
+<span data-ttu-id="429e1-137">前の例で `tsv` オプションを使用すると、タブ区切りの結果が出力されます。</span><span class="sxs-lookup"><span data-stu-id="429e1-137">Using the preceding example with the `tsv` option outputs the tab-separated result.</span></span>
 
 ```azurecli-interactive
 az vm list --out tsv
@@ -126,7 +157,7 @@ None    None        /subscriptions/.../resourceGroups/RGDEMO001/providers/Micros
 None    None        /subscriptions/.../resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo02None    None    westus    KBDemo020            None    Succeeded    RGDEMO001    None            Microsoft.Compute/virtualMachines    36baa9-9b80-48a8-b4a9-854c7a858ece
 ```
 
-<span data-ttu-id="7f396-132">次の例は、`tsv` の出力を Bash の他のコマンドにパイプ処理する方法を示しています。</span><span class="sxs-lookup"><span data-stu-id="7f396-132">The next example shows how `tsv` output can be piped to other commands in bash.</span></span> <span data-ttu-id="7f396-133">`grep` によって "RGD" というテキストが含まれている項目を選択し、`cut` コマンドによって 8 番目のフィールドの値を選択して、VM の名前を出力に表示します。</span><span class="sxs-lookup"><span data-stu-id="7f396-133">`grep` selects items that have text "RGD" in them, then the `cut` command selects the eighth field to show the name of the VM in output.</span></span>
+<span data-ttu-id="429e1-138">次の例は、`tsv` の出力を Bash の他のコマンドにパイプ処理する方法を示しています。</span><span class="sxs-lookup"><span data-stu-id="429e1-138">The next example shows how `tsv` output can be piped to other commands in bash.</span></span> <span data-ttu-id="429e1-139">`grep` によって "RGD" というテキストが含まれている項目を選択し、`cut` コマンドによって 8 番目のフィールドの値を選択して、VM の名前を出力に表示します。</span><span class="sxs-lookup"><span data-stu-id="429e1-139">`grep` selects items that have text "RGD" in them, then the `cut` command selects the eighth field to show the name of the VM in output.</span></span>
 
 ```bash
 az vm list --out tsv | grep RGD | cut -f8
@@ -137,11 +168,11 @@ KBDemo001VM
 KBDemo020
 ```
 
-<span data-ttu-id="7f396-134">タブ区切りのフィールドを処理できるように、値は、JSON オブジェクトの出力と同じ順序で表示されます。</span><span class="sxs-lookup"><span data-stu-id="7f396-134">For the purposes of processing tab-separated fields, the values are in the same order that they appear in the printed JSON object.</span></span> <span data-ttu-id="7f396-135">コマンドの実行間で、この順序に一貫性があることが保証されます。</span><span class="sxs-lookup"><span data-stu-id="7f396-135">This order is guaranteed to be consistent between runs of the command.</span></span>
+<span data-ttu-id="429e1-140">タブ区切りのフィールドを処理できるように、値は、JSON オブジェクトの出力と同じ順序で表示されます。</span><span class="sxs-lookup"><span data-stu-id="429e1-140">For the purposes of processing tab-separated fields, the values are in the same order that they appear in the printed JSON object.</span></span> <span data-ttu-id="429e1-141">コマンドの実行間で、この順序に一貫性があることが保証されます。</span><span class="sxs-lookup"><span data-stu-id="429e1-141">This order is guaranteed to be consistent between runs of the command.</span></span>
 
-## <a name="set-the-default-output-format"></a><span data-ttu-id="7f396-136">既定の出力形式を設定する</span><span class="sxs-lookup"><span data-stu-id="7f396-136">Set the default output format</span></span>
+## <a name="set-the-default-output-format"></a><span data-ttu-id="429e1-142">既定の出力形式を設定する</span><span class="sxs-lookup"><span data-stu-id="429e1-142">Set the default output format</span></span>
 
-<span data-ttu-id="7f396-137">対話型の `az configure` コマンドを使用して、環境を設定し、出力形式の既定の設定を確立します。</span><span class="sxs-lookup"><span data-stu-id="7f396-137">Use the interactive `az configure` command to set up your environment and establish default settings for output formats.</span></span> <span data-ttu-id="7f396-138">既定の出力形式は `json` です。</span><span class="sxs-lookup"><span data-stu-id="7f396-138">The default output format is `json`.</span></span>
+<span data-ttu-id="429e1-143">対話型の `az configure` コマンドを使用して、環境を設定し、出力形式の既定の設定を確立します。</span><span class="sxs-lookup"><span data-stu-id="429e1-143">Use the interactive `az configure` command to set up your environment and establish default settings for output formats.</span></span> <span data-ttu-id="429e1-144">既定の出力形式は `json` です。</span><span class="sxs-lookup"><span data-stu-id="429e1-144">The default output format is `json`.</span></span>
 
 ```azurecli-interactive
 az configure
@@ -165,4 +196,4 @@ What default output format would you like?
 Please enter a choice [1]:
 ```
 
-<span data-ttu-id="7f396-139">ご利用環境の構成方法の詳細については、「[Azure CLI 2.0 configuration (Azure CLI 2.0 の構成)](/cli/azure/azure-cli-configuration)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="7f396-139">To learn more about configuring your environment, see [Azure CLI 2.0 configuration](/cli/azure/azure-cli-configuration).</span></span>
+<span data-ttu-id="429e1-145">ご利用環境の構成方法の詳細については、「[Azure CLI 2.0 configuration (Azure CLI 2.0 の構成)](/cli/azure/azure-cli-configuration)」を参照してください。</span><span class="sxs-lookup"><span data-stu-id="429e1-145">To learn more about configuring your environment, see [Azure CLI 2.0 configuration](/cli/azure/azure-cli-configuration).</span></span>
