@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 30bdb327601c7d898b5e64a3a472a104dc5db3b4
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 6e57837313faf0edd95d822132ae282ed416aae7
+ms.sourcegitcommit: d93b0a2bcfb0d164ef90d6d4618f0552609a8ea6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388458"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46469965"
 ---
 # <a name="install-azure-cli-20-on-windows"></a>Windows での Azure CLI 2.0 のインストール
 
@@ -44,3 +44,10 @@ Windows Subsystem for Linux (WSL) 用にインストールする場合は、お�
 
 > [!div class="nextstepaction"]
 > [MSI インストーラーのダウンロード](https://aka.ms/installazurecliwindows)
+
+## <a name="next-steps"></a>次の手順
+
+これで Azure CLI をインストールできました。次は、その機能と一般的なコマンドを簡単に見ていきましょう。
+
+> [!div class="nextstepaction"]
+> [Azure CLI の概要](get-started-with-azure-cli.md)

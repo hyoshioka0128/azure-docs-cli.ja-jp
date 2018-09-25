@@ -4,19 +4,123 @@ description: Azure CLI 2.0 の最新情報について説明します
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 08/28/2018
+ms.date: 09/21/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 5d179a49ad64201270be7848a72535b871081125
-ms.sourcegitcommit: c90bc90c9a2b3adf2836d7cfb84951cd3ab51317
+ms.openlocfilehash: f6dd04e088651527b1ac13e719b7fc3c5522b310
+ms.sourcegitcommit: d93b0a2bcfb0d164ef90d6d4618f0552609a8ea6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43828747"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46470067"
 ---
 # <a name="azure-cli-20-release-notes"></a>Azure CLI 2.0 リリース ノート
+
+## <a name="september-21-2018"></a>2018 年 9 月 21 日
+
+バージョン 20.46
+
+### <a name="acr"></a>ACR
+* ACR タスクのコマンドを追加しました
+* クイック実行コマンドを追加しました
+* `build-task` コマンド グループを非推奨にしました
+* ACR での Helm チャートの管理をサポートするように `helm` コマンド グループを追加しました
+* マネージド レジストリについて、べき等作成のサポートを追加しました
+* ビルド ログを表示するために形式のないフラグを追加しました
+
+### <a name="acs"></a>ACS
+* AKS マスター FQDN を設定するように `install-connector` コマンドを変更しました
+* サービス プリンシパルと skip-role-assignemnt を指定しない場合の vnet-subnet-id に対するロールの割り当て作成を修正しました
+
+### <a name="appservice"></a>AppService
+
+* Web ジョブの (継続的およびトリガーされた) 運用管理のサポートを追加しました
+* az webapp config set で --fts-state プロパティがサポートされました。また、az functionapp config set および az functionapp config show のサポートを追加しました
+* Web アプリについて Bring Your Own Storage のサポートを追加しました
+* 削除された Web アプリの一覧表示および復元のサポートを追加しました
+
+### <a name="batch"></a>Batch
+* AddTaskCollectionParameter 構文をサポートするように `--json-file` を使用したタスク追加を変更しました
+* 承認済み `--json-file` 形式のドキュメントを更新しました
+* `--max-tasks-per-node-option` を `batch pool create` に追加しました
+* オプションが指定されていない場合に、現在ログインしているアカウントを表示するように `batch account` の動作を変更しました
+
+### <a name="batch-ai"></a>Batch AI 
+* `batchai cluster create` コマンドの自動ストレージ アカウント作成エラーを修正しました
+
+### <a name="cognitive-services"></a>Cognitive Services
+* `--sku`、`--kind`、`--location` 引数の入力候補を追加しました
+* `cognitiveservices account list-usage` コマンドを追加しました
+* `cognitiveservices account list-kinds` コマンドを追加しました
+* `cognitiveservices account list` コマンドを追加しました
+* `cognitiveservices list` を非推奨にしました
+* `cognitiveservices account list-skus` について `--name` を省略可能に変更しました
+
+### <a name="container"></a>コンテナー
+* 実行中のコンテナー グループを再起動および停止する機能を追加しました
+* ネットワーク プロファイルに渡すための `--network-profile` を追加しました
+* VNet でのコンテナー グループの作成できるように `--subnet`、`--vnet_name` を追加しました
+* コンテナー グループの状態を表示するようにテーブル出力を変更しました
+
+### <a name="datalake"></a>DataLake
+* 仮想ネットワーク ルール用のコマンドを追加しました
+
+### <a name="interactive-shell"></a>対話型シェル
+* Windows でコマンドが正常に実行されないというエラーを修正しました
+* 非推奨のオブジェクトによって発生した、対話形式でのコマンド読み込みの問題を修正しました
+
+### <a name="iot"></a>IoT
+* IoT ハブのルーティングのサポートを追加しました
+
+### <a name="key-vault"></a>Key Vault
+* RSA キーの Key Vault のキー インポートを修正しました
+
+### <a name="network"></a>ネットワーク
+* パブリック IP プレフィックス機能をサポートするように `network public-ip prefix` コマンドを追加しました
+* サービス エンドポイント ポリシー機能をサポートするように `network service-endpoint` コマンドを追加しました
+* Standard Load Balancer 送信規則の作成をサポートするように `network lb outbound-rule` コマンドを追加しました
+* パブリック IP プレフィックスを使用したフロントエンド IP 構成をサポートするように `--public-ip-prefix` を `network lb frontend-ip create/update` に追加しました
+* `--enable-tcp-reset` を `network lb rule/inbound-nat-rule/inbound-nat-pool create/update` に追加しました
+* `--disable-outbound-snat` を `network lb rule create/update` に追加しました
+* `network watcher flow-log show/configure` をクラシック NSG で使用できるようにしました
+* `network watcher run-configuration-diagnostic` コマンドが追加されました
+* `network watcher test-connectivity` コマンドを修正し、`--method`、`--valid-status-codes`、および `--headers` プロパティを追加しました
+* `network express-route create/update`: `--allow-global-reach` フラグを追加しました
+* `network vnet subnet create/update`: `--delegation` のサポートを追加しました
+* `network vnet subnet list-available-delegations` コマンドを追加しました
+* `network traffic-manager profile create/update`: 監視の構成について `--interval`、`--timeout`、および `--max-failures` のサポートを追加しました。オプション `--path`、`--port`、`--protocol` を優先し、`--monitor-path`、`--monitor-port`、`--monitor-protocol` を非推奨にしました
+* `network lb frontend-ip create/update`: プライベート IP 割り当て方法の設定ロジックを修正しました。プライベート IP アドレスが指定されている場合、割り当ては静的になります。プライベート IP アドレスが指定されていない場合、またはプライベート IP アドレスに対して空の文字列が指定されている場合、割り当ては動的です。
+* `dns record-set * create/update`: `--target-resource` のサポートを追加しました
+* インターフェイス エンドポイント オブジェクトにクエリを実行する `network interface-endpoint` コマンドを追加しました
+* ネットワーク プロファイルの部分的な管理用に `network profile show/list/delete` を追加しました
+* ExpressRoute 間のピアリング接続を管理する `network express-route peering connection` コマンドを追加しました
+
+### <a name="rdbms"></a>RDBMS
+* MariaDB サービスのサポートを追加しました
+
+### <a name="reservation"></a>予約
+* 予約されたリソース列挙型に CosmosDB を追加しました
+* Patch モデルに name プロパティを追加しました
+
+### <a name="manage-app"></a>アプリの管理
+* Marketplace マネージド アプリのインスタンス作成がクラッシュする原因となっている `managedapp create --kind MarketPlace` のバグを修正しました
+* サポートされているプロファイルに制限されるように `feature` コマンドを変更しました
+
+### <a name="role"></a>Role
+* ユーザーのグループ メンバーシップ表示のサポートを追加しました
+
+### <a name="signalr"></a>SignalR
+* 最初のリリース
+
+### <a name="storage"></a>Storage
+* BLOB およびキュー承認用のユーザー ログイン資格情報に使用する `--auth-mode login` パラメーターを追加しました
+* 不変ストレージを管理するための `storage container immutability-policy/legal-hold` を追加しました
+
+### <a name="vm"></a>VM
+* 公開キー ファイルが見つからない場合に `vm create --generate-ssh-keys` によって秘密キー ファイルが上書きされる問題を修正しました (#4725、#6780)
+* `az sig` によって共有イメージ ギャラリーのサポートを追加しました
 
 ## <a name="august-28-2018"></a>2018 年 8 月 28 日
 

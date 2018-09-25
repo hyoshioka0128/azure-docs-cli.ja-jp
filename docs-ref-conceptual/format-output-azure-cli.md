@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 07a5e9d913257d6aeb20a68263a6256ffadbe627
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 1430d817a7e6c10a8f8021cf9d763f62d560ba71
+ms.sourcegitcommit: 8318ce761c279afa4cd45a81a58d83fc38c616bc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388509"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45561560"
 ---
 # <a name="output-formats-for-azure-cli-20-commands"></a>Azure CLI 2.0 コマンドの出力形式
 
@@ -24,6 +24,7 @@ Azure CLI 2.0 では既定の出力形式として JSON が使用されますが
 ---------|-------------------------------
 `json`   | JSON 文字列。 これは、既定の設定です。
 `jsonc`  | 色付けされた JSON。
+`yaml`   | YAML。JSON に代わる、コンピューターが読み取り可能な形式。
 `table`  | 列見出しとしてキーが使用されている ASCII テーブル。
 `tsv`    | タブ区切りの値 (キーなし)
 
@@ -63,6 +64,36 @@ az vm list --output json
           ...
           ...
 ]
+```
+
+## <a name="yaml-output-format"></a>YAML 出力形式
+
+`yaml` 形式では、出力が [YAML](http://yaml.org/) として、つまりプレーン テキスト データのシリアル化形式として出力されます。 YAML は JSON より読みやすくなる傾向があり、その形式に簡単にマップされます。 一部のアプリケーションおよび CLI コマンドは、構成の入力として、JSON ではなく YAML を受け取ります。
+
+```azurecli-interactive
+az vm list --out yaml
+```
+
+次の出力では、簡潔にするため、また置き換えた情報を識別するために、一部のフィールドが省略されています。
+
+```yaml
+- availabilitySet: null
+  diagnosticsProfile: null
+  hardwareProfile:
+    vmSize: Standard_DS1_v2
+  id: /subscriptions/.../resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/DemoVM010
+  identity: null
+  instanceView: null
+  licenseType: null
+  location: westus
+  name: ExampleVM1
+  networkProfile:
+    networkInterfaces:
+    - id: /subscriptions/.../resourceGroups/DemoRG1/providers/Microsoft.Network/networkInterfaces/DemoVM010Nic
+      primary: null
+      resourceGroup: DemoRG1
+  ...
+...
 ```
 
 ## <a name="table-output-format"></a>テーブル出力形式

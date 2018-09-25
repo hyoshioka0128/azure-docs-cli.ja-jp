@@ -10,18 +10,18 @@ ms.technology: azure-cli
 ms.devlang: azurecli
 ms.service: active-directory
 ms.component: authentication
-ms.openlocfilehash: ef77f407284752ad4f4a1585f8a4036b32b3eb1b
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: f6f3e8bc015420795dda48da093bc92bbf246529
+ms.sourcegitcommit: 8e6e3129f8f4824a8acfa12edb5dae52466d4be8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388322"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45626926"
 ---
 # <a name="sign-in-with-azure-cli-20"></a>Azure CLI 2.0 を使用してサインインする
 
 Azure CLI には、いくつかの認証の種類があります。 [Azure Cloud Shell](/azure/cloud-shell/overview) を使用すると自動的にログインできるため、最も簡単に作業を開始できます。 ローカルでは、ご使用のブラウザーで `az login` コマンドを使用して、対話形式でサインインできます。 スクリプトを記述するときは、サービス プリンシパルを使用することをお勧めします。 サービス プリンシパルに必要とされる適切なアクセス許可だけを付与することによって、自動化をより安全に維持できます。
 
-CLI によってサインイン情報が保存されることは、まったくありません。 代わりに、認証トークンが Azure によって生成され、保存されます。 サインイン後、認証トークンは、使用しなくても 90 日経過するまでは有効です。
+CLI によってサインイン情報が保存されることは、まったくありません。 代わりに、[認証更新トークン](https://docs.microsoft.com/en-us/azure/active-directory/develop/v1-id-and-access-tokens#refresh-tokens)が Azure によって生成され、保存されます。 2018 年 8 月の時点で、このトークンは非アクティブな状態が 90 日続くと取り消されますが、この値は、Microsoft またはテナント管理者が変更できます。 トークンが取り消されると、もう一度サインインする必要があることが CLI からメッセージで通知されます。
 
 サインインすると、CLI コマンドが既定のサブスクリプションに対して実行されます。 複数のサブスクリプションがある場合は、[既定のサブスクリプションを変更](manage-azure-subscriptions-azure-cli.md)できます。
 
