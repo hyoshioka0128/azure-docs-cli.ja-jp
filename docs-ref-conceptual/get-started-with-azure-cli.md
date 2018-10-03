@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 を使ってみる
-description: コマンドの基本を学習し、Azure CLI 2.0 を使い始めます。
+title: Azure CLI の概要
+description: コマンドの基本を学習し、Azure CLI を使い始めます。
 keywords: Azure CLI, CLI ヘルプ, Azure ヘルプ, クエリ, 自動化,
 author: sptramer
 ms.author: sttramer
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 00cfca8d55f0b404cae32ba9b4ce464dfa8afa08
-ms.sourcegitcommit: 8318ce761c279afa4cd45a81a58d83fc38c616bc
+ms.openlocfilehash: d23548a9cdfe307c2597d992dc014125f80704d0
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45561577"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47177999"
 ---
-# <a name="get-started-with-azure-cli-20"></a>Azure CLI 2.0 を使ってみる
+# <a name="get-started-with-azure-cli"></a>Azure CLI の概要
 
-Azure CLI 2.0 へようこそ。 CLI は、Azure サービスを迅速かつ効率的に使用するためのツールで、オートメーションに重点が置されています。 この記事では、CLI の機能と、生産性の向上に役立つリソースへのリンクを紹介します。
+Azure CLI へようこそ。 CLI は、Azure サービスを迅速かつ効率的に使用するためのツールで、オートメーションに重点が置されています。 この記事では、CLI の機能と、生産性の向上に役立つリソースへのリンクを紹介します。
 
 ## <a name="install-or-run-in-azure-cloud-shell"></a>Azure Cloud Shell でのインストールまたは実行
 
@@ -33,7 +33,7 @@ CLI をインストールする準備ができたら、[インストール手順
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-対話型以外のサインイン方法も用意されています。詳細については、「[Azure CLI 2.0 を使用してサインインする](authenticate-azure-cli.md)」を参照してください。
+対話型以外のサインイン方法も用意されています。詳細については、「[Azure CLI を使用してサインインする](authenticate-azure-cli.md)」を参照してください。
 
 ## <a name="common-commands"></a>一般的なコマンド
 
@@ -72,8 +72,8 @@ CLI では Bash シェルにコマンドの完全タブ補完が用意されて�
 引数の中には、すべてのコマンドで使用できるものがあります。
 
 * `--help` は、コマンドとその引数に関する CLI 参照情報を出力し、利用可能なサブグループとコマンドの一覧を表示します。
-* `--output` は出力形式を変更します。 使用可能な出力形式は `json`、`jsonc` (色付けされた JSON)、`tsv` (タブ区切り値)、および `table` (人間が判読できる ASCII テーブル) です。 既定では、CLI は `json` を出力します。 使用可能な出力形式の詳細については、[Azure CLI 2.0 の出力形式](format-output-azure-cli.md)に関するページをご覧ください。
-* `--query` は、[JMESPath クエリ言語](http://jmespath.org/)を使用して、Azure サービスから返された出力をフィルター処理します。 クエリの詳細については、[Azure CLI 2.0 でのコマンド結果に対するクエリの実行](query-azure-cli.md)に関するページ、および「[JMESPath tutorial (JMESPath チュートリアル)](http://jmespath.org/tutorial.html)」を参照してください。
+* `--output` は出力形式を変更します。 使用可能な出力形式は `json`、`jsonc` (色付けされた JSON)、`tsv` (タブ区切り値)、および `table` (人間が判読できる ASCII テーブル) です。 既定では、CLI は `json` を出力します。 使用可能な出力形式の詳細については、[Azure CLI の出力形式](format-output-azure-cli.md)に関するページをご覧ください。
+* `--query` は、[JMESPath クエリ言語](http://jmespath.org/)を使用して、Azure サービスから返された出力をフィルター処理します。 クエリの詳細については、[Azure CLI でのコマンド結果に対するクエリの実行](query-azure-cli.md)に関するページ、および「[JMESPath tutorial (JMESPath チュートリアル)](http://jmespath.org/tutorial.html)」を参照してください。
 * `--verbose` は、操作中に Azure で作成されたリソースに関する情報と、その他の有用な情報を出力します。
 * `--debug` は、デバッグの目的で使用する、CLI 操作に関する詳細情報を出力します。 バグを見つけた場合は、バグ レポートを送信するときに、`--debug` フラグをオンにして生成した出力を提供してください。
 
@@ -85,16 +85,16 @@ CLI には対話モードが用意されています。このモードでは、�
 az interactive
 ```
 
-対話モードの詳細については、[Azure CLI 2.0 対話モード](interactive-azure-cli.md)に関する記事をご覧ください。
+対話モードの詳細については、[Azure CLI 対話モード](interactive-azure-cli.md)に関する記事をご覧ください。
 
 また、オートコンプリート、マウス オーバー ドキュメントなど、対話型エクスペリエンスを提供する [Visual Studio Code プラグイン](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)も用意されています。
 
 ## <a name="learn-cli-basics-with-quickstarts-and-tutorials"></a>クイックスタートとチュートリアルを利用して CLI の基本について学習する
 
-Azure CLI 2.0 の使用を開始するには、詳細なチュートリアルをお試しください。チュートリアルでは、仮想マシンを設定し、CLI の機能を使用して Azure リソースにクエリを実行します。
+Azure CLI の使用を開始するには、詳細なチュートリアルをお試しください。チュートリアルでは、仮想マシンを設定し、CLI の機能を使用して Azure リソースにクエリを実行します。
 
 > [!div class="nextstepaction"]
-> [Azure CLI 2.0 での仮想マシンの作成チュートリアル](azure-cli-vm-tutorial.yml)
+> [Azure CLI での仮想マシンの作成チュートリアル](azure-cli-vm-tutorial.yml)
 
 その他の人気のあるサービス用のクイック スタートもあります。
 

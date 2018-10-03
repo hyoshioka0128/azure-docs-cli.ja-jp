@@ -1,25 +1,25 @@
 ---
 title: Azure CLI 構成オプション
-description: Azure CLI 2.0 を構成する方法
+description: Azure CLI を構成する方法
 keywords: Azure CLI, 構成, 設定, Azure
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/16/2018
+ms.date: 06/11/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 75ea347b0d4d018142a26bf985ee3639f2b79924
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: f4f1e89e5541d741ef4e02f309a49eece033af5d
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388594"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47177982"
 ---
-# <a name="azure-cli-20-configuration"></a>Azure CLI 2.0 の構成
+# <a name="azure-cli-configuration"></a>Azure CLI の構成
 
-Azure CLI 2.0 を使用すると、ログ記録、データ収集、既定の引数値などの設定をユーザーが構成できます。
+Azure CLI を使用すると、ログ記録、データ収集、既定の引数値などの設定をユーザーが構成できます。
 CLI には、いくつかの既定値を管理するための便利なコマンドとして、`az configure` が用意されています。 他の値については、構成ファイルまたは環境変数を使用して設定できます。
 
 CLI で使用される構成値は、次の優先順位で上から順番に評価されます。
@@ -88,7 +88,7 @@ log_dir=/var/log/azure
 |---------|-----------|------|------------|
 | __core__ | output | string | 既定の出力形式。 `json`、`jsonc`、`tsv`、`table` のいずれかを指定できます。 |
 | | disable\_confirm\_prompt | ブール値 | 確認のプロンプトをオン/オフにします。 |
-| | collect\_telemetry | ブール値 | Microsoft による、CLI の使用に関する匿名データの収集を許可します。 プライバシー情報については、[Azure CLI 2.0 の使用条件](https://aka.ms/AzureCliLegal)を参照してください。 |
+| | collect\_telemetry | ブール値 | Microsoft による、CLI の使用に関する匿名データの収集を許可します。 プライバシー情報については、[Azure CLI の使用条件](http://aka.ms/AzureCliLegal)に関するページをご覧ください。 |
 | __logging__ | enable\_log\_file | ブール値 | ログ記録をオン/オフにします。 |
 | | log\_dir | string | ログを書き込むディレクトリ。 この値の既定値は `${AZURE_CONFIG_DIR}/logs` です。 |
 | __storage__ | connection\_string | string | `az storage` コマンドに使用する既定の接続文字列。 |

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 のエイリアス拡張機能
-description: Azure CLI 2.0 のエイリアス拡張機能を使用する方法
+title: Azure CLI のエイリアス拡張機能
+description: Azure CLI のエイリアス拡張機能を使用する方法
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: a2cd277640ab0a55d2e1da5ecb491e72eee1e0df
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 47afede5cb1954ddd33f03fd4a6a6dc6c5ed7aee
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388628"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47177931"
 ---
-# <a name="the-azure-cli-20-alias-extension"></a>Azure CLI 2.0 のエイリアス拡張機能
+# <a name="the-azure-cli-alias-extension"></a>Azure CLI のエイリアス拡張機能
 
 エイリアス拡張機能を使用すると、既存のコマンドを使用して、Azure CLI のカスタム コマンドを定義することができます。 エイリアスではショートカットが使用できるので、ワークフローをシンプルに保つことができます。 エイリアスには Jinja2 テンプレート エンジンが使用されているため、高度な引数の処理にも対応できます。
 
@@ -25,7 +25,7 @@ ms.locfileid: "44388628"
 
 ## <a name="install-the-alias-extension"></a>エイリアス拡張機能のインストール
 
-エイリアス拡張機能を使用するために最低限必要な Azure CLI バージョンは **2.0.28** です。 CLI のバージョンを確認するには、`az --version` を実行してください。 インストールを更新する必要がある場合は、「[Azure CLI 2.0 のインストール](./install-azure-cli.md)」の説明に従ってください。
+エイリアス拡張機能を使用するために最低限必要な Azure CLI バージョンは **2.0.28** です。 CLI のバージョンを確認するには、`az --version` を実行してください。 インストールを更新する必要がある場合は、「[Azure CLI のインストール](./install-azure-cli.md)」を参照してください。
 
 [az extension add](/cli/azure/extension#az-extension-add) コマンドを使用して拡張機能をインストールします。
 

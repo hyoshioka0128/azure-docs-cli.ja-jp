@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 の拡張機能
-description: Azure CLI 2.0 での拡張機能の使用
+title: Azure CLI の拡張機能
+description: Azure CLI での拡張機能の使用
 keywords: Azure CLI, 拡張機能
 author: sptramer
 ms.author: sttramer
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 8df4c82253e958fdad37ef1551c051f3d17fb191
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 0ba204063c00bf706f6af5a14dc59ba317385f95
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388543"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47178118"
 ---
-# <a name="use-extensions-with-azure-cli-20"></a>Azure CLI 2.0 で拡張機能を使用する
+# <a name="use-extensions-with-azure-cli"></a>Azure CLI で拡張機能を使用する 
 
-Azure CLI 2.0 には、拡張機能を読み込む機能が用意されています。 拡張機能は Python の wheel 形式で、CLI には付属していませんが CLI コマンドとして実行できます。
+Azure CLI には、拡張機能を読み込む機能が用意されています。 拡張機能は Python の wheel 形式で、CLI には付属していませんが CLI コマンドとして実行できます。
 拡張機能を使用すると、独自の CLI インターフェイスを記述する機能と共に、リリース前の実験的なコマンドにアクセスすることができます。 この記事では、拡張機能の管理方法について説明し、その使用に関する一般的な質問に回答します。
 
 ## <a name="find-extensions"></a>拡張機能の検索
@@ -59,7 +59,7 @@ az extension update --name <extension-name>
 それ以外の場合は、「[拡張機能のインストール](#install-extensions)」の説明に従って、ソースから拡張機能を更新できます。
 
 CLI で拡張機能の名前を解決できない場合は、アンインストールしてから再インストールを試みてください。 拡張機能が、基本 CLI の一部になっている可能性もあります。
-「[Azure CLI 2.0 のインストール](install-azure-cli.md)」の説明に従って CLI の更新を試み、拡張機能のコマンドが追加されているかどうかを確認してください。
+「[Azure CLI のインストール](install-azure-cli.md)」の説明に従って CLI の更新を試み、拡張機能のコマンドが追加されているかどうかを確認してください。
 
 ## <a name="uninstall-extensions"></a>拡張機能のアンインストール
 

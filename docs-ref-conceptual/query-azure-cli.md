@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 でのクエリ コマンドの結果
-description: Azure CLI 2.0 コマンドの出力に対して JMESPath クエリを実行する方法について説明します。
+title: Azure CLI でのクエリ コマンドの結果
+description: Azure CLI コマンドの出力に対して JMESPath クエリを実行する方法について説明します。
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 55880b87e1bffc37bbdeaeb84206deb5b9b7b227
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 4522242952e5d257449c9c593885c62de2f56d0f
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388375"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47178033"
 ---
-# <a name="use-jmespath-queries-with-azure-cli-20"></a>Azure CLI 2.0 で JMESPath クエリを使用する
+# <a name="use-jmespath-queries-with-azure-cli"></a>Azure CLI で JMESPath クエリを使用する 
 
-Azure CLI 2.0 では、`--query` 引数を使用して、コマンドの結果に対して [JMESPath クエリ](http://jmespath.org)を実行します。 JMESPath は、CLI の出力からデータを選択して表示できるようにする、JSON 用のクエリ言語です。 これらのクエリは、表示書式設定の前に、JSON 出力に対して実行されます。
+Azure CLI では、`--query` 引数を使用して、コマンドの結果に対して [JMESPath クエリ](http://jmespath.org)を実行します。 JMESPath は、CLI の出力からデータを選択して表示できるようにする、JSON 用のクエリ言語です。 これらのクエリは、表示書式設定の前に、JSON 出力に対して実行されます。
 
 `--query` 引数は、Azure CLI のすべてのコマンドでサポートされています。 この記事の例では、一般的なユース ケースについて説明し、JMESPath の機能を使用する方法を示します。
 
@@ -56,7 +56,7 @@ az vm show -g QueryDemo -n TestVM --query 'storageProfile.{image:imageReference.
 }
 ```
 
-`table` 出力形式で情報を表示する場合は、ディクショナリ表示を使用すると独自の列ヘッダーを設定できます。 出力形式の詳細については、「[Azure CLI 2.0 コマンドの出力形式](/cli/azure/format-output-azure-cli)」を参照してください。
+`table` 出力形式で情報を表示する場合は、ディクショナリ表示を使用すると独自の列ヘッダーを設定できます。 出力形式の詳細については、[Azure CLI コマンドの出力形式](/cli/azure/format-output-azure-cli)に関するページをご覧ください。
 
 > [!NOTE]
 > 特定のキーはフィルター処理され、テーブル ビューには出力されません。 これらのキーは、`id`、`type`、および`etag` です。 この情報を表示する必要がある場合は、キーの名前を変更し、フィルター処理を回避することができます。

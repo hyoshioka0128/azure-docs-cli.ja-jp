@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 の出力形式
-description: テーブル、リスト、または JSON への Azure CLI 2.0 の出力形式を設定する方法について説明します。
+title: Azure CLI の出力形式
+description: テーブル、リスト、または JSON への Azure CLI の出力形式を設定する方法について説明します。
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 1430d817a7e6c10a8f8021cf9d763f62d560ba71
-ms.sourcegitcommit: 8318ce761c279afa4cd45a81a58d83fc38c616bc
+ms.openlocfilehash: 5b5d962e244037d9c904fc5c75314661130d1910
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45561560"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47178067"
 ---
-# <a name="output-formats-for-azure-cli-20-commands"></a>Azure CLI 2.0 コマンドの出力形式
+# <a name="output-formats-for-azure-cli-commands"></a>Azure CLI コマンドの出力形式
 
-Azure CLI 2.0 では既定の出力形式として JSON が使用されますが、他の形式も用意されています。  CLI の出力を書式設定するには、`--output` (`--out` または `-o`) パラメーターを使用します。 引数値と出力の種類は、次のとおりです。
+Azure CLI では既定の出力形式として JSON が使用されますが、他の形式も用意されています。  CLI の出力を書式設定するには、`--output` (`--out` または `-o`) パラメーターを使用します。 引数値と出力の種類は、次のとおりです。
 
 --output | 説明
 ---------|-------------------------------
@@ -137,7 +137,7 @@ RGDEMO001   KBDemo020
 > az vm list --query "[].{objectID:id}" -o table
 > ```
 
-クエリを使用してデータをフィルター処理する方法の詳細については、「[Azure CLI 2.0 で JMESPath クエリを使用する](/cli/azure/query-azure-cli)」を参照してください。
+クエリを使用してデータをフィルター処理する方法の詳細については、「[Azure CLI で JMESPath クエリを使用する](/cli/azure/query-azure-cli)」を参照してください。
 
 ## <a name="tsv-output-format"></a>TSV 出力形式
 
@@ -196,4 +196,4 @@ What default output format would you like?
 Please enter a choice [1]:
 ```
 
-ご利用環境の構成方法の詳細については、「[Azure CLI 2.0 configuration (Azure CLI 2.0 の構成)](/cli/azure/azure-cli-configuration)」を参照してください。
+ご利用環境の構成方法の詳細については、「[Azure CLI の構成](/cli/azure/azure-cli-configuration)」を参照してください。

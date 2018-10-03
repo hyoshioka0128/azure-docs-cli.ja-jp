@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 対話モード
-description: 対話モードで Azure CLI 2.0 を使用します。
+title: Azure CLI 対話モード
+description: 対話モードで Azure CLI を使用します。
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: f07689a323314c076f1eb2a8844875d9543d4b2e
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 2a07b77873f4b0439e494a96243b0298f7d77b8d
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388577"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47177693"
 ---
-# <a name="interactive-azure-cli-20"></a>対話型 Azure CLI 2.0
+# <a name="azure-cli-interactive-mode"></a>Azure CLI 対話モード
 
-Azure CLI 2.0 を対話モードで使用するには、`az interactive` コマンドを実行します。
+Azure CLI を対話モードで使用するには、`az interactive` コマンドを実行します。
 このモードにより対話型シェルに移動することで、オートコンプリート、コマンドの説明、および例にアクセスできるようになります。
 
 ![対話モード](./media/interactive-azure-cli/webapp-create.png)
@@ -96,7 +96,7 @@ az>> ? [*].provisioningState
 ]
 ```
 
-コマンドの結果に対してクエリを実行する方法の詳細については、[Azure 2.0 でのコマンド結果に対するクエリの実行](query-azure-cli.md)に関するページをご覧ください。
+コマンドの結果に対してクエリを実行する方法の詳細については、[Azure CLI でのコマンド結果に対するクエリの実行](query-azure-cli.md)に関するページをご覧ください。
 
 ## <a name="bash-commands"></a>Bash コマンド
 

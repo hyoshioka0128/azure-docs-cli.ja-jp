@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 のインストール
-description: Azure CLI 2.0 のインストールに関するリファレンス
+title: Azure CLI のインストール
+description: Azure CLI のインストールに関するリファレンス
 keywords: Azure CLI,Azure CLI のインストール
 author: sptramer
 ms.author: sttramer
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 67367926aa7d01635417b1f6e11c8898a402db55
-ms.sourcegitcommit: d93b0a2bcfb0d164ef90d6d4618f0552609a8ea6
+ms.openlocfilehash: dafde67d4d5685367ffbf0202c258b2d1f70b8ec
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46469999"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47177625"
 ---
-# <a name="install-azure-cli-20"></a>Azure CLI 2.0 のインストール
+# <a name="install-the-azure-cli"></a>Azure CLI のインストール
 
-Azure CLI 2.0 は、Azure リソースを管理するための優れたエクスペリエンスを提供するコマンドライン ツールです。 CLI は、スクリプトを簡単に作成したり、データを照会したり、長時間実行される操作をサポートしたりするように設計されています。 今すぐお試しになり、CLI が提供する機能をご確認ください。
+Azure CLI は、Azure リソースを管理するための優れたエクスペリエンスを提供するコマンドライン ツールです。 CLI は、スクリプトを簡単に作成したり、データを照会したり、長時間実行される操作をサポートしたりするように設計されています。 今すぐお試しになり、CLI が提供する機能をご確認ください。
 
 CLI の現在のバージョンは __2.0.46__ です。 最新リリースについては、[リリース ノート](release-notes-azure-cli.md)をご覧ください。
 
@@ -33,4 +33,4 @@ CLI の現在のバージョンは __2.0.46__ です。 最新リリースにつ
 * [Docker コンテナーでの実行](run-azure-cli-docker.md)
 
 > [!NOTE]
-> Azure クラシック デプロイ モデルを使用している場合は、[Azure CLI 1.0 をインストール](install-cli-version-1.0.md)してください。
+> Azure クラシック デプロイ モデルを使用している場合は、[Azure クラシック CLI をインストール](install-classic-cli.md)してください。

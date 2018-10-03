@@ -1,7 +1,7 @@
 ### YamlMime:Tutorial
-title: Azure CLI 2.0 で仮想マシンを作成する
+title: Azure CLI で仮想マシンを作成する
 metadata:
-  title: Azure CLI 2.0 で仮想マシンを作成する
+  title: Azure CLI で仮想マシンを作成する
   description: 仮想マシンを作成して Azure CLI を開始します。
   audience: Developer
   level: Beginner
@@ -16,16 +16,16 @@ metadata:
   ms.prod: azure
   ms.technology: azure-cli
   clicktale: true
-  ms.openlocfilehash: e680ad4fa42c22c1f36741e9353af3c9d6ffdcbe
-  ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+  ms.openlocfilehash: 5f857681a647caa8b1c50be1bebb807cf0ef94ff
+  ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 09/11/2018
-  ms.locfileid: "44388645"
+  ms.lasthandoff: 09/25/2018
+  ms.locfileid: "47178016"
 items:
 - durationInMinutes: 1
   content: >-
-    このチュートリアルでは、Azure CLI 2.0 での仮想マシンの設定に関連するすべての手順について学習します。 チュートリアルでは、出力クエリ、Azure リソースの再利用、およびリソースのクリーンアップについても説明します。
+    このチュートリアルでは、Azure CLI での仮想マシンの設定に関連するすべての手順について学習します。 チュートリアルでは、出力クエリ、Azure リソースの再利用、およびリソースのクリーンアップについても説明します。
 
 
     これは、Azure Cloud Shell によって提供される対話型チュートリアルです。また、ローカルに [CLI をインストール](install-azure-cli.md)することもできます。
@@ -157,9 +157,9 @@ items:
 
     * `az feedback` は CLI の組み込みコマンドで、自由形式のフィードバックをチームに提供できます。
 
-    * [Azure CLI 2.0 リポジトリ](https://github.com/Azure/azure-cli)で CLI を使用して、機能要求またはバグ レポートを提出できます。
+    * [Azure CLI リポジトリ](https://github.com/Azure/azure-cli)で CLI を使用して、機能要求またはバグ レポートを提出できます。
 
-    * [Azure CLI 2.0 ドキュメント リポジトリ](https://github.com/Azure/azure-docs-cli-python)で問題を報告することで、ご質問や内容確認を行うことができます。
+    * [Azure CLI ドキュメント リポジトリ](https://github.com/Azure/azure-docs-cli-python)で問題を報告することで、ご質問や内容確認を行うことができます。
 
 
     Azure CLI をご利用いただましたら幸いです。

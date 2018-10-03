@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 でクラウドを選択する
-description: Azure CLI 2.0 で複数のクラウドの作成、サインイン、管理を行います。
+title: Azure CLI でクラウドを選択する
+description: Azure CLI で複数のクラウドの作成、サインイン、管理を行います。
 author: sptramer
 manager: carmonm
 ms.author: sttramer
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 26b9f414ddaba3cc3f834b4749dee9807d84aa79
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 92910e68a52fad3b3577db1bd01e918b69a895d7
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388409"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47177710"
 ---
-# <a name="select-clouds-with-azure-cli-20"></a>Azure CLI 2.0 でクラウドを選択する
+# <a name="select-clouds-with-the-azure-cli"></a>Azure CLI でクラウドを選択する 
 
 異なるリージョンにわたって作業したり、[Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/) を使用したりする場合、複数のクラウドの使用が必要になることがあります。 Microsoft はお客様が使用可能な、リージョンの法規に従ったクラウドを提供します。 この記事では、クラウドに関する情報の取得、現行クラウドの変更、新規クラウドの登録または登録解除の方法について説明します。
 
@@ -82,11 +82,11 @@ az cloud set --name AzureChinaCloud
 
 > [!IMPORTANT]
 > アクティブ化されたクラウドの認証が期限切れになった場合は、他の CLI タスクを実行する前に、再認証を行う必要があります。 新しいクラウドに初めて切り替える場合は、アクティブなサブスクリプションの設定も行う必要があります。
-> 認証の手順については、「[Azure CLI 2.0 を使用してサインインする](authenticate-azure-cli.md)」を参照してください。 サブスクリプションの管理については、[Azure CLI 2.0 での Azure サブスクリプションの管理](manage-azure-subscriptions-azure-cli.md)に関するページをご覧ください。
+> 認証の手順については、「[Azure CLI を使用してサインインする](authenticate-azure-cli.md)」を参照してください。 サブスクリプションの管理については、[Azure CLI での Azure サブスクリプションの管理](manage-azure-subscriptions-azure-cli.md)に関するページをご覧ください
 
 ## <a name="register-a-new-cloud"></a>新しいクラウドを登録する
 
-Azure Stack 用の独自のエンドポイントがある場合は、新しいクラウドを登録します。 [az cloud register](/cli/azure/cloud#az-cloud-register) コマンドを実行すると、クラウドが作成されます。 このコマンドには、名前と一連のサービス エンドポイントが必要です。 Azure Stack で使用するクラウドの登録方法については、「[Azure Stack での Azure CLI 2.0 による API バージョンのプロファイルの使用](/azure/azure-stack/user/azure-stack-version-profiles-azurecli2#connect-to-azure-stack)」を参照してください。
+Azure Stack 用の独自のエンドポイントがある場合は、新しいクラウドを登録します。 [az cloud register](/cli/azure/cloud#az-cloud-register) コマンドを実行すると、クラウドが作成されます。 このコマンドには、名前と一連のサービス エンドポイントが必要です。 Azure Stack で使用するクラウドの登録方法については、[Azure Stack での Azure CLI による API バージョンのプロファイルの使用](/azure/azure-stack/user/azure-stack-version-profiles-azurecli2#connect-to-azure-stack)に関するページをご覧ください。
 
 中国、米国政府、またはドイツのリージョンについては、独自のクラウドを登録する必要はありません。 これらのクラウドは Microsoft が管理しているため、既定値で使用可能です。  使用可能なエンドポイント設定に関する詳細については、[`az cloud register` のドキュメント](/cli/azure/cloud#az-cloud-register)を参照してください。
 

@@ -1,6 +1,6 @@
 ---
-title: apt を使用して Linux に Azure CLI 2.0 をインストールする
-description: apt パッケージ マネージャーで Azure CLI 2.0 をインストールする方法
+title: apt を使用して Linux に Azure CLI をインストールする
+description: apt パッケージ マネージャーで Azure CLI をインストールする方法
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 13cc995e099cee47534a46097b2e1afd8e96e8b4
-ms.sourcegitcommit: d93b0a2bcfb0d164ef90d6d4618f0552609a8ea6
+ms.openlocfilehash: b388d3ecaf2d978aed11f925b9a479d8e95fb101
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46469982"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47178101"
 ---
-# <a name="install-azure-cli-20-with-apt"></a>apt での Azure CLI 2.0 のインストール
+# <a name="install-azure-cli-with-apt"></a>apt での Azure CLI のインストール
 
 Ubuntu や Debian など、`apt` が付属するディストリビューションを実行している場合は、Azure CLI 用に 64 ビット パッケージを使用できます。 このパッケージは、以下でテストされています。
 
@@ -53,7 +53,7 @@ Ubuntu や Debian など、`apt` が付属するディストリビューショ�
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-さまざまな認証方法の詳細については、「[Azure CLI 2.0 を使用してサインインする](authenticate-azure-cli.md)」を参照してください。
+さまざまな認証方法の詳細については、「[Azure CLI を使用してサインインする](authenticate-azure-cli.md)」を参照してください。
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 で Azure サービス プリンシパルを使用する
-description: Azure CLI 2.0 でサービス プリンシパルを作成および使用する方法について説明します。
+title: Azure CLI で Azure サービス プリンシパルを使用する
+description: Azure CLI でサービス プリンシパルを作成および使用する方法について説明します。
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -8,15 +8,14 @@ ms.date: 09/07/2018
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.service: role-based-access-control
-ms.openlocfilehash: 5f98fd8d3897b11a9b37eefa6295b8b25b2b1c95
-ms.sourcegitcommit: 0e688704889fc88b91588bb6678a933c2d54f020
+ms.openlocfilehash: 5ba7d8b0bf313a8d8ea1b20fb861c2ac0086b2be
+ms.sourcegitcommit: f7554c00b5d5dca0ec716cbf996eb6654183ec37
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44388441"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47237614"
 ---
-# <a name="create-an-azure-service-principal-with-azure-cli-20"></a>Azure CLI 2.0 で Azure サービス プリンシパルを作成する
+# <a name="create-an-azure-service-principal-with-azure-cli"></a>Azure CLI で Azure サービス プリンシパルを作成する
 
 アクセス制限を使用して個別のサインインを作成する場合は、サービス プリンシパルを使用してこれを行います。 サービス プリンシパルは、アカウントに関連付けることができる個別の ID です。 サービス プリンシパルは、自動化する必要があるアプリケーションとタスクを操作するうえで役に立ちます。 この記事では、サービス プリンシパルを作成する手順について説明します。
 
@@ -75,7 +74,7 @@ ms.locfileid: "44388441"
 
 ## <a name="manage-service-principal-roles"></a>サービス プリンシパル ロールを管理する
 
-Azure CLI 2.0 には、ロールの割り当てを管理するために、次のコマンドが用意されています。
+Azure CLI には、ロールの割り当てを管理するために、次のコマンドが用意されています。
 
 * [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list)
 * [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)

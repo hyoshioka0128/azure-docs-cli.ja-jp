@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 を使用してサインインする
-description: 対話形式またはローカル資格情報で Azure CLI 2.0 を使用してサインインします
+title: Azure CLI を使用してサインインする
+description: 対話形式またはローカル資格情報で Azure CLI を使用してサインインします
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -8,16 +8,15 @@ ms.date: 09/07/2018
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.service: active-directory
 ms.component: authentication
-ms.openlocfilehash: f6f3e8bc015420795dda48da093bc92bbf246529
-ms.sourcegitcommit: 8e6e3129f8f4824a8acfa12edb5dae52466d4be8
+ms.openlocfilehash: 6176fbbbe58e72ae45fc9769514478ffe4a8fea5
+ms.sourcegitcommit: f7554c00b5d5dca0ec716cbf996eb6654183ec37
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45626926"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47237631"
 ---
-# <a name="sign-in-with-azure-cli-20"></a>Azure CLI 2.0 を使用してサインインする
+# <a name="sign-in-with-azure-cli"></a>Azure CLI を使用してサインインする 
 
 Azure CLI には、いくつかの認証の種類があります。 [Azure Cloud Shell](/azure/cloud-shell/overview) を使用すると自動的にログインできるため、最も簡単に作業を開始できます。 ローカルでは、ご使用のブラウザーで `az login` コマンドを使用して、対話形式でサインインできます。 スクリプトを記述するときは、サービス プリンシパルを使用することをお勧めします。 サービス プリンシパルに必要とされる適切なアクセス許可だけを付与することによって、自動化をより安全に維持できます。
 
@@ -58,14 +57,6 @@ az login -u <username> -p <password>
 > $AzPass = ""
 > ```
 
-## <a name="sign-in-with-a-specific-tenant"></a>特定のテナントでサインインする
-
-`--tenant` 引数を使用すると、サインインするテナントを選択できます。 この引数の値として、`.onmicrosoft.com` ドメインまたはテナントの Azure オブジェクト ID を指定できます。 対話形式のサインイン方法とコマンドラインによるサインイン方法の両方で、`--tenant` を使用できます。
-
-```azurecli
-az login --tenant <tenant>
-```
-
 ## <a name="sign-in-with-a-service-principal"></a>サービス プリンシパルを使ってサインインする
 
 サービス プリンシパルは、特定のユーザーに関連付けられていないアカウントであり、定義済みのロールによってアクセス許可を割り当てることができます。 サービス プリンシパルを使用した認証は、セキュリティで保護されたスクリプトやプログラムを記述するのに最適な方法で、アクセス許可の制限と、ローカルに保存された静的な資格情報の両方を適用できます。 サービス プリンシパルの詳細については、[Azure CLI を使用した Azure サービス プリンシパルの作成](create-an-azure-service-principal-azure-cli.md)に関するページをご覧ください。
@@ -95,3 +86,21 @@ az login --service-principal -u <app-url> -p <password-or-cert> --tenant <tenant
 > az login --service-principal -u <app-url> -p $AzPass --tenant <tenant>;
 > $AzPass = ""
 > ```
+
+## <a name="sign-in-with-a-different-tenant"></a>別のテナントでサインインする
+
+`--tenant` 引数を使用すると、サインインするテナントを選択できます。 この引数の値として、`.onmicrosoft.com` ドメインまたはテナントの Azure オブジェクト ID を指定できます。 対話形式のサインイン方法とコマンドラインによるサインイン方法の両方で、`--tenant` を使用できます。
+
+```azurecli
+az login --tenant <tenant>
+```
+
+## <a name="sign-in-with-a-managed-identity"></a>マネージド ID を使用したサインイン
+
+Azure リソースのマネージド ID 用に構成されたリソースでは、マネージド ID を使用してサインインできます。 リソースの ID を使用したサインインは、`--identity` フラグを介して行われます。
+
+```azurecli
+az login --identity
+```
+
+Azure リソースのマネージド ID の詳細については、[Azure リソースのマネージド ID の構成](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)に関するページ、および[Azure リソースのマネージド ID を使用したサインイン](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in)に関するページをご覧ください。

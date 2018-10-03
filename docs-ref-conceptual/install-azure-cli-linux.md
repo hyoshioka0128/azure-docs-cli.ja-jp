@@ -1,6 +1,6 @@
 ---
-title: Linux での Azure CLI 2.0 の手動インストール
-description: Linux で Azure CLI 2.0 を手動インストールする方法
+title: Linux での Azure CLI の手動インストール
+description: Linux で Azure CLI を手動インストールする方法
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: be0b21cf0dab0f884b7f2984f2c35314ac157c61
-ms.sourcegitcommit: d93b0a2bcfb0d164ef90d6d4618f0552609a8ea6
+ms.openlocfilehash: 221e8904fdb938b15b28cb369085dcacb08e4091
+ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46469948"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47177948"
 ---
-# <a name="install-azure-cli-20-on-linux-manually"></a>Linux での Azure CLI 2.0 の手動インストール
+# <a name="install-azure-cli-on-linux-manually"></a>Linux での Azure CLI の手動インストール
 
 お使いのディストリビューションに対応した Azure CLI 用パッケージがない場合は、手動でスクリプトを実行して CLI をインストールします。
 
@@ -45,7 +45,7 @@ curl -L https://aka.ms/InstallAzureCli | bash
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
-さまざまな認証方法の詳細については、「[Azure CLI 2.0 を使用してサインインする](authenticate-azure-cli.md)」を参照してください。
+さまざまな認証方法の詳細については、「[Azure CLI を使用してサインインする](authenticate-azure-cli.md)」を参照してください。
 
 ## <a name="troubleshooting"></a>トラブルシューティング
 
