@@ -1,20 +1,20 @@
 ---
 title: Azure CLI で使用可能な拡張機能
-description: Azure CLI で公式にサポートされている拡張機能の完全な一覧です
+description: Azure CLI で公式にサポートされている拡張機能の完全な一覧です。
 author: derekbekoe
 ms.author: debekoe
 manager: routlaw
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 97f682b95df3f080b5661ee361e75ef3e759d388
-ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
+ms.openlocfilehash: d19f97f3b231da62161e34e67f0d5428af219637
+ms.sourcegitcommit: 981da808915d7f652d28fec774cae4a722559cda
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47177795"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48271215"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Azure CLI で使用可能な拡張機能
 
@@ -30,15 +30,18 @@ az extension list-available --output table
 |------|---------|---------|---------|
 | [aem](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Azure Enhanced Monitoring Extension for SAP を管理します |  |
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.1 | コマンドのエイリアスをサポートします | [はい] |
-| [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 2.4.1 | Azure Batch サービスを操作するための追加コマンド |  |
-| [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.5.2 | Azure IoT Hub、IoT Edge、および IoT Device Provisioning Service にデータ プレーン コマンド レイヤーを提供します |  |
-| [botservice](https://github.com/Azure/azure-cli-extensions) | 0.4.0 | ネイティブの Bot Service CLI コマンド モジュールの問題のバグ修正。 | [はい] |
+| [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 2.5.0 | Azure Batch サービスを操作するための追加コマンド |  |
+| [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.6.0 | Azure IoT Hub、IoT Edge、および IoT Device Provisioning Service にデータ プレーン コマンド レイヤーを提供します |  |
+| [azure-firewall](https://github.com/Azure/azure-cli-extensions/tree/master/src/azure-firewall) | 0.1.0 | Azure Firewall のリソースを管理します。 | [はい] |
+| [botservice](https://github.com/Azure/azure-cli-extensions) | 0.4.1 | ネイティブの Bot Service CLI コマンド モジュールの問題のバグ修正。 | [はい] |
 | [dev-spaces-preview](https://github.com/Azure/azure-cli-extensions) | 0.1.6 | Dev Spaces は、高速で反復的な Kubernetes 開発エクスペリエンスをチームに提供します。 | [はい] |
 | [dms-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/dms-preview) | 0.4.0 | 新しい Database Migration Service のシナリオをサポートします。 | [はい] |
 | [dns](https://github.com/Azure/azure-cli-extensions) | 0.0.2 | DNS ゾーン向けの Azure CLI 拡張機能 |  |
 | [eventgrid](https://github.com/Azure/azure-cli-extensions) | 0.2.1 | Azure EventGrid 2018-05-01 プレビュー機能をサポートします | [はい] |
+| [express-route](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route) | 0.1.0 | ExpressRoute プレビュー機能を管理します。 | [はい] |
 | [express-route-cross-connection](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route-cross-connection) | 0.1.0 | ExpressRoute のクロス接続を使用して、顧客の ExpressRoute 回線を管理します。 |  |
 | [find](https://github.com/Azure/azure-cli-extensions/tree/master/src/find) | 0.2.0 | CLI 情報に対するインテリジェントな照会。 | [はい] |
+| [front-door](https://github.com/Azure/azure-cli-extensions/tree/master/src/front-door) | 0.1.0 | ネットワークの FrontDoor を管理します。 | [はい] |
 | [image-copy-extension](https://github.com/Azure/azure-cli-extensions) | 0.0.8 | リージョン間での管理対象 VM イメージのコピーをサポートします |  |
 | [keyvault-preview](https://github.com/Azure/azure-keyvault-cli-extension) | 0.1.3 | Azure Key Vault のコマンドをプレビューします。 | [はい] |
 | [log-analytics](https://github.com/Azure/azure-cli-extensions/tree/master/src/log-analytics) | 0.1.2 | Azure Log Analytics のクエリ機能をサポートします。 | [はい] |
@@ -49,6 +52,8 @@ az extension list-available --output table
 | [resource-graph](https://github.com/Azure/azure-cli-extensions/tree/master/src/resource-graph) | 0.1.8 | Resource Graph を使用した Azure リソースのクエリをサポートします。 | [はい] |
 | [sap-hana](https://github.com/Azure/azure-hanaonazure-cli-extension) | 0.1.6 | SAP HanaOnAzure インスタンスを操作するための追加コマンド。 |  |
 | [signalr](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | SignalR 管理プレビューをサポートします。 | [はい] |
-| [storage-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) | 0.1.4 | 次期ストレージ機能のプレビューを提供します。 | [はい] |
+| [storage-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) | 0.1.5 | 次期ストレージ機能のプレビューを提供します。 | [はい] |
 | [サブスクリプション](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | サブスクリプション管理プレビューをサポートします。 |  |
-| [webapp](https://github.com/Azure/azure-cli-extensions) | 0.2.8 | appservice のリソースを管理する Azure CLI 拡張機能 | [はい] |
+| [virtual-network-tap](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-network-tap) | 0.1.0 | 仮想ネットワーク タップ (VTAP) を管理します。 | [はい] |
+| [virtual-wan](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-wan) | 0.1.0 | 仮想 WAN、ハブ、VPN ゲートウェイ、および VPN サイトを管理します。 | [はい] |
+| [webapp](https://github.com/Azure/azure-cli-extensions) | 0.2.9 | Azure App Service のその他のコマンド。 | [はい] |
