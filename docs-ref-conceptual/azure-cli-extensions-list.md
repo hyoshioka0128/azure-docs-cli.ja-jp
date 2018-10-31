@@ -4,17 +4,17 @@ description: Azure CLI で公式にサポートされている拡張機能の完
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 10/11/2018
+ms.date: 10/21/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 76512c665728ada85edebc867edfcd772be6237c
-ms.sourcegitcommit: f0e00f09db87617328a081d43cd53bb8b16db0fb
+ms.openlocfilehash: 0cf781f97e44b8752f5d03b9dbe4239489878856
+ms.sourcegitcommit: 6d9169ed547df151f99e5a3ac86578634486419a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113324"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652517"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Azure CLI で使用可能な拡張機能
 
@@ -38,11 +38,12 @@ az extension list-available --output table
 | [dms-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/dms-preview) | 0.5.0 | 新しい Database Migration Service のシナリオをサポートします。 | [はい] |
 | [dns](https://github.com/Azure/azure-cli-extensions) | 0.0.2 | DNS ゾーン向けの Azure CLI 拡張機能 |  |
 | [eventgrid](https://github.com/Azure/azure-cli-extensions) | 0.2.1 | Azure EventGrid 2018-05-01 プレビュー機能をサポートします | [はい] |
-| [express-route](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route) | 0.1.0 | ExpressRoute プレビュー機能を管理します。 | [はい] |
+| [express-route](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route) | 0.1.2 | ExpressRoute プレビュー機能を管理します。 | [はい] |
 | [express-route-cross-connection](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route-cross-connection) | 0.1.0 | ExpressRoute のクロス接続を使用して、顧客の ExpressRoute 回線を管理します。 |  |
 | [find](https://github.com/Azure/azure-cli-extensions/tree/master/src/find) | 0.2.0 | CLI 情報に対するインテリジェントな照会。 | [はい] |
 | [front-door](https://github.com/Azure/azure-cli-extensions/tree/master/src/front-door) | 0.1.1 | ネットワークの Front Door を管理します。 | [はい] |
 | [image-copy-extension](https://github.com/Azure/azure-cli-extensions) | 0.0.8 | リージョン間での管理対象 VM イメージのコピーをサポートします |  |
+| [interactive](https://github.com/Azure/azure-cli) | 0.4.0 | Microsoft Azure コマンド ライン対話型シェル | [はい] |
 | [keyvault-preview](https://github.com/Azure/azure-keyvault-cli-extension) | 0.1.3 | Azure Key Vault のコマンドをプレビューします。 | [はい] |
 | [log-analytics](https://github.com/Azure/azure-cli-extensions/tree/master/src/log-analytics) | 0.1.3 | Azure Log Analytics のクエリ機能をサポートします。 | [はい] |
 | [managementgroups](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | 管理グループ向け Azure CLI 拡張機能 |  |
