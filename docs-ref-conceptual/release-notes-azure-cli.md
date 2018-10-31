@@ -4,19 +4,90 @@ description: Azure CLI の最新情報について説明します
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 10/09/2018
+ms.date: 10/23/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 0aec9dce0eda007c71df3693b39c7ec8cc9856cd
-ms.sourcegitcommit: 0fc354c24454f5c9c5ff4b7296ad7b18ffdf31b1
+ms.openlocfilehash: 65e34ab6014c47ae92a6d4bae8cdc30d4a1413dc
+ms.sourcegitcommit: aec89531c938781b4724f43b5bb4b878e106a26a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904788"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49952487"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+
+## <a name="october-23-2018"></a>2018 年 10 月 23 日
+
+バージョン 2.0.49
+
+### <a name="core"></a>コア
+* `--subscription` が `--ids` のサブスクリプションよりも優先される場合の `--ids` に関する問題を修正しました
+* `--ids` を使用してパラメーターを無視するときの明示的な警告を追加しました
+
+### <a name="acr"></a>ACR
+* Python2 の ACR ビルドのエンコードの問題を修正しました
+
+### <a name="cdn"></a>CDN
+* [破壊的変更] `cdn endpoint create` のクエリ文字列の既定のキャッシュ動作が変更され、"IgnoreQueryString" が既定値ではなくなりました。 これはサービスによって設定されるようになりました
+
+### <a name="container"></a>コンテナー
+* "--ip-address" に渡す有効な型として、`Private` を追加しました
+* サブネット ID のみを使用して、コンテナー グループの仮想ネットワークを設定できるように変更しました
+* VNet 名またはリソース ID を使用して、さまざまなリソース グループの VNet を使用できるように変更しました
+* コンテナー グループに MSI ID を追加するための `--assign-identity` を追加しました
+* システム割り当て MSI ID のロールの割り当てを作成するために、`--scope` を追加しました
+* イメージを使用して、長時間実行プロセスなしでコンテナー グループを作成するときの警告を追加しました
+* `list` コマンドと `show` コマンドのテーブル出力の問題を修正しました
+
+### <a name="cosmosdb"></a>Cosmos DB
+* `cosmosdb create` に `--enable-multiple-write-locations` のサポートを追加しました
+
+### <a name="interactive"></a>Interactive
+* パラメーターにグローバル サブスクリプション パラメーターが確実に表示されるように変更しました
+
+### <a name="iot-central"></a>IoT Central
+* IoT Central アプリケーションを作成するためのテンプレートと表示名のオプションを追加しました
+* [破壊的変更] F1 SKU のサポートを削除しました。代わりに S1 SKU を使用します
+
+### <a name="monitor"></a>監視
+* `monitor activity-log list` の変更点:
+  * すべてのイベントをサブスクリプション レベルで一覧表示するサポートを追加しました
+  * 時間クエリをより簡単に作成できるように、`--offset` パラメーターを追加しました
+  * 幅広い ISO8601 形式とユーザー フレンドリな datetime 形式を使用するために、`--start-time` と `--end-time` の検証を改善しました
+  * 非推奨の `--resource-provider` オプションのエイリアスとして、`--namespace` を追加しました
+  * 厳密に型指定されたオプションを使用する値以外はサービスでサポートされていないため、`--filters` を非推奨にしました
+* `monitor metrics list` の変更点:
+  * 時間クエリをより簡単に作成できるように、`--offset` パラメーターを追加しました
+  * 幅広い ISO8601 形式とユーザー フレンドリな datetime 形式を使用するために、`--start-time` と `--end-time` の検証を改善しました
+* `monitor diagnostic-settings create` の引数 `--event-hub` と `--event-hub-rule` の検証を改善しました
+
+### <a name="network"></a>ネットワーク
+* NIC へのアプリケーション ゲートウェイ バックエンド アドレス プールの追加をサポートするために、`nic create` に引数 `--app-gateway-address-pools` と `--gateway-name` を追加しました
+* NIC へのアプリケーション ゲートウェイ バックエンド アドレス プールの追加をサポートするために、`nic ip-config create/update` に引数 `--app-gateway-address-pools` と `--gateway-name` を追加しました
+
+### <a name="servicebus"></a>ServiceBus
+* Service Bus Standard から Premium 名前空間への移行の現在の状態を表示するために、MigrationConfigProperties に読み取り専用の `migration_state` を追加しました
+
+### <a name="sql"></a>SQL
+* 手動フェールオーバー ポリシーで機能するように、`sql failover-group create` と `sql failover-group update` を修正しました
+
+### <a name="storage"></a>Storage
+* すべての項目に正しい "サービス" キーが表示されるように、`az storage cors list` の出力書式設定を修正しました
+* 不変ポリシーによってブロックされたコンテナーの削除を可能にする `--bypass-immutability-policy` パラメーターを追加しました
+
+### <a name="vm"></a>VM
+* `[vm|vmss] create` で、Lv/Lv2 シリーズのマシンに対して、ディスク キャッシュ モードが強制的に `None` に設定されます
+* `vm create` でネットワーク アクセラレータをサポートすることにより、サポートされているサイズのリストを更新しました
+* `disk create` の ultrassd iops と mbps configs に、厳密に型指定された引数を追加しました
+
+## <a name="october-16-2018"></a>2018 年 10 月 16 日
+
+バージョン 2.0.48
+
+### <a name="vm"></a>VM
+* Homebrew のインストールが失敗する原因となっていた SDK の問題を修正しました
 
 ## <a name="october-9-2018"></a>2018 年 10 月 9 日
 
@@ -578,10 +649,10 @@ ms.locfileid: "48904788"
 * [破壊的変更] `location` 属性をジョブ、クラスター、およびファイル サーバーから削除しました。 現在の場所はワークスペースの属性です。
 * [破壊的変更] `--location` を `job create` コマンド、`cluster create` コマンド、および `file-server create` コマンドから削除しました
 * [破壊的変更] インターフェイスの一貫性を向上させるために短いオプションの名前を変更しました。
- - [`--config`, `-c`] の名前を [`--config-file`, `-f`] に変更しました
- - [`--cluster`, `-r`] の名前を [`--cluster`, `-c`] に変更しました
- - [`--cluster`, `-n`] の名前を [`--cluster`, `-c`] に変更しました
- - [`--job`, `-n`] の名前を [`--job`, `-j`] に変更しました
+  - [`--config`, `-c`] の名前を [`--config-file`, `-f`] に変更しました
+  - [`--cluster`, `-r`] の名前を [`--cluster`, `-c`] に変更しました
+  - [`--cluster`, `-n`] の名前を [`--cluster`, `-c`] に変更しました
+  - [`--job`, `-n`] の名前を [`--job`, `-j`] に変更しました
 
 ### <a name="maps"></a>マップ
 
@@ -937,15 +1008,15 @@ ms.locfileid: "48904788"
 
 * 2018-03-01 API のサポートを追加しました
 
- - ジョブ レベルのマウント
- - シークレット値を含む環境変数
- - パフォーマンス カウンターの設定
- - ジョブ固有のパス セグメントのレポート
- - ファイルを一覧表示する API のサブフォルダーのサポート
- - 使用状況と制限のレポート
- - NFS サーバーのキャッシュの種類が指定可能
- - カスタム イメージのサポート
- - pyTorch ツールキットのサポートを追加しました
+  - ジョブ レベルのマウント
+  - シークレット値を含む環境変数
+  - パフォーマンス カウンターの設定
+  - ジョブ固有のパス セグメントのレポート
+  - ファイルを一覧表示する API のサブフォルダーのサポート
+  - 使用状況と制限のレポート
+  - NFS サーバーのキャッシュの種類が指定可能
+  - カスタム イメージのサポート
+  - pyTorch ツールキットのサポートを追加しました
 
 * `job wait` コマンドを追加しました。このコマンドは、ジョブ完了を待機できるようにして、ジョブ終了コードをレポートします
 * `usage show` コマンドを追加しました。このコマンドは、さまざまなリージョンにおける現在の Batch AI リソースの使用状況と制限を一覧表示します
@@ -2666,7 +2737,7 @@ vm (2.0.2)
 * VM/VMSS: ポータルで使用される資格情報検証ロジックを組み込む ([#2537](https://github.com/Azure/azure-cli/pull/2537))
 * wait コマンドと --no-wait のサポートを追加 ([#2524](https://github.com/Azure/azure-cli/pull/2524))
 * 仮想マシン スケール セット: VM 間にわたるインスタンス ビューの一覧表示をサポート * ([#2467](https://github.com/Azure/azure-cli/pull/2467))
-* VM と仮想マシン スケール セット用の --secrets を追加 ([#2212](https://github.com/Azure/azure-cli/pull/2212))
+* VM と仮想マシン スケール セット用の --secrets を追加 ([#2212](<https://github.com/Azure/azure-cli/pull/2212>))
 * 特殊化した VHD による VM 作成を許可 ([#2256](https://github.com/Azure/azure-cli/pull/2256))
 
 ## <a name="february-27-2017"></a>2017 年 2 月 27 日
