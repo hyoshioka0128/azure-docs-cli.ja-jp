@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 68aa728b9b9324a53856008f05d8ce30eb61c76d
-ms.sourcegitcommit: 6d9169ed547df151f99e5a3ac86578634486419a
+ms.openlocfilehash: 78043f9c070626545030971dea2a8fd155ac76c2
+ms.sourcegitcommit: 0d6b08048b5b35bf0bb3d7b91ff567adbaab2a8b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652483"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51222465"
 ---
 # <a name="install-the-azure-classic-cli"></a>Azure クラシック CLI のインストール
 
@@ -74,7 +74,7 @@ docker run -it microsoft/azure-cli:0.10.17
 
 クラシック CLI をインストールした後、コマンド ライン ユーザー インターフェイス (Bash、ターミナル、コマンド プロンプトなど) から `azure` コマンドを実行します。 たとえば、ヘルプ コマンドを実行するには、次のように入力します。
 
-```azurecli
+```azurecli-interactive
 azure help
 ```
 
@@ -87,7 +87,7 @@ sudo ln -s /usr/bin/nodejs /usr/bin/node
 
 インストールした Azure クラシック CLI のバージョンを確認するには、次のように入力します。
 
-```azurecli
+```azurecli-interactive
 azure --version
 ```
 

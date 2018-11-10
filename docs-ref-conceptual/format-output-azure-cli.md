@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 5b5d962e244037d9c904fc5c75314661130d1910
-ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
+ms.openlocfilehash: 1a3e7a632cc9931a4fe16c780d2706e52a1aa5c2
+ms.sourcegitcommit: 0d6b08048b5b35bf0bb3d7b91ff567adbaab2a8b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47178067"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51222346"
 ---
 # <a name="output-formats-for-azure-cli-commands"></a>Azure CLI コマンドの出力形式
 
@@ -116,7 +116,7 @@ KBDemo020    RGDEMO001        westus
 
 `--query` パラメーターを使用すると、一覧の出力に表示するプロパティと列をカスタマイズすることができます。 次の例は、`list` コマンドで VM 名とリソース グループ名だけを選択する方法を示しています。
 
-```azurecli
+```azurecli-interactive
 az vm list --query "[].{resource:resourceGroup, name:name}" -o table
 ```
 
@@ -133,7 +133,7 @@ RGDEMO001   KBDemo020
 > [!NOTE]
 > 一部のキーは、既定でテーブル ビューには出力されません。 `id`、`type`、および `etag` が、これに相当します。 出力でこれらを表示する必要がある場合は、JMESPath キー更新機能を使用してキー名を変更し、フィルター処理を回避します。
 >
-> ```azurecli
+> ```azurecli-interactive
 > az vm list --query "[].{objectID:id}" -o table
 > ```
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 047a953a0ab8ccaf145d56e4d774d2bf9852ed6f
-ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
+ms.openlocfilehash: 8ab8435f2d8337f63a73aef39472646dc8ebcd74
+ms.sourcegitcommit: 0d6b08048b5b35bf0bb3d7b91ff567adbaab2a8b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47177727"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51222295"
 ---
 # <a name="azure-cli"></a>Azure CLI
 
@@ -26,6 +26,10 @@ Azure CLI は簡単に使い始めることができ、Azure Resource Manager �
 ```azurecli-interactive
 az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS
 ```
+
+> [!NOTE]
+>
+> スクリプトおよび Microsoft ドキュメント サイトでは、Azure CLI の例は `bash` シェル向けに記述されています。 1 行の例であれば任意のプラットフォームで実行できます。 行継続 (`\`) または変数の代入を含む、より長い例やより複雑な例は、PowerShell などの他のシェルで動作するように変更する必要があります。
 
 ## <a name="run-or-install"></a>実行またはインストール
 
@@ -45,7 +49,7 @@ CLI はローカルにインストールできます。また、Azure Cloud Shel
 
 CLI の基本については、[概要](get-started-with-azure-cli.md)の記事をお読みください。 次のサンプルでは、一般的なユース ケースが紹介されています。
 
-- [Linux virtual machines](/azure/virtual-machines/virtual-machines-linux-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
+- [Linux Virtual Machines](/azure/virtual-machines/virtual-machines-linux-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
 - [Windows Virtual Machines](/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
 - [Web Apps](/azure/app-service-web/app-service-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
 - [SQL Database](/azure/sql-database/sql-database-cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json)
