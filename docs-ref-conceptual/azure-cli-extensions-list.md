@@ -4,17 +4,17 @@ description: Azure CLI で公式にサポートされている拡張機能の完
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 10/31/2018
+ms.date: 11/07/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: cf1182cee6b48ba7f6400cafe43ed6c90bfa5a11
-ms.sourcegitcommit: a44203b9392edf3a35018099db40d6bf9ade59c4
+ms.openlocfilehash: 97636487677a0f28837c474d10cffedc7a52d5a5
+ms.sourcegitcommit: 2a2c87c21289cdfef3d0e5b3f07b0bea42c6c267
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50738548"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51273176"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Azure CLI で使用可能な拡張機能
 
@@ -22,13 +22,14 @@ ms.locfileid: "50738548"
 
 拡張機能の一覧は、CLI から入手することもできます。 取得するには、[az extension list-available](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available) を実行します。
 
-```azurecli
+```azurecli-interactive
 az extension list-available --output table
 ```
 
 | Name | Version | まとめ | プレビュー |
 |------|---------|---------|---------|
 | [aem](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Azure Enhanced Monitoring Extension for SAP を管理します |  |
+| [aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.1.0 | 次期 AKS 機能のプレビューを提供します | [はい] |
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.2 | コマンドのエイリアスをサポートします | [はい] |
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 2.5.1 | Azure Batch サービスを操作するための追加コマンド |  |
 | [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.6.0 | Azure IoT Hub、IoT Edge、および IoT Device Provisioning Service にデータ プレーン コマンド レイヤーを提供します |  |
@@ -53,8 +54,8 @@ az extension list-available --output table
 | [resource-graph](https://github.com/Azure/azure-cli-extensions/tree/master/src/resource-graph) | 0.1.8 | Resource Graph を使用した Azure リソースのクエリをサポートします。 | [はい] |
 | [sap-hana](https://github.com/Azure/azure-hanaonazure-cli-extension) | 0.1.6 | SAP HanaOnAzure インスタンスを操作するための追加コマンド。 |  |
 | [signalr](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | SignalR 管理プレビューをサポートします。 | [はい] |
-| [storage-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) | 0.1.6 | 次期ストレージ機能のプレビューを提供します。 | [はい] |
+| [storage-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) | 0.1.7 | 次期ストレージ機能のプレビューを提供します。 | [はい] |
 | [サブスクリプション](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | サブスクリプション管理プレビューをサポートします。 |  |
 | [virtual-network-tap](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-network-tap) | 0.1.0 | 仮想ネットワーク タップ (VTAP) を管理します。 | [はい] |
 | [virtual-wan](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-wan) | 0.1.0 | 仮想 WAN、ハブ、VPN ゲートウェイ、および VPN サイトを管理します。 | [はい] |
-| [webapp](https://github.com/Azure/azure-cli-extensions) | 0.2.13 | Azure App Service のその他のコマンド。 | [はい] |
+| [webapp](https://github.com/Azure/azure-cli-extensions) | 0.2.14 | Azure App Service のその他のコマンド。 | [はい] |
