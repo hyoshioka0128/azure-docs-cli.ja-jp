@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azure-cli
 ms.openlocfilehash: 4370616459ad4e466128ff26123c10f55bfdd7d8
-ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
+ms.sourcegitcommit: 728a050f13d3682122be4a8993596cc4185a45ce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47178174"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51680902"
 ---
 # <a name="differences-between-azure-cli-products"></a>各 Azure CLI 製品の違い
 
