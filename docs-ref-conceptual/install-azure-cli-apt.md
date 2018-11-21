@@ -4,17 +4,17 @@ description: apt パッケージ マネージャーで Azure CLI をインスト
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/07/2018
+ms.date: 11/12/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: b388d3ecaf2d978aed11f925b9a479d8e95fb101
-ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
+ms.openlocfilehash: 0d4311e88fec9903c1aab1410cc71328f896dc65
+ms.sourcegitcommit: 728a050f13d3682122be4a8993596cc4185a45ce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47178101"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51680936"
 ---
 # <a name="install-azure-cli-with-apt"></a>apt での Azure CLI のインストール
 
@@ -28,6 +28,7 @@ Ubuntu や Debian など、`apt` が付属するディストリビューショ�
 1. <div id="install-step-1"/>ソース リストを変更します。
 
     ```bash
+    sudo apt-get install apt-transport-https lsb-release software-properties-common -y
     AZ_REPO=$(lsb_release -cs)
     echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | \
         sudo tee /etc/apt/sources.list.d/azure-cli.list
@@ -36,18 +37,20 @@ Ubuntu や Debian など、`apt` が付属するディストリビューショ�
 2. <div id="signingKey"/>Microsoft の署名キーを取得します。
 
    ```bash
-   curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+   sudo apt-key --keyring /etc/apt/trusted.gpg.d/Microsoft.gpg adv \
+        --keyserver packages.microsoft.com \
+        --recv-keys BC528686B50D79E339D3721CEB3E94ADBE1229CF
    ```
 
 3. CLI をインストールします。
 
    ```bash
    sudo apt-get update
-   sudo apt-get install apt-transport-https azure-cli
+   sudo apt-get install azure-cli
    ```
 
    > [!WARNING]
-   > 署名キーは 2018 年 5 月に更新され、置き換えられました。 署名キーのエラーが発生した場合は、[最新の署名キーを取得済み](#signingKey)であることを確認してください。
+   > 署名キーは 2018 年 5 月に更新され、置き換えられました。 署名のエラーが発生した場合は、[最新の署名キー](#signingKey)を使用していることを確認してください。
 
 その後、Azure CLI は `az` コマンドで実行できます。 サインインするには、[az login](/cli/azure/reference-index#az-login) コマンドを使用します。
 
@@ -58,20 +61,6 @@ Ubuntu や Debian など、`apt` が付属するディストリビューショ�
 ## <a name="troubleshooting"></a>トラブルシューティング
 
 ここでは、`apt` でのインストール時に発生する一般的な問題をいくつか示します。 ここで取り上げていない問題が発生した場合は、[GitHub で問題を報告](https://github.com/Azure/azure-cli/issues)してください。
-
-### <a name="lsbrelease-fails-with-command-not-found"></a>"コマンドが見つかりません" が発生して lsb_release が失敗する
-
-`lsb_release` コマンドの実行時に、次のようなエラーが出力されることがあります。
-
-```output
--bash: lsb_release: command not found
-```
-
-このエラーは、`lsb_release` コマンドがインストールされていないことが原因です。 これを解決するには、`lsb-release` パッケージをインストールします。
-
-```bash
-sudo apt-get install lsb-release
-```
 
 ### <a name="lsbrelease-does-not-return-the-base-distribution-version"></a>lsb_release では、ベース ディストリビューション バージョンが返されません
 
@@ -95,13 +84,17 @@ sudo apt-get install dirmngr
 
 ### <a name="apt-key-hangs"></a>apt-key がハングする
 
-ファイアウォールの内側でポート 11371 への発信接続がブロックされている場合、`apt-key` コマンドが無期限にハングすることがあります。 発信接続用にファイアウォールで HTTP プロキシを使用する必要がある可能性があります。
+ファイアウォールの内側でポート 11371 への発信接続がブロックされている場合、`apt-key` コマンドが無期限にハングすることがあります。
+ご使用のファイアウォールでは、発信接続用に HTTP プロキシが必要になる場合があります。
 
 ```bash
-sudo apt-key adv --keyserver-options http-proxy=http://<USER>:<PASSWORD>@<PROXY-HOST>:<PROXY-PORT>/ --keyserver packages.microsoft.com --recv-keys 52E16F86FEE04B979B07E28DB02C46DF417A0893
+sudo apt-key --keyring /etc/apt/trusted.gpg.d/Microsoft.gpg adv \
+    --keyserver-options http-proxy=http://<USER>:<PASSWORD>@<PROXY-HOST>:<PROXY-PORT>/ \
+    --keyserver packages.microsoft.com \
+    --recv-keys BC528686B50D79E339D3721CEB3E94ADBE1229CF
 ```
 
-プロキシがあるかどうかを確認するには、システム管理者に問い合わせてください。 プロキシでログインを必要としない場合は、ユーザー、パスワード、および `@` トークンを指定しないでください。
+プロキシがあるかどうかを確認するには、システム管理者に問い合わせてください。 プロキシでログインが不要な場合は、ユーザーとパスワードの情報を指定しないでください。
 
 ## <a name="update"></a>アップデート
 
@@ -112,11 +105,12 @@ CLI パッケージを更新するには、`apt-get upgrade` を使用します�
    ```
 
 > [!WARNING]
-> 署名キーは 2018 年 5 月に更新され、置き換えられました。 署名キーのエラーが発生した場合は、[最新の署名キーを取得済み](#signingKey)であることを確認してください。
+> 署名キーは 2018 年 5 月に更新され、置き換えられました。 署名のエラーが発生した場合は、[最新の署名キー](#signingKey)を使用していることを確認してください。
 >
 > [!NOTE]
 > このコマンドにより、システムにインストールされている、依存関係が変更されていないすべてのパッケージがアップグレードされます。
 > CLI だけをアップグレードするには、`apt-get install` を使用します。
+> 
 > ```bash
 > sudo apt-get update && sudo apt-get install --only-upgrade -y azure-cli
 > ```
@@ -137,7 +131,13 @@ CLI パッケージを更新するには、`apt-get upgrade` を使用します�
    sudo rm /etc/apt/sources.list.d/azure-cli.list
    ```
 
-3. 不要なパッケージを削除します。
+3. 署名キーを削除します。
+
+    ```bash
+    sudo rm /etc/apt/trusted.gpg.d/Microsoft.gpg
+    ```
+
+4. 不要なパッケージを削除します。
 
    ```bash
    sudo apt autoremove
