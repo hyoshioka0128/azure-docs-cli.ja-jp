@@ -8,12 +8,12 @@ ms.date: 09/07/2018
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 5ba7d8b0bf313a8d8ea1b20fb861c2ac0086b2be
-ms.sourcegitcommit: f7554c00b5d5dca0ec716cbf996eb6654183ec37
+ms.openlocfilehash: 40ff3b54cdd1f4908b59479e317092ee62b05bb0
+ms.sourcegitcommit: f92d5b3ccd409be126f1e7c06b9f1adc98dad78b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47237614"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52159373"
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli"></a>Azure CLI で Azure サービス プリンシパルを作成する
 
@@ -55,7 +55,7 @@ ms.locfileid: "47237614"
 
 認証の種類を示す引数が含まれていない場合は、`--password` が既定で使用されます。
 
-`create-for-rbac` コマンドの出力の形式は次のとおりです。
+`create-for-rbac` コマンドの JSON 出力の形式は次のとおりです。
 
 ```json
 {
