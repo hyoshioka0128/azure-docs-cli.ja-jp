@@ -4,19 +4,69 @@ description: Azure CLI の最新情報について説明します
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 11/06/2018
+ms.date: 11/20/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 51b8b8cad6d25f916006b8e68b8f300587f5d45b
-ms.sourcegitcommit: 0d6b08048b5b35bf0bb3d7b91ff567adbaab2a8b
+ms.openlocfilehash: 36b57d52a5851275fd317240e5c2c95171a99e7e
+ms.sourcegitcommit: 22b73d56602c1c4e647ed2c5af3d596a2f6a7ed5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51222567"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52267332"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+## <a name="november-20-2018"></a>2018 年 11 月 20 日
+
+バージョン 2.0.51
+### <a name="core"></a>コア
+* ID のサブスクリプション名を再利用しないように MSI ログインを変更しました
+
+### <a name="acr"></a>ACR
+* タスク ステップにコンテキスト トークンを追加しました
+* ACR タスクをミラーリングするために、ACR 実行でシークレットを設定するためのサポートを追加しました
+* `show-tags` および `show-manifests` コマンドの `--top` と `--orderby` のサポートを改善しました
+
+### <a name="appservice"></a>Appservice
+* ZIP デプロイの既定のタイムアウトを変更し、状態のポーリングを 5 分に増やしました。また、この値をカスタマイズするためのタイムアウト プロパティを追加しました
+* 既定の `node_version` を更新しました。 2 フェーズのスワップ時にスロット スワップ アクションをリセットしても、appsettings と接続文字列はすべて保持されます
+* Linux App Service プラン作成時のクライアント側の SKU チェックを削除しました
+* zipdeploy の状態を取得しようとしたときのエラーを修正しました
+
+### <a name="iotcentral"></a>IotCentral
+* IoT Central アプリケーションの作成時にサブドメインの可用性チェックを追加しました
+
+### <a name="keyvault"></a>KeyVault
+* エラーが無視される場合があるバグを修正しました
+
+### <a name="network"></a>ネットワーク
+* 信頼されたルート証明書を処理するために、`application-gateway` に `root-cert` サブコマンドを追加しました
+* `application-gateway [create|update]` に、`--min-capacity` および `--custom-error-pages` オプションを追加しました
+* `application-gateway create` に、可用性ゾーンをサポートするための `--zones` を追加しました 
+* `application-gateway waf-config set` に、引数 `--file-upload-limit`、`--max-request-body-size`、`--request-body-check` を追加しました
+
+### <a name="rdbms"></a>Rdbms
+* mariadb vnet コマンドを追加しました
+
+### <a name="rbac"></a>Rbac
+* `ad app update` で変更できない資格情報を更新しようとする問題を修正しました
+* 近い将来の `ad [app|sp] list` の破壊的変更を伝えるための出力に関する警告を追加しました 
+
+### <a name="storage"></a>Storage
+* ストレージ コピー コマンドのまれに発生するケースの処理を改善しました
+* コピー先アカウントとコピー元アカウントが同じである場合にログイン資格情報を使用しない、`storage blob copy start-batch` に関する問題を修正しました
+* `sas_token` が URL に組み込まれない `storage [blob|file] url` のバグを修正しました
+* `[blob|container] list` に破壊的変更に関する警告を追加しました。既定で最初の 5000 個の結果のみがすぐに出力されます
+
+### <a name="vm"></a>VM
+* `[vm|vmss] create --storage-sku` に、マネージド OS ディスクとデータ ディスクのストレージ アカウント SKU を個別に指定するためのサポートを追加しました
+* `sig image-version` のバージョン名パラメーターを `--image-version -e` に変更しました
+* `sig image-version` の引数 `--image-version-name` が非推奨になり、`--image-version` に置き換えられました
+* `[vm|vmss] create --ephemeral-os-disk` に、ローカル OS ディスクを使用するためのサポートを追加しました
+* `--no-wait` のサポートを `snapshot create/update` に追加しました
+* `snapshot wait` コマンドを追加しました
+* `[vm|vmss] extension set --extension-instance-name` でインスタンス名を使用するためのサポートを追加しました
 
 ## <a name="november-6-2018"></a>2018 年 11 月 6 日
 
@@ -1189,7 +1239,7 @@ ms.locfileid: "51222567"
 
 * プラットフォーム障害ドメイン数の構成サポートを `vmss create` に追加しました
 * ゾーンベースの大規模な、または single-placement-group が無効なスケールセットについて、`vmss create` の既定値が Standard LB になるように変更しました
-* [重大な変更]: Removed `vm assign-identity`, `vm remove-identity and `vm format-secret`
+* [破壊的変更]: Removed `vm assign-identity`, `vm remove-identity and `vm format-secret`
 * Public-IP SKU のサポートを `vm create` に追加しました
 * コマンドでコンテナー ID を解決できないシナリオをサポートするように、`--keyvault` 引数と `--resource-group` 引数を `vm secret format` に追加しました。 [#5718](https://github.com/Azure/azure-cli/issues/5718)
 * リソース グループの場所でゾーンがサポートされていない場合の、`[vm|vmss create]` のエラーを改善しました
@@ -1280,7 +1330,7 @@ ms.locfileid: "51222567"
 
 ### <a name="resource"></a>リソース
 
-* [重大な変更]: Changed `provider operation [list|show]` to not require `--api-version`
+* [破壊的変更]: Changed `provider operation [list|show]` to not require `--api-version`
 
 ### <a name="role"></a>Role
 
