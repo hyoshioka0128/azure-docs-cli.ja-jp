@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: a73576a9caeb7d016f49bb1d90f1903cbd515c63
-ms.sourcegitcommit: 6d9169ed547df151f99e5a3ac86578634486419a
+ms.openlocfilehash: bb60b807df29833a74b1dab4def6f5ced58c8ffe
+ms.sourcegitcommit: a8aac038e6ede0b1b352ca6163a04b61ff4eed5b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652449"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450277"
 ---
 # <a name="install-azure-cli-with-zypper"></a>zypper での Azure CLI のインストール
 
@@ -53,6 +53,13 @@ openSUSE や SLES など、`zypper` が付属するディストリビューシ�
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
 さまざまな認証方法の詳細については、「[Azure CLI を使用してサインインする](authenticate-azure-cli.md)」を参照してください。
+
+## <a name="troubleshooting"></a>トラブルシューティング
+
+ここでは、`zypper` でのインストール時に発生する一般的な問題をいくつか示します。 ここで取り上げていない問題が発生した場合は、[GitHub で問題を報告](https://github.com/Azure/azure-cli/issues)してください。
+
+[!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
+
 
 ## <a name="update"></a>アップデート
 

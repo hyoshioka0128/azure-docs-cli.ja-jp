@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 3747f276a30740602271477e154322cad45f190e
-ms.sourcegitcommit: 6d9169ed547df151f99e5a3ac86578634486419a
+ms.openlocfilehash: 7e2c7c5477c8d5a617875eeaed8e3d267d9bcf8c
+ms.sourcegitcommit: a8aac038e6ede0b1b352ca6163a04b61ff4eed5b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652466"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450311"
 ---
 # <a name="install-azure-cli-with-yum"></a>yum での Azure CLI のインストール
 
@@ -47,6 +47,12 @@ RHEL、Fedora、CentOS など、`yum` が付属する Linux ディストリビ�
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
 さまざまな認証方法の詳細については、「[Azure CLI を使用してサインインする](authenticate-azure-cli.md)」を参照してください。
+
+## <a name="troubleshooting"></a>トラブルシューティング
+
+ここでは、`yum` でのインストール時に発生する一般的な問題をいくつか示します。 ここで取り上げていない問題が発生した場合は、[GitHub で問題を報告](https://github.com/Azure/azure-cli/issues)してください。
+
+[!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
 
 ## <a name="update"></a>アップデート
 
