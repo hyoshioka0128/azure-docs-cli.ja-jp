@@ -4,17 +4,17 @@ description: apt パッケージ マネージャーで Azure CLI をインスト
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 11/12/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 0d4311e88fec9903c1aab1410cc71328f896dc65
-ms.sourcegitcommit: 728a050f13d3682122be4a8993596cc4185a45ce
+ms.openlocfilehash: c33c3e75991979a72a7b82183dd88b87715907ae
+ms.sourcegitcommit: a8aac038e6ede0b1b352ca6163a04b61ff4eed5b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51680936"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450260"
 ---
 # <a name="install-azure-cli-with-apt"></a>apt での Azure CLI のインストール
 
@@ -62,9 +62,15 @@ Ubuntu や Debian など、`apt` が付属するディストリビューショ�
 
 ここでは、`apt` でのインストール時に発生する一般的な問題をいくつか示します。 ここで取り上げていない問題が発生した場合は、[GitHub で問題を報告](https://github.com/Azure/azure-cli/issues)してください。
 
-### <a name="lsbrelease-does-not-return-the-base-distribution-version"></a>lsb_release では、ベース ディストリビューション バージョンが返されません
+### <a name="lsbrelease-does-not-return-the-correct-base-distribution-version"></a>lsb_release がベース ディストリビューション バージョンを返さない
 
 Linux Mint など、Ubuntu や Debian から派生する一部のディストリビューションでは、正しいバージョン名が `lsb_release` から返されない場合があります。 この値は、インストール プロセスで、インストールするパッケージを特定するときに使用されます。 ディストリビューションの派生元バージョンの名前がわかっている場合は、[インストール手順 1.](#install-step-1) で `AZ_REPO` 値を手動で設定できます。 それ以外の場合は、ご自身のディストリビューションについて、ベース ディストリビューション名を調べて、`AZ_REPO` を正しい値に設定する方法をご確認ください。
+
+### <a name="no-package-for-your-distribution"></a>ご使用のディストリビューションのパッケージがない
+
+Ubuntu ディストリビューションがリリースされてから、そのディストリビューション用の Azure CLI パッケージが利用可能になるまではしばらくかかることがあります。 Azure CLI は、以降のバージョンの依存関係に関して弾力性を持つように、また可能な限り以降のバージョンに依存しないように設計されています。 ベース ディストリビューションに使用できるパッケージがない場合は、以前のディストリビューション用のパッケージをお試しください。
+
+これを行うには、[インストール手順 1.](#install-step-1) で、`AZ_REPO` の値を手動で設定します。 Ubuntu ディストリビューションには `bionic` リポジトリーを使用し、Debian ディストリビューションには `stretch` を使用します。 Ubuntu Trusty および Debian Wheezy より前にリリースされたディストリビューションはサポートされていません。
 
 ### <a name="apt-key-fails-with-no-dirmngr"></a>"No dirmngr" で apt-key が失敗する
 
@@ -95,6 +101,8 @@ sudo apt-key --keyring /etc/apt/trusted.gpg.d/Microsoft.gpg adv \
 ```
 
 プロキシがあるかどうかを確認するには、システム管理者に問い合わせてください。 プロキシでログインが不要な場合は、ユーザーとパスワードの情報を指定しないでください。
+
+[!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
 
 ## <a name="update"></a>アップデート
 

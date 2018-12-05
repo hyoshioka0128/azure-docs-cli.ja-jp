@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: fa900424d30f7b7cc1e3da4f0a0ea2cf86383cbd
-ms.sourcegitcommit: 22b73d56602c1c4e647ed2c5af3d596a2f6a7ed5
+ms.openlocfilehash: 29baa488bfe6e71dbd3b95220a6562a216d038ae
+ms.sourcegitcommit: a8aac038e6ede0b1b352ca6163a04b61ff4eed5b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52267298"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52450243"
 ---
 # <a name="install-the-azure-cli"></a>Azure CLI のインストール
 
@@ -25,7 +25,7 @@ CLI の現在のバージョンは __2.0.51__ です。 最新リリースにつ
 
 * [Windows へのインストール](install-azure-cli-windows.md)
 * [macOS へのインストール](install-azure-cli-macos.md)
-* Linux または Windows Subsystem for Linux (WSL) へのインストール
+* Linux または [Windows Subsystem for Linux (WSL)](/windows/wsl/about) へのインストール
   * [Debian または Ubuntu での apt を使用したインストール](install-azure-cli-apt.md)
   * [RHEL、Fedora、または CentOS での yum を使用したインストール](install-azure-cli-yum.md)
   * [openSUSE または SLE での zypper を使用したインストール](install-azure-cli-zypper.md)
