@@ -9,14 +9,37 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 36b57d52a5851275fd317240e5c2c95171a99e7e
-ms.sourcegitcommit: 22b73d56602c1c4e647ed2c5af3d596a2f6a7ed5
+ms.openlocfilehash: 7a2ab41dd6696d658d05ab76e44abf97626761aa
+ms.sourcegitcommit: 14aa16beeec59e51890a6cba4906bdc8e19b94d0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52267332"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52892685"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+## <a name="december-4-2018"></a>2018 年 12 月 4 日
+
+バージョン 2.0.52
+### <a name="core"></a>コア
+* マルチテナント サービス プリンシパルのクロス テナント リソース プロビジョニングのサポートを追加しました
+* tsv 出力するコマンドからパイプ処理された ID が適切に解析されないバグを修正しました
+
+### <a name="appservice"></a>Appservice
+* [プレビュー] コンテンツを作成してアプリに展開する際に役立つ `webapp up` コマンドを追加しました
+* バックエンドの変更に起因するコンテナー ベースの Windows アプリのバグを修正しました
+
+### <a name="network"></a>ネットワーク
+* WAF 除外をサポートするために、`application-gateway waf-config set` に `--exclusion` 引数を追加しました
+
+### <a name="role"></a>Role
+* パスワード資格情報のカスタム識別子のサポートを追加しました 
+
+### <a name="vm"></a>VM
+* [非推奨] `vm extension [show|wait] --expand` パラメーターを非推奨にしました
+* 応答しない VM を再デプロイするために、`vm restart` に `--force` パラメーターを追加しました
+* パスワードと SSH 認証の両方を使用して VM を作成するために、"all" を受け入れるように `[vm|vmss] create --authentication-type` を変更しました
+* イメージの OS ディスク キャッシュを設定するための `image create --os-disk-caching` パラメーターを追加しました
+
 ## <a name="november-20-2018"></a>2018 年 11 月 20 日
 
 バージョン 2.0.51
@@ -716,7 +739,7 @@ ms.locfileid: "52267332"
 * Log Analytics の `--log-analytics-workspace` パラメーターと `--log-analytics-workspace-key` パラメーターを追加しました
 * 使用するネットワーク プロトコルを指定する `--protocol` パラメーターを追加しました
 
-### <a name="extension"></a>内線番号
+### <a name="extension"></a>拡張機能
 
 * CLI バージョンと互換性のある拡張機能のみが表示されるように `extension list-available` を変更しました
 
@@ -949,7 +972,7 @@ ms.locfileid: "52267332"
 * YAML 形式のコンテナー グループをエクスポートするためのサポートを追加しました
 * YAML ファイルを使用してコンテナー グループを作成/更新するためのサポートを追加しました
 
-### <a name="extension"></a>内線番号
+### <a name="extension"></a>拡張機能
 
 * 拡張機能の削除機能を強化しました
 
@@ -1060,7 +1083,7 @@ ms.locfileid: "52267332"
 
 * 最初のリリース - SQL から Azure SQL への移行シナリオのサポートを追加しました
 
-### <a name="extension"></a>内線番号
+### <a name="extension"></a>拡張機能
 
 * 拡張機能メタデータが表示されなくなるバグを修正しました
 
@@ -1192,7 +1215,7 @@ ms.locfileid: "52267332"
 * Git リポジトリのボリューム マウント パラメーター `--gitrepo-url`、`--gitrepo-dir`、`--gitrepo-revision`、および `--gitrepo-mount-path` を追加しました
 * [#5926](https://github.com/Azure/azure-cli/issues/5926) (--container-name が指定されたときに `az container exec` が失敗する) を修正しました
 
-### <a name="extension"></a>内線番号
+### <a name="extension"></a>拡張機能
 
 * ディストリビューション チェック メッセージをデバッグ レベルに変更しました
 
@@ -1293,7 +1316,7 @@ ms.locfileid: "52267332"
 * `container exec` コマンドを追加しました。 実行中のコンテナー グループのコンテナーでコマンドを実行します
 * コンテナー グループの作成および更新のために、テーブル出力が許可されます
 
-### <a name="extension"></a>内線番号
+### <a name="extension"></a>拡張機能
 
 * 拡張機能がプレビュー段階である場合に、`extension add` のメッセージを追加しました
 * `--show-details` を使用して完全な拡張機能データを表示できるように、`extension list-available` を変更しました
@@ -1384,7 +1407,7 @@ ms.locfileid: "52267332"
 
 * 最初のリリース
 
-### <a name="extension"></a>内線番号
+### <a name="extension"></a>拡張機能
 
 * 使用しているディストリビューションがパッケージ ソース ファイルに格納されているものと異なる場合は、エラーが発生する可能性があるため、ユーザーに警告するチェックを追加しました
 
@@ -1536,7 +1559,7 @@ ms.locfileid: "52267332"
 
 * 機能の設定のサポートを追加しました
 
-### <a name="extension"></a>内線番号
+### <a name="extension"></a>拡張機能
 
 * `--pip-proxy` パラメーターのサポートを `az extension [add|update]` コマンドに追加しました
 * `--pip-extra-index-urls` 引数のサポートを `az extension [add|update]` コマンドに追加しました
@@ -1904,7 +1927,7 @@ ms.locfileid: "52267332"
 
 * より簡潔な情報を返すように `account list` を変更しました
 
-### <a name="extension"></a>内線番号
+### <a name="extension"></a>拡張機能
 
 * 公式の Microsoft 拡張機能を一覧表示できるようにするための `extension list-available` を追加しました
 * 拡張機能を名前別にインストールできるように、`--name` を `extension [add|update]` に追加しました
@@ -2135,7 +2158,7 @@ ms.locfileid: "52267332"
 
 * `cdn custom-domain create` の "CustomDomain is not interable" バグを修正しました
 
-### <a name="extension"></a>内線番号
+### <a name="extension"></a>拡張機能
 
 * 最初のリリース
 
