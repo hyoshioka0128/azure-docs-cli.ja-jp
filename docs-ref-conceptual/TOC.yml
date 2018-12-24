@@ -23,7 +23,7 @@ items:
     href: get-started-with-azure-cli.md
   - name: Cloud Shell
     href: /azure/cloud-shell/overview
-  - name: '[サインイン]'
+  - name: サインイン
     href: authenticate-azure-cli.md
     items:
     - name: サービス プリンシパルの作成
@@ -38,7 +38,7 @@ items:
       href: /azure/azure-resource-manager/resource-manager-export-template-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
     - name: プライベート テンプレートからのデプロイ
       href: /azure/azure-resource-manager/resource-manager-cli-sas-token?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-  - name: '[サブスクリプションの管理]'
+  - name: サブスクリプションの管理
     href: manage-azure-subscriptions-azure-cli.md
   - name: 複数のクラウドの処理
     href: manage-clouds-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
