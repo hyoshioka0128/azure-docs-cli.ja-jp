@@ -9,13 +9,13 @@ ms.date: 09/07/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
-ms.devlang: azure-cli
-ms.openlocfilehash: d23548a9cdfe307c2597d992dc014125f80704d0
-ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
+ms.devlang: azurecli
+ms.openlocfilehash: a56ce4acf070c17d8deaec9674593ba930cca70f
+ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47177999"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53593610"
 ---
 # <a name="get-started-with-azure-cli"></a>Azure CLI の概要
 
@@ -27,7 +27,7 @@ Azure CLI で作業を開始するには、お使いのブラウザーから Azu
 
 CLI をインストールする準備ができたら、[インストール手順](install-azure-cli.md)に関するページをご覧ください。
 
-## <a name="sign-in"></a>[サインイン]
+## <a name="sign-in"></a>サインイン
 
 ローカル インストールで CLI コマンドを使用する前に、[az login](/cli/azure/reference-index#az-login) でサインインする必要があります。
 
@@ -41,7 +41,7 @@ CLI をインストールする準備ができたら、[インストール手順
 
 | リソースの種類 | Azure CLI コマンド グループ |
 |---------------|-------------------------|
-| [リソース グループ](/azure/azure-resource-manager/resource-group-overview) | [az group](/cli/azure/group) |
+| [[リソース グループ]](/azure/azure-resource-manager/resource-group-overview) | [az group](/cli/azure/group) |
 | [仮想マシン](/azure/virtual-machines) | [az vm](/cli/azure/vm) |
 | [ストレージ アカウント](/azure/storage/common/storage-introduction) | [az storage account](/cli/azure/storage/account) |
 | [Key Vault](/azure/key-vault/key-vault-whatis) | [az keyvault](/cli/azure/keyvault) |
