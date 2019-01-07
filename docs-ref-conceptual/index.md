@@ -1,6 +1,6 @@
 ---
 title: Azure CLI の概要
-description: Azure CLI の概要。
+description: Azure コマンド ライン インターフェイス (CLI) の概要を説明します。
 author: sptramer
 ms.author: sttramer
 manager: carmonm
@@ -8,20 +8,21 @@ ms.date: 09/07/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
-ms.devlang: azure-cli
-ms.openlocfilehash: 8ab8435f2d8337f63a73aef39472646dc8ebcd74
-ms.sourcegitcommit: 0d6b08048b5b35bf0bb3d7b91ff567adbaab2a8b
+ms.devlang: azurecli
+ms.openlocfilehash: 285567b00d8c303af3e78a01dc80946a08e4e8f8
+ms.sourcegitcommit: 614811ea63ceb0e71bd99323846dc1b754e15255
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51222295"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53805909"
 ---
-# <a name="azure-cli"></a>Azure CLI
+# <a name="azure-command-line-interface-cli"></a>Azure コマンド ライン インターフェイス (CLI)
 
-Azure CLI は、Azure リソースを管理するための、Microsoft のクロスプラットフォーム コマンド ライン エクスペリエンスです。
+Azure コマンド ライン インターフェイス (CLI) は、Azure リソースを管理するための、Microsoft のクロスプラットフォーム コマンド ライン エクスペリエンスです。
 ブラウザーの [Azure Cloud Shell](/azure/cloud-shell/overview) で使用することも、macOS、Linux、または Windows に[インストール](install-azure-cli.md)してコマンド ラインから実行することもできます。
 
-Azure CLI は簡単に使い始めることができ、Azure Resource Manager を操作対象とする自動化スクリプトを作成するにも最適です。 Azure CLI を使用すると、次のコマンドを入力するだけで、簡単に Azure 内に VM を作成できます。
+Azure CLI は簡単に使い始めることができ、Azure Resource Manager を操作対象とする自動化スクリプトを作成するにも最適です。
+Azure CLI を使用すると、次のコマンドを入力するだけで、簡単に Azure 内に VM を作成できます。
 
 ```azurecli-interactive
 az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS
@@ -29,7 +30,7 @@ az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS
 
 > [!NOTE]
 >
-> スクリプトおよび Microsoft ドキュメント サイトでは、Azure CLI の例は `bash` シェル向けに記述されています。 1 行の例であれば任意のプラットフォームで実行できます。 行継続 (`\`) または変数の代入を含む、より長い例やより複雑な例は、PowerShell などの他のシェルで動作するように変更する必要があります。
+> スクリプトおよび Microsoft ドキュメント サイトでは、Azure CLI の例は `bash` シェル向けに記述されています。 1 行の例であれば任意のプラットフォームで実行できます。 行継続 (`\`) または変数の代入を含む、より長い例は、PowerShell などの他のシェルで動作するように変更する必要があります。
 
 ## <a name="run-or-install"></a>実行またはインストール
 
