@@ -8,13 +8,13 @@ ms.date: 11/27/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
-ms.devlang: azure-cli
-ms.openlocfilehash: c33c3e75991979a72a7b82183dd88b87715907ae
-ms.sourcegitcommit: a8aac038e6ede0b1b352ca6163a04b61ff4eed5b
+ms.devlang: azurecli
+ms.openlocfilehash: 1973c933cbffa494cbe9c0749346450251feefcb
+ms.sourcegitcommit: 9bd90875a324908ec7195fc4c4f63ebf124760f9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450260"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53982588"
 ---
 # <a name="install-azure-cli-with-apt"></a>apt での Azure CLI のインストール
 
@@ -25,16 +25,21 @@ Ubuntu や Debian など、`apt` が付属するディストリビューショ�
 
 ## <a name="install"></a>Install
 
-1. <div id="install-step-1"/>ソース リストを変更します。
+1. 前提条件となるパッケージをインストールします。
 
     ```bash
-    sudo apt-get install apt-transport-https lsb-release software-properties-common -y
+    sudo apt-get install apt-transport-https lsb-release software-properties-common dirmngr -y
+    ```
+
+2. <div id="set-release"/>ソース リストを変更します。
+
+    ```bash
     AZ_REPO=$(lsb_release -cs)
     echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | \
         sudo tee /etc/apt/sources.list.d/azure-cli.list
     ```
 
-2. <div id="signingKey"/>Microsoft の署名キーを取得します。
+3. <div id="signingKey"/>Microsoft の署名キーを取得します。
 
    ```bash
    sudo apt-key --keyring /etc/apt/trusted.gpg.d/Microsoft.gpg adv \
@@ -42,7 +47,7 @@ Ubuntu や Debian など、`apt` が付属するディストリビューショ�
         --recv-keys BC528686B50D79E339D3721CEB3E94ADBE1229CF
    ```
 
-3. CLI をインストールします。
+4. CLI をインストールします。
 
    ```bash
    sudo apt-get update
@@ -64,7 +69,7 @@ Ubuntu や Debian など、`apt` が付属するディストリビューショ�
 
 ### <a name="lsbrelease-does-not-return-the-correct-base-distribution-version"></a>lsb_release がベース ディストリビューション バージョンを返さない
 
-Linux Mint など、Ubuntu や Debian から派生する一部のディストリビューションでは、正しいバージョン名が `lsb_release` から返されない場合があります。 この値は、インストール プロセスで、インストールするパッケージを特定するときに使用されます。 ディストリビューションの派生元バージョンの名前がわかっている場合は、[インストール手順 1.](#install-step-1) で `AZ_REPO` 値を手動で設定できます。 それ以外の場合は、ご自身のディストリビューションについて、ベース ディストリビューション名を調べて、`AZ_REPO` を正しい値に設定する方法をご確認ください。
+Linux Mint など、Ubuntu や Debian から派生する一部のディストリビューションでは、正しいバージョン名が `lsb_release` から返されない場合があります。 この値は、インストール プロセスで、インストールするパッケージを特定するときに使用されます。 ディストリビューションの派生元バージョンの名前がわかっている場合は、[インストール手順 2.](#set-release) で `AZ_REPO` 値を手動で設定できます。 それ以外の場合は、ご自身のディストリビューションについて、ベース ディストリビューション名を調べて、`AZ_REPO` を正しい値に設定する方法をご確認ください。
 
 ### <a name="no-package-for-your-distribution"></a>ご使用のディストリビューションのパッケージがない
 
@@ -87,6 +92,8 @@ gpg: keyserver receive failed: No dirmngr
 ```bash
 sudo apt-get install dirmngr
 ```
+
+Windows Subsystem for Linux (WSL) の場合は、このエラーは Windows 10 1809 よりも前のバージョンの Windows にも表示されます。 問題を解決するには、Windows のバージョンを更新します。
 
 ### <a name="apt-key-hangs"></a>apt-key がハングする
 

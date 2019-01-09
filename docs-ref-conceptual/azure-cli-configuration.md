@@ -9,13 +9,13 @@ ms.date: 06/11/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
-ms.devlang: azure-cli
-ms.openlocfilehash: f4f1e89e5541d741ef4e02f309a49eece033af5d
-ms.sourcegitcommit: c4462456dfb17993f098d47c37bc19f4d78b8179
+ms.devlang: azurecli
+ms.openlocfilehash: d23f576a1f7447ffab0606b4554a81ae5c536e85
+ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47177982"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53593780"
 ---
 # <a name="azure-cli-configuration"></a>Azure CLI の構成
 
@@ -62,8 +62,8 @@ CLI 構成ファイルには、CLI の動作の管理に使用されるその他
 
 ブール値は、大文字と小文字が区別されず、次の値によって表されます。
 
-* __True__: 1、yes、true、on
-* __False__: 0、no、false、off
+* __True__:1、yes、true、on
+* __False__:0、no、false、off
 
 次の例は、確認のプロンプトを無効にして、`/var/log/azure` ディレクトリへのログ記録を設定する CLI 構成ファイルです。
 

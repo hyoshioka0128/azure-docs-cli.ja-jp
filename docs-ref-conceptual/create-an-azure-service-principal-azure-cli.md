@@ -7,13 +7,13 @@ manager: carmonm
 ms.date: 09/07/2018
 ms.topic: conceptual
 ms.technology: azure-cli
-ms.devlang: azure-cli
-ms.openlocfilehash: 40ff3b54cdd1f4908b59479e317092ee62b05bb0
-ms.sourcegitcommit: f92d5b3ccd409be126f1e7c06b9f1adc98dad78b
+ms.devlang: azurecli
+ms.openlocfilehash: 6cce8fb47dd2b57180487441055333343fff8330
+ms.sourcegitcommit: 614811ea63ceb0e71bd99323846dc1b754e15255
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52159373"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53805875"
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli"></a>Azure CLI で Azure サービス プリンシパルを作成する
 
@@ -23,10 +23,15 @@ ms.locfileid: "52159373"
 
 サービス プリンシパルを作成するには、[az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) コマンドを使用します。 サービス プリンシパル名は、既存のアプリケーションまたはユーザー名には関連付けられていません。 任意の認証の種類を使用して、サービス プリンシパルを作成できます。
 
-* パスワード ベースの認証には `--password` が使用されます。 [Azure Active Directory のパスワードの規則と制約事項](/azure/active-directory/active-directory-passwords-policy)に従って、必ず強力なパスワードを作成してください。 自分でパスワードを指定しなかった場合、任意のパスワードが自動的に生成されます。
+* パスワード ベースの認証には `--password` が使用されます。 認証の種類を示す引数が含まれていない場合は、--password が既定で使用され、パスワードが自動的に作成されます。 パスワード ベースの認証を使用する場合は、このコマンドを使用することをお勧めします。そうすれば、パスワードが自動的に作成されます。  
 
   ```azurecli-interactive
-  az ad sp create-for-rbac --name ServicePrincipalName --password PASSWORD
+  az ad sp create-for-rbac --name ServicePrincipalName 
+  ```
+  パスワードを自動的に作成するのではなく、選択する場合は (セキュリティ上の理由から推奨されません)、次のコマンドを使用します。 [Azure Active Directory のパスワードの規則と制約事項](/azure/active-directory/active-directory-passwords-policy)に従って、必ず強力なパスワードを作成してください。 パスワードを選択するオプションでは、脆弱なパスワードが選択されたり、パスワードが再利用されたりする可能性があります。 このオプションは、Azure CLI の今後バージョンで非推奨になる予定です。 
+
+  ```azurecli-interactive
+  az ad sp create-for-rbac --name ServicePrincipalName --password <Choose a strong password>
   ```
 
 * 既存の証明書に対する証明書ベースの認証には、`--cert` が、PEM または DER パブリック文字列、あるいは `@{file}` として使用され、ファイルが読み込まれます。
@@ -80,7 +85,7 @@ Azure CLI には、ロールの割り当てを管理するために、次のコ�
 * [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)
 * [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete)
 
-サービス プリンシパルの既定のロールは**共同作成者**です。 このロールは、Azure アカウントの読み取りと書き込みを行うための完全なアクセス許可が付与されるため、アプリケーションには適していません。 **閲覧者**ロールは制限が厳しく、読み取り専用アクセスを提供します。  ロールベースのアクセス制御 (RBAC) とロールの詳細については、[RBAC: 組み込みロール](/azure/active-directory/role-based-access-built-in-roles)に関するページをご覧ください。
+サービス プリンシパルの既定のロールは**共同作成者**です。 このロールは、Azure アカウントの読み取りと書き込みを行うための完全なアクセス許可が付与されるため、アプリケーションには適していません。 **閲覧者**ロールは制限が厳しく、読み取り専用アクセスを提供します。  ロールベースのアクセス制御 (RBAC) とロールの詳細については、[RBAC の組み込みのロール](/azure/active-directory/role-based-access-built-in-roles)に関するページをご覧ください。
 
 この例では、**閲覧者**ロールを追加し、**共同作成者**ロールを削除します。
 
@@ -121,5 +126,5 @@ az login --service-principal --username APP_ID --tenant TENANT_ID --password PAT
 サービス プリンシパルの資格情報を忘れた場合、その情報は、[az ad sp credential reset](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) コマンドでリセットできます。 新しいサービス プリンシパルを作成するときの制限事項とオプションと同じものが、ここでも適用されます。
 
 ```azurecli-interactive
-az ad sp credential reset --name APP_ID --password NEW_PASSWORD
+az ad sp credential reset --name APP_ID 
 ```

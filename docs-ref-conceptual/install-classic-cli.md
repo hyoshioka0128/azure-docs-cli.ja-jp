@@ -8,13 +8,13 @@ ms.date: 06/11/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
-ms.devlang: azure-cli
-ms.openlocfilehash: 78043f9c070626545030971dea2a8fd155ac76c2
-ms.sourcegitcommit: 0d6b08048b5b35bf0bb3d7b91ff567adbaab2a8b
+ms.devlang: azurecli
+ms.openlocfilehash: 65bf8cdc4ee5d74a778d29cd96e51bad5dc6b22e
+ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51222465"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53593372"
 ---
 # <a name="install-the-azure-classic-cli"></a>Azure クラシック CLI のインストール
 
@@ -32,7 +32,7 @@ Azure クラシック CLI を簡単にインストールして、コマンド �
 
 Azure クラシック CLI をインストールした後、`azure login` に接続し、お使いのコマンド ライン インターフェイス (Bash、ターミナル、コマンド プロンプトなど) から `azure` コマンドを実行して、Azure リソースを操作します。
 
-## <a name="option-1-install-an-npm-package"></a>オプション 1: npm パッケージのインストール
+## <a name="option-1-install-an-npm-package"></a>オプション 1:npm パッケージのインストール
 
 クラシック CLI を npm パッケージからインストールするには、[最新の Node.js と npm](https://nodejs.org/en/download/package-manager/) をダウンロードし、インストールしていることを確認してください。 次に、`npm install` を実行して、azure-cli パッケージをインストールします。
 
@@ -55,14 +55,14 @@ sudo npm install -g azure-cli
 npm install -g <path to downloaded tar file>
 ```
 
-## <a name="option-2-use-an-installer"></a>オプション 2: インストーラーの使用
+## <a name="option-2-use-an-installer"></a>オプション 2:インストーラーの使用
 
 Mac または Windows コンピューターを使用している場合は、[GitHub リリース](https://github.com/Azure/azure-xplat-cli/releases)から DMG および MSI インストーラーを入手できます。
 
 > [!TIP]
 > Windows では、[Web Platform Installer](https://go.microsoft.com/?linkid=9828653) をダウンロードして、クラシック CLI をインストールすることもできます。 このインストーラーを使用すると、その他の Azure SDK とコマンドライン ツールをインストールすることもできます。
 
-## <a name="option-3-use-a-docker-container"></a>オプション 3: Docker コンテナーの使用
+## <a name="option-3-use-a-docker-container"></a>選択肢 3: Docker コンテナーの使用
 
 お使いのコンピューターを [Docker](https://docs.docker.com/engine/understanding-docker/) ホストとして設定すると、Docker コンテナーで Azure クラシック CLI を実行できるようになります。 次のコマンドを実行します (Linux ディストリビューションの場合、`sudo` の使用が必要になる場合があります)。
 
