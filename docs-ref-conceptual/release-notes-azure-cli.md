@@ -4,19 +4,88 @@ description: Azure CLI の最新情報について説明します
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 11/20/2018
+ms.date: 12/18/2018
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
-ms.devlang: azure-cli
-ms.openlocfilehash: 7a2ab41dd6696d658d05ab76e44abf97626761aa
-ms.sourcegitcommit: 14aa16beeec59e51890a6cba4906bdc8e19b94d0
+ms.devlang: azurecli
+ms.openlocfilehash: 10663ad8e85a15b8fedb5ac12c5d17256d07e523
+ms.sourcegitcommit: 614811ea63ceb0e71bd99323846dc1b754e15255
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892685"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53805960"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+
+## <a name="december-20-2018"></a>2018 年 12 月 20 日
+
+バージョン 2.0.54
+### <a name="appservice"></a>Appservice
+* `webapp up` で再デプロイが失敗する問題を修正しました
+* Web アプリのスナップショットの一覧表示および復元のサポートを追加しました
+* `--runtime` フラグのサポートを Windows 関数アプリに追加しました
+
+### <a name="iotcentral"></a>IoTCentral
+* 更新コマンドの API 呼び出しを修正しました
+
+### <a name="role"></a>Role
+* [重大な変更] 既定では最初の 100 個のオブジェクトのみを一覧表示するように、`ad [app|sp] list` を変更しました
+
+### <a name="sql"></a>SQL
+* マネージド インスタンスでカスタム照合順序のサポートを追加しました
+
+### <a name="vm"></a>VM
+* `---os-type` パラメーターを `disk create` に追加しました
+
+## <a name="december-18-2018"></a>2018 年 12 月 18 日
+
+バージョン 2.0.53
+### <a name="acr"></a>ACR
+* 外部のコンテナー レジストリからのイメージのインポートのサポートを追加しました
+* タスク一覧のテーブルのレイアウトを縮小しました
+* Azure DevOps の URL のサポートを追加しました
+
+### <a name="acs"></a>ACS
+* 仮想ノードのプレビューを追加しました
+* `aks create` の AAD 引数から "(プレビュー)" を削除しました
+* [非推奨] `az acs` コマンドを非推奨にしました ACS サービスは 2020 年 1 月 31 日に廃止予定
+* 新しい AKS クラスターの作成時のネットワーク ポリシーのサポートを追加しました
+* nodepool が 1 つのみの場合に `aks scale` に求められる `--nodepool-name` 引数の要件を削除しました
+
+### <a name="appservice"></a>Appservice
+* `webapp config container` で `--slot` パラメーターが許可されない問題を修正しました
+
+### <a name="botservice"></a>Botservice
+* `bot show` の呼び出し時に `.bot` ファイルの解析のサポートを追加しました
+* AppInsights のプロビジョニングのバグを修正しました
+* ファイル パスを処理するときの空白文字のバグを修正しました
+* Kudu ネットワーク呼び出しを削減しました
+* 一般的なコマンド UX を改善しました
+
+### <a name="consumption"></a>消費
+* 予算 API での通知の表示のバグを修正しました
+
+### <a name="cosmosdb"></a>Cosmos DB
+* マルチマスターからシングルマスターへのアカウントの更新のサポートを追加しました
+
+### <a name="maps"></a>マップ
+* S1 SKU のサポートを `maps account [create|update]` に追加しました
+
+### <a name="network"></a>ネットワーク
+* `--format` と `--log-version` のサポートを `watcher flow-log configure` に追加しました
+* 解決仮想ネットワークと登録仮想ネットワークをクリアするために "" を使用しても機能しないときの `dns zone update` に関する問題を修正しました
+
+### <a name="resource"></a>リソース
+* `policy assignment [create|list|delete|show|update]` の管理グループのスコープ パラメーターの処理を修正しました 
+* 新しいコマンド `resource wait` を追加しました
+
+### <a name="storage"></a>Storage
+*  `storage logging update` でストレージ サービスのログ スキーマのバージョンを更新する機能を追加しました
+
+### <a name="vm"></a>VM
+* 指定された VM に割り当てられているマネージド サービス ID がない場合の `vm identity remove` でのクラッシュを修正しました
+
 ## <a name="december-4-2018"></a>2018 年 12 月 4 日
 
 バージョン 2.0.52
@@ -277,7 +346,7 @@ ms.locfileid: "52892685"
 * `eventhub update` コマンドを修正しました
 * [重大な変更] 空のリストを表示するのではなく、一般的な方法でリソースのエラー NotFound(404) を処理するように `list` コマンドを変更しました
 
-### <a name="extensions"></a>拡張機能
+### <a name="extensions"></a>Extensions
 * 既にインストールされている拡張機能を追加しようとする問題を修正しました
 
 ### <a name="hdinsight"></a>HDInsight
@@ -290,7 +359,7 @@ ms.locfileid: "52892685"
 * keyvault storage コマンドが最新の API プロファイルに制限されるように変更しました
 
 ### <a name="network"></a>ネットワーク
-* `network dns zone create` を修正しました: ユーザーが既定の場所を構成している場合でも、コマンドは成功します。 #6052 を参照してください
+* `network dns zone create` を修正しました:ユーザーが既定の場所を構成している場合でも、コマンドは成功します。 #6052 を参照してください
 * `network vnet peering create` を使用できるため `--remote-vnet-id` を非推奨にしました
 * `--remote-vnet` を `network vnet peering create` に追加しました。これは名前または ID を指定できます
 * `--subnet-prefixes` で `network vnet create` への複数のサブネット プレフィックスのサポートを追加しました
@@ -384,12 +453,12 @@ ms.locfileid: "52892685"
 * `network watcher flow-log show/configure` をクラシック NSG で使用できるようにしました
 * `network watcher run-configuration-diagnostic` コマンドが追加されました
 * `network watcher test-connectivity` コマンドを修正し、`--method`、`--valid-status-codes`、および `--headers` プロパティを追加しました
-* `network express-route create/update`: `--allow-global-reach` フラグを追加しました
-* `network vnet subnet create/update`: `--delegation` のサポートを追加しました
+* `network express-route create/update`:`--allow-global-reach` フラグを追加しました
+* `network vnet subnet create/update`:`--delegation` のサポートを追加しました
 * `network vnet subnet list-available-delegations` コマンドを追加しました
-* `network traffic-manager profile create/update`: 監視の構成について `--interval`、`--timeout`、および `--max-failures` のサポートを追加しました。オプション `--path`、`--port`、`--protocol` を優先し、`--monitor-path`、`--monitor-port`、`--monitor-protocol` を非推奨にしました
-* `network lb frontend-ip create/update`: プライベート IP 割り当て方法の設定ロジックを修正しました。プライベート IP アドレスが指定されている場合、割り当ては静的になります。プライベート IP アドレスが指定されていない場合、またはプライベート IP アドレスに対して空の文字列が指定されている場合、割り当ては動的です。
-* `dns record-set * create/update`: `--target-resource` のサポートを追加しました
+* `network traffic-manager profile create/update`:監視の構成について `--interval`、`--timeout`、および `--max-failures` のサポートを追加しました。オプション `--path`、`--port`、`--protocol` を優先し、`--monitor-path`、`--monitor-port`、および `--monitor-protocol` を非推奨にしました
+* `network lb frontend-ip create/update`:プライベート IP 割り当て方法の設定ロジックを修正しました。プライベート IP アドレスが指定されている場合、割り当ては静的になります。プライベート IP アドレスが指定されていない場合、またはプライベート IP アドレスに対して空の文字列が指定されている場合、割り当ては動的です。
+* `dns record-set * create/update`:`--target-resource` のサポートを追加しました
 * インターフェイス エンドポイント オブジェクトにクエリを実行する `network interface-endpoint` コマンドを追加しました
 * ネットワーク プロファイルの部分的な管理用に `network profile show/list/delete` を追加しました
 * ExpressRoute 間のピアリング接続を管理する `network express-route peering connection` コマンドを追加しました
@@ -1336,7 +1405,7 @@ ms.locfileid: "52892685"
 ### <a name="monitor"></a>監視
 
 * `--top`、`--orderby`、`--namespace` のサポートを `metrics list`に追加しました [#5785](https://github.com/Azure/azure-cli/issues/5785)
-* [#4529](https://github.com/Azure/azure-cli/issues/5785) を修正しました: `metrics list` は、取得するメトリックのスペース区切りリストを受け入れます
+* [#4529](https://github.com/Azure/azure-cli/issues/5785) を修正しました:`metrics list` は、取得するメトリックのスペース区切りリストを受け入れます
 * `--namespace` のサポートを `metrics list-definitions` に追加しました [#5785](https://github.com/Azure/azure-cli/issues/5785)
 
 ### <a name="network"></a>ネットワーク
@@ -1366,7 +1435,7 @@ ms.locfileid: "52892685"
 ### <a name="storage"></a>Storage
 
 * サイズが 195 ～ 200 GB のファイルをアップロードするときの問題を修正しました
-* [#4049](https://github.com/Azure/azure-cli/issues/4049) (追加 BLOB のアップロードで条件のパラメーターが無視される問題) を修正しました
+* [#4049](https://github.com/Azure/azure-cli/issues/4049) を修正しました:追加 BLOB のアップロードで条件のパラメーターが無視される問題
 
 ### <a name="vm"></a>VM
 
@@ -1413,9 +1482,9 @@ ms.locfileid: "52892685"
 
 ### <a name="interactive"></a>Interactive
 
-* [#5625](https://github.com/Azure/azure-cli/issues/5625) を修正しました: 異なるセッション間で履歴が保持されます
-* [#3016](https://github.com/Azure/azure-cli/issues/3016) を修正しました: スコープ内にある間は履歴が記録されませんでした
-* [#5688](https://github.com/Azure/azure-cli/issues/5688) を修正しました: コマンド テーブルの読み込み中に例外が発生した場合、入力候補が表示されませんでした
+* [#5625](https://github.com/Azure/azure-cli/issues/5625) を修正しました:異なるセッション間で履歴が保持されます
+* [#3016](https://github.com/Azure/azure-cli/issues/3016) を修正しました:スコープ内にある間は履歴が記録されませんでした
+* [#5688](https://github.com/Azure/azure-cli/issues/5688) を修正しました:コマンド テーブルの読み込み中に例外が発生した場合、入力候補が表示されませんでした
 * 実行時間の長い操作の進行状況インジケーターを修正しました
 
 ### <a name="monitor"></a>監視
@@ -1453,7 +1522,7 @@ ms.locfileid: "52892685"
 ### <a name="storage"></a>Storage
 
 * [#4971](https://github.com/Azure/azure-cli/issues/4971) を修正しました: `storage blob copy` では他の Azure クラウドをサポートするようになりました
-* [#5286](https://github.com/Azure/azure-cli/issues/5286) を修正しました: Batch コマンド `storage blob [delete-batch|download-batch|upload-batch]` の前提条件が満たされていなくても、エラーがスローされなくなりました
+* [#5286](https://github.com/Azure/azure-cli/issues/5286) を修正しました:Batch コマンド `storage blob [delete-batch|download-batch|upload-batch]` の前提条件が満たされていなくても、エラーがスローされなくなりました
 
 ### <a name="vm"></a>VM
 
@@ -1468,14 +1537,14 @@ ms.locfileid: "52892685"
 
 ### <a name="core"></a>コア
 
-* [#5184](https://github.com/Azure/azure-cli/issues/5184) を修正: Homebrew のインストールの問題
+* [#5184](https://github.com/Azure/azure-cli/issues/5184) を修正しました:Homebrew のインストールの問題
 * カスタム キーを使用した拡張機能のテレメトリのサポートを追加しました
 * HTTP ログを `--debug` に追加しました
 
 ### <a name="acs"></a>ACS
 
 * 既定で `aks install-connector` の `virtual-kubelet-for-aks` Helm チャートを使用するように変更しました
-* 修正された問題: ACI コンテナー グループを作成するためのアクセス許可がサービス プリンシパルに不足している問題
+* 修正された問題:ACI コンテナー グループを作成するためのアクセス許可がサービス プリンシパルに不足している問題
 * `--aci-container-group`、`--location`、および `--image-tag` の各パラメーターを `aks install-connector` に追加しました
 * 非推奨に関する通知を `aks get-versions` から削除しました
 
@@ -1499,7 +1568,7 @@ ms.locfileid: "52892685"
 
 ### <a name="network"></a>ネットワーク
 
-* [#5559](https://github.com/Azure/azure-cli/issues/5559) を修正: `network vnet-gateway vpn-client generate` でクライアントが見つからない
+* [#5559](https://github.com/Azure/azure-cli/issues/5559) を修正:`network vnet-gateway vpn-client generate` でクライアントが見つからない
 
 ### <a name="resource"></a>リソース
 
@@ -2187,8 +2256,8 @@ ms.locfileid: "52892685"
 
 ### <a name="vm"></a>VM
 
-* 修正済み: `--scope` が指定されないとアクセス権が割り当てられない
-* 修正済み: ポータルと同じ拡張機能の名前付けが行われる
+* 修正済み:`--scope` が指定されないとアクセス権が割り当てられない
+* 修正済み:ポータルと同じ拡張機能の名前付けが行われる
 * `[vm|vmss] create` 出力から `subscription` を削除しました
 * 修正済み: `[vm|vmss] create` ストレージ SKU がイメージ付きのデータ ディスクに適用されない
 * 修正済み: `vm format-secret --secrets` で、改行によって分かれた ID を使用できない
@@ -2230,11 +2299,11 @@ ms.locfileid: "52892685"
 * `az webapp config container set --docker-custom-image-name` の `-i` の新しいエイリアスを追加しました
 * `az webapp log show` を公開しました
 * App Service プラン、メトリック、または DNS 登録を保持するために、`az webapp delete` の新しい引数を公開しました
-* 修正済み: スロット設定の正常な検出
+* 修正済み:スロット設定の正常な検出
 
 ### <a name="iot"></a>IoT
 
-* 修正済み #3934: ポリシーの作成で既存のポリシーが消去されなくなりました
+* #3934 を修正しました:ポリシーの作成で既存のポリシーが消去されなくなりました
 
 ### <a name="network"></a>ネットワーク
 
@@ -2313,7 +2382,7 @@ ms.locfileid: "52892685"
 
 ### <a name="container"></a>コンテナー
 
-* `create`: 環境変数内で等号を使用できない問題を修正しました
+* `create`:環境変数内で等号を使用できない問題を修正しました
 
 
 ### <a name="data-lake-store"></a>Data Lake Store
@@ -2326,14 +2395,14 @@ ms.locfileid: "52892685"
 
 ### <a name="network"></a>ネットワーク
 
-* `lb`: 特定の子リソース名が省略された場合に正しく解決されない問題を修正しました
-* `application-gateway {subresource} delete`: `--no-wait` が受け入れられない問題を修正しました
-* `application-gateway http-settings update`: `--connection-draining-timeout` を無効にできない問題を修正しました
+* `lb`:特定の子リソース名が省略された場合に正しく解決されない問題を修正しました
+* `application-gateway {subresource} delete`:`--no-wait` が受け入れられない問題を修正しました
+* `application-gateway http-settings update`:`--connection-draining-timeout` を無効にできない問題を修正しました
 * `az network vpn-connection ipsec-policy add` での予期しないキーワード引数 `sa_data_size_kilobyes` のエラーを修正しました
 
 ### <a name="profile"></a>プロファイル
 
-* `account list`: サーバーの最新のサブスクリプションを同期する `--refresh` を追加しました
+* `account list`:サーバーの最新のサブスクリプションを同期する `--refresh` を追加しました
 
 ### <a name="storage"></a>Storage
 
@@ -2341,7 +2410,7 @@ ms.locfileid: "52892685"
 
 ### <a name="vm"></a>VM
 
-* `availability-set`: 変換時の障害ドメイン数を公開しました
+* `availability-set`:変換時の障害ドメイン数を公開しました
 * `list-skus` コマンドを公開しました
 * ロールの割り当てを作成しない ID の割り当てをサポートします
 * データ ディスクのアタッチ時にストレージ SKU を適用します
@@ -2543,7 +2612,7 @@ vm (2.0.11)
 * `--redirect-config` 引数を `application-gateway rule create` と `application-gateway rule update` に追加しました
 * `--accelerated-networking` のサポートを `nic create` と `nic update` に追加しました
 * `nic create` から `--internal-dns-name-suffix` 引数を削除しました
-* `--dns-servers` のサポートを `nic update` と `nic create` に追加しました: --dns-servers のサポートを追加しました
+* `--dns-servers` のサポートを `nic update` と `nic create` に追加しました:--dns-servers のサポートを追加しました
 * `local-gateway create` で `--local-address-prefixes` が無視されるバグを修正しました
 * `--dns-servers` のサポートを `vnet update` に追加しました
 * `express-route peering create` でルート フィルター処理をせずにピアリングを作成するときのバグを修正しました
@@ -2679,11 +2748,11 @@ vm (2.0.6)
 * Python の場所が "az —version" に追加されました ([#2986](https://github.com/Azure/azure-cli/issues/2986))
 * ログイン: サブスクリプションがないときのログインに対応するようになりました ([#2929](https://github.com/Azure/azure-cli/issues/2929))
 * コア: サービス プリンシパルを 2 回使用してログインするときのエラーが修正されました ([#2800](https://github.com/Azure/azure-cli/issues/2800))
-* コア: accessTokens.json のファイル パスを環境変数で構成できます ([#2605](https://github.com/Azure/azure-cli/issues/2605))
-* コア: 構成済み既定値を省略可能な引数に適用できます ([#2703](https://github.com/Azure/azure-cli/issues/2703))
-* コア: パフォーマンスの向上
-* コア: カスタム CA 証明書 - REQUESTS_CA_BUNDLE 環境変数の設定を利用できます
-* コア: クラウド構成 - "管理" エンドポイントが設定されていない場合に、"リソース マネージャー" エンドポイントが使用されます
+* コア:accessTokens.json のファイル パスを環境変数で構成できます ([#2605](https://github.com/Azure/azure-cli/issues/2605))
+* コア:構成済み既定値を省略可能な引数に適用できます ([#2703](https://github.com/Azure/azure-cli/issues/2703))
+* コア:パフォーマンスの向上
+* コア:カスタム CA 証明書 - REQUESTS_CA_BUNDLE 環境変数の設定を利用できます
+* コア:クラウド構成 - "管理" エンドポイントが設定されていない場合に、"リソース マネージャー" エンドポイントが使用されます
 
 ### <a name="acs"></a>ACS
 
@@ -2735,7 +2804,7 @@ vm (2.0.6)
 ### <a name="keyvault"></a>KeyVault
 
 * BC: `az keyvault certificate download` によって -e が文字列またはバイナリから PEM または DER に変更され、オプションの表現が向上しました
-* BC: --expires パラメーターと --not-before パラメーターはサービスでサポートされていないため、`keyvault certificate create` から削除されました
+* BC:--expires パラメーターと --not-before パラメーターはサービスでサポートされていないため、`keyvault certificate create` から削除されました
 * --validity パラメーターが `keyvault certificate create` に追加され、--policy の値が選択的にオーバーライドされます
 * "expires" と "not_before" が公開され、"validity_in_months" が公開されなかった場合に `keyvault certificate get-default-policy` で発生する問題が修正されました
 * KeyVault における pem と pfx のインポートが修正されました ([#2754](https://github.com/Azure/azure-cli/issues/2754))
@@ -2766,7 +2835,7 @@ vm (2.0.6)
 * `--no-wait` パラメーターまたは `--validate` パラメーターを使用するときの `vpn-connection create` のバグが修正されました
 * アクティブ/アクティブ VNet ゲートウェイに対応するようになりました
 * `network vpn-connection list/show` コマンドの出力から null 値が削除されました
-* BC: `vpn-connection create` の出力のバグが修正されました
+* BC:`vpn-connection create` の出力のバグが修正されました
 * "vpn-connection create" の "--key-length" 引数が適切に解析されないバグが修正されました
 * `dns zone import` でレコードが適切にインポートされないバグが修正されました
 * `traffic-manager endpoint update` が動作しないバグを修正しました
@@ -2816,7 +2885,7 @@ vm (2.0.6)
 
 * avail-set: UD&FD ドメイン数が省略可能になりました
 
-  注: 独立したクラウドの VM コマンド。次の管理対象ディスク関連機能は避けるようにしてください。
+  注:独立したクラウドの VM コマンド。次のマネージド ディスク関連機能は避けるようにしてください。
   1. az disk/snapshot/image
   2. az vm/vmss disk
   3. "az vm/vmss create" 内では、"—use-unmanaged-disk" を使用して管理対象ディスクを回避します。他のコマンドは機能します
@@ -2892,7 +2961,7 @@ vm (2.0.2)
 
 ### <a name="docuemntdb"></a>DocuemntDB
 
-* DocumentDB: 接続文字列を一覧表示するためのサポートを追加 ([#2580](https://github.com/Azure/azure-cli/pull/2580))
+* DocumentDB:接続文字列を一覧表示するためのサポートを追加 ([#2580](https://github.com/Azure/azure-cli/pull/2580))
 
 ### <a name="vm"></a>VM
 
