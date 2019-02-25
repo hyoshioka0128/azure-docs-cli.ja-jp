@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 1605b072a68d9aa781290fd862f1d67a847f571e
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.openlocfilehash: eed121ce7ce8f8c1eba5079eb438190d3e4d13db
+ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593304"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56158827"
 ---
 # <a name="query-azure-cli-command-output"></a>Azure CLI コマンドの出力のクエリ
 
@@ -197,7 +197,8 @@ az vm show -g QueryDemo -n TestVM --query '{VMName:name, admin:osProfile.adminUs
 配列からデータを取得するときに使用するもう 1 つの操作は "_フィルター処理_" です。 フィルター処理は、`[?...]` JMESPath 演算子を使用して実行します。
 この演算子は、その内容として述語を受け取ります。 述語とは、`true` または `false` に評価できるステートメントです。 述語が `true` に評価された式が出力に含まれます。
 
-JMESPath では、標準の比較演算子と論理演算子が提供されています。 これらには、`<`、`<=`、`>`、`>=`、`==`、`!=` が含まれます。 JMESPath では、論理 AND (`&&`)、論理 OR (`||`)、論理 NOT (`!`) もサポートされています。 式をかっこ内にグループ化できるので、より複雑な述語式を使用できます。 述語と論理演算の詳細については、[JMESPath の仕様](http://jmespath.org/specification.html)をご覧ください。
+JMESPath では、標準の比較演算子と論理演算子が提供されています。 これらには、`<`、`<=`、`>`、`>=`、`==`、`!=` が含まれます。
+JMESPath では、論理 AND (`&&`)、論理 OR (`||`)、論理 NOT (`!`) もサポートされています。 式をかっこ内にグループ化できるので、より複雑な述語式を使用できます。 述語と論理演算の詳細については、[JMESPath の仕様](http://jmespath.org/specification.html)をご覧ください。
 
 前のセクションでは、配列をフラット化して、リソース グループ内のすべての VM の完全なリストを取得しました。 フィルターを使用すると、この出力を Linux VM だけに制限できます。
 

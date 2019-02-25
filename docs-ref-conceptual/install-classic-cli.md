@@ -10,11 +10,11 @@ ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
 ms.openlocfilehash: 65bf8cdc4ee5d74a778d29cd96e51bad5dc6b22e
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593372"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56158934"
 ---
 # <a name="install-the-azure-classic-cli"></a>Azure クラシック CLI のインストール
 
@@ -62,7 +62,7 @@ Mac または Windows コンピューターを使用している場合は、[Git
 > [!TIP]
 > Windows では、[Web Platform Installer](https://go.microsoft.com/?linkid=9828653) をダウンロードして、クラシック CLI をインストールすることもできます。 このインストーラーを使用すると、その他の Azure SDK とコマンドライン ツールをインストールすることもできます。
 
-## <a name="option-3-use-a-docker-container"></a>選択肢 3: Docker コンテナーの使用
+## <a name="option-3-use-a-docker-container"></a>オプション 3: Docker コンテナーの使用
 
 お使いのコンピューターを [Docker](https://docs.docker.com/engine/understanding-docker/) ホストとして設定すると、Docker コンテナーで Azure クラシック CLI を実行できるようになります。 次のコマンドを実行します (Linux ディストリビューションの場合、`sudo` の使用が必要になる場合があります)。
 

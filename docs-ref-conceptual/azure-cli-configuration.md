@@ -11,11 +11,11 @@ ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
 ms.openlocfilehash: d23f576a1f7447ffab0606b4554a81ae5c536e85
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593780"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56158492"
 ---
 # <a name="azure-cli-configuration"></a>Azure CLI の構成
 
@@ -86,21 +86,21 @@ log_dir=/var/log/azure
 
 | セクション | Name      | type | 説明|
 |---------|-----------|------|------------|
-| __core__ | output | string | 既定の出力形式。 `json`、`jsonc`、`tsv`、`table` のいずれかを指定できます。 |
+| __core__ | output | 文字列 | 既定の出力形式。 `json`、`jsonc`、`tsv`、`table` のいずれかを指定できます。 |
 | | disable\_confirm\_prompt | ブール値 | 確認のプロンプトをオン/オフにします。 |
 | | collect\_telemetry | ブール値 | Microsoft による、CLI の使用に関する匿名データの収集を許可します。 プライバシー情報については、[Azure CLI の使用条件](http://aka.ms/AzureCliLegal)に関するページをご覧ください。 |
 | __logging__ | enable\_log\_file | ブール値 | ログ記録をオン/オフにします。 |
-| | log\_dir | string | ログを書き込むディレクトリ。 この値の既定値は `${AZURE_CONFIG_DIR}/logs` です。 |
-| __storage__ | connection\_string | string | `az storage` コマンドに使用する既定の接続文字列。 |
-| | アカウント | string | `az storage` コマンドに使用する既定のアカウント名。 |
-| | key | string | `az storage` コマンドに使用する既定のアカウント キー。 |
-| | sas\_token | string | `az storage` コマンドに使用する既定の SAS トークン。 |
-| __batchai__ | storage\_account | string | `az batchai` コマンドに使用する既定のストレージ アカウント。 |
-| | storage\_key | string | `az batchai` コマンドに使用する既定のストレージ キー。 |
-| __batch__ | アカウント | string | `az batch` コマンドに使用する既定の Azure Batch アカウント名。 |
-| | access\_key | string | `az batch` コマンドに使用する既定のアクセス キー。 `aad` 承認でのみ使用されます。 |
-| | endpoint | string | `az batch` コマンドに対する既定の接続先エンドポイント。 |
-| | auth\_mode | string | `az batch` コマンドに使用する承認モード。 `shared_key` または `aad` を指定できます。 |
+| | log\_dir | 文字列 | ログを書き込むディレクトリ。 この値の既定値は `${AZURE_CONFIG_DIR}/logs` です。 |
+| __storage__ | connection\_string | 文字列 | `az storage` コマンドに使用する既定の接続文字列。 |
+| | account | 文字列 | `az storage` コマンドに使用する既定のアカウント名。 |
+| | key | 文字列 | `az storage` コマンドに使用する既定のアカウント キー。 |
+| | sas\_token | 文字列 | `az storage` コマンドに使用する既定の SAS トークン。 |
+| __batchai__ | storage\_account | 文字列 | `az batchai` コマンドに使用する既定のストレージ アカウント。 |
+| | storage\_key | 文字列 | `az batchai` コマンドに使用する既定のストレージ キー。 |
+| __batch__ | account | 文字列 | `az batch` コマンドに使用する既定の Azure Batch アカウント名。 |
+| | access\_key | 文字列 | `az batch` コマンドに使用する既定のアクセス キー。 `aad` 承認でのみ使用されます。 |
+| | endpoint | 文字列 | `az batch` コマンドに対する既定の接続先エンドポイント。 |
+| | auth\_mode | 文字列 | `az batch` コマンドに使用する承認モード。 `shared_key` または `aad` を指定できます。 |
 
 > [!NOTE]
 > 構成ファイルに他の値が含まれる場合もありますが、その値は、`az configure` などの CLI コマンドで直接管理されます。 上記の表は、自身で変更する必要がある値のみを示しています。
