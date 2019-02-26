@@ -9,13 +9,8 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 285567b00d8c303af3e78a01dc80946a08e4e8f8
-ms.sourcegitcommit: 614811ea63ceb0e71bd99323846dc1b754e15255
-ms.translationtype: HT
-ms.contentlocale: ja-JP
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53805909"
 ---
+
 # <a name="azure-command-line-interface-cli"></a>Azure コマンド ライン インターフェイス (CLI)
 
 Azure コマンド ライン インターフェイス (CLI) は、Azure リソースを管理するための、Microsoft のクロスプラットフォーム コマンド ライン エクスペリエンスです。
@@ -34,7 +29,7 @@ az vm create -n MyLinuxVM -g MyResourceGroup --image UbuntuLTS
 
 ## <a name="run-or-install"></a>実行またはインストール
 
-CLI はローカルにインストールできます。また、Azure Cloud Shell を使用してブラウザーで実行したり、Docker コンテナーで実行したりすることもできます。
+CLI はローカルにインストールできます。また、Azure Cloud Shell を使用してブラウザーで実行したり、Docker コンテナーで実行したりすることもできます。 CLI の現在のバージョンを取得するには、`az --version` を実行します。
 
 * Azure Cloud Shell を使用したブラウザーでの実行方法については、「[Azure Cloud Shell の Bash のクイック スタート](/azure/cloud-shell/quickstart)」または「[Azure Cloud Shell の PowerShell のクイック スタート](/azure/cloud-shell/quickstart-powershell)」をご覧ください。
 * CLI のインストール方法については、「[Azure CLI のインストール](install-azure-cli.md)」を参照してください。
