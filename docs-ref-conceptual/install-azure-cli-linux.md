@@ -9,16 +9,18 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: b57ddd04d41b09eb145349179e3be48d3fdd5907
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.openlocfilehash: 229b109b307453c87abf260a66084c94ced33d81
+ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593678"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56422002"
 ---
 # <a name="install-azure-cli-on-linux-manually"></a>Linux での Azure CLI の手動インストール
 
 お使いのディストリビューションに対応した Azure CLI 用パッケージがない場合は、手動でスクリプトを実行して CLI をインストールします。
+
+[!INCLUDE [current-version](includes/current-version.md)]
 
 > [!NOTE]
 > パッケージ マネージャーを使用して CLI をインストールすることを強くお勧めします。 パッケージ マネージャーを使用すると、常に最新の更新プログラムを取得できるので、CLI コンポーネントの安定性が保証されます。 手動でインストールする前に、お使いのディストリビューション用のパッケージがあるかどうかを確認してください。
@@ -27,9 +29,13 @@ ms.locfileid: "53593678"
 
 CLI には、次のソフトウェアが必要です。
 
-* [Python 2.7 または Python 3.x](https://www.python.org/downloads/)
+* [Python 3.6.x または 3.7.x](https://www.python.org/downloads/)。 
 * [libffi](https://sourceware.org/libffi/)
 * [OpenSSL 1.0.2](https://www.openssl.org/source/)
+
+> [!IMPORTANT]
+>
+> CLI は、Python 2.7.x とも互換性がありますが、Python 2.7.x は 2020 年 1 月 1 日に有効期間が終了します。 このため、CLI を実行する場合は、Python 3 をインストールすることをお勧めします。
 
 ## <a name="install-or-update"></a>インストールまたは更新
 

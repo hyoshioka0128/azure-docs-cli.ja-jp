@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: e62523ba310f071020f0d66042e39e6f1867c56b
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.openlocfilehash: 14f51e068c4d2b332b0de93406822e148d734701
+ms.sourcegitcommit: 032f35d553754fbac78b218259a8d6a697ac220e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593848"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56458690"
 ---
-# <a name="select-clouds-with-the-azure-cli"></a>Azure CLI でクラウドを選択する 
+# <a name="select-clouds-with-the-azure-cli"></a>Azure CLI でクラウドを選択する
 
 異なるリージョンにわたって作業したり、[Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/) を使用したりする場合、複数のクラウドの使用が必要になることがあります。 Microsoft はお客様が使用可能な、リージョンの法規に従ったクラウドを提供します。 この記事では、クラウドに関する情報の取得、現行クラウドの変更、新規クラウドの登録または登録解除の方法について説明します。
 
@@ -88,7 +88,7 @@ az cloud set --name AzureChinaCloud
 
 Azure Stack 用の独自のエンドポイントがある場合は、新しいクラウドを登録します。 [az cloud register](/cli/azure/cloud#az-cloud-register) コマンドを実行すると、クラウドが作成されます。 このコマンドには、名前と一連のサービス エンドポイントが必要です。 Azure Stack で使用するクラウドの登録方法については、[Azure Stack での Azure CLI による API バージョンのプロファイルの使用](/azure/azure-stack/user/azure-stack-version-profiles-azurecli2#connect-to-azure-stack)に関するページをご覧ください。
 
-中国、米国政府、またはドイツのリージョンについては、独自のクラウドを登録する必要はありません。 これらのクラウドは Microsoft が管理しているため、既定値で使用可能です。  使用可能なエンドポイント設定に関する詳細については、[`az cloud register` のドキュメント](/cli/azure/cloud#az-cloud-register)を参照してください。
+中国、米国政府、またはドイツのリージョンについては、情報を登録する必要はありません。 これらのクラウドは Microsoft が管理しているため、既定値で使用可能です。  使用可能なエンドポイント設定に関する詳細については、[`az cloud register` のドキュメント](/cli/azure/cloud#az-cloud-register)を参照してください。
 
 クラウドを登録しても、自動的にそのクラウドに切り替わるわけではありません。 `az cloud set` コマンドを使用して、新規作成したクラウドを選択してください。
 

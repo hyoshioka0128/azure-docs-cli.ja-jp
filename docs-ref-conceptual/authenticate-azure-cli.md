@@ -4,17 +4,17 @@ description: 対話形式またはローカル資格情報で Azure CLI を使�
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/07/2018
+ms.date: 02/22/2019
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
 ms.component: authentication
-ms.openlocfilehash: 05a4ef87fcf23af21ec6dc1d6cd9daa82369d5b9
-ms.sourcegitcommit: 0d6b08048b5b35bf0bb3d7b91ff567adbaab2a8b
+ms.openlocfilehash: c1c2efa58b11c38ac0ed73d43c71ba1b2a44de2e
+ms.sourcegitcommit: 014d89aa21f90561eb69792ad01947e481ea640a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51222448"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56741736"
 ---
 # <a name="sign-in-with-azure-cli"></a>Azure CLI を使用してサインインする 
 
@@ -49,13 +49,11 @@ az login -u <username> -p <password>
 > read -sp "Azure password: " AZ_PASS && echo && az login -u <username> -p $AZ_PASS
 > ```
 >
-> PowerShell では、`Read-Host -AsSecureString` コマンドレットを使用して、文字列変換をセキュリティで保護します。
+> PowerShell では、`Get-Credential` コマンドレットを使用します。
 >
 > ```powershell
-> $securePass =  Read-Host "Azure password: " -AsSecureString;
-> $AzPass = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($securePass));
-> az login -u <username> -p $AzPass;
-> $AzPass = ""
+> $AzCred = Get-Credential -UserName <username>
+> az login -u $AzCred.UserName -p $AzCred.GetNetworkCredential().Password
 > ```
 
 ## <a name="sign-in-with-a-service-principal"></a>サービス プリンシパルを使ってサインインする
@@ -68,6 +66,10 @@ az login -u <username> -p <password>
 * サービス プリンシパルのパスワード、またはサービス プリンシパルを PEM 形式で作成するために使用する X509 証明書
 * `.onmicrosoft.com` ドメインまたは Azure オブジェクト ID として、サービス プリンシパルに関連付けられているテナント
 
+> [!IMPORTANT]
+>
+> お使いのサービス プリンシパルでは、Key Vault に格納されている証明書が使用されている場合、その証明書の秘密キーは Azure にサインインしなくても使用できる必要があります。 オフラインで使用する秘密キーを取得するには、[az keyvault secret show](/cli/azure/keyvault/secret) を使用します。
+
 ```azurecli-interactive
 az login --service-principal -u <app-url> -p <password-or-cert> --tenant <tenant>
 ```
@@ -79,13 +81,11 @@ az login --service-principal -u <app-url> -p <password-or-cert> --tenant <tenant
 > read -sp "Azure password: " AZ_PASS && echo && az login --service-principal -u <app-url> -p $AZ_PASS --tenant <tenant>
 > ```
 >
-> PowerShell では、`Read-Host -AsSecureString` コマンドレットを使用して、文字列変換をセキュリティで保護します。
+> PowerShell では、`Get-Credential` コマンドレットを使用します。
 >
 > ```powershell
-> $securePass =  Read-Host "Azure password: " -AsSecureString;
-> $AzPass = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($securePass));
-> az login --service-principal -u <app-url> -p $AzPass --tenant <tenant>;
-> $AzPass = ""
+> $AzCred = Get-Credential -UserName <app-url>
+> az login -u $AzCred.UserName -p $AzCred.GetNetworkCredential().Password --tenant <tenant>
 > ```
 
 ## <a name="sign-in-with-a-different-tenant"></a>別のテナントでサインインする

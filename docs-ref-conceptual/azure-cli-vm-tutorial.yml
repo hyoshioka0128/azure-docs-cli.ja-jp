@@ -16,12 +16,12 @@ metadata:
   ms.prod: azure
   ms.technology: azurecli
   clicktale: true
-  ms.openlocfilehash: d936f451bf29bae5513da16fb86bfd1b31b9727d
-  ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+  ms.openlocfilehash: e2c3c1a181105a86ccb8882b647f1984e32c8246
+  ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 12/18/2018
-  ms.locfileid: "53593151"
+  ms.lasthandoff: 02/12/2019
+  ms.locfileid: "56158589"
 items:
 - durationInMinutes: 1
   content: >-
@@ -55,14 +55,15 @@ items:
 - durationInMinutes: 4
   title: CLI 出力からの環境変数の設定
   content: >-
-    NIC ID が用意できたので、`az network nic show` を実行して、情報を取得してみましょう。
+    NIC ID が用意できたので、`az network nic show` を実行して、情報を取得してみましょう。 Azure リソース ID 内にリソース グループ名が含まれているので、ここでは、リソース グループが不要であることに注意してください。
 
 
     ```azurecli-interactive
 
-    az network nic show --ids $NIC_ID -g TutorialResources
+    az network nic show --ids $NIC_ID
 
     ```
+
 
 
     このコマンドにより、VM のネットワーク インターフェイスの情報すべてが表示されます。 このデータには、DNS 設定、IP 情報、セキュリティ設定、および MAC アドレスが含まれます。 現時点での目的は、パブリック IP アドレスとサブネット オブジェクト ID を取得することです。
@@ -71,7 +72,6 @@ items:
     ```azurecli-interactive
 
     az network nic show --ids $NIC_ID \
-      -g TutorialResources \
       --query '{IP:ipConfigurations[].publicIpAddress.id, Subnet:ipConfigurations[].subnet.id}' \
       -o json
     ```
@@ -100,7 +100,7 @@ items:
     ```bash
 
     read -d '' IP_ID SUBNET_ID <<< $(az network nic show \
-      --ids $NIC_ID -g TutorialResources \
+      --ids $NIC_ID \
       --query '[ipConfigurations[].publicIpAddress.id, ipConfigurations[].subnet.id]' \
       -o tsv)
     ```
@@ -112,7 +112,6 @@ items:
     ```bash
 
     VM1_IP_ADDR=$(az network public-ip show --ids $IP_ID \
-      -g TutorialResources \
       --query ipAddress \
       -o tsv)
     ```
@@ -230,7 +229,7 @@ items:
 
     * [Azure CLI リポジトリ](https://github.com/Azure/azure-cli)で CLI を使用して、機能要求またはバグ レポートを提出できます。
 
-    * [Azure CLI ドキュメント リポジトリ](https://github.com/Azure/azure-docs-cli-python)で問題を報告することで、ご質問や内容確認を行うことができます。
+    * [Azure CLI ドキュメント リポジトリ](https://github.com/MicrosoftDocs/azure-docs-cli/issues)で問題を報告することで、ご質問や内容確認を行うことができます。
 
 
     Azure CLI をご利用いただましたら幸いです。

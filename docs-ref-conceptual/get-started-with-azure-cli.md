@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: a56ce4acf070c17d8deaec9674593ba930cca70f
-ms.sourcegitcommit: f40bd067ece4e6ec13e259782ed8db3e33b61a75
+ms.openlocfilehash: b018f41824946dca36d0b806de0dd32a335a15b5
+ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53593610"
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56422019"
 ---
 # <a name="get-started-with-azure-cli"></a>Azure CLI の概要
 
@@ -26,6 +26,8 @@ Azure CLI へようこそ。 CLI は、Azure サービスを迅速かつ効率�
 Azure CLI で作業を開始するには、お使いのブラウザーから Azure Cloud Shell 環境で実行するのが最も簡単です。 Cloud Shell については、「[Azure Cloud Shell の Bash のクイックスタート](/azure/cloud-shell/quickstart)」を参照してください。
 
 CLI をインストールする準備ができたら、[インストール手順](install-azure-cli.md)に関するページをご覧ください。
+
+初めて CLI をインストールしたら、`az --version` を実行して、CLI の正しいバージョンがインストールされていること確認します。
 
 ## <a name="sign-in"></a>サインイン
 
@@ -41,7 +43,7 @@ CLI をインストールする準備ができたら、[インストール手順
 
 | リソースの種類 | Azure CLI コマンド グループ |
 |---------------|-------------------------|
-| [[リソース グループ]](/azure/azure-resource-manager/resource-group-overview) | [az group](/cli/azure/group) |
+| [リソース グループ](/azure/azure-resource-manager/resource-group-overview) | [az group](/cli/azure/group) |
 | [仮想マシン](/azure/virtual-machines) | [az vm](/cli/azure/vm) |
 | [ストレージ アカウント](/azure/storage/common/storage-introduction) | [az storage account](/cli/azure/storage/account) |
 | [Key Vault](/azure/key-vault/key-vault-whatis) | [az keyvault](/cli/azure/keyvault) |
@@ -72,7 +74,7 @@ CLI では Bash シェルにコマンドの完全タブ補完が用意されて�
 引数の中には、すべてのコマンドで使用できるものがあります。
 
 * `--help` は、コマンドとその引数に関する CLI 参照情報を出力し、利用可能なサブグループとコマンドの一覧を表示します。
-* `--output` は出力形式を変更します。 使用可能な出力形式は `json`、`jsonc` (色付けされた JSON)、`tsv` (タブ区切り値)、および `table` (人間が判読できる ASCII テーブル) です。 既定では、CLI は `json` を出力します。 使用可能な出力形式の詳細については、[Azure CLI の出力形式](format-output-azure-cli.md)に関するページをご覧ください。
+* `--output` は出力形式を変更します。 使用可能な出力形式は `json`、`jsonc` (色付けされた JSON)、`tsv` (タブ区切り値)、および `table` (人間が判読できる ASCII テーブル)、および `yaml` です。 既定では、CLI は `json` を出力します。 使用可能な出力形式の詳細については、[Azure CLI の出力形式](format-output-azure-cli.md)に関するページをご覧ください。
 * `--query` は、[JMESPath クエリ言語](http://jmespath.org/)を使用して、Azure サービスから返された出力をフィルター処理します。 クエリの詳細については、[Azure CLI でのコマンド結果に対するクエリの実行](query-azure-cli.md)に関するページ、および「[JMESPath tutorial (JMESPath チュートリアル)](http://jmespath.org/tutorial.html)」を参照してください。
 * `--verbose` は、操作中に Azure で作成されたリソースに関する情報と、その他の有用な情報を出力します。
 * `--debug` は、デバッグの目的で使用する、CLI 操作に関する詳細情報を出力します。 バグを見つけた場合は、バグ レポートを送信するときに、`--debug` フラグをオンにして生成した出力を提供してください。
