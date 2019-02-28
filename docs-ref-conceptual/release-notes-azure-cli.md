@@ -4,19 +4,240 @@ description: Azure CLI の最新情報について説明します
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 12/18/2018
+ms.date: 02/15/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 10663ad8e85a15b8fedb5ac12c5d17256d07e523
-ms.sourcegitcommit: 614811ea63ceb0e71bd99323846dc1b754e15255
+ms.openlocfilehash: 1c6b2cc57b80256faff0a174bec5f13bd84f5a1b
+ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53805960"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56158736"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+## <a name="february-12-2019"></a>2019 年 2 月 12 日
+
+バージョン 2.0.58
+
+### <a name="core"></a>コア
+
+* 更新可能なパッケージがある場合、`az --version` で通知が表示されるようになりました
+* JSON 出力で `--ids` を使用できなくなる回帰を修正しました
+
+### <a name="acr"></a>ACR
+* [重大な変更] `acr build-task` コマンド グループを削除しました
+* [重大な変更] `acr repository delete` から `--tag` オプションおよび `--manifest` オプションを削除しました
+
+### <a name="acs"></a>ACS
+* `aks [enable-addons|disable-addons]` に、大文字と小文字を区別しない名前のサポ―トを追加しました
+* `aks update-credentials --reset-aad` を使用した Azure Active Directory 更新操作のサポートを追加しました
+* `aks get-credentials` のために `--output` が無視されることの説明を追加しました
+
+### <a name="ams"></a>AMS
+* `ams streaming-endpoint [start | stop | create | update] wait` コマンドを追加しました
+* `ams live-event [create | start | stop | reset] wait` コマンドを追加しました
+
+### <a name="appservice"></a>Appservice
+* ACR のコンテナーを使用して関数を作成および構成する機能を追加しました
+* JSON 経由で Web アプリの構成を更新するためのサポートが追加されました
+* `appservice-plan-update` のヘルプを強化しました
+* functionapp create に対する App Insights のサポートを追加しました
+* Web アプリの SSH の問題を修正しました
+
+### <a name="botservice"></a>Botservice
+* `bot publish` の UX を強化しました
+* `az bot publish` の間に `npm install` を実行した場合のタイムアウトの警告を追加しました
+* `az bot create` の `--name` から無効な文字 `.` を削除しました
+* Azure Storage、App Service プラン、関数または Web アプリ、Application Insights を作成するときに、リソース名のランダム化を停止するように変更しました
+* [非推奨] `--proj-file-path` を優先して、`--proj-name` 引数を非推奨にしました
+* 存在しなかった場合にフェッチされた IIS Node.js デプロイ ファイルを削除するように、`az bot publish` を変更しました
+* App Service で `node_modules` フォルダーを削除しないように、`az bot publish` に `--keep-node-modules` 引数を追加しました
+* Azure Functions ボットまたは Web アプリ ボットの作成時の、`az bot create` からの出力に `"publishCommand"` キーと値のペアを追加しました
+  * `"publishCommand"` の値は、新しく作成したボットを発行するために必要なパラメーターが入力された `az bot publish` コマンドです
+* 8.9.4 ではなく 10.14.1 を使用するように、v4 SDK ボット用の ARM テンプレートで `"WEBSITE_NODE_DEFAULT_VERSION"` を更新しました
+
+### <a name="key-vault"></a>Key Vault
+* `--id` の使用時に一部のユーザーに `unexpected_keyword` エラーが発生する `keyvault secret backup` の問題を修正しました
+
+### <a name="monitor"></a>監視
+* ディメンション値 `*` を許可するように `monitor metrics alert [create|update]` を変更しました
+
+### <a name="network"></a>ネットワーク
+* エクスポートされた CNAME が必ず FQDN になるように `dns zone export` を変更しました
+* アプリケーション ゲートウェイのバックエンド アドレス プールをサポートするように、`--gateway-name` パラメーターを `nic ip-config address-pool [add|remove]` に追加しました
+* Log Analytics ワークスペースによるトラフィック分析をサポートするために、`--traffic-analytics` 引数と `--workspace` 引数を `network watcher flow-log configure` に追加しました
+* `--idle-timeout` と `--floating-ip` を `lb inbound-nat-pool [create|update]` に追加しました
+
+### <a name="policy-insights"></a>ポリシーの分析情報
+* リソース ポリシーの修復機能をサポートするために、`policy remediation` コマンドを追加しました
+
+### <a name="rdbms"></a>RDBMS
+* ヘルプ メッセージとコマンド パラメーターを強化しました
+
+### <a name="redis"></a>Redis
+* ファイアウォール規則を管理 (作成、更新、削除、表示、一覧表示) するためのコマンドを追加しました
+* サーバーのリンクを管理 (作成、削除、表示、一覧表示) するためのコマンドを追加しました
+* パッチ スケジュールを管理 (作成、更新、削除、表示) するためのコマンドを追加しました
+* redis create に、Availability Zones と TLS 最小バージョンのサポートを追加しました
+* [重大な変更] `redis update-settings` コマンドおよび `redis list-all` コマンドを削除しました
+* [重大な変更] `redis create` のパラメーター 'tenant settings' は、key[=value] 形式では使用できなくなりました
+* [非推奨] `redis import-method` コマンドが非推奨であることを示す警告メッセージを追加しました
+
+### <a name="role"></a>Role
+* [重大な変更] `az identity` コマンドを `vm` のコマンドからここに移動しました
+
+### <a name="sql-vm"></a>SQL VM
+* [非推奨] 誤りがあったため、`--boostrap-acc-pwd` 引数を非推奨にしました
+
+### <a name="vm"></a>VM
+* `--all true` の代わりに `--all` を使用できるように `vm list-skus` を変更しました
+* `vmss run-command [invoke | list | show]` を追加しました
+* 以前に実行していた場合に `vmss encryption enable` が失敗するバグを修正しました
+* [重大な変更] `az identity` コマンドを `role` のコマンドに移動しました
+
+## <a name="january-31-2019"></a>2019 年 1 月 31 日
+
+バージョン 2.0.57
+
+### <a name="core"></a>コア
+
+* [問題 8399](https://github.com/Azure/azure-cli/issues/8399) 用のホット フィックス。
+
+## <a name="january-28-2019"></a>2019 年 1 月 28 日
+
+バージョン 2.0.56
+
+### <a name="acr"></a>ACR
+* VNet ルールまたは IP 規則のサポートを追加しました
+
+### <a name="acs"></a>ACS
+* 仮想ノードのプレビューを追加しました
+* マネージド OpenShift コマンドを追加しました
+* `aks update-credentials -reset-service-principal` を使用したサービス プリンシパル更新操作に対するサポートを追加しました
+
+### <a name="ams"></a>AMS
+* [重大な変更] 名前を `ams asset get-streaming-locators` から `ams asset list-streaming-locators` に変更しました
+* [重大な変更] 名前を `ams streaming-locator get-content-keys` から `ams streaming-locator list-content-keys` に変更しました
+
+### <a name="appservice"></a>Appservice
+* `functionapp create` での App Insights のサポートを追加しました
+* Function App に、App Service プラン作成 (エラスティック Premium を含む) のサポートを追加しました
+* エラスティック Premium プランのアプリ設定に関する問題を修正しました
+
+### <a name="container"></a>コンテナー
+* `container start` コマンドを追加しました
+* コンテナーの作成時に CPU に 10 進数値を使用できるように変更しました
+
+### <a name="eventgrid"></a>EventGrid
+* `--deadletter-endpoint` パラメーターを `event-subscription [create|update]` に追加しました
+* "event-subscription [create|update] --endpoint-type" の新しい値として、storagequeue と hybridconnection を追加しました
+* イベントの再試行ポリシーを指定するために、`--max-delivery-attempts` パラメーターと `--event-ttl` パラメーターを `event-subscription create` に追加しました
+* イベント サブスクリプションの保存先として Webhook が使用されている場合、`event-subscription [create|update]` に警告メッセージを追加しました
+* すべてのイベント サブスクリプションに関連するコマンドに source-resource-id パラメーターを追加し、その他のすべてのソース リソース関連パラメーターを非推奨としてマークしました
+
+### <a name="hdinsight"></a>HDInsight
+* [重大な変更] `hdinsight [application] create` から `--virtual-network` パラメーターと `--subnet-name` パラメーターを削除しました
+* [重大な変更] BLOB エンドポイントではなく、ストレージ アカウントの名前または ID を受け入れるように、`hdinsight create --storage-account` を変更しました
+* `--vnet-name` および `--subnet-name` パラメーターを `hdinsight create` に追加しました
+* Enterprise セキュリティ パッケージとディスク暗号化のサポートが `hdinsight create` に追加されました 
+* `hdinsight rotate-disk-encryption-key` コマンドを追加しました
+* `hdinsight update` コマンドを追加しました
+
+### <a name="iot"></a>IoT
+* routing-endpoint コマンドにエンコード形式を追加しました
+
+### <a name="kusto"></a>Kusto
+* プレビュー リリース
+
+### <a name="monitor"></a>監視
+* 大文字と小文字が区別されないように、ID 比較を変更しました
+
+### <a name="profile"></a>プロファイル
+* `login` でマネージド サービス ID に対応するテナント レベル アカウントを有効にしました
+
+### <a name="network"></a>ネットワーク
+* `--bandwidth` 引数が無視される `express-route update` の問題を修正しました
+* set comprehension によってスタック トレースが引き起こされる `ddos-protection update` の問題を修正しました
+
+### <a name="resource"></a>リソース
+* `group deployment create` に URI パラメーター ファイルのサポートを追加しました
+* `policy assignment [create|list|show]` にマネージド ID のサポートを追加しました
+
+### <a name="sql-virtual-machine"></a>SQL 仮想マシン
+* プレビュー リリース
+
+### <a name="storage"></a>Storage
+* 同じオブジェクトで変更されるプロパティのみを更新するように修正プログラムを変更しました
+* #8021 を修正しました。バイナリ データが返されるとき、base 64 でエンコードされます
+
+### <a name="vm"></a>VM
+* ディスク暗号化 keyvault と、キー暗号化 keyvault が存在することを検証するように `vm encryption enable` を変更しました
+* `--force` フラグを `vm encryption enable` に追加しました
+
+## <a name="january-15-2019"></a>2019 年 1 月 15 日
+
+バージョン 2.0.55
+
+### <a name="acr"></a>ACR
+* 存在しない Helm チャートを強制プッシュできるように変更しました
+* ARM 要求なしでランタイム操作できるように変更しました
+* [非推奨] 次のコマンドの `--resource-group` パラメーターを非推奨にしました
+  * `acr login`
+  * `acr repository`
+  * `acr helm`
+
+### <a name="acs"></a>ACS
+* 新しい ACI リージョンのサポートを追加しました
+
+### <a name="appservice"></a>Appservice
+* ASE RG とアプリ RG の異なる ASE でホストされているアプリの証明書のアップロードに関する問題を修正しました
+* Linux 用の既定値として SKU P1V1 を使用するように `webapp up` を変更しました
+* デプロイが失敗したときに、適切なエラー メッセージが表示されるように `[webapp|functionapp] deployment source config-zip` を修正しました 
+* `webapp ssh` コマンドを追加しました
+
+### <a name="botservice"></a>Botservice
+* デプロイ状態の更新プログラムを `bot create` に追加しました
+
+### <a name="configure"></a>構成
+* 構成可能な出力形式として `none` を追加しました
+
+### <a name="cosmosdb"></a>Cosmos DB
+* 共有スループットを使用したデータベース作成のサポートを追加しました
+
+### <a name="hdinsight"></a>HDInsight
+* アプリケーションを管理するためのコマンドを追加しました
+* スクリプト アクションを管理するためのコマンドを追加しました
+* Operations Management Suite (OMS) を管理するためのコマンドを追加しました
+* リージョンの使用状況を一覧表するためのサポートを `hdinsight list-usage` に追加しました
+* [重大な変更] 既定のクラスターの種類を `hdinsight create` から削除しました
+
+### <a name="network"></a>ネットワーク
+* `--custom-headers` 引数と `--status-code-ranges` 引数を `traffic-manager profile [create|update]` に追加しました
+* 新しいルーティングの種類として、サブネットと複数値を追加しました
+* `--custom-headers` 引数と `--subnets` 引数を `traffic-manager endpoint [create|update]` に追加しました  
+* `ddos-protection update` に `--vnets ""` を指定するとエラーが発生する問題を修正しました
+
+### <a name="role"></a>Role
+* [非推奨] `create-for-rbac` の `--password` 引数を非推奨にしました。 代わりに、CLI によって生成された安全なパスワードを使用してください
+
+### <a name="security"></a>セキュリティ
+* 最初のリリース
+
+### <a name="storage"></a>Storage
+* [重大な変更] 既定の結果数が 5,000 になるように `storage [blob|file|container|share] list` を変更しました。 すべての結果を返す元の動作が必要な場合は `--num-results *` を使用してください
+* `--marker` パラメーターを `storage [blob|file|container|share] list` に追加しました
+* 次のページを表すログ マーカーを `storage [blob|file|container|share] list` の STDERR に追加しました 
+* 静的 Web サイトをサポートする `storage blob service-properties update` コマンドを追加しました
+
+### <a name="vm"></a>VM
+* より一貫性のあるパラメーターが指定されるように `vm [disk|unmanaged-disk]` と `vmss disk` を変更しました
+* テナント イメージ相互参照のサポートを `[vm|vmss] create` に追加しました
+* `vm diagnostics get-default-config --windows-os` の既定の構成に関するバグを修正しました
+* 拡張機能を設定する前に拡張機能をプロビジョニングしておく必要があるかを定義するために、`--provision-after-extensions` 引数を `vmss extension set` に追加しました
+* 既定のレプリケーション数を設定できるように、`--replica-count` 引数を `sig image-version update` に追加しました
+* 完全なリソース ID を指定しているにもかかわらず、ソース OS ディスクが同じ名前の VM と取り違えられる `image create --source` のバグを修正しました
 
 ## <a name="december-20-2018"></a>2018 年 12 月 20 日
 
