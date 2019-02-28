@@ -4,104 +4,104 @@ description: 対話形式またはローカル資格情報で Azure CLI を使�
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/07/2018
+ms.date: 02/22/2019
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
 ms.component: authentication
-ms.openlocfilehash: 05a4ef87fcf23af21ec6dc1d6cd9daa82369d5b9
-ms.sourcegitcommit: 0d6b08048b5b35bf0bb3d7b91ff567adbaab2a8b
+ms.openlocfilehash: c1c2efa58b11c38ac0ed73d43c71ba1b2a44de2e
+ms.sourcegitcommit: 014d89aa21f90561eb69792ad01947e481ea640a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51222448"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56741736"
 ---
-# <a name="sign-in-with-azure-cli"></a><span data-ttu-id="4af19-103">Azure CLI を使用してサインインする</span><span class="sxs-lookup"><span data-stu-id="4af19-103">Sign in with Azure CLI</span></span> 
+# <a name="sign-in-with-azure-cli"></a><span data-ttu-id="01b52-103">Azure CLI を使用してサインインする</span><span class="sxs-lookup"><span data-stu-id="01b52-103">Sign in with Azure CLI</span></span> 
 
-<span data-ttu-id="4af19-104">Azure CLI には、いくつかの認証の種類があります。</span><span class="sxs-lookup"><span data-stu-id="4af19-104">There are several authentication types for the Azure CLI.</span></span> <span data-ttu-id="4af19-105">[Azure Cloud Shell](/azure/cloud-shell/overview) を使用すると自動的にログインできるため、最も簡単に作業を開始できます。</span><span class="sxs-lookup"><span data-stu-id="4af19-105">The easiest way to get started is with [Azure Cloud Shell](/azure/cloud-shell/overview), which automatically logs you in.</span></span>
-<span data-ttu-id="4af19-106">ローカルでは、ご使用のブラウザーで [az login](/cli/azure/reference-index#az-login) コマンドを使用して、対話形式でサインインできます。</span><span class="sxs-lookup"><span data-stu-id="4af19-106">Locally, you can sign in interactively through your browser with the [az login](/cli/azure/reference-index#az-login) command.</span></span> <span data-ttu-id="4af19-107">スクリプトを記述するときは、サービス プリンシパルを使用することをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="4af19-107">When writing scripts, the recommended approach is to use service principals.</span></span> <span data-ttu-id="4af19-108">サービス プリンシパルに必要とされる適切なアクセス許可だけを付与することによって、自動化をより安全に維持できます。</span><span class="sxs-lookup"><span data-stu-id="4af19-108">By granting just the appropriate permissions needed to a service principal, you can keep your automation secure.</span></span>
+<span data-ttu-id="01b52-104">Azure CLI には、いくつかの認証の種類があります。</span><span class="sxs-lookup"><span data-stu-id="01b52-104">There are several authentication types for the Azure CLI.</span></span> <span data-ttu-id="01b52-105">[Azure Cloud Shell](/azure/cloud-shell/overview) を使用すると自動的にログインできるため、最も簡単に作業を開始できます。</span><span class="sxs-lookup"><span data-stu-id="01b52-105">The easiest way to get started is with [Azure Cloud Shell](/azure/cloud-shell/overview), which automatically logs you in.</span></span>
+<span data-ttu-id="01b52-106">ローカルでは、ご使用のブラウザーで [az login](/cli/azure/reference-index#az-login) コマンドを使用して、対話形式でサインインできます。</span><span class="sxs-lookup"><span data-stu-id="01b52-106">Locally, you can sign in interactively through your browser with the [az login](/cli/azure/reference-index#az-login) command.</span></span> <span data-ttu-id="01b52-107">スクリプトを記述するときは、サービス プリンシパルを使用することをお勧めします。</span><span class="sxs-lookup"><span data-stu-id="01b52-107">When writing scripts, the recommended approach is to use service principals.</span></span> <span data-ttu-id="01b52-108">サービス プリンシパルに必要とされる適切なアクセス許可だけを付与することによって、自動化をより安全に維持できます。</span><span class="sxs-lookup"><span data-stu-id="01b52-108">By granting just the appropriate permissions needed to a service principal, you can keep your automation secure.</span></span>
 
-<span data-ttu-id="4af19-109">CLI によってサインイン情報が保存されることは、まったくありません。</span><span class="sxs-lookup"><span data-stu-id="4af19-109">None of your sign-in information is stored by the CLI.</span></span> <span data-ttu-id="4af19-110">代わりに、[認証更新トークン](https://docs.microsoft.com/en-us/azure/active-directory/develop/v1-id-and-access-tokens#refresh-tokens)が Azure によって生成され、保存されます。</span><span class="sxs-lookup"><span data-stu-id="4af19-110">Instead, an [authentication refresh token](https://docs.microsoft.com/en-us/azure/active-directory/develop/v1-id-and-access-tokens#refresh-tokens) is generated by Azure and stored.</span></span> <span data-ttu-id="4af19-111">2018 年 8 月の時点で、このトークンは非アクティブな状態が 90 日続くと取り消されますが、この値は、Microsoft またはテナント管理者が変更できます。</span><span class="sxs-lookup"><span data-stu-id="4af19-111">As of August 2018 this token is revoked after 90 days of inactivity, but this value can be changed by Microsoft or your tenant administrator.</span></span> <span data-ttu-id="4af19-112">トークンが取り消されると、もう一度サインインする必要があることが CLI からメッセージで通知されます。</span><span class="sxs-lookup"><span data-stu-id="4af19-112">Once the token is revoked you get a message from the CLI saying you need to sign in again.</span></span>
+<span data-ttu-id="01b52-109">CLI によってサインイン情報が保存されることは、まったくありません。</span><span class="sxs-lookup"><span data-stu-id="01b52-109">None of your sign-in information is stored by the CLI.</span></span> <span data-ttu-id="01b52-110">代わりに、[認証更新トークン](https://docs.microsoft.com/en-us/azure/active-directory/develop/v1-id-and-access-tokens#refresh-tokens)が Azure によって生成され、保存されます。</span><span class="sxs-lookup"><span data-stu-id="01b52-110">Instead, an [authentication refresh token](https://docs.microsoft.com/en-us/azure/active-directory/develop/v1-id-and-access-tokens#refresh-tokens) is generated by Azure and stored.</span></span> <span data-ttu-id="01b52-111">2018 年 8 月の時点で、このトークンは非アクティブな状態が 90 日続くと取り消されますが、この値は、Microsoft またはテナント管理者が変更できます。</span><span class="sxs-lookup"><span data-stu-id="01b52-111">As of August 2018 this token is revoked after 90 days of inactivity, but this value can be changed by Microsoft or your tenant administrator.</span></span> <span data-ttu-id="01b52-112">トークンが取り消されると、もう一度サインインする必要があることが CLI からメッセージで通知されます。</span><span class="sxs-lookup"><span data-stu-id="01b52-112">Once the token is revoked you get a message from the CLI saying you need to sign in again.</span></span>
 
-<span data-ttu-id="4af19-113">サインインすると、CLI コマンドが既定のサブスクリプションに対して実行されます。</span><span class="sxs-lookup"><span data-stu-id="4af19-113">After signing in, CLI commands are run against your default subscription.</span></span> <span data-ttu-id="4af19-114">複数のサブスクリプションがある場合は、[既定のサブスクリプションを変更](manage-azure-subscriptions-azure-cli.md)できます。</span><span class="sxs-lookup"><span data-stu-id="4af19-114">If you have multiple subscriptions, you can [change your default subscription](manage-azure-subscriptions-azure-cli.md).</span></span>
+<span data-ttu-id="01b52-113">サインインすると、CLI コマンドが既定のサブスクリプションに対して実行されます。</span><span class="sxs-lookup"><span data-stu-id="01b52-113">After signing in, CLI commands are run against your default subscription.</span></span> <span data-ttu-id="01b52-114">複数のサブスクリプションがある場合は、[既定のサブスクリプションを変更](manage-azure-subscriptions-azure-cli.md)できます。</span><span class="sxs-lookup"><span data-stu-id="01b52-114">If you have multiple subscriptions, you can [change your default subscription](manage-azure-subscriptions-azure-cli.md).</span></span>
 
-## <a name="sign-in-interactively"></a><span data-ttu-id="4af19-115">対話操作でサインインする</span><span class="sxs-lookup"><span data-stu-id="4af19-115">Sign in interactively</span></span>
+## <a name="sign-in-interactively"></a><span data-ttu-id="01b52-115">対話操作でサインインする</span><span class="sxs-lookup"><span data-stu-id="01b52-115">Sign in interactively</span></span>
 
-<span data-ttu-id="4af19-116">Azure CLI の既定の認証方法では、サインインに Web ブラウザーとアクセス トークンを使用します。</span><span class="sxs-lookup"><span data-stu-id="4af19-116">The Azure CLI's default authentication method uses a web browser and access token to sign in.</span></span>
+<span data-ttu-id="01b52-116">Azure CLI の既定の認証方法では、サインインに Web ブラウザーとアクセス トークンを使用します。</span><span class="sxs-lookup"><span data-stu-id="01b52-116">The Azure CLI's default authentication method uses a web browser and access token to sign in.</span></span>
 
 [!INCLUDE [interactive_login](includes/interactive-login.md)]
 
-## <a name="sign-in-with-credentials-on-the-command-line"></a><span data-ttu-id="4af19-117">コマンド ラインで資格情報を使用してサインインする</span><span class="sxs-lookup"><span data-stu-id="4af19-117">Sign in with credentials on the command line</span></span>
+## <a name="sign-in-with-credentials-on-the-command-line"></a><span data-ttu-id="01b52-117">コマンド ラインで資格情報を使用してサインインする</span><span class="sxs-lookup"><span data-stu-id="01b52-117">Sign in with credentials on the command line</span></span>
 
-<span data-ttu-id="4af19-118">コマンド ラインで、Azure ユーザー資格情報を指定します。</span><span class="sxs-lookup"><span data-stu-id="4af19-118">Provide your Azure user credentials on the command line.</span></span>
+<span data-ttu-id="01b52-118">コマンド ラインで、Azure ユーザー資格情報を指定します。</span><span class="sxs-lookup"><span data-stu-id="01b52-118">Provide your Azure user credentials on the command line.</span></span>
 
 > [!Note]
-> <span data-ttu-id="4af19-119">この方法は、Microsoft アカウント、または 2 要素認証が有効になっているアカウントでは機能しません。</span><span class="sxs-lookup"><span data-stu-id="4af19-119">This approach doesn't work with Microsoft accounts or accounts that have two-factor authentication enabled.</span></span>
+> <span data-ttu-id="01b52-119">この方法は、Microsoft アカウント、または 2 要素認証が有効になっているアカウントでは機能しません。</span><span class="sxs-lookup"><span data-stu-id="01b52-119">This approach doesn't work with Microsoft accounts or accounts that have two-factor authentication enabled.</span></span>
 
 ```azurecli-interactive
 az login -u <username> -p <password>
 ```
 
 > [!IMPORTANT]
-> <span data-ttu-id="4af19-120">`az login` を対話形式で使用しているときに、コンソールにパスワードが表示されないようにするには、`bash` では `read -s` コマンドを使用します。</span><span class="sxs-lookup"><span data-stu-id="4af19-120">If you want to avoid displaying your password on console and are using `az login` interactively, use the `read -s` command under `bash`.</span></span>
+> <span data-ttu-id="01b52-120">`az login` を対話形式で使用しているときに、コンソールにパスワードが表示されないようにするには、`bash` では `read -s` コマンドを使用します。</span><span class="sxs-lookup"><span data-stu-id="01b52-120">If you want to avoid displaying your password on console and are using `az login` interactively, use the `read -s` command under `bash`.</span></span>
 >
 > ```bash
 > read -sp "Azure password: " AZ_PASS && echo && az login -u <username> -p $AZ_PASS
 > ```
 >
-> <span data-ttu-id="4af19-121">PowerShell では、`Read-Host -AsSecureString` コマンドレットを使用して、文字列変換をセキュリティで保護します。</span><span class="sxs-lookup"><span data-stu-id="4af19-121">Under PowerShell, use the `Read-Host -AsSecureString` cmdlet and secure string conversion.</span></span>
+> <span data-ttu-id="01b52-121">PowerShell では、`Get-Credential` コマンドレットを使用します。</span><span class="sxs-lookup"><span data-stu-id="01b52-121">Under PowerShell, use the `Get-Credential` cmdlet.</span></span>
 >
 > ```powershell
-> $securePass =  Read-Host "Azure password: " -AsSecureString;
-> $AzPass = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($securePass));
-> az login -u <username> -p $AzPass;
-> $AzPass = ""
+> $AzCred = Get-Credential -UserName <username>
+> az login -u $AzCred.UserName -p $AzCred.GetNetworkCredential().Password
 > ```
 
-## <a name="sign-in-with-a-service-principal"></a><span data-ttu-id="4af19-122">サービス プリンシパルを使ってサインインする</span><span class="sxs-lookup"><span data-stu-id="4af19-122">Sign in with a service principal</span></span>
+## <a name="sign-in-with-a-service-principal"></a><span data-ttu-id="01b52-122">サービス プリンシパルを使ってサインインする</span><span class="sxs-lookup"><span data-stu-id="01b52-122">Sign in with a service principal</span></span>
 
-<span data-ttu-id="4af19-123">サービス プリンシパルは、特定のユーザーに関連付けられていないアカウントであり、定義済みのロールによってアクセス許可を割り当てることができます。</span><span class="sxs-lookup"><span data-stu-id="4af19-123">Service principals are accounts not tied to any particular user, which can have permissions on them assigned through pre-defined roles.</span></span> <span data-ttu-id="4af19-124">サービス プリンシパルを使用した認証は、セキュリティで保護されたスクリプトやプログラムを記述するのに最適な方法で、アクセス許可の制限と、ローカルに保存された静的な資格情報の両方を適用できます。</span><span class="sxs-lookup"><span data-stu-id="4af19-124">Authenticating with a service principal is the best way to write secure scripts or programs, allowing you to apply both permissions restrictions and locally stored static credential information.</span></span> <span data-ttu-id="4af19-125">サービス プリンシパルの詳細については、[Azure CLI を使用した Azure サービス プリンシパルの作成](create-an-azure-service-principal-azure-cli.md)に関するページをご覧ください。</span><span class="sxs-lookup"><span data-stu-id="4af19-125">To learn more about service principals, see [Create an Azure service principal with the Azure CLI](create-an-azure-service-principal-azure-cli.md).</span></span>
+<span data-ttu-id="01b52-123">サービス プリンシパルは、特定のユーザーに関連付けられていないアカウントであり、定義済みのロールによってアクセス許可を割り当てることができます。</span><span class="sxs-lookup"><span data-stu-id="01b52-123">Service principals are accounts not tied to any particular user, which can have permissions on them assigned through pre-defined roles.</span></span> <span data-ttu-id="01b52-124">サービス プリンシパルを使用した認証は、セキュリティで保護されたスクリプトやプログラムを記述するのに最適な方法で、アクセス許可の制限と、ローカルに保存された静的な資格情報の両方を適用できます。</span><span class="sxs-lookup"><span data-stu-id="01b52-124">Authenticating with a service principal is the best way to write secure scripts or programs, allowing you to apply both permissions restrictions and locally stored static credential information.</span></span> <span data-ttu-id="01b52-125">サービス プリンシパルの詳細については、[Azure CLI を使用した Azure サービス プリンシパルの作成](create-an-azure-service-principal-azure-cli.md)に関するページをご覧ください。</span><span class="sxs-lookup"><span data-stu-id="01b52-125">To learn more about service principals, see [Create an Azure service principal with the Azure CLI](create-an-azure-service-principal-azure-cli.md).</span></span>
 
-<span data-ttu-id="4af19-126">サービス プリンシパルを使ってサインインするには、以下が必要です。</span><span class="sxs-lookup"><span data-stu-id="4af19-126">To sign in with a service principal, you need:</span></span>
+<span data-ttu-id="01b52-126">サービス プリンシパルを使ってサインインするには、以下が必要です。</span><span class="sxs-lookup"><span data-stu-id="01b52-126">To sign in with a service principal, you need:</span></span>
 
-* <span data-ttu-id="4af19-127">サービス プリンシパルに関連付けられている URL または名前</span><span class="sxs-lookup"><span data-stu-id="4af19-127">The URL or name associated with the service principal</span></span>
-* <span data-ttu-id="4af19-128">サービス プリンシパルのパスワード、またはサービス プリンシパルを PEM 形式で作成するために使用する X509 証明書</span><span class="sxs-lookup"><span data-stu-id="4af19-128">The service principal password, or the X509 certificate used to create the service principal in PEM format</span></span>
-* <span data-ttu-id="4af19-129">`.onmicrosoft.com` ドメインまたは Azure オブジェクト ID として、サービス プリンシパルに関連付けられているテナント</span><span class="sxs-lookup"><span data-stu-id="4af19-129">The tenant associated with the service principal, as either an `.onmicrosoft.com` domain or Azure object ID</span></span>
+* <span data-ttu-id="01b52-127">サービス プリンシパルに関連付けられている URL または名前</span><span class="sxs-lookup"><span data-stu-id="01b52-127">The URL or name associated with the service principal</span></span>
+* <span data-ttu-id="01b52-128">サービス プリンシパルのパスワード、またはサービス プリンシパルを PEM 形式で作成するために使用する X509 証明書</span><span class="sxs-lookup"><span data-stu-id="01b52-128">The service principal password, or the X509 certificate used to create the service principal in PEM format</span></span>
+* <span data-ttu-id="01b52-129">`.onmicrosoft.com` ドメインまたは Azure オブジェクト ID として、サービス プリンシパルに関連付けられているテナント</span><span class="sxs-lookup"><span data-stu-id="01b52-129">The tenant associated with the service principal, as either an `.onmicrosoft.com` domain or Azure object ID</span></span>
+
+> [!IMPORTANT]
+>
+> <span data-ttu-id="01b52-130">お使いのサービス プリンシパルでは、Key Vault に格納されている証明書が使用されている場合、その証明書の秘密キーは Azure にサインインしなくても使用できる必要があります。</span><span class="sxs-lookup"><span data-stu-id="01b52-130">If your service principal uses a certificate that is stored in Key Vault, that certificate's private key must be available without signing in to Azure.</span></span> <span data-ttu-id="01b52-131">オフラインで使用する秘密キーを取得するには、[az keyvault secret show](/cli/azure/keyvault/secret) を使用します。</span><span class="sxs-lookup"><span data-stu-id="01b52-131">To retrieve a private key for use offline, use [az keyvault secret show](/cli/azure/keyvault/secret).</span></span>
 
 ```azurecli-interactive
 az login --service-principal -u <app-url> -p <password-or-cert> --tenant <tenant>
 ```
 
 > [!IMPORTANT]
-> <span data-ttu-id="4af19-130">`az login` を対話形式で使用しているときに、コンソールにパスワードが表示されないようにするには、`bash` では `read -s` コマンドを使用します。</span><span class="sxs-lookup"><span data-stu-id="4af19-130">If you want to avoid displaying your password on console and are using `az login` interactively, use the `read -s` command under `bash`.</span></span>
+> <span data-ttu-id="01b52-132">`az login` を対話形式で使用しているときに、コンソールにパスワードが表示されないようにするには、`bash` では `read -s` コマンドを使用します。</span><span class="sxs-lookup"><span data-stu-id="01b52-132">If you want to avoid displaying your password on console and are using `az login` interactively, use the `read -s` command under `bash`.</span></span>
 >
 > ```bash
 > read -sp "Azure password: " AZ_PASS && echo && az login --service-principal -u <app-url> -p $AZ_PASS --tenant <tenant>
 > ```
 >
-> <span data-ttu-id="4af19-131">PowerShell では、`Read-Host -AsSecureString` コマンドレットを使用して、文字列変換をセキュリティで保護します。</span><span class="sxs-lookup"><span data-stu-id="4af19-131">Under PowerShell, use the `Read-Host -AsSecureString` cmdlet and secure string conversion.</span></span>
+> <span data-ttu-id="01b52-133">PowerShell では、`Get-Credential` コマンドレットを使用します。</span><span class="sxs-lookup"><span data-stu-id="01b52-133">Under PowerShell, use the `Get-Credential` cmdlet.</span></span>
 >
 > ```powershell
-> $securePass =  Read-Host "Azure password: " -AsSecureString;
-> $AzPass = [Runtime.InteropServices.Marshal]::PtrToStringAuto([Runtime.InteropServices.Marshal]::SecureStringToBSTR($securePass));
-> az login --service-principal -u <app-url> -p $AzPass --tenant <tenant>;
-> $AzPass = ""
+> $AzCred = Get-Credential -UserName <app-url>
+> az login -u $AzCred.UserName -p $AzCred.GetNetworkCredential().Password --tenant <tenant>
 > ```
 
-## <a name="sign-in-with-a-different-tenant"></a><span data-ttu-id="4af19-132">別のテナントでサインインする</span><span class="sxs-lookup"><span data-stu-id="4af19-132">Sign in with a different tenant</span></span>
+## <a name="sign-in-with-a-different-tenant"></a><span data-ttu-id="01b52-134">別のテナントでサインインする</span><span class="sxs-lookup"><span data-stu-id="01b52-134">Sign in with a different tenant</span></span>
 
-<span data-ttu-id="4af19-133">`--tenant` 引数を使用すると、サインインするテナントを選択できます。</span><span class="sxs-lookup"><span data-stu-id="4af19-133">You can select a tenant to sign in under with the `--tenant` argument.</span></span> <span data-ttu-id="4af19-134">この引数の値として、`.onmicrosoft.com` ドメインまたはテナントの Azure オブジェクト ID を指定できます。</span><span class="sxs-lookup"><span data-stu-id="4af19-134">The value of this argument can either be an `.onmicrosoft.com` domain or the Azure object ID for the tenant.</span></span> <span data-ttu-id="4af19-135">対話形式のサインイン方法とコマンドラインによるサインイン方法の両方で、`--tenant` を使用できます。</span><span class="sxs-lookup"><span data-stu-id="4af19-135">Both interactive and command-line sign in methods work with `--tenant`.</span></span>
+<span data-ttu-id="01b52-135">`--tenant` 引数を使用すると、サインインするテナントを選択できます。</span><span class="sxs-lookup"><span data-stu-id="01b52-135">You can select a tenant to sign in under with the `--tenant` argument.</span></span> <span data-ttu-id="01b52-136">この引数の値として、`.onmicrosoft.com` ドメインまたはテナントの Azure オブジェクト ID を指定できます。</span><span class="sxs-lookup"><span data-stu-id="01b52-136">The value of this argument can either be an `.onmicrosoft.com` domain or the Azure object ID for the tenant.</span></span> <span data-ttu-id="01b52-137">対話形式のサインイン方法とコマンドラインによるサインイン方法の両方で、`--tenant` を使用できます。</span><span class="sxs-lookup"><span data-stu-id="01b52-137">Both interactive and command-line sign in methods work with `--tenant`.</span></span>
 
 ```azurecli-interactive
 az login --tenant <tenant>
 ```
 
-## <a name="sign-in-with-a-managed-identity"></a><span data-ttu-id="4af19-136">マネージド ID を使用したサインイン</span><span class="sxs-lookup"><span data-stu-id="4af19-136">Sign in with a managed identity</span></span>
+## <a name="sign-in-with-a-managed-identity"></a><span data-ttu-id="01b52-138">マネージド ID を使用したサインイン</span><span class="sxs-lookup"><span data-stu-id="01b52-138">Sign in with a managed identity</span></span>
 
-<span data-ttu-id="4af19-137">Azure リソースのマネージド ID 用に構成されたリソースでは、マネージド ID を使用してサインインできます。</span><span class="sxs-lookup"><span data-stu-id="4af19-137">On resources configured for managed identities for Azure resources, you can sign in using the managed identity.</span></span> <span data-ttu-id="4af19-138">リソースの ID を使用したサインインは、`--identity` フラグを介して行われます。</span><span class="sxs-lookup"><span data-stu-id="4af19-138">Signing in with the resource's identity is done through the `--identity` flag.</span></span>
+<span data-ttu-id="01b52-139">Azure リソースのマネージド ID 用に構成されたリソースでは、マネージド ID を使用してサインインできます。</span><span class="sxs-lookup"><span data-stu-id="01b52-139">On resources configured for managed identities for Azure resources, you can sign in using the managed identity.</span></span> <span data-ttu-id="01b52-140">リソースの ID を使用したサインインは、`--identity` フラグを介して行われます。</span><span class="sxs-lookup"><span data-stu-id="01b52-140">Signing in with the resource's identity is done through the `--identity` flag.</span></span>
 
 ```azurecli-interactive
 az login --identity
 ```
 
-<span data-ttu-id="4af19-139">Azure リソースのマネージド ID の詳細については、[Azure リソースのマネージド ID の構成](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)に関するページ、および[Azure リソースのマネージド ID を使用したサインイン](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in)に関するページをご覧ください。</span><span class="sxs-lookup"><span data-stu-id="4af19-139">To learn more about managed identities for Azure resources, see [Configure managed identities for Azure resources](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm) and [Use managed identities for Azure resources for sign in](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in).</span></span>
+<span data-ttu-id="01b52-141">Azure リソースのマネージド ID の詳細については、[Azure リソースのマネージド ID の構成](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)に関するページ、および[Azure リソースのマネージド ID を使用したサインイン](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in)に関するページをご覧ください。</span><span class="sxs-lookup"><span data-stu-id="01b52-141">To learn more about managed identities for Azure resources, see [Configure managed identities for Azure resources](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm) and [Use managed identities for Azure resources for sign in](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in).</span></span>
