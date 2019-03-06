@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: b018f41824946dca36d0b806de0dd32a335a15b5
-ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
+ms.openlocfilehash: ddee71f39500b63065a3f71d01b3bed1a7311a52
+ms.sourcegitcommit: 943598f8bf05ee058593ca0d72aec507aa26c242
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56422019"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56963461"
 ---
 # <a name="get-started-with-azure-cli"></a>Azure CLI の概要
 
@@ -34,6 +34,8 @@ CLI をインストールする準備ができたら、[インストール手順
 ローカル インストールで CLI コマンドを使用する前に、[az login](/cli/azure/reference-index#az-login) でサインインする必要があります。
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
+
+ログインすると、ご使用のアカウントに関連付けられているサブスクリプションの一覧が表示されます。 `isDefault: true` が示されているサブスクリプション情報が、ログイン後に、現在アクティブになっているサブスクリプションです。 別のサブスクリプションを選択するには、切り替え先のサブスクリプション ID を指定して [az account set](/cli/azure/account#az-account-set) コマンドを実行します。 サブスクリプションの選択の詳細については、「[複数の Azure サブスクリプションの使用](manage-azure-subscriptions-azure-cli.md)」を参照してください。
 
 対話型以外のサインイン方法も用意されています。詳細については、「[Azure CLI を使用してサインインする](authenticate-azure-cli.md)」を参照してください。
 

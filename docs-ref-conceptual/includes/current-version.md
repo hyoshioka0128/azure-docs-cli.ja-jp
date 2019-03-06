@@ -4,11 +4,11 @@ ms.author: sttramer
 manager: carmonm
 ms.date: 09/07/2018
 ms.topic: include
-ms.openlocfilehash: 70fac339dff48be3cc293425e36e86f99bcb3480
-ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
+ms.openlocfilehash: c8925d6c55ccb974f3ffccdcec0dd462bbbb802c
+ms.sourcegitcommit: 9fb008f2802ca6a58f33e01263bf55a80d01f031
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56422070"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56905528"
 ---
-CLI の現在のバージョンは __2.0.58__ です。 最新リリースについては、[リリース ノート](../release-notes-azure-cli.md)をご覧ください。 更新する必要があるかどうかを判断するために、システムで実行されているバージョンを確認するには、`az --version` を実行します。
+CLI の現在のバージョンは __2.0.59__ です。 最新リリースについては、[リリース ノート](../release-notes-azure-cli.md)をご覧ください。 更新する必要があるかどうかを判断するために、システムで実行されているバージョンを確認するには、`az --version` を実行します。
