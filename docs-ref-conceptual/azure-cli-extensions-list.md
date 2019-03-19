@@ -4,17 +4,17 @@ description: Azure CLI で公式にサポートされている拡張機能の完
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 03/05/2019
+ms.date: 03/08/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 07a067fb24d263760cdeaa0109ffc5fa949f75df
-ms.sourcegitcommit: d3be678e60132083b2a2257ac7a97eb0e1e23798
+ms.openlocfilehash: 40522581225f5bbade2bc52a8f2f7b6ba239a5b4
+ms.sourcegitcommit: 67d60b0c40dcff63ded696184529827f14940cc1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57430258"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57754812"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Azure CLI で使用可能な拡張機能
 
@@ -33,6 +33,7 @@ az extension list-available --output table
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.2 | コマンドのエイリアスをサポートします | はい |
 | [anf-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/anf-preview) | 0.1.0 | 次期 Azure NetApp Files (ANF) 機能のプレビューを提供します。 | はい |
 | [appconfig](https://github.com/Azure/azure-cli-extensions) | 0.4.0 | 次期アプリ構成機能のプレビューを提供します。 | はい |
+| [application-insights](https://github.com/Azure/azure-cli-extensions/tree/master/src/application-insights) | 0.1.0 | Azure Application Insights のメトリック、イベント、およびログに対するクエリをサポートしました。 | はい |
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 3.0.2 | Azure Batch サービスを操作するための追加コマンド |  |
 | [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.6.1 | Azure IoT Hub、IoT Edge、および IoT Device Provisioning Service にデータ プレーン コマンド レイヤーを提供します |  |
 | [azure-devops](https://github.com/Microsoft/azure-devops-cli-extension) | 0.3.0 | Azure DevOps を管理するためのツールです。 | はい |
