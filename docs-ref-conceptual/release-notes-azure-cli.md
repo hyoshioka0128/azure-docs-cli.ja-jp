@@ -9,14 +9,77 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 9f35084eeecab491e5be63eb856b0bb64a6157d0
-ms.sourcegitcommit: 9fb008f2802ca6a58f33e01263bf55a80d01f031
+ms.openlocfilehash: 4337f2203841d6247e4b487d245138424c63e448
+ms.sourcegitcommit: 71c0ccd475524cf4d6db45bba8139fef3262d764
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56891213"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175135"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+## <a name="march-12-2019"></a>2019 年 3 月 12 日
+
+バージョン 2.0.60
+
+### <a name="core"></a>コア
+
+* サブスクリプションが見つからないという `cloud set` の正しくないエラーを修正しました
+
+### <a name="acr"></a>ACR
+
+* イメージ インポートの冗長なソースを修正しました
+
+### <a name="acs"></a>ACS
+
+* `aks browse` に対する `--listen-address` 引数は、`kubectl` がサポートしない場合は無視するように変更しました
+
+### <a name="appservice"></a>AppService
+
+* Kudu の公開 URL とその資格情報を取得するための `[webapp|functionapp] deployment list-publishing-credentials` を追加しました
+* `webapp auth update` の誤った print ステートメントを削除しました
+* Linux App Service プランのランタイム用に正しいイメージを設定するように `functionapp` を修正しました
+* `webapp up` のプレビュー タグを削除し、コマンドを改善しました
+
+### <a name="botservice"></a>Botservice
+
+* v4 Web アプリ ボット用の ARM テンプレートのアプリケーション設定に `SCM_DO_BUILD_DURING_DEPLOYMENT` を追加しました
+* v4 Web アプリ ボット用の ARM テンプレートのアプリケーション設定に `Microsoft-BotFramework-AppId` と `Microsoft-BotFramework-AppPassword` を追加しました
+* `bot create` の最後で `bot publish` コマンドの出力から一重引用符を削除しました
+* `bot publish` を非同期に変更しました
+
+### <a name="container"></a>コンテナー
+
+* `--no-wait` 引数を `container [start|restart]` に追加しました
+
+### <a name="eventhub"></a>EventHub
+
+* キャプチャで空のアーカイブをサポートするために、`--skip-empty-archives` フラグを `eventhub create|update` に追加しました
+
+### <a name="find"></a>Find
+
+* 主要な機能更新
+
+### <a name="hdinsight"></a>HDInsight
+
+* ADLS Gen2 MSI をサポートするために、`--storage-account-managed-identity` パラメーターを `hdinsight create` に追加しました
+
+### <a name="network"></a>ネットワーク
+
+* 異なるサブスクリプションのゲートウェイ間の VPN 接続を更新できない `vpn-connection update` の問題を修正しました
+
+### <a name="rdbms"></a>Rdbms
+
+* サーバーの作成用に提供されていない場合にリソース グループから規定の場所を取得し、リテンション期間の日数の検証を追加するための軽微な修正を行いました
+
+### <a name="role"></a>Role
+
+* 定義を正しく解決するために ID を使用するように `role definition update` を修正しました
+* アプリのサービス プリンシパルが常に存在するという前提を除去するように `ad app credential reset` を変更しました
+
+### <a name="service-fabric"></a>Service Fabric
+
+* `sf cluster list` が反復可能ではないことに関する問題を修正しました
+
 ## <a name="february-26-2019"></a>2019 年 2 月 26 日
 
 バージョン 2.0.59
