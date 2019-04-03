@@ -4,19 +4,88 @@ description: Azure CLI の最新情報について説明します
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 02/15/2019
+ms.date: 03/26/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 4337f2203841d6247e4b487d245138424c63e448
-ms.sourcegitcommit: 71c0ccd475524cf4d6db45bba8139fef3262d764
+ms.openlocfilehash: d8307ca9797a9a780d7e08d6d21cb66446c7e289
+ms.sourcegitcommit: 6d9e8ee6dd07cfd07239a2948304d7f50ef781cc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58175135"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58508904"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+## <a name="march-26-2019"></a>2019 年 3 月 26 日
+
+### <a name="core"></a>コア
+* dev 拡張機能の非互換性の問題を修正しました
+* エラー処理でお客様が問題のページに誘導されるようになりました
+
+### <a name="cloud"></a>クラウド
+* `cloud set` の 'サブスクリプションが見つかりません' エラーを修正しました
+
+### <a name="acr"></a>ACR
+* イメージ インポートの冗長なソースを修正しました
+* `--auth-mode` を `acr build`、`acr run`、`acr task create`、および `acr task update` コマンドに追加しました
+* タスク用の資格情報を管理するための 'acr task credential' コマンド グループを追加しました
+* '--no-wait' を `acr build` コマンドに追加しました
+
+### <a name="appservice"></a>AppService
+* `webapp up` が空のディレクトリから、または不明なコード シナリオでの実行を正しく処理しないバグを修正しました
+* スロットが `[webapp|functionapp] config ssl bind` に機能しないバグを修正しました
+
+### <a name="bot-service"></a>ボット サービス
+* `webapp` を介したボットのデプロイに備えるため `bot prepare-deploy` を追加しました
+* パスワードが指定されていないときにパスワードを表示するように `bot create --kind registration` を変更しました
+* [破壊的変更] 要求されるのではなく、既定で空の文字列になるように `bot create --kind registration` で `--endpoint` を変更しました
+* v4 Web アプリ ボット用の ARM テンプレートのアプリケーション設定に `SCM_DO_BUILD_DURING_DEPLOYMENT` を追加しました
+
+### <a name="cdn"></a>CDN
+* `--no-wait` のサポートを `cdn endpoint [create|update|start|stop|delete|load|purge]` に追加しました  
+* [破壊的変更]:`cdn endpoint create` のクエリ文字列の既定のキャッシュ動作を変更しました "IgnoreQueryString" は既定値ではなくなりました。 これはサービスによって設定されるようになりました
+
+### <a name="cosmosdb"></a>Cosmosdb
+* アカウントの更新で `--enable-multiple-write-locations` のサポートを追加しました
+* Cosmos DB アカウントの VNET ルールを管理するために、`add`、`remove`、および `list` コマンドに `network-rule` サブグループを追加しました
+
+### <a name="interactive"></a>Interactive
+* azdev を通じてインストールされたインタラクティブ拡張機能の非互換性の問題を修正しました
+
+### <a name="monitor"></a>監視
+* ディメンション値 `*` を許可するように `monitor metrics alert [create|update]` を変更しました
+
+### <a name="network"></a>ネットワーク
+* `rewrite-rule` コマンド グループを `application-gateway` に追加しました
+
+### <a name="profile"></a>プロファイル
+* マネージド サービス ID に対応するテナント レベル アカウントのサポートを `login` に追加しました
+
+### <a name="postgres"></a>Postgres 
+* postgresql`replica` コマンドと `restart server` コマンドを追加しました
+* サーバーの作成用に提供されていない場合にリソース グループから規定の場所を取得し、リテンション期間の日数の検証を追加するための変更を行いました
+
+### <a name="resource"></a>Resource
+* `deployment [create|list|show]` のテーブル出力を強化しました
+* 型 secureObject が認識されない `deployment [create|validate]` の問題を修正しました
+
+### <a name="graph"></a>Graph
+* `--end-date` のサポートを `ad [app|sp] credential reset` に追加しました
+* `ad app permission add` にアクセス許可の追加サポートを追加しました
+* アクセス許可がない `ad app permission list` のバグを修正しました
+* 現在のアカウントにサブスクリプションがない場合にロール割り当ての削除をスキップするように `ad sp delete` を変更しました
+* 指定されていない場合、`--identifier-uris` が既定で空のリストを指定するように `ad app create` を変更しました
+
+### <a name="storage"></a>storage
+* 共有スナップショットからダウンロードするように `--snapshot` を `storage file download-batch` に追加しました
+* より簡潔に、現在の BLOB を示すように `storage blob [download-batch|upload-batch]` 進行状況バーを変更しました
+* 暗号化パラメーターの更新時の `storage account update` の問題を修正しました
+* OAuth (`--auth-mode=login`) の使用時に `storage blob show` が失敗する問題を修正しました
+
+### <a name="vm"></a>VM
+* `image update` コマンドを追加しました
+
 ## <a name="march-12-2019"></a>2019 年 3 月 12 日
 
 バージョン 2.0.60
@@ -127,7 +196,7 @@ ms.locfileid: "58175135"
 * `--gateway-default-site` 引数を `vnet-gateway [create|update]` に追加しました
 * `ipsec-policy` コマンドを `vnet-gateway` に追加しました
 
-### <a name="resource"></a>リソース
+### <a name="resource"></a>Resource
 
 * 型フィールドで大文字と小文字が区別されていた `deployment create` の問題を修正しました
 * `policy assignment create` に URI ベースのパラメーター ファイルのサポートを追加しました
@@ -287,7 +356,7 @@ ms.locfileid: "58175135"
 * `--bandwidth` 引数が無視される `express-route update` の問題を修正しました
 * set comprehension によってスタック トレースが引き起こされる `ddos-protection update` の問題を修正しました
 
-### <a name="resource"></a>リソース
+### <a name="resource"></a>Resource
 * `group deployment create` に URI パラメーター ファイルのサポートを追加しました
 * `policy assignment [create|list|show]` にマネージド ID のサポートを追加しました
 
@@ -423,7 +492,7 @@ ms.locfileid: "58175135"
 * `--format` と `--log-version` のサポートを `watcher flow-log configure` に追加しました
 * 解決仮想ネットワークと登録仮想ネットワークをクリアするために "" を使用しても機能しないときの `dns zone update` に関する問題を修正しました
 
-### <a name="resource"></a>リソース
+### <a name="resource"></a>Resource
 * `policy assignment [create|list|delete|show|update]` の管理グループのスコープ パラメーターの処理を修正しました 
 * 新しいコマンド `resource wait` を追加しました
 
@@ -580,7 +649,7 @@ ms.locfileid: "58175135"
 ### <a name="rdbms"></a>RDBMS
 * mysql replica コマンドを追加しました
 
-### <a name="resource"></a>リソース
+### <a name="resource"></a>Resource
 * 管理グループとサブスクリプションのサポートを `policy definition|set-definition` コマンドに追加しました
 
 ### <a name="role"></a>Role
@@ -885,7 +954,7 @@ ms.locfileid: "58175135"
 
 * リソースが見つからないときにコード 3 で終了するように `network application-gateway ssl-policy predefined show` を変更しました
 
-### <a name="resource"></a>リソース
+### <a name="resource"></a>Resource
 
 * リソースが見つからないときにコード 3 で終了するように `provider operation show` を変更しました
 
@@ -1000,7 +1069,7 @@ ms.locfileid: "58175135"
 
 * Azure Stack の 2017-03-09-profile に DNS のサポートを追加しました 
 
-### <a name="resource"></a>リソース
+### <a name="resource"></a>Resource
 
 * エラー時に既知の正常なデプロイが実行されるように、`group deployment create` に `--rollback-on-error` を追加しました
 * `group deployment create` を指定した `--parameters {}` がエラーになる問題を修正しました
@@ -1079,7 +1148,7 @@ ms.locfileid: "58175135"
 * `network vnet [subnet|peering] list` の `--ids` 引数を非推奨にしました
 * `network nsg rule list` の出力に既定のセキュリティ規則を含める `--include-default` フラグを追加しました  
 
-### <a name="resource"></a>リソース
+### <a name="resource"></a>Resource
 
 * `group deployment delete` に `--no-wait` のサポートを追加しました
 * `deployment delete` に `--no-wait` のサポートを追加しました
@@ -1167,7 +1236,7 @@ ms.locfileid: "58175135"
 
 * `[postgres|myql] server vnet-rule` コマンドを追加しました
 
-### <a name="resource"></a>リソース
+### <a name="resource"></a>Resource
 
 * 新しい操作グループ `deployment` を追加しました
 
@@ -1661,7 +1730,7 @@ ms.locfileid: "58175135"
 * `georestore` コマンドを追加しました
 * ストレージ サイズの制限を `create` コマンドから削除しました
 
-### <a name="resource"></a>リソース
+### <a name="resource"></a>Resource
 
 * `--metadata` のサポートを `policy definition create` に追加しました
 * `--metadata`、`--set`、`--add`、`--remove` のサポートを `policy definition update` に追加しました
@@ -1767,7 +1836,7 @@ ms.locfileid: "58175135"
 
 * ビジネス モデル GA API バージョン 2017-12-01 を追加しました
 
-### <a name="resource"></a>リソース
+### <a name="resource"></a>Resource
 
 * [破壊的変更]: Changed `provider operation [list|show]` to not require `--api-version`
 
@@ -1917,7 +1986,7 @@ ms.locfileid: "58175135"
 
 * [#5559](https://github.com/Azure/azure-cli/issues/5559) を修正:`network vnet-gateway vpn-client generate` でクライアントが見つからない
 
-### <a name="resource"></a>リソース
+### <a name="resource"></a>Resource
 
 * エラー発生時にテンプレートとエラーの一部が表示されるように `group deployment export` を変更しました
 
@@ -2014,7 +2083,7 @@ ms.locfileid: "58175135"
 
 * 対話モードで `az login` を有効にしました
 
-### <a name="resource"></a>リソース
+### <a name="resource"></a>Resource
 
 * `feature show` を再び追加しました
 
@@ -2089,7 +2158,7 @@ ms.locfileid: "58175135"
 
 * ID を使用して VM 内で動作するように `get-access-token` を修正しました
 
-### <a name="resource"></a>リソース
+### <a name="resource"></a>Resource
 
 * テンプレートの "type" フィールドに大文字の値が含まれているときに警告が誤って表示される `deployment [create|validate]` のバグを修正しました
 
@@ -2267,7 +2336,7 @@ ms.locfileid: "58175135"
 
 * メトリック コマンドに多次元のサポートを追加しました
 
-### <a name="resource"></a>リソース
+### <a name="resource"></a>Resource
 
 * `--include-response-body` 引数を `resource show` に追加しました
 
@@ -2367,7 +2436,7 @@ ms.locfileid: "58175135"
 
 * 初期プレビュー リリース
 
-### <a name="resource"></a>リソース
+### <a name="resource"></a>Resource
 
 * リソース ID のサポートを `--resource` パラメーターとリソースレベル ロックに追加しました
 
@@ -2424,7 +2493,7 @@ ms.locfileid: "58175135"
 
 * `action-group` コマンドを追加しました
 
-### <a name="resource"></a>リソース
+### <a name="resource"></a>Resource
 
 * `group export` における msrest の依存関係の最新バージョンとの非互換性を修正しました
 * 組み込みのポリシー定義とポリシーセットの定義を使用するように `policy assignment create` を修正しました
@@ -2466,7 +2535,7 @@ ms.locfileid: "58175135"
 * アドレス プールを空にできるように `application-gateway address-pool create` の `--server` 引数を省略可能に変更しました
 * 最新機能をサポートするように `traffic-manager` を更新しました
 
-### <a name="resource"></a>リソース
+### <a name="resource"></a>Resource
 
 * リソース グループ名に関する `--resource-group/-g` オプションのサポートを `group` に追加しました
 * サブスクリプション レベルのロックを処理するための `account lock` 用のコマンドを追加しました
@@ -2496,7 +2565,7 @@ ms.locfileid: "58175135"
 
 バージョン 2.0.18
 
-### <a name="resource"></a>リソース
+### <a name="resource"></a>Resource
 
 * 組み込みのポリシー定義を表示するためのサポートを追加しました
 * ポリシー定義を作成するためのサポート モード パラメーターを追加しました
@@ -2590,7 +2659,7 @@ ms.locfileid: "58175135"
 * `lb create` に対する SKU のサポートを追加しました
 * `public-ip create` に対する SKU のサポートを追加しました
 
-### <a name="resource"></a>リソース
+### <a name="resource"></a>Resource
 
 * `policy definition create` と `policy definition update` でリソース ポリシーのパラメーター定義を渡せるようにします
 * `policy assignment create` でパラメーター値を渡せるようにします
@@ -2986,7 +3055,7 @@ vm (2.0.11)
 * ドキュメント ソース マップを修正し、検証するための CI タスクを追加しました (#3361)
 * MySQL および PostgreSQL のヘルプを修正しました (#3369)
 
-### <a name="resource"></a>リソース
+### <a name="resource"></a>Resource
 
 * `group deployment create` の不足しているパラメーターの指定を求めるメッセージを改善しました
 * `--parameters KEY=VALUE` 構文の解析を改善しました
@@ -3198,7 +3267,7 @@ vm (2.0.6)
 * Redis Cache のスケール機能も追加する更新コマンドが追加されました
 * "update-settings" コマンドが廃止されました
 
-### <a name="resource"></a>リソース
+### <a name="resource"></a>Resource
 
 * managedapp と managedapp の定義コマンドが追加されました ([#2985](https://github.com/Azure/azure-cli/issues/2985))
 * "provider operation" コマンドに対応するようになりました ([#2908](https://github.com/Azure/azure-cli/issues/2908))
