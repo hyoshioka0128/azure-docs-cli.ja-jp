@@ -9,8 +9,13 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
+ms.openlocfilehash: 3b9589c769a90e82c35aa64c583dffdac4e4f063
+ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 02/19/2019
+ms.locfileid: "56421985"
 ---
-
 # <a name="azure-command-line-interface-cli"></a>Azure コマンド ライン インターフェイス (CLI)
 
 Azure コマンド ライン インターフェイス (CLI) は、Azure リソースを管理するための、Microsoft のクロスプラットフォーム コマンド ライン エクスペリエンスです。
