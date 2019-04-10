@@ -4,17 +4,17 @@ description: Azure CLI で公式にサポートされている拡張機能の完
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 03/27/2019
+ms.date: 04/03/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 2422d401d174ad779f8c9244dc2c966b5a9c53ef
-ms.sourcegitcommit: d8e2fdc9b62d0a1d6b69b2483f68db31bd36e60f
+ms.openlocfilehash: 859a318ac7705812550a259ea160105256cdeab8
+ms.sourcegitcommit: cf9a1d3d89095238078c9303aaa3bfeaa0cdfdf1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58524304"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58913337"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Azure CLI で使用可能な拡張機能
 
@@ -29,7 +29,7 @@ az extension list-available --output table
 | 名前 | バージョン | まとめ | プレビュー |
 |------|---------|---------|---------|
 | [aem](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Azure Enhanced Monitoring Extension for SAP を管理します |  |
-| [aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.2.3 | 次期 AKS 機能のプレビューを提供します | はい |
+| [aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.3.0 | 次期 AKS 機能のプレビューを提供します | はい |
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.2 | コマンドのエイリアスをサポートします | はい |
 | [anf-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/anf-preview) | 0.1.0 | 次期 Azure NetApp Files (ANF) 機能のプレビューを提供します。 | はい |
 | [appconfig](https://github.com/Azure/azure-cli-extensions) | 0.4.0 | 次期アプリ構成機能のプレビューを提供します。 | はい |
@@ -37,7 +37,7 @@ az extension list-available --output table
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 3.0.3 | Azure Batch サービスを操作するための追加コマンド |  |
 | [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.7.0 | Azure IoT Hub、IoT Edge、および IoT Device Provisioning Service にデータ プレーン コマンド レイヤーを提供します |  |
 | [azure-devops](https://github.com/Microsoft/azure-devops-cli-extension) | 0.4.0 | Azure DevOps を管理するためのツールです。 | はい |
-| [azure-firewall](https://github.com/Azure/azure-cli-extensions/tree/master/src/azure-firewall) | 0.1.1 | Azure Firewall のリソースを管理します。 | はい |
+| [azure-firewall](https://github.com/Azure/azure-cli-extensions/tree/master/src/azure-firewall) | 0.1.2 | Azure Firewall のリソースを管理します。 | はい |
 | [botservice](https://github.com/Azure/azure-cli-extensions) | 0.4.3 | ネイティブの Bot Service CLI コマンド モジュールの問題のバグ修正。 | はい |
 | [db-up](https://github.com/Azure/azure-cli-extensions/tree/master/src/db-up) | 0.1.10 | Azure データベースのワークフローを簡略化するための、その他のコマンド。 | はい |
 | [dev-spaces-preview](https://github.com/Azure/azure-cli-extensions) | 0.1.6 | Dev Spaces は、高速で反復的な Kubernetes 開発エクスペリエンスをチームに提供します。 | はい |
@@ -47,9 +47,9 @@ az extension list-available --output table
 | [express-route](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route) | 0.1.3 | ExpressRoute プレビュー機能を管理します。 | はい |
 | [express-route-cross-connection](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route-cross-connection) | 0.1.1 | ExpressRoute のクロス接続を使用して、顧客の ExpressRoute 回線を管理します。 |  |
 | [find](https://github.com/Azure/azure-cli-extensions/tree/master/src/find) | 0.3.0 | CLI 情報に対するインテリジェントな照会。 | はい |
-| [front-door](https://github.com/Azure/azure-cli-extensions/tree/master/src/front-door) | 0.1.3 | ネットワークの Front Door を管理します。 | はい |
+| [front-door](https://github.com/Azure/azure-cli-extensions/tree/master/src/front-door) | 0.1.4 | ネットワークの Front Door を管理します。 | はい |
 | [image-copy-extension](https://github.com/Azure/azure-cli-extensions) | 0.0.9 | リージョン間での管理対象 VM イメージのコピーをサポートします |  |
-| [interactive](https://github.com/Azure/azure-cli) | 0.4.1 | Microsoft Azure コマンド ライン対話型シェル | はい |
+| [対話型](https://github.com/Azure/azure-cli) | 0.4.1 | Microsoft Azure コマンド ライン対話型シェル | はい |
 | [keyvault-preview](https://github.com/Azure/azure-keyvault-cli-extension) | 0.1.3 | Azure Key Vault のコマンドをプレビューします。 | はい |
 | [log-analytics](https://github.com/Azure/azure-cli-extensions/tree/master/src/log-analytics) | 0.1.3 | Azure Log Analytics のクエリ機能をサポートします。 | はい |
 | [managementgroups](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | 管理グループ向け Azure CLI 拡張機能 |  |
