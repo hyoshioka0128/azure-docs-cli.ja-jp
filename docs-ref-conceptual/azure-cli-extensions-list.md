@@ -4,17 +4,17 @@ description: Azure CLI で公式にサポートされている拡張機能の完
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 04/03/2019
+ms.date: 04/11/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 859a318ac7705812550a259ea160105256cdeab8
-ms.sourcegitcommit: cf9a1d3d89095238078c9303aaa3bfeaa0cdfdf1
+ms.openlocfilehash: 225c0acbdb8ab4665d8e169d012496d44b1c1a07
+ms.sourcegitcommit: b8dd3e56e86ef7c76714b3677f7c80d3f8aed3f5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58913337"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59508371"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Azure CLI で使用可能な拡張機能
 
@@ -26,7 +26,7 @@ ms.locfileid: "58913337"
 az extension list-available --output table
 ```
 
-| 名前 | バージョン | まとめ | プレビュー |
+| Name | バージョン | まとめ | プレビュー |
 |------|---------|---------|---------|
 | [aem](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Azure Enhanced Monitoring Extension for SAP を管理します |  |
 | [aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.3.0 | 次期 AKS 機能のプレビューを提供します | はい |
@@ -47,9 +47,9 @@ az extension list-available --output table
 | [express-route](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route) | 0.1.3 | ExpressRoute プレビュー機能を管理します。 | はい |
 | [express-route-cross-connection](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route-cross-connection) | 0.1.1 | ExpressRoute のクロス接続を使用して、顧客の ExpressRoute 回線を管理します。 |  |
 | [find](https://github.com/Azure/azure-cli-extensions/tree/master/src/find) | 0.3.0 | CLI 情報に対するインテリジェントな照会。 | はい |
-| [front-door](https://github.com/Azure/azure-cli-extensions/tree/master/src/front-door) | 0.1.4 | ネットワークの Front Door を管理します。 | はい |
+| [front-door](https://github.com/Azure/azure-cli-extensions/tree/master/src/front-door) | 0.1.5 | ネットワークの Front Door を管理します。 | はい |
 | [image-copy-extension](https://github.com/Azure/azure-cli-extensions) | 0.0.9 | リージョン間での管理対象 VM イメージのコピーをサポートします |  |
-| [対話型](https://github.com/Azure/azure-cli) | 0.4.1 | Microsoft Azure コマンド ライン対話型シェル | はい |
+| [対話型](https://github.com/Azure/azure-cli) | 0.4.2 | Microsoft Azure コマンド ライン対話型シェル | はい |
 | [keyvault-preview](https://github.com/Azure/azure-keyvault-cli-extension) | 0.1.3 | Azure Key Vault のコマンドをプレビューします。 | はい |
 | [log-analytics](https://github.com/Azure/azure-cli-extensions/tree/master/src/log-analytics) | 0.1.3 | Azure Log Analytics のクエリ機能をサポートします。 | はい |
 | [managementgroups](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | 管理グループ向け Azure CLI 拡張機能 |  |

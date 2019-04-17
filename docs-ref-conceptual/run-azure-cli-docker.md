@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 2a4515f5301daca68f6e1a161fb2327f6caa0cf5
-ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
+ms.openlocfilehash: 346014c1890cd7aa5b4225df15078e55db908a33
+ms.sourcegitcommit: 754c550b417f26e27f2e31cd0a04826aa8ff4f64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56158557"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59289085"
 ---
 # <a name="run-azure-cli-in-a-docker-container"></a>Docker コンテナーでの Azure CLI の実行
 
@@ -22,17 +22,20 @@ Docker を使用して、Azure CLI がプレインストールされたスタン
 
 ## <a name="run-in-a-docker-container"></a>Docker コンテナーでの実行
 
+> [!NOTE]
+> Azure CLI は [Microsoft コンテナー レジストリ](https://azure.microsoft.com/services/container-registry)に移行されました。 Docker Hub 上の既存のタグは引き続きサポートされますが、新しいリリースは mcr.microsoft.com/azure-cli としてのみ利用できます。
+
 `docker run` を使用して、CLI をインストールしてください。
 
    ```bash
-   docker run -it microsoft/azure-cli
+   docker run -it mcr.microsoft.com/azure-cli
    ```
 
 > [!NOTE]
 > お使いのユーザー環境から SSH キーを取得する場合は、`-v ${HOME}/.ssh:/root/.ssh` を使用して、その環境にご自身の SSH キーをマウントします。
 >
 > ```bash
-> docker run -it -v ${HOME}/.ssh:/root/.ssh microsoft/azure-cli
+> docker run -it -v ${HOME}/.ssh:/root/.ssh mcr.microsoft.com/azure-cli
 > ```
 
 CLI は、`/usr/local/bin` の `az` コマンドとしてイメージにインストールされます。 サインインするには、[az login](/cli/azure/reference-index#az-login) コマンドを実行します。
@@ -48,7 +51,7 @@ Docker で更新するには、新しいイメージをプルし、さらに既�
 `docker pull` でローカル イメージを更新します。
 
 ```bash
-docker pull microsoft/azure-cli
+docker pull mcr.microsoft.com/azure-cli
 ```
 
 ## <a name="uninstall-docker-image"></a>Docker イメージのアンインストール
@@ -58,7 +61,7 @@ docker pull microsoft/azure-cli
 CLI イメージを実行しているコンテナーを停止した後、それを削除します。
 
 ```bash
-docker rmi microsoft/azure-cli
+docker rmi mcr.microsoft.com/azure-cli
 ```
 
 ## <a name="next-steps"></a>次の手順

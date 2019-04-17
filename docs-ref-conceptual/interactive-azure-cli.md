@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 7a6b89953d60fe98910f8141a606ac1fcba318ae
-ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
+ms.openlocfilehash: a325b799c7384037ae336093aa5274c7cbf53cbc
+ms.sourcegitcommit: cf47338210116437d7dc0f6037d2dabd5c5e6a4b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56158461"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59429015"
 ---
 # <a name="azure-cli-interactive-mode"></a>Azure CLI 対話モード
 
@@ -39,7 +39,7 @@ Azure CLI を対話モードで使用するには、`az interactive` コマン�
 
 ![既定値](./media/interactive-azure-cli/defaults.png)
 
-`F3` では、一部のキー ジェスチャの表示を切り替えることができます。
+`F3` 複数のキー ジェスチャの表示を切り替えます。
 
 ![ジェスチャ](./media/interactive-azure-cli/gestures.png)
 
@@ -82,18 +82,20 @@ az>>
 
 ## <a name="query"></a>Query
 
-最後に実行したコマンドの結果に対して、JMESPath クエリを実行することができます。
-たとえば、VM を作成した後、その VM が完全にプロビジョニングされていることを確認できます。
+`??` と、その後に JMESPath クエリを指定して、最後に実行したコマンドの結果に対して、JMESPath クエリを実行することができます。
+たとえば、グループの作成後に、その新しいグループの ID を取得することができます。
+
+```azurecli
+az>> group create -n myRG -l westEurope
+az>> "?? id"
+```
+
+この構文では前に実行したコマンドの結果を引数として使用することもできます。* たとえば、すべてのグループを一覧表示した後に、最初のグループ内で西ヨーロッパにある `virtualMachine` の種類のリソースをすべて一覧表示することができます。 
 
 ```azurecli
 az>> vm create --name myVM --resource-group myRG --image UbuntuLTS --no-wait -o json
-az>> ? [*].provisioningState
-```
-
-```json
-[
-  "Creating"
-]
+az>> group list -o json
+az>> resource list -g "?? [?location=='westeurope'].name | [0]" --query "[?type=='Microsoft.Compute/virtualMachines'].name
 ```
 
 コマンドの結果に対してクエリを実行する方法の詳細については、[Azure CLI でのコマンド結果に対するクエリの実行](query-azure-cli.md)に関するページをご覧ください。
