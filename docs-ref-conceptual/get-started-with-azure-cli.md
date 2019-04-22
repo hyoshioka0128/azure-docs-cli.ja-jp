@@ -11,10 +11,10 @@ ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
 ms.openlocfilehash: 003576ba22cdc4fc64977b653d0fb6859cd38446
-ms.sourcegitcommit: cf47338210116437d7dc0f6037d2dabd5c5e6a4b
+ms.sourcegitcommit: 334a1da92a73e42e715e33470057f4194f10b2ea
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59429032"
 ---
 # <a name="get-started-with-azure-cli"></a>Azure CLI の概要
@@ -51,7 +51,7 @@ CLI をインストールする準備ができたら、[インストール手順
 | [Key Vault](/azure/key-vault/key-vault-whatis) | [az keyvault](/cli/azure/keyvault) |
 | [Web アプリケーション](/azure/app-service) | [az webapp](/cli/azure/webapp) |
 | [SQL データベース](/azure/sql-database) | [az sql server](/cli/azure/sql/server) |
-| [Cosmos DB](/azure/cosmos-db) | [az cosmosdb](/cli/azure/cosmosdb) |
+| [CosmosDB](/azure/cosmos-db) | [az cosmosdb](/cli/azure/cosmosdb) |
 
 ## <a name="finding-commands"></a>コマンドを見つける
 
@@ -76,10 +76,10 @@ CLI では Bash シェルにコマンドの完全タブ補完が用意されて�
 引数の中には、すべてのコマンドで使用できるものがあります。
 
 * `--help` は、コマンドとその引数に関する CLI 参照情報を出力し、利用可能なサブグループとコマンドの一覧を表示します。
-* `--output` 出力形式を変更します。 使用可能な出力形式は `json`、`jsonc` (色付けされた JSON)、`tsv` (タブ区切り値)、および `table` (人間が判読できる ASCII テーブル)、および `yaml` です。 既定では、CLI は `json` を出力します。 使用可能な出力形式の詳細については、[Azure CLI の出力形式](format-output-azure-cli.md)に関するページをご覧ください。
-* `--query` [JMESPath クエリ言語](http://jmespath.org/)を使用して、Azure サービスから返された出力をフィルター処理します。 クエリの詳細については、[Azure CLI でのコマンド結果に対するクエリの実行](query-azure-cli.md)に関するページ、および「[JMESPath tutorial (JMESPath チュートリアル)](http://jmespath.org/tutorial.html)」を参照してください。
-* `--verbose` 操作中に Azure で作成されたリソースに関する情報と、その他の有用な情報を出力します。
-* `--debug` デバッグの目的で使用する、CLI 操作に関する詳細情報を出力します。 バグを見つけた場合は、バグ レポートを送信するときに、`--debug` フラグをオンにして生成した出力を提供してください。
+* `--output` は出力形式を変更します。 使用可能な出力形式は `json`、`jsonc` (色付けされた JSON)、`tsv` (タブ区切り値)、および `table` (人間が判読できる ASCII テーブル)、および `yaml` です。 既定では、CLI は `json` を出力します。 使用可能な出力形式の詳細については、[Azure CLI の出力形式](format-output-azure-cli.md)に関するページをご覧ください。
+* `--query` は、[JMESPath クエリ言語](http://jmespath.org/)を使用して、Azure サービスから返された出力をフィルター処理します。 クエリの詳細については、[Azure CLI でのコマンド結果に対するクエリの実行](query-azure-cli.md)に関するページ、および「[JMESPath tutorial (JMESPath チュートリアル)](http://jmespath.org/tutorial.html)」を参照してください。
+* `--verbose` は、操作中に Azure で作成されたリソースに関する情報と、その他の有用な情報を出力します。
+* `--debug` は、デバッグの目的で使用する、CLI 操作に関する詳細情報を出力します。 バグを見つけた場合は、バグ レポートを送信するときに、`--debug` フラグをオンにして生成した出力を提供してください。
 
 ## <a name="interactive-mode"></a>対話モード
 
@@ -102,13 +102,13 @@ Azure CLI の使用を開始するには、詳細なチュートリアルをお�
 
 その他の人気のあるサービス用のクイック スタートもあります。
 
-* [Azure CLI を使用してストレージ アカウントを作成する](/azure/storage/common/storage-quickstart-create-storage-account-cli)
+* [Azure CLI を使用したストレージ アカウントの作成](/azure/storage/common/storage-quickstart-create-storage-account-cli)
 * [CLI を使用した Azure Blob Storage との間でのオブジェクトの転送](/azure/storage/blobs/storage-quickstart-blobs-cli)
-* [Azure CLI を使用して単一の Azure SQL データベースを作成する](/azure/sql-database/sql-database-get-started-cli)
+* [Azure CLI を使用した単一の Azure SQL データベースの作成](/azure/sql-database/sql-database-get-started-cli)
 * [Azure CLI を使用した Azure Database for MySQL サーバーの作成](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
 * [Azure CLI を使用した Azure Database for PostgreSQL の作成](/azure/postgresql/quickstart-create-server-database-azure-cli)
-* [Azure に Python Web アプリを作成する](/azure/app-service/app-service-web-get-started-python)
-* [Azure Web Apps for Containers でカスタム Docker Hub イメージを実行する](/azure/app-service/containers/quickstart-custom-docker-image)
+* [Azure での Python Web アプリの作成](/azure/app-service/app-service-web-get-started-python)
+* [Azure Web Apps for Containers でのカスタム Docker Hub イメージの実行](/azure/app-service/containers/quickstart-custom-docker-image)
 
 ## <a name="give-feedback"></a>フィードバックを送る
 

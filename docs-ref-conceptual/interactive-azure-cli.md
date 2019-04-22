@@ -10,10 +10,10 @@ ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
 ms.openlocfilehash: a325b799c7384037ae336093aa5274c7cbf53cbc
-ms.sourcegitcommit: cf47338210116437d7dc0f6037d2dabd5c5e6a4b
+ms.sourcegitcommit: 334a1da92a73e42e715e33470057f4194f10b2ea
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/17/2019
 ms.locfileid: "59429015"
 ---
 # <a name="azure-cli-interactive-mode"></a>Azure CLI 対話モード
@@ -39,7 +39,7 @@ Azure CLI を対話モードで使用するには、`az interactive` コマン�
 
 ![既定値](./media/interactive-azure-cli/defaults.png)
 
-`F3` 複数のキー ジェスチャの表示を切り替えます。
+`F3` では、一部のキー ジェスチャの表示を切り替えることができます。
 
 ![ジェスチャ](./media/interactive-azure-cli/gestures.png)
 
