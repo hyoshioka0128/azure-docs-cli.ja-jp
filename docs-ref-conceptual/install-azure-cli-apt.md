@@ -35,7 +35,7 @@ Ubuntu や Debian など、`apt` が付属するディストリビューショ�
 
     ```bash
     sudo apt-get update
-    sudo apt-get install curl apt-transport-https lsb-release gpg
+    sudo apt-get install curl apt-transport-https lsb-release gnupg
     ```
 
 2. Microsoft の署名キーをダウンロードしてインストールします。
