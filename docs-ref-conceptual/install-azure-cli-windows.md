@@ -4,17 +4,17 @@ description: Windows で Azure CLI をインストールする方法
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/09/2018
+ms.date: 05/01/2019
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: ffd9c279302377de6eca1b64c45749196bd99096
-ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
+ms.openlocfilehash: c5c499800e49dcdc536337e7655ec1ee280d48f2
+ms.sourcegitcommit: 65bf8561a6e047e4eab52186e066a2e8c21f1d40
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56421877"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65240547"
 ---
 # <a name="install-azure-cli-on-windows"></a>Windows での Azure CLI のインストール
 
@@ -25,7 +25,7 @@ Windows Subsystem for Linux (WSL) 用にインストールする場合は、お�
 
 ## <a name="install-or-update"></a>インストールまたは更新
 
-再頒布可能 MSI は、Windows での `az` コマンドのインストール、更新、およびアンインストールに使用されます。
+再頒布可能 MSI は、Windows での Azure CLI のインストールまたは更新に使用されます。 MSI インストーラーの使用前に現在のバージョンをアンインストールする必要はありません。
 
 > [!div class="nextstepaction"]
 > [MSI インストーラーのダウンロード](https://aka.ms/installazurecliwindows)
@@ -42,10 +42,14 @@ Windows Subsystem for Linux (WSL) 用にインストールする場合は、お�
 
 [!INCLUDE [uninstall-boilerplate.md](includes/uninstall-boilerplate.md)]
 
-アンインストールするには、MSI をもう一度実行して、"アンインストール" オプションを選択します。
+Windows の "アプリと機能" の一覧から Azure CLI をアンインストールします。 アンインストールするには、次のようにします。
 
-> [!div class="nextstepaction"]
-> [MSI インストーラーのダウンロード](https://aka.ms/installazurecliwindows)
+| プラットフォーム | Instructions |
+|---|---|
+| Windows 10 | [スタート] > [設定] > [アプリ] |
+| Windows 8<br/>Windows 7 | [スタート] > [コントロール パネル] > [プログラム] > [プログラムのアンインストール] |
+
+この画面に移動したら、プログラムの検索バーに "__Azure CLI__" と入力します。 アンインストールするプログラムが "__Microsoft CLI 2.0 for Azure__" として一覧に表示されます。 このアプリケーションを選択し、`Uninstall` ボタンをクリックします。
 
 ## <a name="next-steps"></a>次の手順
 

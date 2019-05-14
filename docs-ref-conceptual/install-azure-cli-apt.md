@@ -4,23 +4,23 @@ description: apt パッケージ マネージャーで Azure CLI をインスト
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 03/19/2019
+ms.date: 05/08/2019
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: fa2e1db439b4836d7506409b3abcce74fb6e6695
-ms.sourcegitcommit: 5864f72b9a6fbf82a4d98bf805b3a16a7da18556
+ms.openlocfilehash: af82eea3fd549cbca85699a3030a19bc82574b73
+ms.sourcegitcommit: c65c69bd08fd6b7632ba60dc7c8e9f2b57a9d0b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58343147"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65476258"
 ---
 # <a name="install-azure-cli-with-apt"></a>apt での Azure CLI のインストール
 
-Ubuntu や Debian など、`apt` が付属するディストリビューションを実行している場合は、Azure CLI 用に x86_64 パッケージを使用できます。 このパッケージは、以下でテストされています。
+Ubuntu や Debian など、`apt` が付属するディストリビューションを実行している場合は、Azure CLI 用に x86_64 パッケージを使用できます。 このパッケージは、以下でテストされ、サポートされています。
 
-* Ubuntu trusty、xenial、artful、および bionic
+* Ubuntu trusty、xenial、artful、bionic、および disco
 * Debian wheezy、jessie、および stretch
 
 [!INCLUDE [current-version](includes/current-version.md)]
@@ -31,11 +31,29 @@ Ubuntu や Debian など、`apt` が付属するディストリビューショ�
 
 ## <a name="install"></a>Install
 
+`apt` をサポートするディストリビューションで Azure CLI をインストールするために、次の 2 つの方法が提供されています。ユーザーに代わってコマンドを実行してインストールするオールインワンのスクリプトと、ユーザーが段階的なプロセスを自分で実行できる手順です。
+
+### <a name="install-with-one-command"></a>1 つのコマンドでインストールする
+
+1 つの手順ですべてのインストール コマンドを実行するスクリプトを提供および保守しています。 `curl` を使用してコマンドを実行し、`bash` に直接パイプするか、ファイルにスクリプトをダウンロードして実行前に検査します。
+
+> [!IMPORTANT]
+> このスクリプトは、Ubuntu 16.04 以降および Debian 8 以降でのみ検証されています。 他のディストリビューションでは機能しない可能性があります。
+> Linux Mint などの派生ディストリビューションを使用している場合は、手動のインストール手順に従い、必要なトラブルシューティングを実行します。
+
+```bash
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+
+### <a name="manual-install-instructions"></a>手動のインストール手順
+
+スーパーユーザーとしてスクリプトを実行しない場合は、次の手動の手順に従って Azure CLI をインストールします。
+
 1. インストール プロセスに必要なパッケージを取得します。
 
     ```bash
     sudo apt-get update
-    sudo apt-get install curl apt-transport-https lsb-release gpg
+    sudo apt-get install curl apt-transport-https lsb-release gnupg
     ```
 
 2. Microsoft の署名キーをダウンロードしてインストールします。
@@ -79,7 +97,7 @@ Linux Mint など、Ubuntu や Debian から派生する一部のディストリ
 
 ディストリビューションがリリースされてから、そのディストリビューション用の Azure CLI パッケージが利用可能になるまではしばらくかかることがあります。 Azure CLI は、以降のバージョンの依存関係に関して弾力性を持つように、また可能な限り以降のバージョンに依存しないように設計されています。 ベース ディストリビューションに使用できるパッケージがない場合は、以前のディストリビューション用のパッケージをお試しください。
 
-これを行うには、[リポジトリを追加する](#set-release)ときに `AZ_REPO` の値を手動で設定します。 Ubuntu ディストリビューションには `bionic` リポジトリーを使用し、Debian ディストリビューションには `stretch` を使用します。 Ubuntu Trusty および Debian Wheezy より前にリリースされたディストリビューションはサポートされていません。
+これを行うには、[リポジトリを追加する](#set-release)ときに `AZ_REPO` の値を手動で設定します。 Ubuntu ディストリビューションには `disco` リポジトリーを使用し、Debian ディストリビューションには `stretch` を使用します。 Ubuntu Trusty および Debian Wheezy より前にリリースされたディストリビューションはサポートされていません。
 
 [!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
 
