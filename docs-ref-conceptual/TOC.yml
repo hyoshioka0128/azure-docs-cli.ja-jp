@@ -1,63 +1,53 @@
 - name: Azure CLI
   href: index.md
+- name: Install
   items:
     - name: Install
       href: install-azure-cli.md
-      items:
-        - name: macOS
-          href: install-azure-cli-macos.md
-        - name: Windows
-          href: install-azure-cli-windows.md
-        - name: Linux (apt を使用)
-          href: install-azure-cli-apt.md
-        - name: Linux (yum を使用)
-          href: install-azure-cli-yum.md
-        - name: Linux (zypper を使用)
-          href: install-azure-cli-zypper.md
-        - name: Linux
-          href: install-azure-cli-linux.md
-        - name: Docker での実行
-          href: run-azure-cli-docker.md
-    - name: 作業開始
-      href: get-started-with-azure-cli.md
-    - name: Cloud Shell
-      href: /azure/cloud-shell/overview
-    - name: サインイン
+    - name: macOS
+      href: install-azure-cli-macos.md
+    - name: Windows
+      href: install-azure-cli-windows.md
+    - name: Linux (apt を使用)
+      href: install-azure-cli-apt.md
+    - name: Linux (yum を使用)
+      href: install-azure-cli-yum.md
+    - name: Linux (zypper を使用)
+      href: install-azure-cli-zypper.md
+    - name: Linux
+      href: install-azure-cli-linux.md
+    - name: Docker での実行
+      href: run-azure-cli-docker.md
+- name: 作業開始
+  href: get-started-with-azure-cli.md
+- name: Cloud Shell
+  href: /azure/cloud-shell/overview
+- name: サインイン
+  items:
+    - name: 認証方法
       href: authenticate-azure-cli.md
-      items:
-        - name: サービス プリンシパルの作成
-          href: create-an-azure-service-principal-azure-cli.md
-    - name: 対話モード
-      href: interactive-azure-cli.md
-    - name: デプロイ テンプレート
-      items:
-        - name: デプロイ テンプレートの使用
-          href: /azure/azure-resource-manager/resource-group-template-deploy-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-        - name: デプロイ テンプレートのエクスポート
-          href: /azure/azure-resource-manager/resource-manager-export-template-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-        - name: プライベート テンプレートからのデプロイ
-          href: /azure/azure-resource-manager/resource-manager-cli-sas-token?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-    - name: サブスクリプションの管理
-      href: manage-azure-subscriptions-azure-cli.md
-    - name: 複数のクラウドの処理
-      href: manage-clouds-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-    - name: 出力形式
-      href: format-output-azure-cli.md
-    - name: Query
-      href: query-azure-cli.md
-    - name: Extensions
-      href: azure-cli-extensions-overview.md
-      items:
-        - name: 使用可能な拡張機能
-          href: azure-cli-extensions-list.md
-        - name: エイリアス拡張機能
-          href: azure-cli-extension-alias.md
-    - name: 構成設定
-      href: azure-cli-Configuration.md
-    - name: リリース ノート
-      href: release-notes-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
-    - name: CLI のバージョン管理
-      href: cli-versioning-identifiers.md
+    - name: サービス プリンシパルの作成
+      href: create-an-azure-service-principal-azure-cli.md
+- name: 対話モード
+  href: interactive-azure-cli.md
+- name: デプロイ テンプレート
+  items:
+    - name: デプロイ テンプレートの使用
+      href: /azure/azure-resource-manager/resource-group-template-deploy-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: デプロイ テンプレートのエクスポート
+      href: /azure/azure-resource-manager/resource-manager-export-template-cli?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+    - name: プライベート テンプレートからのデプロイ
+      href: /azure/azure-resource-manager/resource-manager-cli-sas-token?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+- name: サブスクリプションの管理
+  href: manage-azure-subscriptions-azure-cli.md
+- name: 複数のクラウドの処理
+  href: manage-clouds-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+- name: 出力形式
+  href: format-output-azure-cli.md
+- name: Query
+  href: query-azure-cli.md
+- name: 構成設定
+  href: azure-cli-Configuration.md
 - name: チュートリアル
   items:
     - name: 仮想マシンを作成する
@@ -82,3 +72,15 @@
       href: /azure/cosmos-db/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
     - name: Batch
       href: /azure/batch/cli-samples?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+- name: Extensions
+  items:
+    - name: 概要
+      href: azure-cli-extensions-overview.md
+    - name: 使用可能な拡張機能
+      href: azure-cli-extensions-list.md
+    - name: エイリアス拡張機能
+      href: azure-cli-extension-alias.md
+- name: リリース ノート
+  href: release-notes-azure-cli.md?toc=%2fcli%2fazure%2ftoc.json&bc=%2fcli%2fazure%2fbreadcrumb%2ftoc.json
+- name: CLI のバージョン管理
+  href: cli-versioning-identifiers.md
