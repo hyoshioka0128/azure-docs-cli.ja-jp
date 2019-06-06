@@ -4,26 +4,86 @@ description: Azure CLI の最新情報について説明します
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/06/2019
+ms.date: 05/21/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: ce11abccc23ee1f150916ef2f91dc895d4664d31
-ms.sourcegitcommit: 65bf8561a6e047e4eab52186e066a2e8c21f1d40
+ms.openlocfilehash: 5b4bcde8c4a66ccc378abc00468cbdb423f07fa4
+ms.sourcegitcommit: 3fe3502ec5af89939155285bb5e741b08af604cd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65240507"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66197791"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+
+## <a name="may-21-2019"></a>2019 年 5 月 21 日
+
+バージョン 2.0.65
+
+### <a name="core"></a>コア
+* 認証エラーのより有意義なフィードバックを追加しました
+* CLI でそのコア バージョンと互換性がない拡張機能が読み込まれる問題を修正しました
+* `clouds.config` が破損したときの起動時の問題を修正しました
+
+### <a name="acr"></a>ACR
+* タスクに対するマネージド ID のサポートを追加しました
+
+### <a name="acs"></a>ACS
+* お客様の AAD クライアントでの使用時の `openshift create` コマンドを修正しました
+
+### <a name="appservice"></a>AppService
+* [非推奨] `functionapp devops-build` コマンドを非推奨にしました - 次のリリースから削除されます
+* 詳細モードで Azure DevOps からビルド ログをフェッチするように `functionapp devops-pipeline` を変更しました
+* [破壊的変更] `--use_local_settings` フラグを `functionapp devops-pipeline` コマンドから削除しました (操作なし)
+* `--logs` が使用されていないときに、JSON 出力を返すように `webapp up` を変更しました
+* `webapp up` 用のローカル構成に既定のリソースを書き込むためのサポートを追加しました
+* `--location` 引数を使用しないでアプリを再デプロイするために `webapp up` にサポートを追加しました
+* SKU 値が機能しないため Linux Free SKU ASP 作成が無料で使用される問題を修正しました
+
+### <a name="botservice"></a>BotService
+* コマンドの `--lang` パラメーターに大文字小文字のすべてが許可されるように変更しました
+* コマンド モジュールの説明を更新しました
+
+### <a name="consumption"></a>消費
+* `consumption usage list --billing-period-name` の実行時に存在しない必須パラメーターを追加しました
+
+### <a name="iot"></a>IoT
+* すべてのキーを一覧表示するようサポートを追加しました
+
+### <a name="network"></a>ネットワーク
+* [破壊的変更]: Removed `network interface-endpoints` command group - use `network private-endpoints` 
+* NAT ゲートウェイへのアタッチ用に `--nat-gateway` 引数を `network vnet subnet [create|update]` に追加しました
+* レコード名がレコードの種類と一致しない `dns zone import` の問題を修正しました
+
+### <a name="rdbms"></a>RDBMS
+* geo レプリケーション用の postgres と mysql のサポートを追加しました
+
+### <a name="rbac"></a>RBAC
+* 管理グループ スコープのサポートを `role assignment` に追加しました
+
+### <a name="storage"></a>Storage
+* `storage blob sync`: ストレージ BLOB 用の同期コマンドを追加
+
+### <a name="compute"></a>Compute
+* VM のコンピューター名設定用に `--computer-name` を `vm create` に追加しました
+* `[vm|vmss] create` について `--ssh-key-value` を `--ssh-key-values` に変更しました。複数の ssh 公開キーの値またはパスが受け入れられるようになりました
+  * __メモ__:これは、破壊的変更 "**ではありません**" - `--ssh-key-values` にのみ一致するため `--ssh-key-value` は 適切に解析されます
+* `ppg create` の `--type` 引数をオプションに変更しました
 
 ## <a name="may-6-2019"></a>2019 年 5 月 6 日
 
 バージョン 2.0.64
 
+### <a name="acs"></a>ACS
+* [破壊的変更] `--fqdn` フラグを `openshift` コマンドから削除しました
+* Azure Red Hat Openshift GA API Version を使用するように変更しました
+* `customer-admin-group-id` フラグを `openshift create` に追加しました
+* [GA] `aks create` オプション `--network-policy` から `(PREVIEW)` を削除しました
+
 ### <a name="appservice"></a>Appservice
-* `functionapp devops-build` コマンドを非推奨にしました
+* [非推奨] `functionapp devops-build` コマンドを非推奨にしました
   * 名前を `functionapp devops-pipeline` に変更しました
 * `webapp up` が失敗する原因となっていた問題を修正し、CloudShell の正しいユーザー名が取得されるようにしました
 * サポートされる appserviceplans を反映するために `appservice plan --sku` のドキュメントを更新しました
@@ -34,8 +94,61 @@ ms.locfileid: "65240507"
 * Windows 上で `functionapp create` を実行するために `powershell` ランタイムに対するサポートを追加しました
 * `create-remote-connection` コマンドを追加しました
 
+### <a name="batch"></a>Batch
+* `--application-package-references` オプションの検証コントロールのバグを修正しました
+
+### <a name="botservice"></a>Botservice
+* [破壊的変更] 空の Web アプリ ボットを既定で作成するように `bot create -v v4 -k webapp` を変更しました (つまり、アプリ サービスにデプロイされるボットはありません)
+* `-v v4` により以前の動作を使用するように `--echo` フラグを `bot create` に追加しました
+* [破壊的変更] `--version` の既定値を `v4` に変更しました
+  * __注:__ `bot prepare-publish` ではその以前の既定値を引き続き使用します
+* [破壊的変更] 既定値が `Csharp` にならないように `--lang` を変更しました。 コマンドで `--lang` が必要で、これが指定されないと、コマンドでエラーが出力されます
+* [破壊的変更] `bot create` が必要になるように、および `ad app create` を通じて作成されるように `--appid` と `--password` 引数を変更しました
+* `--appid` および `--password` 検証を追加しました
+* [破壊的変更] ストレージ アカウントまたは Application Insights を作成または使用しないように `bot create -v v4` を変更しました
+* [破壊的変更] Application Insights を使用できるリージョンを必要とするように `bot create -v v3` を変更しました
+* [破壊的変更] ボットの特定のプロパティのみに影響するように `bot update` を変更しました
+* [破壊的変更] `Node` の代わりに `Javascript` を受け入れるように `--lang` フラグを変更しました
+* [破壊的変更] 許可された `--lang` 値としての `Node` を削除しました
+* [破壊的変更] `SCM_DO_BUILD_DURING_DEPLOYMENT` が true に設定されないように `bot create -v v4 -k webapp` を変更しました。 Kudu を通じたすべてのデプロイがその既定の動作に従って動作します
+* `.bot` ファイルのないボットで言語固有の構成ファイルが、ボット用のアプリケーション設定からの値により作成されるように `bot download` を変更しました
+* `bot prepare-deploy` に `Typescript` のサポートを追加しました
+* `--code-dir` に `package.json` が含まれない場合に備えて `Javascript` および `Typescript` ボット用に `bot prepare-deploy` に警告メッセージを追加しました
+* 成功した場合に `true` を返すように `bot prepare-deploy` を変更しました
+* 詳細ログ記録を `bot prepare-deploy` に追加しました
+* さらに多くの使用可能な Application Insights リージョンを `az bot create -v v3` に追加しました
+
+### <a name="configure"></a>構成
+* フォルダー ベースの引数の既定値の構成のサポートを追加しました
+
+### <a name="eventhubs"></a>イベント ハブ
+* `namespace network-rule` コマンドを追加しました
+* ネットワーク ルールの `--default-action` 引数を `namespace [create|update]` に追加しました
+
+### <a name="network"></a>ネットワーク
+* [破壊的変更] `vnet [create|update]` 用に `--cache` 引数を `--defer` に置き換えました 
+
+### <a name="policy-insights"></a>ポリシーの分析情報
+* リソースに関するポリシー評価の詳細にクエリを実行するために `--expand PolicyEvaluationDetails` のサポートを追加しました
+
 ### <a name="role"></a>Role
 * [非推奨] `create-for-rbac` '--password' 引数を非表示にするように変更しました。サポートは 2019 年 5 月に削除されます
+
+### <a name="service-bus"></a>Service Bus
+* `namespace network-rule` コマンドを追加しました
+* ネットワーク ルールの `--default-action` 引数を `namespace [create|update]` に追加しました
+* Premium SKU で値 10、20、40、および 80 GB の `--max-size` サポートを許可するように `topic [create|update]` を修正しました
+
+### <a name="sql"></a>SQL
+* `sql virtual-cluster [list|show|delete]` コマンドを追加しました
+
+### <a name="vm"></a>VM
+* VMSS VM インスタンスの保護ポリシーへの更新を有効にするように `--protect-from-scale-in` および `--protect-from-scale-set-actions` を `vmss update` に追加しました
+* VMSS VM インスタンスの汎用的な更新を有効にするように `--instance-id` を `vmss update` に追加しました
+* `--instance-id` を `vmss wait` に追加しました
+* 近接通信配置グループの管理用に新しい `ppg` コマンド グループを追加しました
+* PPG の管理用に `--ppg` を `[vm|vmss] create` および `vm availability-set create` に追加しました
+* `--hyper-v-generation` パラメーターを `image create` に追加しました
 
 ## <a name="april-23-2019"></a>2019 年 4 月 23 日
 
@@ -3342,7 +3455,7 @@ vm (2.0.6)
 
 * 基になるファイルシステム SDK のバージョンが更新され、サーバー側スロットル処理への対応が強化されました
 * パッケージ読み込みとコマンド実行のパフォーマンスが向上しています ([#2819](https://github.com/Azure/azure-cli/issues/2819))
-* access show のヘルプがなかったため、 追加しました  ([#2743](https://github.com/Azure/azure-cli/issues/2743))
+* access show のヘルプがなかったため、 追加しました ([#2743](https://github.com/Azure/azure-cli/issues/2743))
 
 ### <a name="find"></a>検索
 
@@ -3403,9 +3516,9 @@ vm (2.0.6)
 * managedapp と managedapp の定義コマンドが追加されました ([#2985](https://github.com/Azure/azure-cli/issues/2985))
 * "provider operation" コマンドに対応するようになりました ([#2908](https://github.com/Azure/azure-cli/issues/2908))
 * 汎用リソースの作成に対応するようになりました ([#2606](https://github.com/Azure/azure-cli/issues/2606))
-* リソース解析および API バージョンの検索が修正されました  ([#2781](https://github.com/Azure/azure-cli/issues/2781))
-* az lock update のドキュメントが追加されました  ([#2702](https://github.com/Azure/azure-cli/issues/2702))
-* 存在しないグループのリソースの一覧を表示しようとするとエラーが出力されます  ([#2769](https://github.com/Azure/azure-cli/issues/2769))
+* リソース解析および API バージョンの検索が修正されました ([#2781](https://github.com/Azure/azure-cli/issues/2781))
+* az lock update のドキュメントが追加されました ([#2702](https://github.com/Azure/azure-cli/issues/2702))
+* 存在しないグループのリソースの一覧を表示しようとするとエラーが出力されます ([#2769](https://github.com/Azure/azure-cli/issues/2769))
 * [コンピューティング] VMSS と VM の可用性セットの更新に関する問題が修正されました。 ([#2773](https://github.com/Azure/azure-cli/issues/2773))
 * parent-resource-path が None の場合のロックの作成と削除が修正されました ([#2742](https://github.com/Azure/azure-cli/issues/2742))
 
@@ -3483,16 +3596,16 @@ vm (2.0.2)
 * ログイン: 既定のサブスクリプションを "Enabled" の状態のサブスクリプションに設定 ([#2575](https://github.com/Azure/azure-cli/pull/2575))
 * wait コマンドと --no-wait のサポートをより多くのコマンドに追加 ([#2524](https://github.com/Azure/azure-cli/pull/2524))
 * コア: 証明書を持つサービス プリンシパルを使用したログインをサポート ([#2457](https://github.com/Azure/azure-cli/pull/2457))
-* 不足しているテンプレート パラメーターの指定を求めるメッセージを追加  ([#2364](https://github.com/Azure/azure-cli/pull/2364))
+* 不足しているテンプレート パラメーターの指定を求めるメッセージを追加 ([#2364](https://github.com/Azure/azure-cli/pull/2364))
 * 既定のリソース グループ、既定の Web、既定の VM など、一般的な引数の既定値の設定をサポート
 * 特定のテナントへのログインをサポート
 
 ### <a name="acs"></a>ACS
 
 * [ACS] 既定の ACS クラスターを構成するためのサポートを追加 ([#2554](https://github.com/Azure/azure-cli/pull/2554))
-* ssh キー パスワードの入力要求のサポートを追加  ([#2044](https://github.com/Azure/azure-cli/pull/2044))
-* Windows クラスターのためのサポートを追加  ([#2211](https://github.com/Azure/azure-cli/pull/2211))
-* 所有者から共同作成者へのロールの切り替え  ([#2321](https://github.com/Azure/azure-cli/pull/2321))
+* ssh キー パスワードの入力要求のサポートを追加 ([#2044](https://github.com/Azure/azure-cli/pull/2044))
+* Windows クラスターのためのサポートを追加 ([#2211](https://github.com/Azure/azure-cli/pull/2211))
+* 所有者から共同作成者へのロールの切り替え ([#2321](https://github.com/Azure/azure-cli/pull/2321))
 
 ### <a name="appservice"></a>AppService
 

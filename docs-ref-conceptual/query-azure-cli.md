@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: eed121ce7ce8f8c1eba5079eb438190d3e4d13db
-ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
+ms.openlocfilehash: 5e187025e97b1d882bc575fd51970a8250f6210e
+ms.sourcegitcommit: bf69c95abf3ed3d589b202c7ff04d8782e2a81ac
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56158827"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65993045"
 ---
 # <a name="query-azure-cli-command-output"></a>Azure CLI コマンドの出力のクエリ
 
@@ -102,6 +102,41 @@ az vm show -g QueryDemo -n TestVM --query '[name, osProfile.adminUsername, osPro
 ```
 
 これらの値は、クエリで指定された順序で結果の配列に表示されます。 結果は配列であるため、結果に関連付けられたキーはありません。
+
+## <a name="get-a-single-value"></a>単一の値を取得する
+
+一般的なケースとして、Azure リソース ID、リソース名、ユーザー名、パスワードなどの CLI コマンドから "_1 つ_" の値のみを取得する必要があります。 その場合、ローカルの環境変数に値を格納する必要が発生することも少なくありません。 1 つのプロパティを取得するには、まず、クエリから 1 つのプロパティのみを取得していることを確認します。 最後の例を管理者ユーザー名のみを取得するように変更します。
+
+```azurecli-interactive
+az vm show -g QueryDemo -n TestVM --query 'osProfile.adminUsername' -o json
+```
+
+```JSON
+"azureuser"
+```
+
+これは有効な単一の値のように見えますが、`"` 文字が出力の一部として返されることに注意してください。 これは、オブジェクトが JSON 文字列であることを示します。 この値をコマンドからの出力として環境変数に直接割り当てた場合、引用符はシェルによって解釈 "__されない__" ことに注意してください。
+
+```bash
+USER=$(az vm show -g QueryDemo -n TestVM --query 'osProfile.adminUsername' -o json)
+echo $USER
+```
+
+```output
+"azureuser"
+```
+
+これは、ほぼ間違いなく望ましくない状態です。 この場合、戻り値を型情報で囲まない出力形式を使用できます。 この目的のため CLI が提供する最適な出力オプションは `tsv` (タブ区切りの値) です。 特に、単一値のみの値を取得するとき (ディクショナリまたは一覧ではなく)、`tsv` 出力が引用されることはなくなります。
+
+```azurecli-interactive
+az vm show -g QueryDemo -n TestVM --query 'osProfile.adminUsername' -o tsv
+```
+
+```output
+azureuser
+```
+
+`tsv` 出力形式について詳しくは、「[Output formats - TSV output format (出力形式 - TSV 出力形式)](format-output-azure-cli.md#tsv-output-format)」を参照してください。
 
 ## <a name="rename-properties-in-a-query"></a>クエリでプロパティの名前を変更する
 
