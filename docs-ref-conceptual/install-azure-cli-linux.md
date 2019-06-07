@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 229b109b307453c87abf260a66084c94ced33d81
-ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
+ms.openlocfilehash: 13edb9954678aca627529714aeee02062c720219
+ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56422002"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66516306"
 ---
 # <a name="install-azure-cli-on-linux-manually"></a>Linux での Azure CLI の手動インストール
 
@@ -80,6 +80,17 @@ hash -r
 ```bash
 <install path>/bin
 ```
+
+### <a name="proxy-blocks-connection"></a>プロキシによる接続のブロック
+
+[!INCLUDE[configure-proxy](includes/configure-proxy.md)]
+
+インストール スクリプトを取得するには、プロキシで次のアドレスへの HTTPS 接続を許可する必要があります。
+
+* `https://aka.ms/`
+* `https://azurecliprod.blob.core.windows.net/`
+* `https://pypi.python.org`
+* コア パッケージ用のディストリビューションのパッケージ マネージャー (ある場合) によって使用されるエンドポイント
 
 [!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
 

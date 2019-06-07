@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 647b4b9518a174ad95a1eda8b17f38027182b25a
-ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
+ms.openlocfilehash: f8a3bec4fffb731c6521fa7b8a2a90798ef191e6
+ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56421917"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66516232"
 ---
 # <a name="install-azure-cli-with-zypper"></a>zypper での Azure CLI のインストール
 
-openSUSE や SLES など、`zypper` が付属するディストリビューションには、Azure CLI 用に利用できるパッケージが用意されています。 このパッケージは、openSUSE 42.2 と SLES 12 SP 2 でテストされています。
+openSUSE や SLES など、`zypper` が付属するディストリビューションには、Azure CLI 用に利用できるパッケージが用意されています。 このパッケージは、openSUSE 42.2 以降と SLES 12 SP 2 以降でテストされています。
 
 [!INCLUDE [current-version](includes/current-version.md)]
 
@@ -59,6 +59,19 @@ openSUSE や SLES など、`zypper` が付属するディストリビューシ�
 ## <a name="troubleshooting"></a>トラブルシューティング
 
 ここでは、`zypper` でのインストール時に発生する一般的な問題をいくつか示します。 ここで取り上げていない問題が発生した場合は、[GitHub で問題を報告](https://github.com/Azure/azure-cli/issues)してください。
+
+### <a name="proxy-blocks-connection"></a>プロキシによる接続のブロック
+
+[!INCLUDE[configure-proxy](includes/configure-proxy.md)]
+
+常にこのプロキシを使用するように `zypper` (`yast2` 経由) を明示的に構成することが必要な場合もあります。 このためには、`yast2 proxy` コマンドをスーパーユーザーとして実行し、フォームに提示された情報を入力します。 システムでウィンドウ マネージャーを使用できる場合、`YaST Control Center` で `Network Services > Proxy` ウィンドウを使用することもできます。
+
+詳細な構成やその他の情報については、[OpenSUSE プロキシの構成に関するドキュメント](https://www.suse.com/documentation/slms1/book_slms/data/sec_wy_config_updates_proxy.html)をご覧ください。
+
+Microsoft 署名キーを取得し、リポジトリからパッケージを取得するには、お使いのプロキシで次のアドレスへの HTTPS 接続を許可する必要があります。
+
+* `https://packages.microsoft.com`
+* `https://download.opensuse.org`
 
 [!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
 

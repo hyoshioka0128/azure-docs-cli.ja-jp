@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: af82eea3fd549cbca85699a3030a19bc82574b73
-ms.sourcegitcommit: c65c69bd08fd6b7632ba60dc7c8e9f2b57a9d0b7
+ms.openlocfilehash: f22ada48502602cb4d9b502cb887412a6ddcf5cf
+ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65476258"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66516338"
 ---
 # <a name="install-azure-cli-with-apt"></a>apt での Azure CLI のインストール
 
@@ -97,7 +97,29 @@ Linux Mint など、Ubuntu や Debian から派生する一部のディストリ
 
 ディストリビューションがリリースされてから、そのディストリビューション用の Azure CLI パッケージが利用可能になるまではしばらくかかることがあります。 Azure CLI は、以降のバージョンの依存関係に関して弾力性を持つように、また可能な限り以降のバージョンに依存しないように設計されています。 ベース ディストリビューションに使用できるパッケージがない場合は、以前のディストリビューション用のパッケージをお試しください。
 
-これを行うには、[リポジトリを追加する](#set-release)ときに `AZ_REPO` の値を手動で設定します。 Ubuntu ディストリビューションには `disco` リポジトリーを使用し、Debian ディストリビューションには `stretch` を使用します。 Ubuntu Trusty および Debian Wheezy より前にリリースされたディストリビューションはサポートされていません。
+これを行うには、[リポジトリを追加する](#set-release)ときに `AZ_REPO` の値を手動で設定します。 Ubuntu ディストリビューションには `bionic` リポジトリーを使用し、Debian ディストリビューションには `stretch` を使用します。 Ubuntu Trusty および Debian Wheezy より前にリリースされたディストリビューションはサポートされていません。
+
+### <a name="proxy-blocks-connection"></a>プロキシによる接続のブロック
+
+[!INCLUDE[configure-proxy](includes/configure-proxy.md)]
+
+常にこのプロキシを使用するように `apt` を明示的に構成することが必要な場合もあります。 次の行が `/etc/apt/apt.conf.d/` の `apt` 構成ファイルに表示されることを確認します。 既存のグローバル構成ファイル、既存のプロキシ構成ファイル、`40proxies`、または `99local` を使用することをお勧めしますが、システム管理の要件に従ってください。
+
+```apt.conf
+Acquire {
+    http::proxy "http://[username]:[password]@[proxy]:[port]";
+    https::proxy "https://[username]:[password]@[proxy]:[port]";
+}
+```
+
+プロキシで基本認証を使用しない場合、プロキシ URL の `[username]:[password]@` ポーションを__削除__します。 プロキシ構成について詳しくは、Ubuntu の公式ドキュメントを参照してください。
+
+* [apt.conf マニュアル ページ](http://manpages.ubuntu.com/manpages/bionic/en/man5/apt.conf.5.html)
+* [Ubuntu wiki - apt-get ハウツー](https://help.ubuntu.com/community/AptGet/Howto#Setting_up_apt-get_to_use_a_http-proxy)
+
+Microsoft 署名キーを取得し、リポジトリからパッケージを取得するには、お使いのプロキシで次のアドレスへの HTTPS 接続を許可する必要があります。
+
+* `https://packages.microsoft.com`
 
 [!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
 

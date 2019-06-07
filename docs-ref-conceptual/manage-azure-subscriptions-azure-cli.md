@@ -9,16 +9,18 @@ ms.topic: conceptual
 ms.product: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 4c196b8376b0044e315cfee2b3958f2f4b476df7
-ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
+ms.openlocfilehash: 37ef0c1d7cca90c99aa6f832c6dc6dc29a1806a3
+ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56158669"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66516202"
 ---
 # <a name="use-multiple-azure-subscriptions"></a>複数の Azure サブスクリプションの使用
 
 ほとんどの Azure ユーザーは、サブスクリプションを 1 つしか持っていません。 ただし、複数の組織に属している場合や、組織がグループ間で特定のリソースへのアクセスを分けている場合、Azure に複数のサブスクリプションを持っていることがあります。 CLI では、サブスクリプションをグローバルに選択することも、コマンドごとに選択することもできます。
+
+サブスクリプション、請求、およびコスト管理の詳細については、[課金とコスト管理に関するドキュメント](/azure/billing/)をご覧ください。
 
 ## <a name="tenants-users-and-subscriptions"></a>テナント、ユーザー、サブスクリプション
 

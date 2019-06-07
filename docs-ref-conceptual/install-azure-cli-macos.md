@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 61be6c31e7251c8b374bf09072a9ecba9b914342
-ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
+ms.openlocfilehash: 2f8ec8e82a61f11ee58fe8e509d6e5febc7d226f
+ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56422053"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66516221"
 ---
 # <a name="install-azure-cli-on-macos"></a>macOS での Azure CLI のインストール
 
@@ -59,6 +59,20 @@ brew link --overwrite python3
 ### <a name="cli-version-1x-is-installed"></a>CLI バージョン 1.x がインストールされている
 
 古いバージョンがインストールされている場合は、Homebrew の古いキャッシュが原因と考えられます。 [更新](#Update)の手順に従ってください。
+
+### <a name="proxy-blocks-connection"></a>プロキシによる接続のブロック
+
+お使いのプロキシを使用するように適切に構成しない限り、Homebrew からリソースを取得することができない場合があります。 [Homebrew プロキシの構成手順](https://docs.brew.sh/Manpage#using-homebrew-behind-a-proxy)に従ってください。
+
+> [!IMPORTANT]
+> プロキシの内側にいる場合は、CLI によって Azure サービスに接続するように `HTTP_PROXY` と `HTTPS_PROXY` を設定する必要があります。
+> 基本認証を使用しない場合は、`.bashrc` ファイルでこれらの変数をエクスポートすることをお勧めします。
+> 常に、貴社のビジネスのセキュリティ ポリシーと、システム管理者の要件に従ってください。
+
+Homebrew からボトル リソースを取得するには、プロキシで次のアドレスへの HTTPS 接続を許可する必要があります。
+
+* `https://formulae.brew.sh`
+* `https://homebrew.bintray.com`
 
 ## <a name="update"></a>アップデート
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: e0b2406ee8b235fc96fb9f2990ad1646d8cb8494
-ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
+ms.openlocfilehash: bc3ae41ea04ae8d7f62242b2bfe415c8a3bfea33
+ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56421872"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66516294"
 ---
 # <a name="install-azure-cli-with-yum"></a>yum での Azure CLI のインストール
 
@@ -53,6 +53,24 @@ RHEL、Fedora、CentOS など、`yum` が付属する Linux ディストリビ�
 ## <a name="troubleshooting"></a>トラブルシューティング
 
 ここでは、`yum` でのインストール時に発生する一般的な問題をいくつか示します。 ここで取り上げていない問題が発生した場合は、[GitHub で問題を報告](https://github.com/Azure/azure-cli/issues)してください。
+
+### <a name="proxy-blocks-connection"></a>プロキシによる接続のブロック
+
+[!INCLUDE[configure-proxy](includes/configure-proxy.md)]
+
+常にこのプロキシを使用するように `yum` を明示的に構成することが必要な場合もあります。 次の行が `/etc/yum.conf` の `[main]` セクションの下に表示されていることを確認してください。
+
+```yum.conf
+[main]
+# ...
+proxy=http://[proxy]:[port] # If your proxy requires https, change http->https
+proxy_username=[username] # Only required for basic auth
+proxy_password=[password] # Only required for basic auth
+```
+
+Microsoft 署名キーを取得し、リポジトリからパッケージを取得するには、お使いのプロキシで次のアドレスへの HTTPS 接続を許可する必要があります。
+
+* `https://packages.microsoft.com`
 
 [!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
 

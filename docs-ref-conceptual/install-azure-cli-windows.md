@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: c5c499800e49dcdc536337e7655ec1ee280d48f2
-ms.sourcegitcommit: 65bf8561a6e047e4eab52186e066a2e8c21f1d40
+ms.openlocfilehash: 40810b25bf776025c82b48ba7aa424369483ceeb
+ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65240547"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66516270"
 ---
 # <a name="install-azure-cli-on-windows"></a>Windows での Azure CLI のインストール
 
@@ -37,6 +37,27 @@ Windows Subsystem for Linux (WSL) 用にインストールする場合は、お�
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
 さまざまな認証方法の詳細については、「[Azure CLI を使用してサインインする](authenticate-azure-cli.md)」を参照してください。
+
+## <a name="troubleshooting"></a>トラブルシューティング
+
+ここでは、Windows でのインストール時に発生する一般的な問題をいくつか示します。 ここで取り上げていない問題が発生した場合は、[GitHub で問題を報告](https://github.com/Azure/azure-cli/issues)してください。
+
+### <a name="proxy-blocks-connection"></a>プロキシによる接続のブロック
+
+プロキシにより接続がブロックされているため MSI インストーラーをダウンロードできない場合、プロキシを正しく構成していることを確認します。 Windows 10 の場合、これらの設定は `Settings > Network & Internet > Proxy` ウィンドウで管理されます。 必要な設定またはお使いのマシンの構成が管理されている状況や高度なセットアップが必要な状況については、システム管理者にお問い合わせください。
+
+> [!IMPORTANT]
+> また、これらの設定は、CLI を使用した Azure サービスに PowerShell またはコマンド プロンプトの両方からアクセスできるようにするためにも必要です。 これを行うには、PowerShell で次のコマンドを使用します。
+>
+> ```powershell
+> (New-Object System.Net.WebClient).Proxy.Credentials = `
+>   [System.Net.CredentialCache]::DefaultNetworkCredentials
+> ```
+
+MSI を取得するには、プロキシで次のアドレスへの HTTPS 接続を許可する必要があります。
+
+* `https://aka.ms/`
+* `https://azurecliprod.blob.core.windows.net/`
 
 ## <a name="uninstall"></a>アンインストール
 
