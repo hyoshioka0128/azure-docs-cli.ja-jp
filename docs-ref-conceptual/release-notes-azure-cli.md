@@ -4,19 +4,52 @@ description: Azure CLI の最新情報について説明します
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/21/2019
+ms.date: 06/05/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 5b4bcde8c4a66ccc378abc00468cbdb423f07fa4
-ms.sourcegitcommit: 3fe3502ec5af89939155285bb5e741b08af604cd
+ms.openlocfilehash: b79d76480c3e6619427d6a7e3960f53b691889cc
+ms.sourcegitcommit: 6aca5a788b9731e6cbeeb497c83a9197ebb7d36e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66197791"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66750238"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+
+## <a name="june-4-2019"></a>2019 年 6 月 4 日
+
+バージョン 2.0.66
+
+### <a name="core"></a>コア
+* `--output yaml` が `--query` と共に使用された場合、コマンドが正常に実行されないバグを修正しました
+
+### <a name="acr"></a>ACR
+* Buildpack を使用して簡単なビルド タスクを作成するための 'acr pack' コマンド グループを追加しました。
+
+### <a name="acs"></a>ACS
+* AKS kube-dashboard アドオンを有効化/無効化できるようになりました
+* サブスクリプションが Azure Red Hat OpenShift を使用するようにホワイトリストに登録されていない場合、わかりやすいメッセージが出力されます
+
+### <a name="batch"></a>Batch
+* アカウント \[[#9165](https://github.com/Azure/azure-cli/issues/9165)\]\[[#8978](https://github.com/Azure/azure-cli/issues/8978)\] にログインしていないときのエラー処理を改善しました
+
+### <a name="iot"></a>IoT
+* 手動フェールオーバーのサポートを追加しました
+
+### <a name="network"></a>ネットワーク
+* カスタム WAF 規則をサポートするように `network application-gateway waf-policy` コマンドを追加しました。
+* `--waf-policy` 引数と `--max-capacity` 引数を `network application-gateway [create|update]` に追加しました 
+
+### <a name="resource"></a>Resource
+* 使用できる TTY がない場合の `deployment create` からのエラー メッセージを改善しました
+
+### <a name="role"></a>Role
+* ヘルプ テキストを更新しました。
+
+### <a name="compute"></a>Compute
+* データディスク LUN が 0 から始まらないまたは番号をスキップするマネージド イメージの VM 用の `vm create` のサポートを追加しました
 
 ## <a name="may-21-2019"></a>2019 年 5 月 21 日
 
@@ -495,7 +528,7 @@ ms.locfileid: "66197791"
 * App Service で `node_modules` フォルダーを削除しないように、`az bot publish` に `--keep-node-modules` 引数を追加しました
 * Azure Functions ボットまたは Web アプリ ボットの作成時の、`az bot create` からの出力に `"publishCommand"` キーと値のペアを追加しました
   * `"publishCommand"` の値は、新しく作成したボットを発行するために必要なパラメーターが入力された `az bot publish` コマンドです
-* 8.9.4 ではなく 10.14.1 を使用するように、v4 SDK ボット用の ARM テンプレートで `"WEBSITE_NODE_DEFAULT_VERSION"` を更新しました
+* 8\.9.4 ではなく 10.14.1 を使用するように、v4 SDK ボット用の ARM テンプレートで `"WEBSITE_NODE_DEFAULT_VERSION"` を更新しました
 
 ### <a name="key-vault"></a>Key Vault
 * `--id` の使用時に一部のユーザーに `unexpected_keyword` エラーが発生する `keyvault secret backup` の問題を修正しました
