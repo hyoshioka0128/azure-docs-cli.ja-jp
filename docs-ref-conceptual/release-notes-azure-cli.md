@@ -4,19 +4,104 @@ description: Azure CLI の最新情報について説明します
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 06/05/2019
+ms.date: 06/18/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: b79d76480c3e6619427d6a7e3960f53b691889cc
-ms.sourcegitcommit: 6aca5a788b9731e6cbeeb497c83a9197ebb7d36e
+ms.openlocfilehash: 8431946b169b550bfd3f5120cf26e2feeb5c9f2c
+ms.sourcegitcommit: 399f0a2997675fbb280243e4234cf63c3bbca819
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66750238"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67194865"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+
+## <a name="june-18-2019"></a>2019 年 6 月 18 日
+
+バージョン 2.0.67
+
+### <a name="core"></a>コア
+
+このリリースでは、新しい [プレビュー] タグが導入され、コマンド グループ、コマンド、または引数がプレビュー状態である場合に、お客様により明確に通知できるようになりました。 以前は、これはヘルプ テキストで通知されていたか、コマンド モジュールのバージョン番号によって暗黙的に通知されていました。
+CLI では、将来、個々のパッケージのバージョン番号が削除される予定です。 コマンドがプレビュー状態の場合は、そのすべての引数もプレビュー状態です。 コマンド グループにプレビュー状態のラベルが付いている場合、すべてのコマンドと引数もプレビュー状態と見なされます。
+
+この変更の結果、このリリースでは、一部のコマンド グループが "突然" プレビュー状態になったように見える場合があります。 ほとんどのパッケージがプレビュー状態にあったのですが、このリリースでは一般提供と見なされていることがその真相です
+
+### <a name="acr"></a>ACR
+* 'acr check-health' コマンドを追加しました
+* AAD トークンおよび外部コマンドの取得に関するエラー処理を改善しました
+
+### <a name="acs"></a>ACS
+* 非推奨の ACS コマンドがヘルプ ビューで非表示になりました
+
+### <a name="ams"></a>AMS
+* [破壊的変更] archive-window-length および key-frame-interval-duration の ISO 8601 時間文字列を返すように変更しました
+
+### <a name="appservice"></a>AppService
+* `webapp deleted list` および `webapp deleted restore` に対してロケーション ベースのルーティングを追加しました
+* Azure Cloud Shell で Web アプリのログに記録されたターゲット URL ("You can launch the app at...") がクリックできない問題を修正しました
+* 一部の SKU でのアプリ作成が AlwaysOn エラーで失敗するという問題を修正しました
+* `[appservice|webapp] create` に事前検証を追加しました
+* 正しい actionHostName を使用するように `[webapp|functionapp] traffic-routing` を修正しました
+* `functionapp` コマンドにスロット サポートを追加しました
+
+### <a name="batch"></a>Batch
+* 共有キー認証の過度のエラー報告による AAD 認証の回帰を修正しました
+
+### <a name="batchai"></a>BatchAI
+* BatchAI コマンドが非推奨となり、非表示になりました
+
+### <a name="botservice"></a>BotService
+* v3 SDK をサポートするコマンドに "廃止されたサポート"/"保守モード" 警告メッセージを追加しました
+
+### <a name="cosmosdb"></a>Cosmos DB
+* [非推奨] `cosmosdb list-keys` コマンドを非推奨にしました
+* `cosmosdb keys list` コマンドを追加しました。`cosmosdb list-keys` に置き換わるものです
+* `cosmsodb create/update`:"isZoneRedundant" プロパティを設定できるように --location の新しいフォーマットを追加しました 古いフォーマットを非推奨にしました
+
+### <a name="eventgrid"></a>EventGrid
+* ドメイン CRUD 操作のための `eventgrid domain` コマンドを追加しました
+* ドメイン トピック CRUD 操作のための `eventgrid domain topic` コマンドを追加しました
+* OData 構文を使用して結果をフィルタリングするための `--odata-query` 引数を `eventgrid [topic|event-subscription] list` に追加しました
+* `event-subscription create/update`:`--endpoint-type` パラメーターの新しい値として servicebusqueue を追加しました
+* [破壊的変更] `eventgrid event-subscription [create|update]` での `--included-event-types All` のサポートを削除しました
+
+### <a name="hdinsight"></a>HDInsight
+* `hdinsight create` コマンドでの `--ssh-public-key` パラメーターのサポートを追加しました
+
+### <a name="iot"></a>IoT
+* 承認ポリシー キーの再生成のサポートを追加しました
+* DigitalTwin リポジトリ プロビジョニング サービスの SDK およびサポートを追加しました
+
+### <a name="network"></a>ネットワーク
+* Nat Gateway に対するゾーン サポートを追加しました
+* `network list-service-tags` コマンドを追加しました
+* ユーザーがワイルドカード A レコードをインポートできない `dns zone import` の問題を修正しました
+* 特定のリージョンでフロー ロギングを有効にできない `watcher flow-log configure` の問題を修正しました
+
+### <a name="resource"></a>Resource
+* REST 呼び出しを行うための `az rest` コマンドを追加しました
+* リソース グループまたはサブスクリプション レベル`--scope` で `policy assignment list` を使用する場合のエラーを修正しました
+
+### <a name="servicebus"></a>ServiceBus
+* `servicebus topic create --max-size` [#9319](https://github.com/azure/azure-cli/issues/9319) での問題を修正しました
+
+### <a name="sql"></a>SQL
+* `--location` を `sql [server|mi] create` のオプションに変更しました - 指定されていない場合、リソース グループの場所を使用します
+* `sql db list-editions --available` の "'NoneType' object is not iterable" エラーを修正しました
+
+### <a name="sqlvm"></a>SQLVm
+* [破壊的変更] `--license-type` パラメーターを必要とするように `sql vm create` を変更しました
+* sql vm の作成または更新時に SQL イメージ SKU を設定できるように変更しました
+
+### <a name="storage"></a>Storage
+* `storage container generate-sas` のアカウント キーが見つからない問題を修正しました
+* Linux での `storage blob sync` に関する問題を修正しました
+
+### <a name="vm"></a>VM
+* [プレビュー] VM イメージを構築するための `vm image template` コマンドを追加しました
 
 ## <a name="june-4-2019"></a>2019 年 6 月 4 日
 
