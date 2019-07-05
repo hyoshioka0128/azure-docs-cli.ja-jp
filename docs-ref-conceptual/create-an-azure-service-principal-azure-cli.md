@@ -8,12 +8,12 @@ ms.date: 02/15/2019
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 7ead12b35cefd7cba9e06f7905c9267c569d98dd
-ms.sourcegitcommit: 014d89aa21f90561eb69792ad01947e481ea640a
+ms.openlocfilehash: 6d88400b8d7070cf2f9dba2f3e124edfe2e3163d
+ms.sourcegitcommit: e06d34682710e77840b0c51f4718184101bd8a03
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741719"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67527327"
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli"></a>Azure CLI で Azure サービス プリンシパルを作成する
 
@@ -35,21 +35,14 @@ Azure サービス プリンシパルは、Azure リソースにアクセスす�
 
 ### <a name="password-based-authentication"></a>パスワードベースの認証
 
-パスワード ベースの認証では、認証パラメーターは使用せず、自動的に作成されるランダム パスワードと共に使用されます。 パスワード ベースの認証を使用する場合は、次の方法をお勧めします。
+パスワード ベースの認証では、認証パラメーターは使用せず、自動的に作成されるランダム パスワードと共に使用されます。
 
   ```azurecli-interactive
   az ad sp create-for-rbac --name ServicePrincipalName
   ```
 
-ユーザー指定のパスワードの場合は、`--password` 引数を使用します。 パスワードを作成する際は、必ず [Azure Active Directory のパスワードの規則と制約事項](/azure/active-directory/active-directory-passwords-policy)に従ってください。 脆弱なパスワードを使用したり、パスワードを再利用したりしないでください。
-
-  ```azurecli-interactive
-  az ad sp create-for-rbac --name ServicePrincipalName --password <Choose a strong password>
-  ```
-
-  > [!IMPORTANT]
-  >
-  > セキュリティ上の理由から、サービス プリンシパルを作成するための `--password` 引数は、将来のリリースで非推奨になります。 パスワード ベースの認証を使用する場合は、`--password` の使用を避け、CLI で安全なパスワードを自動生成してください。
+> [!IMPORTANT]
+> Azure CLI 2.0.68 の時点で、ユーザーが定義したパスワードを使ってサービス プリンシパルを作成する `--password` パラメーターは、脆弱なパスワードの予期しない使用を避けるために__サポートされなくなりました__。
 
 パスワード認証によるサービス プリンシパルの出力には、`password` キーが含まれます。 この値は__必ず__コピーしてください。取得することはできません。 パスワードを忘れた場合は、[サービス プリンシパルの資格情報をリセット](#reset-credentials)します。
 
