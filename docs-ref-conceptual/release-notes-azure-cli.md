@@ -4,19 +4,63 @@ description: Azure CLI の最新情報について説明します
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 07/02/2019
+ms.date: 07/16/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 26757193628cff65603a04e440f9e2aa7bf5a248
-ms.sourcegitcommit: e06d34682710e77840b0c51f4718184101bd8a03
+ms.openlocfilehash: 8cb0e2f43a3f40fdf15a00ebc7bdb931bf8f41f0
+ms.sourcegitcommit: 49e1dea60942fce02d9c3ce249ac633a83f303e7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67527304"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68246923"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+
+## <a name="july-16-2019"></a>2019 年 7 月 16 日
+
+バージョン 2.0.69
+
+### <a name="appservice"></a>Appservice
+
+* ResourceGroupName または App の名前が無効な場合に適切なエラー メッセージを返すように `webapp identity` コマンドが変更されました
+* ResourceGroup が指定されなかった場合に numberOfSites の正しい値を返すように `webapp list` が修正されました
+* `appservice plan create` と `webapp create` の副作用が修正されました
+
+### <a name="core"></a>コア
+
+* `--subscription` が適用不可にもかかわらず表示される問題が修正されました
+
+### <a name="batch"></a>Batch
+
+* [重大な変更] `batch pool node-agent-skus list` が `batch pool supported-images list` に置き換えられました
+* `batch pool create network` の `--json-file` オプションを使用するときに、トラフィックのソース ポートに基づいてプールへのネットワーク アクセスをブロックするセキュリティ規則のサポートが追加されました
+* `batch task create`の `--json-file` オプションを使用するときに、コンテナーの作業ディレクトリまたは Batch タスクの作業ディレクトリでタスクを実行するためのサポートが追加されました
+* `batch pool create`の `--application-package-references` オプションが、既定値でのみ動作するというエラーが修正されました
+
+### <a name="eventhubs"></a>イベント ハブ
+
+* `authorizationrule`コマンドのパラメーター `--rights` の検証が追加されました
+
+### <a name="rdbms"></a>RDBMS
+
+* レプリカ作成コマンドでレプリカ SKU を指定するためのオプション パラメーターが追加されました
+* MySQL レプリカの作成で CI テストが失敗する問題が修正されました
+
+### <a name="relay"></a>リレー
+
+* クライアント承認が無効になっているときのハイブリッド接続の問題が修正されました ([#8775](https://github.com/azure/azure-cli/issues/8775))
+* パラメーター `--requires-transport-security` を `relay wcfrelay create` に追加しました
+
+### <a name="servicebus"></a>ServiceBus
+
+* `authorizationrule`コマンドのパラメーター `--rights` の検証が追加されました
+
+### <a name="storage"></a>Storage
+
+* ストレージ アカウントの更新で Files AADDS を有効にします
+* 修正された問題 `storage blob service-properties update --set`
 
 ## <a name="july-2-2019"></a>2019 年 7 月 2 日
 
