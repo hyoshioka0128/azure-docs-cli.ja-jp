@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: f22ada48502602cb4d9b502cb887412a6ddcf5cf
-ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
+ms.openlocfilehash: af20c31f6b387768e93158f1116b3f486f4aedfc
+ms.sourcegitcommit: 52f0a62892c68b5728090f1bfceef7a612104529
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66516338"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68415150"
 ---
 # <a name="install-azure-cli-with-apt"></a>apt での Azure CLI のインストール
 
@@ -47,13 +47,13 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
 ### <a name="manual-install-instructions"></a>手動のインストール手順
 
-スーパーユーザーとしてスクリプトを実行しない場合は、次の手動の手順に従って Azure CLI をインストールします。
+スーパーユーザーとしてスクリプトを実行しない場合またはオールインワン スクリプトが失敗する場合は、次の手順に従って Azure CLI をインストールします。
 
 1. インストール プロセスに必要なパッケージを取得します。
 
     ```bash
     sudo apt-get update
-    sudo apt-get install curl apt-transport-https lsb-release gnupg
+    sudo apt-get install ca-certificates curl apt-transport-https lsb-release gnupg
     ```
 
 2. Microsoft の署名キーをダウンロードしてインストールします。
