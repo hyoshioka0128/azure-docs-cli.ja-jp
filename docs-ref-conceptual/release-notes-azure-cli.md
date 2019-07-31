@@ -4,19 +4,64 @@ description: Azure CLI の最新情報について説明します
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 07/16/2019
+ms.date: 07/30/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 8cb0e2f43a3f40fdf15a00ebc7bdb931bf8f41f0
-ms.sourcegitcommit: 49e1dea60942fce02d9c3ce249ac633a83f303e7
+ms.openlocfilehash: 673014c3fd86e20148fe5ffa9fa5160e490da0cb
+ms.sourcegitcommit: d29d86d33916d5551b4aeb984b06d7a85c4f6b06
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68246923"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658933"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+
+## <a name="july-30-2019"></a>2019 年 7 月 30 日
+
+バージョン 2.0.70
+
+### <a name="acr"></a>ACR
+
+* 問題 #9952 (`acr pack build` コマンドでの回帰) を修正しました
+* `acr pack build` の既定のビルダー イメージ名を削除しました
+
+### <a name="appservice"></a>Appservice
+
+* リソースが見つからない場合にメッセージ表示するように `webapp config ssl` を変更しました
+* `functionapp create` がストレージ アカウントの種類 `Standard_RAGRS` を受け入れない問題を修正しました
+* 古いバージョンの python を使用して `webapp up` を実行すると失敗する問題を修正しました
+
+### <a name="network"></a>ネットワーク
+
+* `network nic ip-config add` から無効なパラメーター `--ids` を削除しました (#9861 の修正)
+* #9604 を修正しました。 信頼されたルート証明書へのユーザーの関連付けをサポートするために、`network application-gateway http-settings [create|update]` に `--root-certs` パラメーターを追加しました。
+* `network dns record-set ns create` の引数 `--subscription` を修正しました (#9965)
+
+### <a name="rbac"></a>RBAC
+
+* `user update` コマンドを追加しました
+* [非推奨] ユーザー関連コマンドで `--upn-or-object-id` を非推奨にしました
+    * 代替引数の `--id` を使用してください
+* ユーザー関連コマンドに `--id` 引数を追加しました
+
+### <a name="sql"></a>SQL
+
+* マネージド インスタンス キーおよび TDE 保護機能の管理コマンドを追加しました
+
+### <a name="storage"></a>Storage
+
+* `storage remove` コマンドを追加しました
+* `storage blob update` での問題を修正しました
+
+### <a name="vm"></a>VM
+
+* ゾーンの詳細を出力するための新しい API バージョンを使用するように `list-skus` を変更しました
+* `vmss create` の `--single-placement-group` の既定値を`false` に変更しました
+* `[snapshot|disk] create` において ZRS ストレージ SKU を選択する機能を追加しました
+* 専用ホストをサポートするために、新しいコマンド グループ `vm host` を追加しました
+* VM 専用ホストを設定するためのパラメーター `--host` と `--host-group` を `vm create` に追加しました
 
 ## <a name="july-16-2019"></a>2019 年 7 月 16 日
 
