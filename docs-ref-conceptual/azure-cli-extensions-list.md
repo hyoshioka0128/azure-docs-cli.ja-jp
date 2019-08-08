@@ -4,17 +4,17 @@ description: Azure CLI で公式にサポートされている拡張機能の完
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 07/29/2019
+ms.date: 07/31/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: cc65cffdb77abcfca764aa474dd1089a4c80c0f1
-ms.sourcegitcommit: d29d86d33916d5551b4aeb984b06d7a85c4f6b06
+ms.openlocfilehash: 1c36df58acce7287da4644f8c51cbdc023ea7caa
+ms.sourcegitcommit: 61965f5d95d0dae3752ad6a0e5a93db27a623c28
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658967"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68830959"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Azure CLI で使用可能な拡張機能
 
@@ -29,7 +29,7 @@ az extension list-available --output table
 | EnableAdfsAuthentication | Version | まとめ | プレビュー |
 |------|---------|---------|---------|
 | [aem](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Azure Enhanced Monitoring Extension for SAP を管理します |  |
-| [aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.4.5 | 次期 AKS 機能のプレビューを提供します | はい |
+| [aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.4.6 | 次期 AKS 機能のプレビューを提供します | はい |
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.2 | コマンドのエイリアスをサポートします | はい |
 | [appconfig](https://github.com/Azure/azure-cli-extensions) | 0.5.0 | 次期アプリ構成機能のプレビューを提供します。 | はい |
 | [application-insights](https://github.com/Azure/azure-cli-extensions/tree/master/src/application-insights) | 0.1.1 | Application Insights コンポーネントの管理と、それらのコンポーネントのメトリック、イベント、およびログのクエリをサポートします。 | はい |

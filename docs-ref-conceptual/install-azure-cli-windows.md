@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 40810b25bf776025c82b48ba7aa424369483ceeb
-ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
+ms.openlocfilehash: 6c972ba69344f9e8bcd14a96a90e9dadb6cd8132
+ms.sourcegitcommit: 61965f5d95d0dae3752ad6a0e5a93db27a623c28
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66516270"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68830961"
 ---
 # <a name="install-azure-cli-on-windows"></a>Windows での Azure CLI のインストール
 
@@ -31,6 +31,13 @@ Windows Subsystem for Linux (WSL) 用にインストールする場合は、お�
 > [MSI インストーラーのダウンロード](https://aka.ms/installazurecliwindows)
 
 インストーラーによって、コンピューターに変更を加えるかどうかを尋ねるメッセージが表示されたら、[はい] をクリックします。
+
+Azure CLI は PowerShell を使用してインストールすることもできます。 管理者として PowerShell を開始し、次のコマンドを実行します。
+
+   ```PowerShell
+   Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
+   ```
+これにより、最新バージョンの Windows 用 Azure CLI がダウンロードされインストールされます。 既にインストールされているバージョンがある場合、既存のバージョンが更新されます。 インストールが完了したら、Azure CLI を使用するには PowerShell を再度開く必要があります。
 
 これで、Windows コマンド プロンプトまたは PowerShell のいずれかから、`az` コマンドで Azure CLI を実行できるようになりました。 PowerShell では、Windows コマンド プロンプトでは利用できないタブ補完機能が提供されます。 サインインするには、[az login](/cli/azure/reference-index#az-login) コマンドを実行します。
 
