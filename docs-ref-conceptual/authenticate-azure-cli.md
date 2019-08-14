@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
 ms.component: authentication
-ms.openlocfilehash: 234c53f27ba365550e6502b8410aced57eb9ff4e
-ms.sourcegitcommit: 334a1da92a73e42e715e33470057f4194f10b2ea
+ms.openlocfilehash: 3c25f648fe01f788521394af09350f9468aa8b46
+ms.sourcegitcommit: 4daaac4e3629e0467bf15c561f0f437158482e06
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59724576"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68917676"
 ---
 # <a name="sign-in-with-azure-cli"></a>Azure CLI を使用してサインインする 
 
 Azure CLI には、いくつかの認証の種類があります。 [Azure Cloud Shell](/azure/cloud-shell/overview) を使用すると自動的にログインできるため、最も簡単に作業を開始できます。
 ローカルでは、ご使用のブラウザーで [az login](/cli/azure/reference-index#az-login) コマンドを使用して、対話形式でサインインできます。 スクリプトを記述するときは、サービス プリンシパルを使用することをお勧めします。 サービス プリンシパルに必要とされる適切なアクセス許可だけを付与することによって、自動化をより安全に維持できます。
 
-CLI によってサインイン情報が保存されることは、まったくありません。 代わりに、[認証更新トークン](https://docs.microsoft.com/en-us/azure/active-directory/develop/v1-id-and-access-tokens#refresh-tokens)が Azure によって生成され、保存されます。 2018 年 8 月の時点で、このトークンは非アクティブな状態が 90 日続くと取り消されますが、この値は、Microsoft またはテナント管理者が変更できます。 トークンが取り消されると、もう一度サインインする必要があることが CLI からメッセージで通知されます。
+CLI によってサインイン情報が保存されることは、まったくありません。 代わりに、[認証更新トークン](https://docs.microsoft.com/azure/active-directory/develop/v1-id-and-access-tokens#refresh-tokens)が Azure によって生成され、保存されます。 2018 年 8 月の時点で、このトークンは非アクティブな状態が 90 日続くと取り消されますが、この値は、Microsoft またはテナント管理者が変更できます。 トークンが取り消されると、もう一度サインインする必要があることが CLI からメッセージで通知されます。
 
 サインインすると、CLI コマンドが既定のサブスクリプションに対して実行されます。 複数のサブスクリプションがある場合は、[既定のサブスクリプションを変更](manage-azure-subscriptions-azure-cli.md)できます。
 
@@ -104,4 +104,4 @@ Azure リソースのマネージド ID 用に構成されたリソースでは�
 az login --identity
 ```
 
-Azure リソースのマネージド ID の詳細については、[Azure リソースのマネージド ID の構成](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)に関するページ、および[Azure リソースのマネージド ID を使用したサインイン](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in)に関するページをご覧ください。
+Azure リソースのマネージド ID の詳細については、[Azure リソースのマネージド ID の構成](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)に関するページ、および[Azure リソースのマネージド ID を使用したサインイン](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in)に関するページをご覧ください。
