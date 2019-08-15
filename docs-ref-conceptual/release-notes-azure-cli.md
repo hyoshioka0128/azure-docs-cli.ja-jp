@@ -4,19 +4,98 @@ description: Azure CLI の最新情報について説明します
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 07/30/2019
+ms.date: 08/13/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 673014c3fd86e20148fe5ffa9fa5160e490da0cb
-ms.sourcegitcommit: d29d86d33916d5551b4aeb984b06d7a85c4f6b06
+ms.openlocfilehash: d315046287a552e89112fa415e1219f9a97d4944
+ms.sourcegitcommit: b00555c528697c0a6419cf23380e48c8705026db
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658933"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68974274"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+
+## <a name="august-13-2019"></a>2019 年 8 月 13 日
+
+バージョン 2.0.71
+
+### <a name="appservice"></a>AppService
+
+* `webapp webjob continuous` コマンドがスロットで失敗する問題を修正しました
+
+### <a name="botservice"></a>BotService
+
+* [重大な変更] v3 SDK ボットの作成のサポートを削除しました
+
+### <a name="cognitiveservices"></a>CognitiveServices
+
+* `cognitiveservices account network-rule` コマンドを追加しました
+
+### <a name="cosmos-db"></a>Cosmos DB
+
+* 複数の書き込み場所を更新するときの警告を削除しました
+* CosmosDB SQL、MongoDB、Cassandra、Gremlin、およびテーブル リソースとリソースのスループットのための CRUD コマンドを追加しました
+
+### <a name="hdinsight"></a>HDInsight
+
+このリリースには、多数の破壊的変更が含まれています。
+
+* [重大な変更] `hdinsight create` のパラメーターの名前を変更しました。
+  * `--storage-default-container` の名前を `--storage-container` に変更しました
+  * `--storage-default-filesystem` の名前を `--storage-filesystem` に変更しました
+* [重大な変更] `application create` の `--name` 引数が、クラスター名の代わりにアプリケーション名を表すように変更されました
+* `--cluster-name` 引数が `application create` に追加され、以前の `--name` の機能に置き換わりました
+* [重大な変更] `application create` のパラメーターの名前を変更しました。
+  * `--application-type` の名前を `--type` に変更しました
+  * `--marketplace-identifier` の名前を `--marketplace-id` に変更しました
+  * `--https-endpoint-access-mode` の名前を `--access-mode` に変更しました
+  * `--https-endpoint-destination-port` の名前を `--destination-port` に変更しました
+* [重大な変更] `application create` のパラメーターを削除しました。
+  * `--https-endpoint-location`
+  * `--https-endpoint-public-port`
+  * `--ssh-endpoint-destination-port`
+  * `--ssh-endpoint-location`
+  * `--ssh-endpoint-public-port`
+* [破壊的変更] `hdinsight resize`の `--target-instance-count` の名前を `--workernode-count` に変更しました
+* [重大な変更] `hdinsight script-action` グループのすべてのコマンドが、スクリプト アクションの名前として `--name` パラメーターを使用するように変更されました。
+* `--cluster-name` 引数がすべての `hdinsight script-action` コマンドに追加され、以前の `--name` の機能に置き換わりました
+* [重大な変更] すべての `hdinsight script-action` コマンドで `--script-execution-id` の名前を `--execution-id` に変更しました
+* [重大な変更] 名前を `hdinsight script-action show` から `hdinsight script-action show-execution-details` に変更しました
+* [破壊的変更] `hdinsight script-action execute --roles` に対するパラメーターを、コンマ区切りではなくスペース区切りにしました
+* [重大な変更] `hdinsight script-action list`の `--persisted` パラメーターを削除しました
+* ローカル JSON ファイルへのパスまたは JSON 文字列を受け入れるように `hdinsight create --cluster-configurations` パラメーターを変更しました
+* `hdinsight script-action list-execution-history` コマンドを追加しました
+* Log Analytics ワークスペース ID またはワークスペース名を受け入れるように `hdinsight monitor enable --workspace` を変更しました
+* `hdinsight monitor enable --primary-key` 引数を追加しました。これは、ワークスペース ID がパラメーターとして指定されている場合に必要です
+* 例をさらに追加し、ヘルプ メッセージの説明を更新しました
+
+### <a name="interactive"></a>Interactive
+
+* 読み込みエラーを修正しました
+
+### <a name="kubernetes"></a>Kubernetes
+
+* ダッシュボードのコンテナー ポートで `https` が使用されている場合に `https` を使用するように変更しました
+
+### <a name="network"></a>ネットワーク
+
+* `--yes` 引数を `network dns record-set cname delete` に追加しました
+
+### <a name="profile"></a>プロファイル
+
+* リソースのアクセス トークンを取得するための `account get-access-token` に `--resource-type` 引数を追加しました
+
+### <a name="servicefabric"></a>ServiceFabric
+
+* sf cluster create でサポートされているすべての OS バージョンを追加しました
+* プライマリ証明書の検証のバグを修正しました
+
+### <a name="storage"></a>Storage
+
+* `storage copy` コマンドを追加しました
 
 ## <a name="july-30-2019"></a>2019 年 7 月 30 日
 
