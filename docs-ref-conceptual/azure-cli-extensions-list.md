@@ -4,17 +4,17 @@ description: Azure CLI で公式にサポートされている拡張機能の完
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 08/14/2019
+ms.date: 08/25/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 327ed9bf96831b46450724a9e931b6f4db657992
-ms.sourcegitcommit: 5154acf27c4d4e7efde09522247f887188208312
+ms.openlocfilehash: 36a2fe84aa1f5f4e903451a48aa9f59998bafffa
+ms.sourcegitcommit: df2be5609a6cbeecb9f8ef0928a9fabfb207e7f9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656990"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70047311"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Azure CLI で使用可能な拡張機能
 
@@ -26,16 +26,16 @@ ms.locfileid: "69656990"
 az extension list-available --output table
 ```
 
-| Name | Version | まとめ | プレビュー |
+| 名前 | Version | まとめ | プレビュー |
 |------|---------|---------|---------|
 | [aem](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Azure Enhanced Monitoring Extension for SAP を管理します |  |
-| [aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.4.8 | 次期 AKS 機能のプレビューを提供します | はい |
+| [aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.4.10 | 次期 AKS 機能のプレビューを提供します | はい |
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.2 | コマンドのエイリアスをサポートします | はい |
 | [appconfig](https://github.com/Azure/azure-cli-extensions) | 0.5.0 | 次期アプリ構成機能のプレビューを提供します。 | はい |
 | [application-insights](https://github.com/Azure/azure-cli-extensions/tree/master/src/application-insights) | 0.1.1 | Application Insights コンポーネントの管理と、それらのコンポーネントのメトリック、イベント、およびログのクエリをサポートします。 | はい |
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 4.0.0 | Azure Batch サービスを操作するための追加コマンド |  |
 | [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.8.0 | Azure IoT Hub、IoT Edge、および IoT Device Provisioning Service にデータ プレーン コマンド レイヤーを提供します |  |
-| [azure-cli-ml](https://docs.microsoft.com/en-us/azure/machine-learning/service/) | 1.0.55 | Microsoft Azure コマンド ライン ツールの AzureML コマンド モジュール |  |
+| [azure-cli-ml](https://docs.microsoft.com/en-us/azure/machine-learning/service/) | 1.0.57 | Microsoft Azure コマンド ライン ツールの AzureML コマンド モジュール |  |
 | [azure-devops](https://github.com/Microsoft/azure-devops-cli-extension) | 0.12.0 | Azure DevOps を管理するためのツールです。 |  |
 | [azure-firewall](https://github.com/Azure/azure-cli-extensions/tree/master/src/azure-firewall) | 0.1.3 | Azure Firewall のリソースを管理します。 | はい |
 | [db-up](https://github.com/Azure/azure-cli-extensions/tree/master/src/db-up) | 0.1.13 | Azure データベースのワークフローを簡略化するための、その他のコマンド。 | はい |

@@ -4,19 +4,71 @@ description: Azure CLI の最新情報について説明します
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 08/13/2019
+ms.date: 08/27/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: d315046287a552e89112fa415e1219f9a97d4944
-ms.sourcegitcommit: b00555c528697c0a6419cf23380e48c8705026db
+ms.openlocfilehash: 156ff2e6d011104ebbb1608ff33bad8ebb6396ed
+ms.sourcegitcommit: df2be5609a6cbeecb9f8ef0928a9fabfb207e7f9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68974274"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70047277"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+
+## <a name="august-27-2019"></a>2019 年 8 月 27 日
+
+バージョン 2.0.72
+
+### <a name="acr"></a>ACR
+
+* [重大な変更] `classic` SKU のサポートを削除しました
+
+### <a name="api-management"></a>API Management
+
+* [プレビュー] `apim` コマンド グループを追加しました
+
+### <a name="appservice"></a>AppService
+
+* スロットを指定したときの `webapp webjob continuous start` コマンドに関する問題を修正しました
+* `env` フォルダーを検出してデプロイに使用されているファイルから削除するように `webapp up` を変更しました
+
+### <a name="keyvault"></a>KeyVault
+
+* `--expires` 引数を無視する `keyvault secret set` のバグを修正しました
+
+### <a name="network"></a>ネットワーク
+
+* `--private-ip-address-version` 引数に IPv6 アドレスのサポートを追加しました
+* プライベート エンドポイントの管理用に新しいコマンド `network private-endpoint [create|update|list-types]` を追加しました
+* コマンド グループ `network private-link-service` を追加しました
+* `--private-endpoint-network-policies` 引数と `--private-link-service-network-policies` 引数を `network vnet subnet update` に追加しました
+
+### <a name="rbac"></a>RBAC
+
+* ホームページが更新されない `ad app update --homepage` に関する問題を修正しました
+
+### <a name="servicefabric"></a>ServiceFabric
+
+* キー コンテナーの大文字と小文字が混在する名前のサポートを追加しました
+* Key Vault で証明書を使用したときの問題を修正しました
+* PFX 証明書ファイルの使用に関する問題を修正しました
+* Key Vault リソースグループが指定されていなかったときの `sf cluster certificate add` に関する問題を修正しました
+* `sf cluster set` が動作しない問題を修正しました
+
+### <a name="signalr"></a>SignalR
+
+* 次の新しいコマンドを追加しました
+  * `signalr cors`:SignalR CORS の管理
+  * `signalr restart`:SignalR Service の再起動
+  * `signalr update`:SignalR Service の更新
+* `--service-mode` 引数を `signalr create` に追加しました
+
+### <a name="storage"></a>Storage
+
+* `storage account revoke-delegation-keys` コマンドを追加しました
 
 ## <a name="august-13-2019"></a>2019 年 8 月 13 日
 
