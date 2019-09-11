@@ -10,16 +10,20 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 003576ba22cdc4fc64977b653d0fb6859cd38446
-ms.sourcegitcommit: 334a1da92a73e42e715e33470057f4194f10b2ea
+ms.openlocfilehash: c667f6fa00d8a03b6a451728ffcc1da3e446a741
+ms.sourcegitcommit: f9bfb4b063151434b3a9bff936a73b251666e775
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59429032"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70878242"
 ---
 # <a name="get-started-with-azure-cli"></a>Azure CLI の概要
 
 Azure CLI へようこそ。 CLI は、Azure サービスを迅速かつ効率的に使用するためのツールで、オートメーションに重点が置されています。 この記事では、CLI の機能と、生産性の向上に役立つリソースへのリンクを紹介します。
+
+> [!NOTE]
+>
+> スクリプトおよび Microsoft ドキュメント サイトでは、Azure CLI の例は `bash` シェル向けに記述されています。 1 行の例であれば任意のプラットフォームで実行できます。 行継続 (`\`) または変数の代入を含む、より長い例は、PowerShell などの他のシェルで動作するように変更する必要があります。
 
 ## <a name="install-or-run-in-azure-cloud-shell"></a>Azure Cloud Shell でのインストールまたは実行
 
