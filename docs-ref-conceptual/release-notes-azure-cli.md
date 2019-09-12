@@ -4,19 +4,66 @@ description: Azure CLI の最新情報について説明します
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 08/27/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 156ff2e6d011104ebbb1608ff33bad8ebb6396ed
-ms.sourcegitcommit: df2be5609a6cbeecb9f8ef0928a9fabfb207e7f9
+ms.openlocfilehash: 03594fc6e7e24fd1b7d2f9c846161a40e8ea7678
+ms.sourcegitcommit: f9bfb4b063151434b3a9bff936a73b251666e775
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70047277"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70878227"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+
+## <a name="september-5-2019"></a>2019 年 9 月 5 日
+
+### <a name="acr"></a>ACR
+
+* アイテム保持ポリシーを構成するためのコマンド グループ `acr config retention` を追加しました
+
+### <a name="aks"></a>AKS
+
+* 次のコマンドを使用した ACR 統合のサポートが追加されました。
+  * AKS クラスターに ACR をアタッチするための `--attach-acr` パラメーターを `aks [create|update]` に追加しました
+  * AKS クラスターから ACR をデタッチするための `--detach-acr` パラメーターを `aks update` に追加しました
+
+### <a name="arm"></a>ARM
+
+* API バージョン 2019-05-10 を使用するように更新しました
+
+### <a name="batch"></a>Batch
+
+* `batch pool create` の `--json-file` に新しい JSON 構成設定を追加しました。
+  * ファイル システム マウント用の `MountConfigurations` を追加しました (詳細については https://docs.microsoft.com/en-us/rest/api/batchservice/pool/add#request-body を参照してください)
+  * プール上のパブリック IP 用に、`NetworkConfiguration` にオプションのプロパティ `publicIPs` を追加しました (詳細については https://docs.microsoft.com/en-us/rest/api/batchservice/pool/add#request-body を参照してください)
+* 共有イメージ ギャラリーのサポートを `--image` に追加しました
+* [重大な変更] `batch pool create` の `--start-task-wait-for-success` の既定値を `true` に変更しました
+* [重大な変更] `AutoUserSpecification` の `Scope` の既定値が常に Pool になるように変更しました (以前は Windows ノードでは `Task`、Linux ノードでは `Pool` でした)
+  * この引数は、`--json-file` を使用して JSON 構成からのみ設定できます。
+
+### <a name="hdinsight"></a>HDInsight
+
+* GA リリース
+* [重大な変更] `az hdinsight resize` のパラメーター `--workernode-count/-c` が必須に変更されました。
+
+### <a name="key-vault"></a>Key Vault
+
+* ネットワーク ルールからサブネットを削除できなかった問題を修正しました
+* 重複したサブネットと IP アドレスをネットワーク ルールに追加できる問題を修正しました
+
+### <a name="network"></a>ネットワーク
+
+* トラフィック分析間隔の値を設定する `--interval` パラメーターを `network watcher flow-log` に追加しました
+* ゲートウェイ ID を管理するための `network application-gateway identity` を追加しました
+* Key Vault ID を設定するためのサポートを `network application-gateway ssl-cert` に追加しました
+* `network express-route peering peer-connection [show|list]` を追加しました
+
+### <a name="policy"></a>ポリシー
+
+* API バージョン 2019-01-01 を使用するように更新しました
 
 ## <a name="august-27-2019"></a>2019 年 8 月 27 日
 
@@ -378,7 +425,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * ユーザーがワイルドカード A レコードをインポートできない `dns zone import` の問題を修正しました
 * 特定のリージョンでフロー ロギングを有効にできない `watcher flow-log configure` の問題を修正しました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 * REST 呼び出しを行うための `az rest` コマンドを追加しました
 * リソース グループまたはサブスクリプション レベル`--scope` で `policy assignment list` を使用する場合のエラーを修正しました
 
@@ -424,7 +471,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * カスタム WAF 規則をサポートするように `network application-gateway waf-policy` コマンドを追加しました。
 * `--waf-policy` 引数と `--max-capacity` 引数を `network application-gateway [create|update]` に追加しました 
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 * 使用できる TTY がない場合の `deployment create` からのエラー メッセージを改善しました
 
 ### <a name="role"></a>Role
@@ -596,7 +643,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 ### <a name="network"></a>ネットワーク
 * 子ゾーン作成時のネーム サーバーの自動委任を親の `dns zone create` に追加しました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 * [非推奨] `resource link` の引数 `--link-id`、`--target-id`、`--filter-string` を廃止しました
   * 代わりに、引数 `--link`、`--target`、および `--filter` を使用します
 * `resource link [create|update]` コマンドが機能しない問題を修正しました
@@ -659,7 +706,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 ### <a name="privatedns"></a>プライベート DNS
 * プライベート DNS ゾーンに `network private-dns` を追加しました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 * 問題を修正しました空のパラメーター セットが含まれるパラメーター ファイルが機能しない、`deployment create` と `group deployment create` に関する問題を修正しました
 
 ### <a name="role"></a>Role
@@ -725,7 +772,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * postgresql`replica` コマンドと `restart server` コマンドを追加しました
 * サーバーの作成用に提供されていない場合にリソース グループから規定の場所を取得し、リテンション期間の日数の検証を追加するための変更を行いました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 * `deployment [create|list|show]` のテーブル出力を強化しました
 * 型 secureObject が認識されない `deployment [create|validate]` の問題を修正しました
 
@@ -855,7 +902,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * `--gateway-default-site` 引数を `vnet-gateway [create|update]` に追加しました
 * `ipsec-policy` コマンドを `vnet-gateway` に追加しました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * 型フィールドで大文字と小文字が区別されていた `deployment create` の問題を修正しました
 * `policy assignment create` に URI ベースのパラメーター ファイルのサポートを追加しました
@@ -1015,7 +1062,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * `--bandwidth` 引数が無視される `express-route update` の問題を修正しました
 * set comprehension によってスタック トレースが引き起こされる `ddos-protection update` の問題を修正しました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 * `group deployment create` に URI パラメーター ファイルのサポートを追加しました
 * `policy assignment [create|list|show]` にマネージド ID のサポートを追加しました
 
@@ -1151,7 +1198,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * `--format` と `--log-version` のサポートを `watcher flow-log configure` に追加しました
 * 解決仮想ネットワークと登録仮想ネットワークをクリアするために "" を使用しても機能しないときの `dns zone update` に関する問題を修正しました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 * `policy assignment [create|list|delete|show|update]` の管理グループのスコープ パラメーターの処理を修正しました 
 * 新しいコマンド `resource wait` を追加しました
 
@@ -1308,7 +1355,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 ### <a name="rdbms"></a>RDBMS
 * mysql replica コマンドを追加しました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 * 管理グループとサブスクリプションのサポートを `policy definition|set-definition` コマンドに追加しました
 
 ### <a name="role"></a>Role
@@ -1613,7 +1660,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * リソースが見つからないときにコード 3 で終了するように `network application-gateway ssl-policy predefined show` を変更しました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * リソースが見つからないときにコード 3 で終了するように `provider operation show` を変更しました
 
@@ -1728,7 +1775,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * Azure Stack の 2017-03-09-profile に DNS のサポートを追加しました 
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * エラー時に既知の正常なデプロイが実行されるように、`group deployment create` に `--rollback-on-error` を追加しました
 * `group deployment create` を指定した `--parameters {}` がエラーになる問題を修正しました
@@ -1807,7 +1854,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * `network vnet [subnet|peering] list` の `--ids` 引数を非推奨にしました
 * `network nsg rule list` の出力に既定のセキュリティ規則を含める `--include-default` フラグを追加しました  
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * `group deployment delete` に `--no-wait` のサポートを追加しました
 * `deployment delete` に `--no-wait` のサポートを追加しました
@@ -1895,7 +1942,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * `[postgres|myql] server vnet-rule` コマンドを追加しました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * 新しい操作グループ `deployment` を追加しました
 
@@ -2389,7 +2436,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * `georestore` コマンドを追加しました
 * ストレージ サイズの制限を `create` コマンドから削除しました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * `--metadata` のサポートを `policy definition create` に追加しました
 * `--metadata`、`--set`、`--add`、`--remove` のサポートを `policy definition update` に追加しました
@@ -2495,7 +2542,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * ビジネス モデル GA API バージョン 2017-12-01 を追加しました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * [破壊的変更]: Changed `provider operation [list|show]` to not require `--api-version`
 
@@ -2645,7 +2692,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * [#5559](https://github.com/Azure/azure-cli/issues/5559) を修正:`network vnet-gateway vpn-client generate` でクライアントが見つからない
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * エラー発生時にテンプレートとエラーの一部が表示されるように `group deployment export` を変更しました
 
@@ -2742,7 +2789,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * 対話モードで `az login` を有効にしました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * `feature show` を再び追加しました
 
@@ -2817,7 +2864,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * ID を使用して VM 内で動作するように `get-access-token` を修正しました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * テンプレートの "type" フィールドに大文字の値が含まれているときに警告が誤って表示される `deployment [create|validate]` のバグを修正しました
 
@@ -2995,7 +3042,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * メトリック コマンドに多次元のサポートを追加しました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * `--include-response-body` 引数を `resource show` に追加しました
 
@@ -3095,7 +3142,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * 初期プレビュー リリース
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * リソース ID のサポートを `--resource` パラメーターとリソースレベル ロックに追加しました
 
@@ -3152,7 +3199,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * `action-group` コマンドを追加しました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * `group export` における msrest の依存関係の最新バージョンとの非互換性を修正しました
 * 組み込みのポリシー定義とポリシーセットの定義を使用するように `policy assignment create` を修正しました
@@ -3194,7 +3241,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * アドレス プールを空にできるように `application-gateway address-pool create` の `--server` 引数を省略可能に変更しました
 * 最新機能をサポートするように `traffic-manager` を更新しました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * リソース グループ名に関する `--resource-group/-g` オプションのサポートを `group` に追加しました
 * サブスクリプション レベルのロックを処理するための `account lock` 用のコマンドを追加しました
@@ -3224,7 +3271,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 バージョン 2.0.18
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * 組み込みのポリシー定義を表示するためのサポートを追加しました
 * ポリシー定義を作成するためのサポート モード パラメーターを追加しました
@@ -3318,7 +3365,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * `lb create` に対する SKU のサポートを追加しました
 * `public-ip create` に対する SKU のサポートを追加しました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * `policy definition create` と `policy definition update` でリソース ポリシーのパラメーター定義を渡せるようにします
 * `policy assignment create` でパラメーター値を渡せるようにします
@@ -3714,7 +3761,7 @@ vm (2.0.11)
 * ドキュメント ソース マップを修正し、検証するための CI タスクを追加しました (#3361)
 * MySQL および PostgreSQL のヘルプを修正しました (#3369)
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * `group deployment create` の不足しているパラメーターの指定を求めるメッセージを改善しました
 * `--parameters KEY=VALUE` 構文の解析を改善しました
@@ -3926,7 +3973,7 @@ vm (2.0.6)
 * Redis Cache のスケール機能も追加する更新コマンドが追加されました
 * "update-settings" コマンドが廃止されました
 
-### <a name="resource"></a>Resource
+### <a name="resource"></a>リソース
 
 * managedapp と managedapp の定義コマンドが追加されました ([#2985](https://github.com/Azure/azure-cli/issues/2985))
 * "provider operation" コマンドに対応するようになりました ([#2908](https://github.com/Azure/azure-cli/issues/2908))
