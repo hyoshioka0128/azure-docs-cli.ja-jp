@@ -19,7 +19,7 @@
     - name: Linux (zypper を使用)
       href: install-azure-cli-zypper.md
       displayName: 'opensuse, suse, sles, leap, tumbleweed, linux, install, wsl'
-    - name: Linux
+    - name: Linux インストール スクリプト
       href: install-azure-cli-linux.md
       displayName: 'install, script, unix, bsd, linux, lfs, wsl, slackware'
     - name: Docker での実行
@@ -57,7 +57,7 @@
 - name: 出力形式
   href: format-output-azure-cli.md
   displayName: 'table, yaml, json, jsonc, tsv, ascii, configure, default'
-- name: Query
+- name: クエリ
   href: query-azure-cli.md
   displayName: 'filter, search, format, output, variable, scripting, array, dictionary, map, object, json, jsonc, jmespath'
 - name: 構成設定
