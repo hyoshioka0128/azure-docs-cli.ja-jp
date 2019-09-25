@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: af20c31f6b387768e93158f1116b3f486f4aedfc
-ms.sourcegitcommit: 52f0a62892c68b5728090f1bfceef7a612104529
+ms.openlocfilehash: 923629d53983f7dbbd34bf7e79f28380a05937c2
+ms.sourcegitcommit: 5a29ce9c0a3d7b831f22b1a13b1ae2e239e5549f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68415150"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71144073"
 ---
 # <a name="install-azure-cli-with-apt"></a>apt での Azure CLI のインストール
 
@@ -59,8 +59,8 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 2. Microsoft の署名キーをダウンロードしてインストールします。
 
     ```bash
-    curl -sL https://packages.microsoft.com/keys/microsoft.asc | \
-        gpg --dearmor | \
+    curl -sL https://packages.microsoft.com/keys/microsoft.asc | 
+        gpg --dearmor | 
         sudo tee /etc/apt/trusted.gpg.d/microsoft.asc.gpg > /dev/null
     ```
 
@@ -68,7 +68,7 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
     ```bash
     AZ_REPO=$(lsb_release -cs)
-    echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | \
+    echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | 
         sudo tee /etc/apt/sources.list.d/azure-cli.list
     ```
 
@@ -89,7 +89,7 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
 ここでは、`apt` でのインストール時に発生する一般的な問題をいくつか示します。 ここで取り上げていない問題が発生した場合は、[GitHub で問題を報告](https://github.com/Azure/azure-cli/issues)してください。
 
-### <a name="lsbrelease-does-not-return-the-correct-base-distribution-version"></a>lsb_release がベース ディストリビューション バージョンを返さない
+### <a name="lsb_release-does-not-return-the-correct-base-distribution-version"></a>lsb_release がベース ディストリビューション バージョンを返さない
 
 Linux Mint など、Ubuntu や Debian から派生する一部のディストリビューションでは、正しいバージョン名が `lsb_release` から返されない場合があります。 この値は、インストール プロセスで、インストールするパッケージを特定するときに使用されます。 ディストリビューションの派生元である Ubuntu バージョンまたは Debian バージョンのコード名がわかっている場合は、[リポジトリを追加する](#set-release)ときに `AZ_REPO` 値を手動で設定できます。 それ以外の場合は、ご自身のディストリビューションについて、ベース ディストリビューションのコード名を調べて、`AZ_REPO` を正しい値に設定する方法をご確認ください。
 
@@ -155,7 +155,7 @@ CLI パッケージを更新するには、`apt-get upgrade` を使用します�
    sudo rm /etc/apt/sources.list.d/azure-cli.list
    ```
 
-3. 署名キーを削除します。
+3. Microsoft の他のパッケージを使用しない場合は、署名キーを削除します。
 
     ```bash
     sudo rm /etc/apt/trusted.gpg.d/microsoft.asc.gpg

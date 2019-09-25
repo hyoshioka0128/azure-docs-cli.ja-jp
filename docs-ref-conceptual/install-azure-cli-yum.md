@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: bc3ae41ea04ae8d7f62242b2bfe415c8a3bfea33
-ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
+ms.openlocfilehash: 270be4c41bdb3c913e41ef1b2bb0c7c0b393aa20
+ms.sourcegitcommit: 5a29ce9c0a3d7b831f22b1a13b1ae2e239e5549f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66516294"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71144033"
 ---
 # <a name="install-azure-cli-with-yum"></a>yum での Azure CLI のインストール
 
@@ -35,7 +35,12 @@ RHEL、Fedora、CentOS など、`yum` が付属する Linux ディストリビ�
 2. ローカル `azure-cli` リポジトリ情報を作成します。
 
    ```bash
-   sudo sh -c 'echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo'
+   sudo sh -c 'echo -e "[azure-cli]
+   name=Azure CLI
+   baseurl=https://packages.microsoft.com/yumrepos/azure-cli
+   enabled=1
+   gpgcheck=1
+   gpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo'
    ```
 
 3. `yum install` コマンドを使用してインストールします。
@@ -44,7 +49,7 @@ RHEL、Fedora、CentOS など、`yum` が付属する Linux ディストリビ�
    sudo yum install azure-cli
    ```
 
-その後、Azure CLI は `az` コマンドで実行できます。 サインインするには、[az login](/cli/azure/reference-index#az-login) コマンドを使用します。
+`az` コマンドで Azure CLI を実行します。 サインインするには、[az login](/cli/azure/reference-index#az-login) コマンドを使用します。
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 
@@ -98,7 +103,7 @@ sudo yum update azure-cli
    sudo rm /etc/yum.repos.d/azure-cli.repo
    ```
 
-3. リポジトリ情報を削除した場合は、Microsoft GPG 署名キーも削除します。
+3. 他の Microsoft パッケージを使用しない場合は、署名キーを削除します。
 
    ```bash
    MSFT_KEY=`rpm -qa gpg-pubkey /* --qf "%{version}-%{release} %{summary}\n" | grep Microsoft | awk '{print $1}'`

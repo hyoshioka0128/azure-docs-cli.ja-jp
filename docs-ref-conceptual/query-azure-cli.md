@@ -4,17 +4,17 @@ description: Azure CLI コマンドの出力に対して JMESPath クエリを�
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 11/12/2018
+ms.date: 09/23/2019
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: e878c467f71423cc8c9caa1f8cfe270d0019c48b
-ms.sourcegitcommit: 399f0a2997675fbb280243e4234cf63c3bbca819
+ms.openlocfilehash: 39f7c885a0971db9359926a6b2f80d0a763dc4fe
+ms.sourcegitcommit: 5b9b4446c08b94256ced7f63c145b493ba8b50df
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67194841"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71217434"
 ---
 # <a name="query-azure-cli-command-output"></a>Azure CLI コマンドの出力のクエリ
 
@@ -87,22 +87,6 @@ az vm show -g QueryDemo -n TestVM --query osProfile.linuxConfiguration.ssh.publi
 ]
 ```
 
-複数のプロパティを取得するには、式をコンマ区切りリストとして角かっこ `[ ]` (__複数選択リスト__) で囲みます。 VM 名、管理者ユーザー、SSH キーのすべてを一度に取得するには、次のコマンドを使用します。
-
-```azurecli-interactive
-az vm show -g QueryDemo -n TestVM --query '[name, osProfile.adminUsername, osProfile.linuxConfiguration.ssh.publicKeys[0].keyData]' -o json
-```
-
-```json
-[
-  "TestVM",
-  "azureuser",
-  "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMobZNJTqgjWn/IB5xlilvE4Y+BMYpqkDnGRUcA0g9BYPgrGSQquCES37v2e3JmpfDPHFsaR+CPKlVr2GoVJMMHeRcMJhj50ZWq0hAnkJBhlZVWy8S7dwdGAqPyPmWM2iJDCVMVrLITAJCno47O4Ees7RCH6ku7kU86b1NOanvrNwqTHr14wtnLhgZ0gQ5GV1oLWvMEVg1YFMIgPRkTsSQKWCG5lLqQ45aU/4NMJoUxGyJTL9i8YxMavaB1Z2npfTQDQo9+womZ7SXzHaIWC858gWNl9e5UFyHDnTEDc14hKkf1CqnGJVcCJkmSfmrrHk/CkmF0ZT3whTHO1DhJTtV stramer@contoso"
-]
-```
-
-これらの値は、クエリで指定された順序で結果の配列に表示されます。 結果は配列であるため、結果に関連付けられたキーはありません。
-
 ## <a name="get-a-single-value"></a>単一の値を取得する
 
 一般的なケースとして、Azure リソース ID、リソース名、ユーザー名、パスワードなどの CLI コマンドから "_1 つ_" の値のみを取得する必要があります。 その場合、ローカルの環境変数に値を格納する必要が発生することも少なくありません。 1 つのプロパティを取得するには、まず、クエリから 1 つのプロパティのみを取得していることを確認します。 最後の例を管理者ユーザー名のみを取得するように変更します。
@@ -137,6 +121,24 @@ azureuser
 ```
 
 `tsv` 出力形式について詳しくは、「[Output formats - TSV output format (出力形式 - TSV 出力形式)](format-output-azure-cli.md#tsv-output-format)」を参照してください。
+
+## <a name="get-multiple-values"></a>複数の値を取得する
+
+複数のプロパティを取得するには、式をコンマ区切りリストとして角かっこ `[ ]` (__複数選択リスト__) で囲みます。 VM 名、管理者ユーザー、SSH キーのすべてを一度に取得するには、次のコマンドを使用します。
+
+```azurecli-interactive
+az vm show -g QueryDemo -n TestVM --query '[name, osProfile.adminUsername, osProfile.linuxConfiguration.ssh.publicKeys[0].keyData]' -o json
+```
+
+```json
+[
+  "TestVM",
+  "azureuser",
+  "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDMobZNJTqgjWn/IB5xlilvE4Y+BMYpqkDnGRUcA0g9BYPgrGSQquCES37v2e3JmpfDPHFsaR+CPKlVr2GoVJMMHeRcMJhj50ZWq0hAnkJBhlZVWy8S7dwdGAqPyPmWM2iJDCVMVrLITAJCno47O4Ees7RCH6ku7kU86b1NOanvrNwqTHr14wtnLhgZ0gQ5GV1oLWvMEVg1YFMIgPRkTsSQKWCG5lLqQ45aU/4NMJoUxGyJTL9i8YxMavaB1Z2npfTQDQo9+womZ7SXzHaIWC858gWNl9e5UFyHDnTEDc14hKkf1CqnGJVcCJkmSfmrrHk/CkmF0ZT3whTHO1DhJTtV stramer@contoso"
+]
+```
+
+これらの値は、クエリで指定された順序で結果の配列に表示されます。 結果は配列であるため、結果に関連付けられたキーはありません。
 
 ## <a name="rename-properties-in-a-query"></a>クエリでプロパティの名前を変更する
 

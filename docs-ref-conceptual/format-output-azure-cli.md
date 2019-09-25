@@ -4,17 +4,17 @@ description: テーブル、リスト、または JSON への Azure CLI の出�
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/07/2018
+ms.date: 09/23/2019
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 0b90e6375beccafee88b2a1d1b7896275dc14407
-ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
+ms.openlocfilehash: 125055eec956e56c95af9a1c24ee4254e77556e6
+ms.sourcegitcommit: 5b9b4446c08b94256ced7f63c145b493ba8b50df
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56421951"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71217455"
 ---
 # <a name="output-formats-for-azure-cli-commands"></a>Azure CLI コマンドの出力形式
 
@@ -154,21 +154,37 @@ None    None        /subscriptions/.../resourceGroups/DEMORG1/providers/Microsof
 None    None        /subscriptions/.../resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/demovm212    None    None    westus    demovm212            None    Succeeded    DEMORG1    None            Microsoft.Compute/virtualMachines    4bdac85d-c2f7-410f-9907-ca7921d930b4
 None    None        /subscriptions/.../resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/demovm213    None    None    westus    demovm213            None    Succeeded    DEMORG1    None            Microsoft.Compute/virtualMachines    2131c664-221a-4b7f-9653-f6d542fbfa34
 None    None        /subscriptions/.../resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo001VM    None    None    westus    KBDemo001VM            None    Succeeded    RGDEMO001    None            Microsoft.Compute/virtualMachines    14e74761-c17e-4530-a7be-9e4ff06ea74b
-None    None        /subscriptions/.../resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo02None    None    westus    KBDemo020            None    Succeeded    RGDEMO001    None            Microsoft.Compute/virtualMachines    36baa9-9b80-48a8-b4a9-854c7a858ece
+None    None        /subscriptions/.../resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo020   None    None    westus    KBDemo020            None    Succeeded    RGDEMO001    None            Microsoft.Compute/virtualMachines    36baa9-9b80-48a8-b4a9-854c7a858ece
 ```
 
-次の例は、`tsv` の出力を Bash の他のコマンドにパイプ処理する方法を示しています。 `grep` によって "RGD" というテキストが含まれている項目を選択し、`cut` コマンドによって 8 番目のフィールドの値を選択して、VM の名前を出力に表示します。
+TSV 出力形式の制限の 1 つは、出力順序が保証されないことです。 CLI では、順序を最大限維持するために、応答 JSON 内のキーをアルファベット順に並べ替え、次にそれらの値を TSV 出力用の順序で表示します。 これは、順序が常に同じであることを保証するものではありません。Azure サービスの応答形式が変更される可能性があるためです。
+
+一貫した順序を強制するには、`--query` パラメーターと[複数選択リスト](query-azure-cli.md#get-multiple-values)の形式を使用する必要があります。 CLI コマンドが 1 つの JSON 辞書を返す場合は、一般的な形式 (`[key1, key2, ..., keyN]`) を使用してキーの順序を強制します。  配列を返す CLI コマンドの場合、一般的な形式 (`[].[key1, key2, ..., keyN]`) を使用して列の値を並べ替えます。
+
+たとえば、上に表示されている情報を ID、場所、リソース グループ、VM 名で並べ替えるには、次のようにします。
+
+```azurecli-interactive
+az vm list --out tsv --query '[].[id, location, resourceGroup, name]'
+```
+
+```output
+/subscriptions/.../resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/DemoVM010    westus    DEMORG1    DemoVM010
+/subscriptions/.../resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/demovm212    westus    DEMORG1    demovm212
+/subscriptions/.../resourceGroups/DEMORG1/providers/Microsoft.Compute/virtualMachines/demovm213    westus    DEMORG1    demovm213
+/subscriptions/.../resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo001VM     westus  RGDEMO001       KBDemo001VM
+/subscriptions/.../resourceGroups/RGDEMO001/providers/Microsoft.Compute/virtualMachines/KBDemo020       westus  RGDEMO001       KBDemo020
+```
+
+次の例は、`tsv` の出力を Bash の他のコマンドにパイプ処理する方法を示しています。 このクエリを使用して出力をフィルターにかけて順序を強制し、`grep` によって "RGD" というテキストが含まれている項目を選択し、`cut` コマンドによって 4 番目のフィールドの値を選択して VM の名前を出力に表示します。
 
 ```bash
-az vm list --out tsv | grep RGD | cut -f8
+az vm list --out tsv --query '[].[id, location, resourceGroup, name]' | grep RGD | cut -f4
 ```
 
 ```output
 KBDemo001VM
 KBDemo020
 ```
-
-タブ区切りのフィールドを処理できるように、値は、JSON オブジェクトの出力と同じ順序で表示されます。 コマンドの実行間で、この順序に一貫性があることが保証されます。
 
 ## <a name="set-the-default-output-format"></a>既定の出力形式を設定する
 

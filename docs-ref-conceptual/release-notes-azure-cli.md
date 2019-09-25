@@ -9,14 +9,68 @@ ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 727f9960ce60861bbe20a649606b807efb8d9cbc
-ms.sourcegitcommit: f30b67f48b956bdc281f1a5fae96e10120ee3bba
+ms.openlocfilehash: 1f829ba3d9ecdb158e96512bde5bcf1565cc205c
+ms.sourcegitcommit: 5b9b4446c08b94256ced7f63c145b493ba8b50df
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70937096"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71217417"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+
+## <a name="september-24-2019"></a>2019 年 9 月 24 日
+
+バージョン 2.0.74
+
+### <a name="acr"></a>ACR
+
+* 必須の `--type` パラメーターを `acr config retention update` に追加しました
+* [破壊的変更] `acr config` コマンド グループでパラメーター `--name -n` の名前が `--registry -r ` に変更されました
+
+### <a name="aks"></a>AKS
+
+* `--load-balancer-sku` パラメーターを `aks create` コマンドに追加しました。これにより、SLB を使用する AKS クラスターを作成できます
+* `--load-balancer-managed-outbound-ip-count`、`--load-balancer-outbound-ips`、`--load-balancer-outbound-ip-prefixes` パラメーターを `aks [create|update]` コマンドに追加しました。これにより、SLB を使用する AKS クラスターのロード バランサー プロファイルを更新できます
+* `--vm-set-type` パラメーターを `aks create` コマンドに追加しました。これにより、AKS クラスターの VM の種類 (vmas または vmss) を指定できます
+
+### <a name="arm"></a>ARM
+
+* JSON テンプレートで複数行とコメントをサポートするための `--handle-extended-json-format` パラメーターを `group deployment create` コマンドに追加しました
+
+### <a name="compute"></a>Compute
+
+* 終了のスケジュール化されたイベントを構成しやすくするために `--terminate-notification-time` パラメーターを `vmss [create|update]` コマンドに追加しました
+* 終了のスケジュール化されたイベントを構成しやすくするために `--enable-terminate-notification` パラメーターを `vmss update` コマンドに追加しました
+* `--priority,` `--eviction-policy,` `--max-billing` パラメーターを `[vm|vmss] create` コマンドに追加しました
+* `disk create` を変更し、ディスク アップロードの正確なサイズを指定できるようにしました
+* マネージド ディスクの増分スナップショットのサポートを `snapshot create` に追加しました
+
+### <a name="cosmos-db"></a>Cosmos DB
+
+* キー、読み取り専用キー、または接続文字列を表示する `--type <key-type>` パラメーターを `cosmosdb keys list` コマンドに追加しました
+* `cosmosdb keys regenerate` コマンドを追加しました
+* [非推奨] `cosmosdb list-connection-strings`、`cosmosdb regenerate-key`、`cosmosdb list-read-only-keys` コマンドを非推奨にしました
+
+### <a name="eventgrid"></a>EventGrid
+
+* 正しいパラメーターを参照するようにエンドポイントのヘルプ テキストを修正しました
+
+### <a name="key-vault"></a>Key Vault
+
+* テナントを使用してログインすると (`login -t`)、`keyvault create` が失敗する問題を修正しました
+
+### <a name="monitor"></a>監視
+
+* `monitor metrics alert create` の `--condition` 引数で `:` 文字を使用できないという問題を修正しました
+
+### <a name="policy"></a>ポリシー
+
+* Policy API バージョン 2019-06-01 のサポートを追加しました
+* `policy assignment create` コマンドに `--enforcement-mode` パラメーターを追加しました
+
+### <a name="storage"></a>Storage
+
+* `az storage copy` コマンドに `--blob-type` パラメーターを追加しました
 
 ## <a name="september-10-2019"></a>2019 年 9 月 10 日
 
