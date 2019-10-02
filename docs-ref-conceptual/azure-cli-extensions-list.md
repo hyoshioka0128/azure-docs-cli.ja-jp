@@ -4,17 +4,17 @@ description: Azure CLI で公式にサポートされている拡張機能の完
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/22/2019
+ms.date: 09/26/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 056d3d1375a99b180aceedfbf9e462508bd74c6f
-ms.sourcegitcommit: 5b9b4446c08b94256ced7f63c145b493ba8b50df
+ms.openlocfilehash: e429fb30bdfeb7eb1bb9d93b21e9b02a7f25aca9
+ms.sourcegitcommit: 6fb38e801096708c4922b10778d6582776a8ac91
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71217474"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71317935"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Azure CLI で使用可能な拡張機能
 
@@ -65,5 +65,5 @@ az extension list-available --output table
 | [subscription](https://github.com/Azure/azure-cli-extensions) | 0.1.3 | サブスクリプション管理プレビューをサポートします。 |  |
 | [virtual-network-tap](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-network-tap) | 0.1.0 | 仮想ネットワーク タップ (VTAP) を管理します。 | はい |
 | [virtual-wan](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-wan) | 0.1.0 | 仮想 WAN、ハブ、VPN ゲートウェイ、および VPN サイトを管理します。 | はい |
-| [vm-repair](https://github.com/Azure/azure-cli-extensions/tree/master/src/vm-repair) | 0.2.0 | VM を修正する自動修復コマンド。 |  |
+| [vm-repair](https://github.com/Azure/azure-cli-extensions/tree/master/src/vm-repair) | 0.2.1 | VM を修正する自動修復コマンド。 |  |
 | [webapp](https://github.com/Azure/azure-cli-extensions/tree/master/src/webapp) | 0.2.24 | Azure App Service のその他のコマンド。 | はい |
