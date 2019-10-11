@@ -8,12 +8,12 @@ ms.date: 02/15/2019
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 6d88400b8d7070cf2f9dba2f3e124edfe2e3163d
-ms.sourcegitcommit: e06d34682710e77840b0c51f4718184101bd8a03
+ms.openlocfilehash: 45374a29c45d8e9fa2d39aebf2d9bab556ef3b50
+ms.sourcegitcommit: b42ce26476b135bb2047c8d9d787580c858f8b6b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67527327"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72163832"
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli"></a>Azure CLI で Azure サービス プリンシパルを作成する
 
@@ -99,10 +99,10 @@ Key Vault に格納されている証明書の場合、[az keyvault secret show]
 * `--show-mine` は、サインインしているユーザーによって作成されたサービス プリンシパルのみを要求します。
 * `--filter` は OData フィルターを使用して、"_サーバー側_" のフィルター処理を実行します。 この方法は、CLI の `--query` 引数を使用したクライアント側のフィルター処理よりも推奨されます。 OData フィルターの詳細については、[フィルターのための OData 式の構文](/rest/api/searchservice/odata-expression-syntax-for-azure-search)に関するページをご覧ください。
 
-サービス プリンシパル オブジェクトについて返される情報は、詳細情報です。 サインインに必要な情報のみを取得するには、クエリ文字列 `[].{"id":"appId", "tenant":"appOwnerTenantId"}` を使用します。 たとえば、現在ログインしているユーザーによって作成されたすべてのサービス プリンシパルのサインイン情報を取得するには、次のコマンドを使用します。
+サービス プリンシパル オブジェクトについて返される情報は、詳細情報です。 サインインに必要な情報のみを取得するには、クエリ文字列 `[].{id:appId, tenant:appOwnerTenantId}` を使用します。 たとえば、現在ログインしているユーザーによって作成されたすべてのサービス プリンシパルのサインイン情報を取得するには、次のコマンドを使用します。
 
 ```azurecli-interactive
-az ad sp list --show-mine --query '[].{"id":"appId", "tenant":"appOwnerTenantId"}'
+az ad sp list --show-mine --query "[].{id:appId, tenant:appOwnerTenantId}"
 ```
 
 > [!IMPORTANT]
