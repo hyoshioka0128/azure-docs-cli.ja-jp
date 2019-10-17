@@ -4,19 +4,78 @@ description: Azure CLI の最新情報について説明します
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 09/05/2019
+ms.date: 10/15/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 1f829ba3d9ecdb158e96512bde5bcf1565cc205c
-ms.sourcegitcommit: 5b9b4446c08b94256ced7f63c145b493ba8b50df
+ms.openlocfilehash: 32137c5e6ef403461114b0e09970f93c9248c100
+ms.sourcegitcommit: 69f52b032167a01509fdf15431e3e4e89a7e20ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71217417"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72324015"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+
+## <a name="october-15-2019"></a>2019 年 10 月 15 日
+
+バージョン 2.0.75
+
+### <a name="aks"></a>AKS
+
+* Kubernetes のバージョンでサポートされている場合、`--load-balancer-sku` の既定値を `standard` に変更しました
+* Kubernetes のバージョンでサポートされている場合、`--vm-set-type` の既定値を `virtualmachinescalesets` に変更しました
+
+### <a name="ams"></a>AMS
+
+* [重大な変更] `job start` の名前を `job create` に変更しました
+* [重大な変更] `content-key-policy create` の `--ask` パラメーターが UTF8 ではなく 32 文字の 16 進文字列を使用するように変更しました
+
+### <a name="appservice"></a>AppService
+
+* コマンド `webapp config access-restriction show|set|add|remove` を追加しました
+* より優れたエラー処理を `webapp up` に追加しました
+* `Isolated` SKU のサポートを `appservice plan update` に追加しました
+
+### <a name="arm"></a>ARM
+
+* JSON テンプレートで複数行とコメントをサポートするための `--handle-extended-json-format` パラメーターを `deployment create` に追加しました
+
+### <a name="compute"></a>Compute
+
+* `--enable-agent` パラメーターを `vm create` に追加しました
+* ゾーンを使用するときに標準のパブリック IP SKU を自動的に使用するように `vm create` を変更しました
+* VM の有効なコンピューター名が指定されていない場合に自動的に作成されるように `vm create` を変更しました
+* VMSS 内の仮想マシンのカスタム コンピューター名プレフィックスをサポートするために `--computer-name-prefix` パラメーターを `vmss create` に追加しました
+* ログ分析ワークスペースを自動的に有効にする `--workspace` パラメーターを `vm create` に追加します
+* ギャラリーの API バージョンが 2019-07-01 に更新されました
+
+### <a name="core"></a>コア
+
+* 汎用の update コマンドで `--set` パラメーターの構文チェックを追加しました
+
+### <a name="iot"></a>IoT
+
+* `iot hub show` で "リソースが見つかりません" のエラーが誤って発生する問題を修正しました
+
+### <a name="monitor"></a>監視
+
+* CRUD のサポートを `monitor log-analytics workspace` に追加しました
+
+### <a name="network"></a>ネットワーク
+
+* クロステナントの仮想リンクのサポートを `network private-dns link vnet [create|update]` に追加しました
+* [重大な変更] `network vnet subnet list` で `--resource-group` および `--vnet-name` パラメーターが必須に変更になりました
+
+### <a name="sql"></a>SQL
+
+* マネージ インスタンスの AAD 管理者の設定をサポートするコマンドを `sql mi ad-admin` に追加しました
+
+### <a name="storage"></a>Storage
+
+* サービス間のコピー中にアクセス層を保持する `--preserve-s2s-access-tier` パラメーターを `storage copy` に追加しました
+* ストレージ アカウントで大容量ファイルの共有をサポートするために `--enable-large-file-share` パラメーターを `storage account [create|update]` に追加しました
 
 ## <a name="september-24-2019"></a>2019 年 9 月 24 日
 

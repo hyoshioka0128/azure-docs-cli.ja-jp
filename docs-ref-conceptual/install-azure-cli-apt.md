@@ -4,24 +4,24 @@ description: apt パッケージ マネージャーで Azure CLI をインスト
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 05/08/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 923629d53983f7dbbd34bf7e79f28380a05937c2
-ms.sourcegitcommit: 5a29ce9c0a3d7b831f22b1a13b1ae2e239e5549f
+ms.openlocfilehash: 782d88bc2487c24bd0574b6a106f109368191f6b
+ms.sourcegitcommit: 69f52b032167a01509fdf15431e3e4e89a7e20ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71144073"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72324037"
 ---
 # <a name="install-azure-cli-with-apt"></a>apt での Azure CLI のインストール
 
 Ubuntu や Debian など、`apt` が付属するディストリビューションを実行している場合は、Azure CLI 用に x86_64 パッケージを使用できます。 このパッケージは、以下でテストされ、サポートされています。
 
 * Ubuntu trusty、xenial、artful、bionic、および disco
-* Debian wheezy、jessie、および stretch
+* Debian wheezy、jessie、stretch、および buster
 
 [!INCLUDE [current-version](includes/current-version.md)]
 
