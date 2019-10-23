@@ -4,17 +4,17 @@ description: Azure CLI で公式にサポートされている拡張機能の完
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 10/12/2019
+ms.date: 10/22/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 6b21ec098fb39611f62161a4b562242ad90d1e7c
-ms.sourcegitcommit: 69f52b032167a01509fdf15431e3e4e89a7e20ef
+ms.openlocfilehash: e32ef6b1623c4fb64c31111e4b237fd8997f5d5f
+ms.sourcegitcommit: 269eb3589059c145c3fef0b723a72b5a25feb71c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72324051"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72783679"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Azure CLI で使用可能な拡張機能
 
@@ -35,7 +35,7 @@ az extension list-available --output table
 | [application-insights](https://github.com/Azure/azure-cli-extensions/tree/master/src/application-insights) | 0.1.1 | Application Insights コンポーネントの管理と、それらのコンポーネントのメトリック、イベント、およびログのクエリをサポートします。 | はい |
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 5.0.0 | Azure Batch サービスを操作するための追加コマンド |  |
 | [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.8.3 | Azure IoT Hub、IoT Edge、および IoT Device Provisioning Service にデータ プレーン コマンド レイヤーを提供します |  |
-| [azure-cli-ml](https://docs.microsoft.com/azure/machine-learning/service/) | 1.0.65 | Microsoft Azure コマンド ライン ツールの AzureML コマンド モジュール |  |
+| [azure-cli-ml](https://docs.microsoft.com/azure/machine-learning/service/) | 1.0.69 | Microsoft Azure コマンド ライン ツールの AzureML コマンド モジュール |  |
 | [azure-devops](https://github.com/Microsoft/azure-devops-cli-extension) | 0.13.0 | Azure DevOps を管理するためのツールです。 |  |
 | [azure-firewall](https://github.com/Azure/azure-cli-extensions/tree/master/src/azure-firewall) | 0.1.3 | Azure Firewall のリソースを管理します。 | はい |
 | [db-up](https://github.com/Azure/azure-cli-extensions/tree/master/src/db-up) | 0.1.13 | Azure データベースのワークフローを簡略化するための、その他のコマンド。 | はい |
@@ -48,7 +48,8 @@ az extension list-available --output table
 | [express-route-cross-connection](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route-cross-connection) | 0.1.1 | ExpressRoute のクロス接続を使用して、顧客の ExpressRoute 回線を管理します。 |  |
 | [find](https://github.com/Azure/azure-cli-extensions/tree/master/src/find) | 0.3.0 | CLI 情報に対するインテリジェントな照会。 | はい |
 | [front-door](https://github.com/Azure/azure-cli-extensions/tree/master/src/front-door) | 1.0.1 | ネットワークの Front Door を管理します。 |  |
-| [healthcareapis](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Microsoft Azure コマンド ライン ツールの HealthCareApis 拡張機能 | はい |
+| [hack](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Microsoft Azure コマンド ライン ツールの Hack 拡張機能 | はい |
+| [healthcareapis](https://github.com/Azure/azure-cli-extensions) | 0.1.2 | Microsoft Azure コマンド ライン ツールの HealthCareApis 拡張機能 |  |
 | [image-copy-extension](https://github.com/Azure/azure-cli-extensions) | 0.2.1 | リージョン間での管理対象 VM イメージのコピーをサポートします |  |
 | [interactive](https://github.com/Azure/azure-cli) | 0.4.3 | Microsoft Azure コマンド ライン対話型シェル | はい |
 | [keyvault-preview](https://github.com/Azure/azure-keyvault-cli-extension) | 0.1.3 | Azure Key Vault のコマンドをプレビューします。 | はい |
@@ -66,4 +67,5 @@ az extension list-available --output table
 | [virtual-network-tap](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-network-tap) | 0.1.0 | 仮想ネットワーク タップ (VTAP) を管理します。 | はい |
 | [virtual-wan](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-wan) | 0.1.0 | 仮想 WAN、ハブ、VPN ゲートウェイ、および VPN サイトを管理します。 | はい |
 | [vm-repair](https://github.com/Azure/azure-cli-extensions/tree/master/src/vm-repair) | 0.2.2 | VM を修正する自動修復コマンド。 |  |
+| [vmware-cs](https://github.com/Azure/az-vmware-cli) | 0.1.0 | Azure VMware ソリューションを管理します。 | はい |
 | [webapp](https://github.com/Azure/azure-cli-extensions/tree/master/src/webapp) | 0.2.24 | Azure App Service のその他のコマンド。 | はい |
