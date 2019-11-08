@@ -4,19 +4,129 @@ description: Azure CLI の最新情報について説明します
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 10/15/2019
+ms.date: 11/04/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 0eb1ccccdeff8c3d9b97167ee74f3380d983a552
-ms.sourcegitcommit: e99b39e2f14a38c9bcae1b2b5921c6d8b464ef31
+ms.openlocfilehash: 3061d4b5519cfafbde92df68ecdee4d88d0bddff
+ms.sourcegitcommit: b854f9b6acfdb814ba1d6ba87aac03e2d547d998
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72549689"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73536781"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+
+## <a name="november-4-2019"></a>2019 年 11 月 4 日
+
+バージョン 2.0.76
+
+### <a name="acr"></a>ACR
+
+* コマンド `az acr pack build` にプレビュー パラメーター `--pack-image-tag` を追加しました。
+* レジストリの作成時の監査の有効化をサポートするようになりました
+* レジストリ スコープを持つ RBAC をサポートするようになりました
+
+### <a name="aks"></a>AKS
+
+* `az aks create` コマンドに `--enable-cluster-autoscaler`、`--min-count`、および `--max-count` を追加しました。これにより、ノード プールのクラスター オートスケーラーが有効になります。
+* 上記のフラグに加えて、`--update-cluster-autoscaler` および `--disable-cluster-autoscaler` を `az aks update` コマンドに追加し、クラスター オートスケーラーを更新できるようにしました。
+
+### <a name="appconfig"></a>AppConfig
+
+* App Configuration に格納される機能フラグを管理するために、appconfig feature コマンド グループを追加しました。
+* ファイルに対する appconfig kv export コマンドの軽微なバグを修正しました。 エクスポート中に宛先ファイルの内容を読み取らないようにしました。
+
+### <a name="appservice"></a>AppService
+
+* `az appservice plan create`:appservice plan create に "persitescaling" を設定するためのサポートを追加しました。
+* webapp config ssl bind 操作がリソースから既存のタグを削除する問題を修正しました
+* 関数アプリのデプロイ時にリモート ビルド アクションをサポートするために、`az functionapp deployment source config-zip` に `--build-remote` フラグを追加しました。
+* Windows 向けの関数アプリの既定のノードバージョンを 10 に変更しました
+* `az functionapp create` に `--runtime-version` プロパティを追加しました
+
+### <a name="arm"></a>ARM
+
+* `az deployment/group deployment validate`:デプロイ時に、json テンプレートで複数行とコメントをサポートするために `--handle-extended-json-format` パラメーターを追加しました。
+* azure-mgmt-resource を 2019-07-01 に引き上げました
+
+### <a name="backup"></a>バックアップ
+
+* AzureFiles のバックアップ サポートを追加しました
+
+### <a name="compute"></a>Compute
+
+* `az vm create`:高速ネットワークと既存の NIC を一緒に指定した場合の警告を追加しました。
+* `az vm create`:仮想マシンを割り当てる必要がある既存の仮想マシン スケール セットを指定するための `--vmss` を追加しました。
+* `az vm/vmss create`:イメージ エイリアス ファイルのローカル コピーを追加し、制限付きネットワーク環境でそれにアクセスできるようにしました。
+* `az vmss create`:スケール セットによる仮想マシンの管理方法を指定するための `--orchestration-mode` を追加しました。
+* `az vm/vmss update`:Ultra SSD 設定を更新できるように `--ultra-ssd-enabled` を追加しました。
+* [破壊的変更] `az vm extension set`:ユーザーが `--ids` を使用して、VM に拡張機能を設定できないバグを修正しました。
+* Azure Marketplace イメージの使用条件を管理するための新しいコマンド `az vm image terms accept/cancel/show` を追加しました。
+* VMAccessForLinux をバージョン 1.5 に更新しました
+
+### <a name="cosmosdb"></a>Cosmos DB
+
+* [破壊的変更] `az sql container create`:`--partition-key-path` を必須パラメーターに変更しました
+* [破壊的変更] `az gremlin graph create`:`--partition-key-path` を必須パラメーターに変更しました
+* `az sql container create`:`--unique-key-policy` および `--conflict-resolution-policy` を追加しました
+* `az sql container create/update`:既定のスキーマ `--idx` を更新しました
+* `gremlin graph create`:`--conflict-resolution-policy` を追加しました
+* `gremlin graph create/update`:既定のスキーマ `--idx` を更新しました
+* ヘルプ メッセージの誤りを修正しました
+* データベース:非推奨の情報を追加しました
+* コレクション:非推奨の情報を追加しました
+
+### <a name="iot"></a>IoT
+
+* 新しいルーティング ソースの種類を追加しました: DigitalTwinChangeEvents
+* `az iot hub create` の不十分な機能を修正しました
+
+### <a name="key-vault"></a>Key Vault
+
+* 証明書ファイルが存在しない場合の予期しないエラーを修正しました
+* `az keyvault recover/purge` が機能しない問題を修正しました
+
+### <a name="netappfiles"></a>NetAppFiles
+
+* API バージョン 2019-07-01 を使用するために azure-mgmt-netapp を 0.6.0 にアップグレードしました。 この新しい API バージョンには以下の変更内容が含まれます。
+
+    - ボリューム作成の `--protocol-types` が "NFSv4" ではなく "NFSv 4.1" を受け入れるようになりました
+    - ボリューム エクスポート ポリシー プロパティの名前が "nfsv4" ではなく "nfsv41" に変更されました
+    - ボリュームの `--creation-token` の名前が `--file-path` に変更されました
+    - スナップショット作成日の名前が単に "created" に変更されました
+
+### <a name="network"></a>ネットワーク
+
+* `az network private-dns link vnet create/update`:テナント間の仮想ネットワーク リンクがサポートされています。
+* [破壊的変更] `az network vnet subnet list`:`--resource-group` と `--vnet-name` を必須に変更しました。
+* `az network public-ip prefix create`:作成時の IP アドレス バージョン (IPv4、IPv6) の指定をサポートするようになりました
+* azure-mgmt-network を 7.0.0 に、api-version を 2019-09-01 に引き上げました
+* `az network vrouter`:新しいサービスの仮想ルーターと仮想ルーター ピアリングをサポートするようになりました
+* `az network express-route gateway connection`:`--internet-security` をサポートするようになりました
+
+### <a name="profile"></a>プロファイル
+
+* `az account get-access-token --resource-type ms-graph` が機能しない問題を修正しました
+* `az login` からの警告を削除しました
+
+### <a name="rbac"></a>RBAC
+
+* `az ad app update --id {} --display-name {}` が機能しない問題を修正しました
+
+### <a name="servicefabric"></a>ServiceFabric
+
+* `az sf cluster create`:Service Fabric の Linux と Windows の template.json コンピューティング vmss を標準からマネージド ディスクに変更することによって問題を修正しました
+
+### <a name="sql"></a>SQL
+
+* 新しい SQL Database オファリングであるサーバーレス コンピューティング モデルの CRUD 操作をサポートするために、`--compute-model`、`--auto-pause-delay`、および `--min-capacity` パラメーターを追加しました。
+
+### <a name="storage"></a>Storage
+
+* `az storage account create/update`:Azure Files Active Directory Domain Services 認証をサポートするために、--enable-files-adds パラメーターと Azure Active Directory プロパティ引数グループを追加しました
+* ストレージ アカウントの Kerberos キーの一覧表示または再生成をサポートするために、`az storage account keys list/renew` を拡張しました。
 
 ## <a name="october-15-2019"></a>2019 年 10 月 15 日
 
