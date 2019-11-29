@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 13edb9954678aca627529714aeee02062c720219
-ms.sourcegitcommit: 08043c47d3ccf23522b91e6bba3932e312c04c7f
+ms.openlocfilehash: caca30ec186f302e47f2978b9bfe616d4b2a5c02
+ms.sourcegitcommit: 443e14098d6643cdb2e178847d1c79b1b95146ce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66516306"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74543636"
 ---
 # <a name="install-azure-cli-on-linux-manually"></a>Linux での Azure CLI の手動インストール
 
@@ -35,7 +35,7 @@ CLI には、次のソフトウェアが必要です。
 
 > [!IMPORTANT]
 >
-> CLI は、Python 2.7.x とも互換性がありますが、Python 2.7.x は 2020 年 1 月 1 日に有効期間が終了します。 このため、CLI を実行する場合は、Python 3 をインストールすることをお勧めします。
+> CLI は、Python 2.7.x とも互換性がありますが、Python 2.7.x は 2020 年 1 月 1 日に有効期間が終了します。 Azure CLI の今後のバージョンでは、Python 2.7 のサポートは削除されます。 このため、CLI を実行する場合は、Python 3 をインストールすることをお勧めします。 
 
 ## <a name="install-or-update"></a>インストールまたは更新
 

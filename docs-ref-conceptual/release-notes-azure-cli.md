@@ -4,19 +4,130 @@ description: Azure CLI の最新情報について説明します
 author: sptramer
 ms.author: sttramer
 manager: carmonm
-ms.date: 11/04/2019
+ms.date: 11/26/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 3061d4b5519cfafbde92df68ecdee4d88d0bddff
-ms.sourcegitcommit: b854f9b6acfdb814ba1d6ba87aac03e2d547d998
+ms.openlocfilehash: 75a3a3ee800edc20bd1c8ed7ab1ff542f5935c6c
+ms.sourcegitcommit: 443e14098d6643cdb2e178847d1c79b1b95146ce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73536781"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74543463"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+
+## <a name="november-26-2019"></a>2019 年 11 月 26 日
+
+バージョン 2.0.77
+
+### <a name="acr"></a>ACR
+
+* acr task create/update からパラメーター `--branch` が非推奨になりました
+
+### <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
+
+* 監視を使用して Azure Red Hat Openshift クラスターを作成できるように、`--workspace-resource-id` フラグを追加しました
+* 監視を使用して Azure Red Hat OpenShift クラスターを作成するために `monitor_profile` を追加しました
+
+### <a name="aks"></a>AKS
+
+* "az aks rotate-certs" を使用したクラスター証明書ローテーション操作のサポートを追加しました。
+
+### <a name="appconfig"></a>AppConfig
+
+* `as az appconfig kv import` の区切り文字に ":" を使用するためのサポートを追加しました
+* null ラベルを含む複数のラベルを持つキー値の一覧表示に関する問題を修正しました。 
+* 管理プレーン SKD である azure-mgmt-appconfiguration を バージョン 0.3.0 に更新しました。 
+
+### <a name="appservice"></a>AppService
+
+* 問題 #11100: サービス プランの作成時の az webapp up の AttributeError を修正しました
+* az webapp up: サポートされている言語のサイトに作成またはデプロイを強制します。既定値は使用されません。
+* App Service Environment のサポートを追加しました: az appservice ase show | list | list-addresses | list-plans | create | update | delete
+
+### <a name="backup"></a>バックアップ
+
+* az backup policy list-associated-items の問題を修正しました。 省略可能な BackupManagementType パラメーターを追加しました。
+
+### <a name="compute"></a>Compute
+
+* コンピューティング、ディスク、スナップショットの API バージョンを 2019-07-01 にアップグレードしました
+* vmss create: --orchestration-mode の改善
+* sig image-definition create: --os-state を追加して、このイメージの下に作成された仮想マシンを "一般化" するか、または "特殊化" するかを指定できるようにしました
+* sig image-definition create: --hyper-v-generation を追加して、ハイパーバイザーの生成を指定できるようにしました
+* sig image-version create: --os-snapshot と --data-snapshots のサポートを追加しました
+* image create: --data-disk-caching を追加して、データ ディスクのキャッシュ設定を指定できるようにしました
+* Python Compute SDK を 10.0.0 にアップグレードしました
+* vm/vmss create: 'Priority' 列挙型プロパティに 'Spot' を追加しました
+* [重大な変更] Swagger と Powershell のコマンドレットとの一貫性を維持するために、VM と VMSS の両方で '--max-billing' パラメーターを '--max-price' に変更しました
+* vm monitor log show: リンクされた Log Analytics ワークスペースに対してログのクエリを実行するためのサポートを追加しました。
+
+### <a name="iot"></a>IoT
+
+* #2531 の修正: ハブの更新に便利な引数を追加しました。
+* #8323 の修正: ストレージ カスタム エンドポイントを作成するために不足しているパラメーターを追加しました。
+* 回帰バグの修正: 既定のストレージ エンドポイントをオーバーライドする変更を元に戻しました。
+
+### <a name="key-vault"></a>Key Vault
+
+* #11121 を修正しました: `az keyvault certificate list` を使用する場合、`--include-pending` を渡すときに `true` または `false` の値が必須ではなくなりました。
+
+### <a name="netappfiles"></a>NetAppFiles
+
+* azure-mgmt-netapp を 0.7.0 にアップグレードしました。これには、今後のレプリケーション操作に関連した追加のボリューム プロパティが含まれています。
+
+### <a name="network"></a>ネットワーク
+
+* application-gateway waf-config: 非推奨になりました
+* application-gateway waf-policy: 管理されているルール セットと除外ルールを管理するために、サブグループ managed-rules を追加しました
+* application-gateway waf-policy: waf-policy のグローバル構成を管理するために、サブグループ policy-setting を追加しました
+* [重大な変更] application-gateway waf-policy: subgroup rule を custom-rule に名前変更しました
+* application-gateway http-listener: 作成時の --firewall-policy を追加しました
+* application-gateway url-path-map rule: 作成時の --firewall-policy を追加しました
+
+### <a name="packaging"></a>梱包
+
+* az ラッパーを Python で書き直しました
+* Python 3.8 のサポートを追加しました
+* RPM パッケージで Python 3 に変更しました
+
+### <a name="profile"></a>プロファイル
+
+* Microsoft アカウントで `az login -u {} -p {}` を実行するときのエラーを改善しました
+* 自己署名ルート証明書使用してプロキシの背後で `az login` を実行するときの `SSLError` を改善しました
+* #10578 を修正: Windows または WSL で同時に複数のインスタンスを起動すると `az login` がハングする
+* #11059 を修正: テナントにサブスクリプションがあると `az login --allow-no-subscriptions` が失敗する
+* #11238 を修正: サブスクリプションの名前を変更した後、MSI を使用してログインすると、同じサブスクリプションが 2 回表示される
+
+### <a name="rbac"></a>RBAC
+
+* #10996 を修正: `--password` が指定されていないときの `az ad user update` での `--force-change-password-next-login` のエラーを改善
+
+### <a name="redis"></a>Redis
+
+* #2902 を修正: Basic SKU キャッシュの更新中、メモリ構成を設定しない
+
+### <a name="reservations"></a>Reservations
+
+* SDK バージョンを 0.6.0 にアップグレードしました
+* Gat-Gatalogs を呼び出した後の billingplan の詳細情報を追加しました
+* 予約の価格を計算するための新しいコマンド `az reservations reservation-order calculate` を追加しました
+* 新しい予約を購入するための新しいコマンド `az reservations reservation-order purchase` を追加しました
+
+### <a name="rest"></a>REST
+* `az rest` を GA に変更しました
+
+### <a name="sql"></a>SQL
+
+* azure-mgmt-sql をバージョン 0.15.0 に更新しました。
+
+### <a name="storage"></a>Storage
+
+* storage account create: Blob service でのファイルシステムのセマンティクスをサポートするために、--enable-hierarchical-namespace を追加しました。
+* エラー メッセージから関連性のない例外を削除しました
+* ネットワーク ルールまたは AuthenticationFailed によってブロックされたときの "この操作を実行するのに必要なアクセス許可がありません" という誤ったエラー メッセージの問題を修正しました。
 
 ## <a name="november-4-2019"></a>2019 年 11 月 4 日
 
@@ -25,8 +136,8 @@ ms.locfileid: "73536781"
 ### <a name="acr"></a>ACR
 
 * コマンド `az acr pack build` にプレビュー パラメーター `--pack-image-tag` を追加しました。
-* レジストリの作成時の監査の有効化をサポートするようになりました
-* レジストリ スコープを持つ RBAC をサポートするようになりました
+* レジストリ作成時の監査を有効にするためのサポートを追加しました
+* レジストリ スコープが設定された RBAC のサポートを追加しました
 
 ### <a name="aks"></a>AKS
 
@@ -101,10 +212,10 @@ ms.locfileid: "73536781"
 
 * `az network private-dns link vnet create/update`:テナント間の仮想ネットワーク リンクがサポートされています。
 * [破壊的変更] `az network vnet subnet list`:`--resource-group` と `--vnet-name` を必須に変更しました。
-* `az network public-ip prefix create`:作成時の IP アドレス バージョン (IPv4、IPv6) の指定をサポートするようになりました
+* `az network public-ip prefix create`:作成時に IP アドレスのバージョン (IPv4、IPv6) を指定するためのサポートを追加しました
 * azure-mgmt-network を 7.0.0 に、api-version を 2019-09-01 に引き上げました
-* `az network vrouter`:新しいサービスの仮想ルーターと仮想ルーター ピアリングをサポートするようになりました
-* `az network express-route gateway connection`:`--internet-security` をサポートするようになりました
+* `az network vrouter`:新しいサービスの仮想ルーターと仮想ルーター ピアリングのサポートを追加しました
+* `az network express-route gateway connection`:`--internet-security` のサポートを追加しました
 
 ### <a name="profile"></a>プロファイル
 
@@ -260,8 +371,8 @@ ms.locfileid: "73536781"
 ### <a name="batch"></a>Batch
 
 * `batch pool create` の `--json-file` に新しい JSON 構成設定を追加しました。
-  * ファイル システム マウント用の `MountConfigurations` を追加しました (詳細については https://docs.microsoft.com/en-us/rest/api/batchservice/pool/add#request-body を参照してください)
-  * プール上のパブリック IP 用に、`NetworkConfiguration` にオプションのプロパティ `publicIPs` を追加しました (詳細については https://docs.microsoft.com/en-us/rest/api/batchservice/pool/add#request-body を参照してください)
+  * ファイル システム マウント用の `MountConfigurations` を追加しました (詳細については https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body を参照してください)
+  * プール上のパブリック IP 用に、`NetworkConfiguration` にオプションのプロパティ `publicIPs` を追加しました (詳細については https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body を参照してください)
 * 共有イメージ ギャラリーのサポートを `--image` に追加しました
 * [重大な変更] `batch pool create` の `--start-task-wait-for-success` の既定値を `true` に変更しました
 * [重大な変更] `AutoUserSpecification` の `Scope` の既定値が常に Pool になるように変更しました (以前は Windows ノードでは `Task`、Linux ノードでは `Pool` でした)
