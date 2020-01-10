@@ -1,22 +1,202 @@
 ---
 title: Azure CLI リリース ノート
 description: Azure CLI の最新情報について説明します
-author: sptramer
-ms.author: sttramer
-manager: carmonm
-ms.date: 11/26/2019
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
+ms.date: 01/07/2020
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 75a3a3ee800edc20bd1c8ed7ab1ff542f5935c6c
-ms.sourcegitcommit: 443e14098d6643cdb2e178847d1c79b1b95146ce
+ms.openlocfilehash: 9fc54add3bfb2a75d1912c47f0a2571d9d065ec0
+ms.sourcegitcommit: 5646008e7a521dd9a8a627418f57bd92ee180352
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74543463"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75694276"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+
+## <a name="january-07-2020"></a>2020 年 1 月 7 日
+
+バージョン 2.0.79
+
+### <a name="acr"></a>ACR
+
+* [重大な変更] 'acr build'、'acr task create/update'、'acr run'、および 'acr pack' の '--os' パラメーターを削除します。 代わりに、'--platform' を使用してください。
+
+### <a name="appconfig"></a>AppConfig
+
+* 機能フラグのインポート/エクスポートのサポートを追加します
+* keyvault 参照を作成するための新しいコマンド 'az appconfig kv set-keyvault' を追加します
+* 機能フラグをファイルにエクスポートするときに、さまざまな名前付け規則をサポートします
+
+### <a name="appservice"></a>AppService
+
+* 問題 #7154 を修正:単一引用符ではなく、アクサン グラーブを使用するように、コマンド < > のドキュメントを更新しています
+* 問題 #11287 を修正: webapp up:既定で、up を使用して作成されたアプリを 'SSL 有効' にする必要がある
+* 問題 #11592 を修正:HTML 静的サイトに az webapp up フラグを追加します
+
+### <a name="arm"></a>ARM
+
+* `az resource tag` を修正:Recovery Services コンテナー タグを更新できない
+
+### <a name="backup"></a>バックアップ
+
+* IaasVM ワークロードの論理的な削除機能を有効にするための新しいコマンド 'backup protection undelete' を追加しました
+* backup-properties コマンドを設定するための新しいパラメーター '--soft-delete-feature-state' を追加しました
+* IaasVM ワークロードのディスク除外のサポートを追加しました
+
+### <a name="compute"></a>Compute
+
+* Azure Stack プロファイルの `vm create` エラーを修正します。
+* vm monitor metrics tail/list-definitions: VM のクエリ メトリックとリスト定義をサポートします。
+* az vm の新しい再適用コマンド アクションを追加します
+
+### <a name="misc"></a>その他
+
+* 既定の JSON 形式 または --output によって構成された形式で Azure CLI モジュールと拡張機能のバージョンを表示するプレビュー コマンド `az version show` を追加します
+
+### <a name="event-hubs"></a>Event Hubs
+
+* [重大な変更] コマンド 'az eventhubs eventhub update' と 'az eventhubs eventhub create' から 'ReceiveDisabled' status オプションを削除します。 このオプションは、イベント ハブ エンティティに対しては無効です。
+
+### <a name="service-bus"></a>Service Bus
+
+* [重大な変更] コマンド 'az servicebus topic create'、'az servicebus topic update'、'az servicebus queue create'、および 'az servicebus queue update' から 'ReceiveDisabled' status オプションを削除します。 このオプションは、Service Bus のトピックとキューに対しては無効です。
+
+### <a name="rbac"></a>RBAC
+
+* #11712 を修正: アプリケーションまたはサービス プリンシパルが存在しない場合に `az ad app/sp show` で終了コード 3 が返されない
+
+### <a name="storage"></a>ストレージ
+
+* `az storage account create`:--enable-hierarchical-namespace パラメーターのプレビュー フラグを削除します
+* API バージョン 2019-06-01 を使用するために azure-mgmt-storage バージョンを 7.0.0 に更新します
+* ストレージ アカウント blob-service-properties の削除の保持ポリシーの管理をサポートするために、新しいパラメーター `--enable-delete-retention` と `--delete-retention-days` を追加します。
+
+## <a name="december-17-2019"></a>2019 年 12 月 17 日
+
+2.0.78
+
+### <a name="acr"></a>ACR
+
+* acr task run でのローカル コンテキストのサポートを追加しました
+
+### <a name="acs"></a>ACS
+
+* [重大な変更] az openshift create: `--workspace-resource-id` の名前を `--workspace-id` に変更します。
+
+### <a name="ams"></a>AMS
+
+* リソースが見つからない場合に 3 を返すように表示コマンドを更新しました
+
+### <a name="appconfig"></a>AppConfig
+
+* 要求 URL に api-version を追加するときのバグを修正しました。 既存のソリューションは、改ページ位置の自動修正で機能しません。
+* 英語以外の言語を表示するためのサポートを追加しました。これは、Microsoft のバックエンド サービスがグローバリゼーション向けに unicode をサポートするためです。
+
+### <a name="appservice"></a>AppService
+
+* 問題 #11217 を修正: webapp: az webapp config ssl upload はスロット パラメーターをサポートする必要がある
+* 問題 #10965 を修正:エラー:名前を空にすることはできません。 ip_address とサブネットによる削除を許可します
+* Key Vault `az webapp config ssl import` からの証明書のインポートのサポートを追加しました
+
+### <a name="arm"></a>ARM
+
+* 6\.0.0 を使用するように azure-mgmt-resource パッケージを更新しました
+* 新しいパラメーター `--aux-subs` の追加による `az group deployment create` コマンドのクロス テナントのサポート
+* ポリシー セット定義へのメタデータ情報の追加をサポートするために、新しいパラメーター `--metadata` を追加しました。
+
+### <a name="backup"></a>バックアップ
+
+* SQL および SAP Hana ワークロードのバックアップ サポートを追加しました。
+
+### <a name="botservice"></a>BotService
+
+* [重大な変更] プレビューコマンド 'az bot create' から '--version' フラグを削除します。 v4 SDK ボットのみがサポートされます。
+* 名前を使用できるかどうかのチェックを 'sz bot create' に追加しました。
+* 'az bot update' を使用してボットのアイコン URL を更新するためのサポートを追加しました。
+* 'az bot directline update' を使用して Direct Line チャネルを更新するためのサポートを追加しました。
+* 'az bot directline create' に '--enable-enhanced-auth' フラグのサポートを追加しました。
+* コマンド グループ 'az bot authsetting' は、プレビュー段階ではなく、GA です。
+* 'az bot' の次のコマンドは、プレビュー段階ではなく、GA です: 'create'、'prepare-deploy'、'show'、'delete'、'update'。
+* 'az bot prepare-deploy' が修正され、 '--proj-file-path' 値が小文字に変更されます (例: "Test.csproj" の場合、"test.csproj")。
+
+### <a name="compute"></a>Compute
+
+* vmss create/update:--scale-in-policy を追加しました。これは、VMSS がスケールインされるときに削除対象として選択される仮想マシンを決定します。
+* vm/vmss update:--priority を追加しました。
+* vm/vmss update:--max-price を追加しました。
+* disk-encryption-set コマンド グループ (create、show、update、delete、list) を追加しました。
+* disk create:--encryption-type と --disk-encryption-set を追加しました。
+* vm/vmss create: --os-disk-encryption-set と --data-disk-encryption-sets を追加しました。
+
+### <a name="core"></a>コア
+
+* Python 3.4 のサポートを削除しました
+* 複数のコマンドでの HaTS 調査のプラグイン
+
+### <a name="dls"></a>DLS
+
+* ADLS SDK バージョンを更新しました (0.0.48)。
+
+### <a name="install"></a>インストール
+
+* インストール スクリプトで python 3.8 がサポートされます
+
+### <a name="iot"></a>IoT
+
+* [重大な変更] manual-failover から --failover-region パラメーターを削除しました。 これで、割り当てられた geo ペアのセカンダリ リージョンにフェールオーバーします。
+
+### <a name="key-vault"></a>Key Vault
+
+* #8095 を修正: `az keyvault storage remove`: ヘルプ メッセージを改善します
+* #8921 を修正: `az keyvault key/secret/certificate list/list-deleted/list-versions`: パラメーター `--maxresults` の検証のバグを修正します
+* #10512 を修正: `az keyvault set-policy`: `--object-id`、`--spn`、`--upn` のいずれも指定されていない場合のエラー メッセージを改善します
+* #10846 を修正: `az keyvault secret show-deleted`: `--id` を指定した場合、`--name/-n` は必要ありません
+* #11084 を修正: `az keyvault secret download`: パラメーター `--encoding` のヘルプ メッセージを改善します
+
+### <a name="network"></a>ネットワーク
+
+* az network application-gateway probe:作成および更新時にバックエンド サーバーをプローブするためのポートを指定する --port オプションのサポートを追加しました
+* az network application-gateway url-path-map create/update: `--waf-policy` のバグ修正
+* az network application-gateway:`--rewrite-rule-set` のサポートを追加しました
+* az network list-service-aliases:サービス エンドポイント ポリシーに使用できるサービス別名を一覧表示するためのサポートを追加しました
+* az network dns zone import:レコード名での .@ のサポートを追加しました
+
+### <a name="packaging"></a>梱包
+
+* pip インストール用のバック エッジ ビルドを追加しました
+* Ubuntu eoan パッケージを追加しました
+
+### <a name="policy"></a>ポリシー
+
+* ポリシー API バージョン 2019-09-01 のサポートを追加しました。
+* az policy set-definition:`--definition-groups` パラメーターを使用したポリシー セット定義内のグループ化のサポートを追加しました
+
+### <a name="redis"></a>Redis
+
+* `az redis create` コマンドにプレビュー パラメーター `--replicas-per-master` を追加しました
+* azure-mgmt-redis を 6.0.0 から 7.0.0rc1 に更新しました
+
+### <a name="servicefabric"></a>ServiceFabric
+
+* #10963 を含む node-type 追加ロジックを修正:持続性レベル Gold で新しいノード タイプを追加すると、常に CLI エラーがスローされる
+* 作成テンプレートの ServiceFabricNodeVmExt バージョンを 1.1 に更新しました
+
+### <a name="sql"></a>SQL
+
+* 読み取りスケール管理をサポートするために、sql db create および update コマンドに "--read-scale" と "--read-replicas" パラメーターを追加しました。
+
+### <a name="storage"></a>ストレージ
+
+* GA リリースでの storage account create および update コマンド用の大きいファイルの共有プロパティ
+* GA リリースでのユーザー委任 SAS トークンのサポート
+* ストレージ アカウントの Blob service のプロパティを管理するための新しいコマンド `az storage account blob-service-properties show` と `az storage account blob-service-properties update --enable-change-feed` が追加されました。
+* [今後の破壊的変更] `az storage copy`: `*` 文字は URL 内のワイルドカードとしてサポートされなくなりましたが、新しいパラメーターの --include-pattern と --exclude-pattern が `*` ワイルドカードをサポートして追加されます。
+* 問題 #11043 を修正:`az storage remove` コマンドでコンテナー/共有全体を削除するためのサポートを追加しました
 
 ## <a name="november-26-2019"></a>2019 年 11 月 26 日
 
@@ -43,8 +223,8 @@ ms.locfileid: "74543463"
 
 ### <a name="appservice"></a>AppService
 
-* 問題 #11100: サービス プランの作成時の az webapp up の AttributeError を修正しました
-* az webapp up: サポートされている言語のサイトに作成またはデプロイを強制します。既定値は使用されません。
+* 問題 #11100 を修正:サービス プランの作成時の az webapp up の AttributeError
+* az webapp up:サポートされている言語のサイトに作成またはデプロイを強制します。既定値は使用されません。
 * App Service Environment のサポートを追加しました: az appservice ase show | list | list-addresses | list-plans | create | update | delete
 
 ### <a name="backup"></a>バックアップ
@@ -123,11 +303,11 @@ ms.locfileid: "74543463"
 
 * azure-mgmt-sql をバージョン 0.15.0 に更新しました。
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * storage account create: Blob service でのファイルシステムのセマンティクスをサポートするために、--enable-hierarchical-namespace を追加しました。
 * エラー メッセージから関連性のない例外を削除しました
-* ネットワーク ルールまたは AuthenticationFailed によってブロックされたときの "この操作を実行するのに必要なアクセス許可がありません" という誤ったエラー メッセージの問題を修正しました。
+* "この操作を実行するのに必要なアクセス許可がありません" という誤ったエラー メッセージが ネットワーク ルールまたは AuthenticationFailed によってブロックされた場合に表示される問題を修正しました。
 
 ## <a name="november-4-2019"></a>2019 年 11 月 4 日
 
@@ -234,7 +414,7 @@ ms.locfileid: "74543463"
 
 * 新しい SQL Database オファリングであるサーバーレス コンピューティング モデルの CRUD 操作をサポートするために、`--compute-model`、`--auto-pause-delay`、および `--min-capacity` パラメーターを追加しました。
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * `az storage account create/update`:Azure Files Active Directory Domain Services 認証をサポートするために、--enable-files-adds パラメーターと Azure Active Directory プロパティ引数グループを追加しました
 * ストレージ アカウントの Kerberos キーの一覧表示または再生成をサポートするために、`az storage account keys list/renew` を拡張しました。
@@ -250,8 +430,8 @@ ms.locfileid: "74543463"
 
 ### <a name="ams"></a>AMS
 
-* [重大な変更] `job start` の名前を `job create` に変更しました
-* [重大な変更] `content-key-policy create` の `--ask` パラメーターが UTF8 ではなく 32 文字の 16 進文字列を使用するように変更しました
+* [重大な変更]`job start` の名前を `job create` に変更しました
+* [重大な変更]`content-key-policy create` の `--ask` パラメーターが UTF8 ではなく 32 文字の 16 進文字列を使用するように変更しました
 
 ### <a name="appservice"></a>AppService
 
@@ -280,20 +460,20 @@ ms.locfileid: "74543463"
 
 * `iot hub show` で "リソースが見つかりません" のエラーが誤って発生する問題を修正しました
 
-### <a name="monitor"></a>監視
+### <a name="monitor"></a>モニター
 
 * CRUD のサポートを `monitor log-analytics workspace` に追加しました
 
 ### <a name="network"></a>ネットワーク
 
 * クロステナントの仮想リンクのサポートを `network private-dns link vnet [create|update]` に追加しました
-* [重大な変更] `network vnet subnet list` で `--resource-group` および `--vnet-name` パラメーターが必須に変更になりました
+* [重大な変更]`network vnet subnet list` で `--resource-group` および `--vnet-name` パラメーターが必須に変更になりました
 
 ### <a name="sql"></a>SQL
 
 * マネージ インスタンスの AAD 管理者の設定をサポートするコマンドを `sql mi ad-admin` に追加しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * サービス間のコピー中にアクセス層を保持する `--preserve-s2s-access-tier` パラメーターを `storage copy` に追加しました
 * ストレージ アカウントで大容量ファイルの共有をサポートするために `--enable-large-file-share` パラメーターを `storage account [create|update]` に追加しました
@@ -329,7 +509,7 @@ ms.locfileid: "74543463"
 
 * キー、読み取り専用キー、または接続文字列を表示する `--type <key-type>` パラメーターを `cosmosdb keys list` コマンドに追加しました
 * `cosmosdb keys regenerate` コマンドを追加しました
-* [非推奨] `cosmosdb list-connection-strings`、`cosmosdb regenerate-key`、`cosmosdb list-read-only-keys` コマンドを非推奨にしました
+* [非推奨]`cosmosdb list-connection-strings`、`cosmosdb regenerate-key`、`cosmosdb list-read-only-keys` コマンドを非推奨にしました
 
 ### <a name="eventgrid"></a>EventGrid
 
@@ -339,7 +519,7 @@ ms.locfileid: "74543463"
 
 * テナントを使用してログインすると (`login -t`)、`keyvault create` が失敗する問題を修正しました
 
-### <a name="monitor"></a>監視
+### <a name="monitor"></a>モニター
 
 * `monitor metrics alert create` の `--condition` 引数で `:` 文字を使用できないという問題を修正しました
 
@@ -348,7 +528,7 @@ ms.locfileid: "74543463"
 * Policy API バージョン 2019-06-01 のサポートを追加しました
 * `policy assignment create` コマンドに `--enforcement-mode` パラメーターを追加しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * `az storage copy` コマンドに `--blob-type` パラメーターを追加しました
 
@@ -374,14 +554,14 @@ ms.locfileid: "74543463"
   * ファイル システム マウント用の `MountConfigurations` を追加しました (詳細については https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body を参照してください)
   * プール上のパブリック IP 用に、`NetworkConfiguration` にオプションのプロパティ `publicIPs` を追加しました (詳細については https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body を参照してください)
 * 共有イメージ ギャラリーのサポートを `--image` に追加しました
-* [重大な変更] `batch pool create` の `--start-task-wait-for-success` の既定値を `true` に変更しました
-* [重大な変更] `AutoUserSpecification` の `Scope` の既定値が常に Pool になるように変更しました (以前は Windows ノードでは `Task`、Linux ノードでは `Pool` でした)
+* [重大な変更]`batch pool create` の `--start-task-wait-for-success` の既定値を `true` に変更しました
+* [重大な変更]`AutoUserSpecification` の `Scope` の既定値が常に Pool になるように変更しました (以前は Windows ノードでは `Task`、Linux ノードでは `Pool` でした)
   * この引数は、`--json-file` を使用して JSON 構成からのみ設定できます。
 
 ### <a name="hdinsight"></a>HDInsight
 
 * GA リリース
-* [重大な変更] `az hdinsight resize` のパラメーター `--workernode-count/-c` が必須に変更されました。
+* [重大な変更]`az hdinsight resize` のパラメーター `--workernode-count/-c` が必須に変更されました。
 
 ### <a name="key-vault"></a>Key Vault
 
@@ -405,7 +585,7 @@ ms.locfileid: "74543463"
 
 ### <a name="acr"></a>ACR
 
-* [重大な変更] `classic` SKU のサポートを削除しました
+* [重大な変更]`classic` SKU のサポートを削除しました
 
 ### <a name="api-management"></a>API Management
 
@@ -447,7 +627,7 @@ ms.locfileid: "74543463"
   * `signalr update`:SignalR Service の更新
 * `--service-mode` 引数を `signalr create` に追加しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * `storage account revoke-delegation-keys` コマンドを追加しました
 
@@ -476,29 +656,29 @@ ms.locfileid: "74543463"
 
 このリリースには、多数の破壊的変更が含まれています。
 
-* [重大な変更] `hdinsight create` のパラメーターの名前を変更しました。
-  * `--storage-default-container` の名前を `--storage-container` に変更しました
-  * `--storage-default-filesystem` の名前を `--storage-filesystem` に変更しました
-* [重大な変更] `application create` の `--name` 引数が、クラスター名の代わりにアプリケーション名を表すように変更されました
+* [重大な変更]`hdinsight create` のパラメーターの名前を変更しました。
+  * `--storage-default-container` から `--storage-container` への名称変更
+  * `--storage-default-filesystem` から `--storage-filesystem` への名称変更
+* [重大な変更]`application create` の `--name` 引数が、クラスター名の代わりにアプリケーション名を表すように変更されました
 * `--cluster-name` 引数が `application create` に追加され、以前の `--name` の機能に置き換わりました
-* [重大な変更] `application create` のパラメーターの名前を変更しました。
-  * `--application-type` の名前を `--type` に変更しました
-  * `--marketplace-identifier` の名前を `--marketplace-id` に変更しました
-  * `--https-endpoint-access-mode` の名前を `--access-mode` に変更しました
+* [重大な変更]`application create` のパラメーターの名前を変更しました。
+  * `--application-type` から `--type` への名称変更
+  * `--marketplace-identifier` から `--marketplace-id` への名称変更
+  * `--https-endpoint-access-mode` から `--access-mode` への名称変更
   * `--https-endpoint-destination-port` の名前を `--destination-port` に変更しました
-* [重大な変更] `application create` のパラメーターを削除しました。
+* [重大な変更]`application create` のパラメーターを削除しました。
   * `--https-endpoint-location`
   * `--https-endpoint-public-port`
   * `--ssh-endpoint-destination-port`
   * `--ssh-endpoint-location`
   * `--ssh-endpoint-public-port`
 * [破壊的変更] `hdinsight resize`の `--target-instance-count` の名前を `--workernode-count` に変更しました
-* [重大な変更] `hdinsight script-action` グループのすべてのコマンドが、スクリプト アクションの名前として `--name` パラメーターを使用するように変更されました。
+* [重大な変更]`hdinsight script-action` グループのすべてのコマンドが、スクリプト アクションの名前として `--name` パラメーターを使用するように変更されました。
 * `--cluster-name` 引数がすべての `hdinsight script-action` コマンドに追加され、以前の `--name` の機能に置き換わりました
 * [重大な変更] すべての `hdinsight script-action` コマンドで `--script-execution-id` の名前を `--execution-id` に変更しました
 * [重大な変更] 名前を `hdinsight script-action show` から `hdinsight script-action show-execution-details` に変更しました
 * [破壊的変更] `hdinsight script-action execute --roles` に対するパラメーターを、コンマ区切りではなくスペース区切りにしました
-* [重大な変更] `hdinsight script-action list`の `--persisted` パラメーターを削除しました
+* [重大な変更]`hdinsight script-action list`の `--persisted` パラメーターを削除しました
 * ローカル JSON ファイルへのパスまたは JSON 文字列を受け入れるように `hdinsight create --cluster-configurations` パラメーターを変更しました
 * `hdinsight script-action list-execution-history` コマンドを追加しました
 * Log Analytics ワークスペース ID またはワークスペース名を受け入れるように `hdinsight monitor enable --workspace` を変更しました
@@ -526,7 +706,7 @@ ms.locfileid: "74543463"
 * sf cluster create でサポートされているすべての OS バージョンを追加しました
 * プライマリ証明書の検証のバグを修正しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * `storage copy` コマンドを追加しました
 
@@ -562,7 +742,7 @@ ms.locfileid: "74543463"
 
 * マネージド インスタンス キーおよび TDE 保護機能の管理コマンドを追加しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * `storage remove` コマンドを追加しました
 * `storage blob update` での問題を修正しました
@@ -591,7 +771,7 @@ ms.locfileid: "74543463"
 
 ### <a name="batch"></a>Batch
 
-* [重大な変更] `batch pool node-agent-skus list` が `batch pool supported-images list` に置き換えられました
+* [重大な変更]`batch pool node-agent-skus list` が `batch pool supported-images list` に置き換えられました
 * `batch pool create network` の `--json-file` オプションを使用するときに、トラフィックのソース ポートに基づいてプールへのネットワーク アクセスをブロックするセキュリティ規則のサポートが追加されました
 * `batch task create`の `--json-file` オプションを使用するときに、コンテナーの作業ディレクトリまたは Batch タスクの作業ディレクトリでタスクを実行するためのサポートが追加されました
 * `batch pool create`の `--application-package-references` オプションが、既定値でのみ動作するというエラーが修正されました
@@ -614,7 +794,7 @@ ms.locfileid: "74543463"
 
 * `authorizationrule`コマンドのパラメーター `--rights` の検証が追加されました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * ストレージ アカウントの更新で Files AADDS を有効にします
 * 修正された問題 `storage blob service-properties update --set`
@@ -653,8 +833,8 @@ ms.locfileid: "74543463"
 
 ### <a name="hdinsight"></a>HDInsight
 
-* [重大な変更] `oms` コマンド グループ名を `monitor` に変更しました
-* [重大な変更] `--http-password/-p` が必須パラメーターになりました 
+* [重大な変更]`oms` コマンド グループ名を `monitor` に変更しました
+* [重大な変更]`--http-password/-p` が必須パラメーターになりました 
 * `--cluster-admin-account` および `cluster-users-group-dns` パラメーター入力候補の入力候補を追加しました 
 * `cluster-users-group-dns` パラメーターを `—esp` が存在するときに必要となるように変更しました
 * 既存の引数自動オートコンプリートすべてにタイムアウトを追加しました
@@ -671,7 +851,7 @@ ms.locfileid: "74543463"
 
 ### <a name="rbac"></a>RBAC
 
-* [重大な変更] `create-for-rbac` の `--password` 引数を削除しました
+* [重大な変更]`create-for-rbac` の `--password` 引数を削除しました
 * AAD グラフ サーバー レプリケーションの待機時間によって発生する断続的なエラーを回避するために `--assignee-principal-type` パラメーターを `create` コマンドに追加しました
 * 所有オブジェクトの一覧表示時の `ad signed-in-user` のクラッシュの問題を修正しました
 * `ad sp` によってサービス プリンシパルから適切なアプリケーションが検出されない問題を修正しました
@@ -684,7 +864,7 @@ ms.locfileid: "74543463"
 
 * `sql db create --sample-name` に使用できる値を文書化しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * `--as-user` を使用した `storage blob generate-sas` に対するユーザーの委任 SAS トークンのサポートを追加しました 
 * `--as-user` を使用した `storage container generate-sas` に対するユーザーの委任 SAS トークンのサポートを追加しました 
@@ -735,7 +915,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * v3 SDK をサポートするコマンドに "廃止されたサポート"/"保守モード" 警告メッセージを追加しました
 
 ### <a name="cosmosdb"></a>Cosmos DB
-* [非推奨] `cosmosdb list-keys` コマンドを非推奨にしました
+* [非推奨]`cosmosdb list-keys` コマンドを非推奨にしました
 * `cosmosdb keys list` コマンドを追加しました。`cosmosdb list-keys` に置き換わるものです
 * `cosmsodb create/update`:"isZoneRedundant" プロパティを設定できるように --location の新しいフォーマットを追加しました 古いフォーマットを非推奨にしました
 
@@ -744,7 +924,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * ドメイン トピック CRUD 操作のための `eventgrid domain topic` コマンドを追加しました
 * OData 構文を使用して結果をフィルタリングするための `--odata-query` 引数を `eventgrid [topic|event-subscription] list` に追加しました
 * `event-subscription create/update`:`--endpoint-type` パラメーターの新しい値として servicebusqueue を追加しました
-* [重大な変更] `eventgrid event-subscription [create|update]` での `--included-event-types All` のサポートを削除しました
+* [重大な変更]`eventgrid event-subscription [create|update]` での `--included-event-types All` のサポートを削除しました
 
 ### <a name="hdinsight"></a>HDInsight
 * `hdinsight create` コマンドでの `--ssh-public-key` パラメーターのサポートを追加しました
@@ -764,7 +944,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * リソース グループまたはサブスクリプション レベル`--scope` で `policy assignment list` を使用する場合のエラーを修正しました
 
 ### <a name="servicebus"></a>ServiceBus
-* `servicebus topic create --max-size` [#9319](https://github.com/azure/azure-cli/issues/9319) での問題を修正しました
+* `servicebus topic create --max-size` での問題 [#9319](https://github.com/azure/azure-cli/issues/9319) を修正しました
 
 ### <a name="sql"></a>SQL
 * `--location` を `sql [server|mi] create` のオプションに変更しました - 指定されていない場合、リソース グループの場所を使用します
@@ -774,7 +954,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * [破壊的変更] `--license-type` パラメーターを必要とするように `sql vm create` を変更しました
 * sql vm の作成または更新時に SQL イメージ SKU を設定できるように変更しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 * `storage container generate-sas` のアカウント キーが見つからない問題を修正しました
 * Linux での `storage blob sync` に関する問題を修正しました
 
@@ -830,9 +1010,9 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * お客様の AAD クライアントでの使用時の `openshift create` コマンドを修正しました
 
 ### <a name="appservice"></a>AppService
-* [非推奨] `functionapp devops-build` コマンドを非推奨にしました - 次のリリースから削除されます
+* [非推奨]`functionapp devops-build` コマンドを非推奨にしました - 次のリリースから削除されます
 * 詳細モードで Azure DevOps からビルド ログをフェッチするように `functionapp devops-pipeline` を変更しました
-* [重大な変更] `--use_local_settings` フラグを `functionapp devops-pipeline` コマンドから削除しました (操作なし)
+* [重大な変更]`--use_local_settings` フラグを `functionapp devops-pipeline` コマンドから削除しました (操作なし)
 * `--logs` が使用されていないときに、JSON 出力を返すように `webapp up` を変更しました
 * `webapp up` 用のローカル構成に既定のリソースを書き込むためのサポートを追加しました
 * `--location` 引数を使用しないでアプリを再デプロイするために `webapp up` にサポートを追加しました
@@ -842,7 +1022,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * コマンドの `--lang` パラメーターに大文字小文字のすべてが許可されるように変更しました
 * コマンド モジュールの説明を更新しました
 
-### <a name="consumption"></a>消費
+### <a name="consumption"></a>従量課金
 * `consumption usage list --billing-period-name` の実行時に存在しない必須パラメーターを追加しました
 
 ### <a name="iot"></a>IoT
@@ -859,13 +1039,13 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 ### <a name="rbac"></a>RBAC
 * 管理グループ スコープのサポートを `role assignment` に追加しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 * `storage blob sync`: ストレージ BLOB 用の同期コマンドを追加
 
 ### <a name="compute"></a>Compute
 * VM のコンピューター名設定用に `--computer-name` を `vm create` に追加しました
 * `[vm|vmss] create` について `--ssh-key-value` を `--ssh-key-values` に変更しました。複数の ssh 公開キーの値またはパスが受け入れられるようになりました
-  * __メモ__:これは、破壊的変更 "**ではありません**" - `--ssh-key-values` にのみ一致するため `--ssh-key-value` は 適切に解析されます
+  * __注__:これは、破壊的変更 "**ではありません**" - `--ssh-key-values` にのみ一致するため `--ssh-key-value` は 適切に解析されます
 * `ppg create` の `--type` 引数をオプションに変更しました
 
 ## <a name="may-6-2019"></a>2019 年 5 月 6 日
@@ -873,13 +1053,13 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 バージョン 2.0.64
 
 ### <a name="acs"></a>ACS
-* [重大な変更] `--fqdn` フラグを `openshift` コマンドから削除しました
+* [重大な変更]`--fqdn` フラグを `openshift` コマンドから削除しました
 * Azure Red Hat Openshift GA API Version を使用するように変更しました
 * `customer-admin-group-id` フラグを `openshift create` に追加しました
 * [GA] `aks create` オプション `--network-policy` から `(PREVIEW)` を削除しました
 
 ### <a name="appservice"></a>Appservice
-* [非推奨] `functionapp devops-build` コマンドを非推奨にしました
+* [非推奨]`functionapp devops-build` コマンドを非推奨にしました
   * 名前を `functionapp devops-pipeline` に変更しました
 * `webapp up` が失敗する原因となっていた問題を修正し、CloudShell の正しいユーザー名が取得されるようにしました
 * サポートされる appserviceplans を反映するために `appservice plan --sku` のドキュメントを更新しました
@@ -896,17 +1076,17 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 ### <a name="botservice"></a>Botservice
 * [重大な変更] 空の Web アプリ ボットを既定で作成するように `bot create -v v4 -k webapp` を変更しました (つまり、アプリ サービスにデプロイされるボットはありません)
 * `-v v4` により以前の動作を使用するように `--echo` フラグを `bot create` に追加しました
-* [重大な変更] `--version` の既定値を `v4` に変更しました
+* [重大な変更]`--version` の既定値を `v4` に変更しました
   * __注:__ `bot prepare-publish` ではその以前の既定値を引き続き使用します
 * [重大な変更] 既定値が `Csharp` にならないように `--lang` を変更しました。 コマンドで `--lang` が必要で、これが指定されないと、コマンドでエラーが出力されます
-* [重大な変更] `bot create` が必要になるように、および `ad app create` を通じて作成されるように `--appid` と `--password` 引数を変更しました
+* [重大な変更]`bot create` が必要になるように、および `ad app create` を通じて作成されるように `--appid` と `--password` 引数を変更しました
 * `--appid` および `--password` 検証を追加しました
 * [重大な変更] ストレージ アカウントまたは Application Insights を作成または使用しないように `bot create -v v4` を変更しました
 * [重大な変更] Application Insights を使用できるリージョンを必要とするように `bot create -v v3` を変更しました
 * [重大な変更] ボットの特定のプロパティのみに影響するように `bot update` を変更しました
-* [重大な変更] `Node` の代わりに `Javascript` を受け入れるように `--lang` フラグを変更しました
+* [重大な変更]`Node` の代わりに `Javascript` を受け入れるように `--lang` フラグを変更しました
 * [重大な変更] 許可された `--lang` 値としての `Node` を削除しました
-* [重大な変更] `SCM_DO_BUILD_DURING_DEPLOYMENT` が true に設定されないように `bot create -v v4 -k webapp` を変更しました。 Kudu を通じたすべてのデプロイがその既定の動作に従って動作します
+* [重大な変更]`SCM_DO_BUILD_DURING_DEPLOYMENT` が true に設定されないように `bot create -v v4 -k webapp` を変更しました。 Kudu を通じたすべてのデプロイがその既定の動作に従って動作します
 * `.bot` ファイルのないボットで言語固有の構成ファイルが、ボット用のアプリケーション設定からの値により作成されるように `bot download` を変更しました
 * `bot prepare-deploy` に `Typescript` のサポートを追加しました
 * `--code-dir` に `package.json` が含まれない場合に備えて `Javascript` および `Typescript` ボット用に `bot prepare-deploy` に警告メッセージを追加しました
@@ -914,7 +1094,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * 詳細ログ記録を `bot prepare-deploy` に追加しました
 * さらに多くの使用可能な Application Insights リージョンを `az bot create -v v3` に追加しました
 
-### <a name="configure"></a>構成
+### <a name="configure"></a>[構成]
 * フォルダー ベースの引数の既定値の構成のサポートを追加しました
 
 ### <a name="eventhubs"></a>イベント ハブ
@@ -922,13 +1102,13 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * ネットワーク ルールの `--default-action` 引数を `namespace [create|update]` に追加しました
 
 ### <a name="network"></a>ネットワーク
-* [重大な変更] `vnet [create|update]` 用に `--cache` 引数を `--defer` に置き換えました 
+* [重大な変更]`vnet [create|update]` 用に `--cache` 引数を `--defer` に置き換えました 
 
 ### <a name="policy-insights"></a>ポリシーの分析情報
 * リソースに関するポリシー評価の詳細にクエリを実行するために `--expand PolicyEvaluationDetails` のサポートを追加しました
 
 ### <a name="role"></a>Role
-* [非推奨] `create-for-rbac` '--password' 引数を非表示にするように変更しました。サポートは 2019 年 5 月に削除されます
+* [非推奨]`create-for-rbac` '--password' 引数を非表示にするように変更しました。サポートは 2019 年 5 月に削除されます
 
 ### <a name="service-bus"></a>Service Bus
 * `namespace network-rule` コマンドを追加しました
@@ -978,7 +1158,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * 子ゾーン作成時のネーム サーバーの自動委任を親の `dns zone create` に追加しました
 
 ### <a name="resource"></a>リソース
-* [非推奨] `resource link` の引数 `--link-id`、`--target-id`、`--filter-string` を廃止しました
+* [非推奨]`resource link` の引数 `--link-id`、`--target-id`、`--filter-string` を廃止しました
   * 代わりに、引数 `--link`、`--target`、および `--filter` を使用します
 * `resource link [create|update]` コマンドが機能しない問題を修正しました
 * リソース ID を使用した削除がエラーでクラッシュする問題を修正しました
@@ -989,7 +1169,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * `sql server [create|update]` に `--no-wait` のサポートを追加しました
 * `sql server wait` コマンドを追加しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 * `storage blob generate-sas` での二重エンコードされた SAS トークンの問題を修正しました
 
 ### <a name="vm"></a>VM
@@ -1015,7 +1195,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * `webapp up` に `--logs` のサポートを追加しました
 * `functionapp devops-build create` コマンドでの `azure-pipelines.yml` の生成に関する問題を修正しました
 * `unctionapp devops-build create` のエラー処理とインジケーターを改善しました
-* [重大な変更] `devops-build` コマンドの `--local-git` フラグが削除され、Azure DevOps パイプラインを作成する際のローカル Git の検出と処理は強制となりました
+* [重大な変更]`devops-build` コマンドの `--local-git` フラグが削除され、Azure DevOps パイプラインを作成する際のローカル Git の検出と処理は強制となりました
 * Linux 関数プラン作成のサポートを追加しました
 * `functionapp update --plan` を使用して、関数アプリの基盤になっているプランを切り替える機能を追加しました
 * Azure Functions Premium プランのスケールアウト設定のサポートを追加しました
@@ -1028,7 +1208,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * ブラウザーを開き、問題テンプレートを使用して、問題作成プロセスの支援をユーザーに促すよう `feedback` を変更しました
 * "--verbose" を指定して実行すると、問題の本文が出力されるように `feedback` を変更しました
 
-### <a name="monitor"></a>監視
+### <a name="monitor"></a>モニター
 * `metrics alert [create|update]` で "Count" が許容値ではなかった問題を修正しました 
 
 ### <a name="network"></a>ネットワーク
@@ -1050,8 +1230,8 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 ### <a name="sql"></a>SQL
 * `sql mi [create|update]` を proxyOverride プロパティと publicDataEndpointEnabled プロパティで更新しました
 
-### <a name="storage"></a>Storage
-* [重大な変更] `storage blob delete` の結果を削除しました
+### <a name="storage"></a>ストレージ
+* [重大な変更]`storage blob delete` の結果を削除しました
 * SAS を使用して BLOB の完全な URI を作成できるように `storage blob generate-sas` に `--full-uri` を追加しました
 * スナップショットからファイルをコピーできるように `storage file copy start` に `--file-snapshot` を追加しました
 * NoPendingCopyOperation の例外ではなくエラーのみを表示するように `storage blob copy cancel` を変更しました
@@ -1093,7 +1273,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 ### <a name="interactive"></a>Interactive
 * azdev を通じてインストールされたインタラクティブ拡張機能の非互換性の問題を修正しました
 
-### <a name="monitor"></a>監視
+### <a name="monitor"></a>モニター
 * ディメンション値 `*` を許可するように `monitor metrics alert [create|update]` を変更しました
 
 ### <a name="network"></a>ネットワーク
@@ -1110,7 +1290,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * `deployment [create|list|show]` のテーブル出力を強化しました
 * 型 secureObject が認識されない `deployment [create|validate]` の問題を修正しました
 
-### <a name="graph"></a>Graph
+### <a name="graph"></a>グラフ
 * `--end-date` のサポートを `ad [app|sp] credential reset` に追加しました
 * `ad app permission add` にアクセス許可の追加サポートを追加しました
 * アクセス許可がない `ad app permission list` のバグを修正しました
@@ -1211,8 +1391,8 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * `functionapp devops-build` コマンドを追加しました
 
 ### <a name="batch"></a>Batch
-* [重大な変更] `batch pool upgrade os` コマンドを削除しました
-* [重大な変更] `Application` の応答から `Pacakges` プロパティを削除しました
+* [重大な変更]`batch pool upgrade os` コマンドを削除しました
+* [重大な変更]`Application` の応答から `Pacakges` プロパティを削除しました
 * アプリケーションのパッケージを一覧表示する `batch application package list` コマンドを追加しました
 * [重大な変更] すべての `batch application` コマンドで `--application-id` を `--application-name` に変更しました 
 * 生の API 応答を要求するためのコマンドに `--json-file` 引数を追加しました
@@ -1262,8 +1442,8 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * JSON 出力で `--ids` を使用できなくなる回帰を修正しました
 
 ### <a name="acr"></a>ACR
-* [重大な変更] `acr build-task` コマンド グループを削除しました
-* [重大な変更] `acr repository delete` から `--tag` オプションおよび `--manifest` オプションを削除しました
+* [重大な変更]`acr build-task` コマンド グループを削除しました
+* [重大な変更]`acr repository delete` から `--tag` オプションおよび `--manifest` オプションを削除しました
 
 ### <a name="acs"></a>ACS
 * `aks [enable-addons|disable-addons]` に、大文字と小文字を区別しない名前のサポ―トを追加しました
@@ -1286,7 +1466,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * `az bot publish` の間に `npm install` を実行した場合のタイムアウトの警告を追加しました
 * `az bot create` の `--name` から無効な文字 `.` を削除しました
 * Azure Storage、App Service プラン、関数または Web アプリ、Application Insights を作成するときに、リソース名のランダム化を停止するように変更しました
-* [非推奨] `--proj-file-path`を優先して、`--proj-name` を非推奨にしました
+* [非推奨]`--proj-file-path`を優先して、`--proj-name` を非推奨にしました
 * 存在しなかった場合にフェッチされた IIS Node.js デプロイ ファイルを削除するように、`az bot publish` を変更しました
 * App Service で `node_modules` フォルダーを削除しないように、`az bot publish` に `--keep-node-modules` 引数を追加しました
 * Azure Functions ボットまたは Web アプリ ボットの作成時の、`az bot create` からの出力に `"publishCommand"` キーと値のペアを追加しました
@@ -1296,7 +1476,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 ### <a name="key-vault"></a>Key Vault
 * `--id` の使用時に一部のユーザーに `unexpected_keyword` エラーが発生する `keyvault secret backup` の問題を修正しました
 
-### <a name="monitor"></a>監視
+### <a name="monitor"></a>モニター
 * ディメンション値 `*` を許可するように `monitor metrics alert [create|update]` を変更しました
 
 ### <a name="network"></a>ネットワーク
@@ -1316,12 +1496,12 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * サーバーのリンクを管理 (作成、削除、表示、一覧表示) するためのコマンドを追加しました
 * パッチ スケジュールを管理 (作成、更新、削除、表示) するためのコマンドを追加しました
 * redis create に、Availability Zones と TLS 最小バージョンのサポートを追加しました
-* [重大な変更] `redis update-settings` コマンドおよび `redis list-all` コマンドを削除しました
-* [重大な変更] `redis create` のパラメーター 'tenant settings' は、key[=value] 形式では使用できなくなりました
-* [非推奨] `redis import-method` コマンドが非推奨であることを示す警告メッセージを追加しました
+* [重大な変更]`redis update-settings` コマンドおよび `redis list-all` コマンドを削除しました
+* [重大な変更]`redis create` のパラメーター 'tenant settings' は、key[=value] 形式では使用できなくなりました
+* [非推奨]`redis import-method` コマンドが非推奨であることを示す警告メッセージを追加しました
 
 ### <a name="role"></a>Role
-* [重大な変更] `az identity` コマンドを `vm` のコマンドからここに移動しました
+* [重大な変更]`az identity` コマンドを `vm` のコマンドからここに移動しました
 
 ### <a name="sql-vm"></a>SQL VM
 * [非推奨] 誤りがあったため、`--boostrap-acc-pwd` 引数を非推奨にしました
@@ -1330,7 +1510,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * `--all true` の代わりに `--all` を使用できるように `vm list-skus` を変更しました
 * `vmss run-command [invoke | list | show]` を追加しました
 * 以前に実行していた場合に `vmss encryption enable` が失敗するバグを修正しました
-* [重大な変更] `az identity` コマンドを `role` のコマンドに移動しました
+* [重大な変更]`az identity` コマンドを `role` のコマンドに移動しました
 
 ## <a name="january-31-2019"></a>2019 年 1 月 31 日
 
@@ -1373,7 +1553,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * すべてのイベント サブスクリプションに関連するコマンドに source-resource-id パラメーターを追加し、その他のすべてのソース リソース関連パラメーターを非推奨としてマークしました
 
 ### <a name="hdinsight"></a>HDInsight
-* [重大な変更] `hdinsight [application] create` から `--virtual-network` パラメーターと `--subnet-name` パラメーターを削除しました
+* [重大な変更]`hdinsight [application] create` から `--virtual-network` パラメーターと `--subnet-name` パラメーターを削除しました
 * [重大な変更] BLOB エンドポイントではなく、ストレージ アカウントの名前または ID を受け入れるように、`hdinsight create --storage-account` を変更しました
 * `--vnet-name` および `--subnet-name` パラメーターを `hdinsight create` に追加しました
 * Enterprise セキュリティ パッケージとディスク暗号化のサポートが `hdinsight create` に追加されました 
@@ -1386,7 +1566,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 ### <a name="kusto"></a>Kusto
 * プレビュー リリース
 
-### <a name="monitor"></a>監視
+### <a name="monitor"></a>モニター
 * 大文字と小文字が区別されないように、ID 比較を変更しました
 
 ### <a name="profile"></a>プロファイル
@@ -1403,7 +1583,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 ### <a name="sql-virtual-machine"></a>SQL 仮想マシン
 * プレビュー リリース
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 * 同じオブジェクトで変更されるプロパティのみを更新するように修正プログラムを変更しました
 * #8021 を修正しました。バイナリ データが返されるとき、base 64 でエンコードされます
 
@@ -1435,7 +1615,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 ### <a name="botservice"></a>Botservice
 * デプロイ状態の更新プログラムを `bot create` に追加しました
 
-### <a name="configure"></a>構成
+### <a name="configure"></a>[構成]
 * 構成可能な出力形式として `none` を追加しました
 
 ### <a name="cosmosdb"></a>Cosmos DB
@@ -1455,12 +1635,12 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * `ddos-protection update` に `--vnets ""` を指定するとエラーが発生する問題を修正しました
 
 ### <a name="role"></a>Role
-* [非推奨] `create-for-rbac` の `--password` 引数を非推奨にしました。 代わりに、CLI によって生成された安全なパスワードを使用してください
+* [非推奨]`create-for-rbac` の `--password` 引数を非推奨にしました。 代わりに、CLI によって生成された安全なパスワードを使用してください
 
-### <a name="security"></a>セキュリティ
+### <a name="security"></a>Security
 * 最初のリリース
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 * [重大な変更] 既定の結果数が 5,000 になるように `storage [blob|file|container|share] list` を変更しました。 すべての結果を返す元の動作が必要な場合は `--num-results *` を使用してください
 * `--marker` パラメーターを `storage [blob|file|container|share] list` に追加しました
 * 次のページを表すログ マーカーを `storage [blob|file|container|share] list` の STDERR に追加しました 
@@ -1505,7 +1685,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 ### <a name="acs"></a>ACS
 * 仮想ノードのプレビューを追加しました
 * `aks create` の AAD 引数から "(プレビュー)" を削除しました
-* [非推奨] `az acs` コマンドを非推奨にしました。 ACS サービスは 2020 年 1 月 31 日に廃止予定
+* [非推奨]`az acs` コマンドを非推奨にしました。 ACS サービスは 2020 年 1 月 31 日に廃止予定
 * 新しい AKS クラスターの作成時のネットワーク ポリシーのサポートを追加しました
 * nodepool が 1 つのみの場合に `aks scale` に求められる `--nodepool-name` 引数の要件を削除しました
 
@@ -1519,7 +1699,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * Kudu ネットワーク呼び出しを削減しました
 * 一般的なコマンド UX を改善しました
 
-### <a name="consumption"></a>消費
+### <a name="consumption"></a>従量課金
 * 予算 API での通知の表示のバグを修正しました
 
 ### <a name="cosmosdb"></a>Cosmos DB
@@ -1536,7 +1716,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * `policy assignment [create|list|delete|show|update]` の管理グループのスコープ パラメーターの処理を修正しました 
 * 新しいコマンド `resource wait` を追加しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 *  `storage logging update` でストレージ サービスのログ スキーマのバージョンを更新する機能を追加しました
 
 ### <a name="vm"></a>VM
@@ -1560,7 +1740,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * パスワード資格情報のカスタム識別子のサポートを追加しました 
 
 ### <a name="vm"></a>VM
-* [非推奨] `vm extension [show|wait] --expand` パラメーターを非推奨にしました
+* [非推奨]`vm extension [show|wait] --expand` パラメーターを非推奨にしました
 * 応答しない VM を再デプロイするために、`vm restart` に `--force` パラメーターを追加しました
 * パスワードと SSH 認証の両方を使用して VM を作成するために、"all" を受け入れるように `[vm|vmss] create --authentication-type` を変更しました
 * イメージの OS ディスク キャッシュを設定するための `image create --os-disk-caching` パラメーターを追加しました
@@ -1601,7 +1781,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * `ad app update` で変更できない資格情報を更新しようとする問題を修正しました
 * 近い将来の `ad [app|sp] list` の破壊的変更を伝えるための出力に関する警告を追加しました 
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 * ストレージ コピー コマンドのまれに発生するケースの処理を改善しました
 * コピー先アカウントとコピー元アカウントが同じである場合にログイン資格情報を使用しない、`storage blob copy start-batch` に関する問題を修正しました
 * `sas_token` が URL に組み込まれない `storage [blob|file] url` のバグを修正しました
@@ -1653,17 +1833,17 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * `--correlation-data` と `--label` の各引数を `ams job` コマンド グループに追加しました
 * `--storage-account` と `--container` の各引数を `ams asset` コマンド グループに追加しました
 * `ams asset get-sas-url` コマンドに有効期限 (現在 + 23 時間) とアクセス許可 (読み取り) の既定値を追加しました 
-* [重大な変更] `ams streaming locator` コマンドを `ams streaming-locator` で置き換えました
-* [重大な変更] `ams streaming locator` の `--content-keys` 引数を更新しました
-* [重大な変更] `ams streaming locator` コマンドの `--content-policy-name` の名前を `--content-key-policy-name` に変更しました
-* [重大な変更] `ams streaming policy` コマンドを `ams streaming-policy` で置き換えました
-* [重大な変更] `ams transform` コマンド グループの `--preset-names` 引数を `--preset` で置き換えました。 現在同時に設定できるのは、1 つの出力/プリセットのみです (さらに追加するには `ams transform output add` を実行する必要があります)。 また、カスタムの JSON にパスを渡すことで、カスタム StandardEncoderPreset を設定することもできます
-* [重大な変更] `ams job start` コマンドの `--output-asset-names ` の名前を `--output-assets` に変更しました。 "assetName=label" 形式の、スペース区切りのアセットのリストを受け入れるようになりました。 "assetName=" のようなラベルのないアセットを送信できます
+* [重大な変更]`ams streaming locator` コマンドを `ams streaming-locator` で置き換えました
+* [重大な変更]`ams streaming locator` の `--content-keys` 引数を更新しました
+* [重大な変更]`ams streaming locator` コマンドの `--content-policy-name` の名前を `--content-key-policy-name` に変更しました
+* [重大な変更]`ams streaming policy` コマンドを `ams streaming-policy` で置き換えました
+* [重大な変更]`ams transform` コマンド グループの `--preset-names` 引数を `--preset` で置き換えました。 現在同時に設定できるのは、1 つの出力/プリセットのみです (さらに追加するには `ams transform output add` を実行する必要があります)。 また、カスタムの JSON にパスを渡すことで、カスタム StandardEncoderPreset を設定することもできます
+* [重大な変更]`ams job start` コマンドの `--output-asset-names ` の名前を `--output-assets` に変更しました。 "assetName=label" 形式の、スペース区切りのアセットのリストを受け入れるようになりました。 "assetName=" のようなラベルのないアセットを送信できます
 
 ### <a name="appservice"></a>AppService
 * バックアップ スケジュールがまだ設定されていない場合はバックアップ スケジュールを設定できないという `az webapp config backup update` のバグを修正しました
 
-### <a name="configure"></a>構成
+### <a name="configure"></a>[構成]
 * YAML を出力形式のオプションに追加しました
 
 ### <a name="container"></a>コンテナー
@@ -1675,7 +1855,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 ### <a name="interactive"></a>Interactive
 * 対話型で `interactive` 拡張機能をインストールするようになりました。これにより、迅速な更新とサポートが可能になります
 
-### <a name="monitor"></a>監視
+### <a name="monitor"></a>モニター
 * `monitor metrics alert [create|update]` の `--condition` で、フォワードスラッシュ (/) とピリオド (.) の文字を含むメトリック名がサポートされるようになりました
 
 ### <a name="network"></a>ネットワーク
@@ -1697,7 +1877,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * displayName とサービス プリンシパル名を取り違えないように、`ad sp create-for-rbac` を変更しました
 * AAD アプリにアクセス許可を付与するサポートを追加しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 * アカウント名またはキーなしで、SAS とエンドポイントのみを使用してストレージ サービスに接続するサポートを追加しました (`Configure Azure Storage connection strings <https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string>` を参照してください)
 
 ### <a name="vm"></a>VM
@@ -1719,7 +1899,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * Python2 の ACR ビルドのエンコードの問題を修正しました
 
 ### <a name="cdn"></a>CDN
-* [重大な変更] `cdn endpoint create` のクエリ文字列の既定のキャッシュ動作が変更され、"IgnoreQueryString" が既定値ではなくなりました。 これはサービスによって設定されるようになりました
+* [重大な変更]`cdn endpoint create` のクエリ文字列の既定のキャッシュ動作が変更され、"IgnoreQueryString" が既定値ではなくなりました。 これはサービスによって設定されるようになりました
 
 ### <a name="container"></a>コンテナー
 * "--ip-address" に渡す有効な型として、`Private` を追加しました
@@ -1740,7 +1920,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * IoT Central アプリケーションを作成するためのテンプレートと表示名のオプションを追加しました
 * [重大な変更] F1 SKU のサポートを削除しました。代わりに S1 SKU を使用します
 
-### <a name="monitor"></a>監視
+### <a name="monitor"></a>モニター
 * `monitor activity-log list` の変更点:
   * すべてのイベントをサブスクリプション レベルで一覧表示するサポートを追加しました
   * 時間クエリをより簡単に作成できるように、`--offset` パラメーターを追加しました
@@ -1762,7 +1942,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 ### <a name="sql"></a>SQL
 * 手動フェールオーバー ポリシーで機能するように、`sql failover-group create` と `sql failover-group update` を修正しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 * すべての項目に正しい "サービス" キーが表示されるように、`az storage cors list` の出力書式設定を修正しました
 * 不変ポリシーによってブロックされたコンテナーの削除を可能にする `--bypass-immutability-policy` パラメーターを追加しました
 
@@ -1802,7 +1982,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * `eventhub update` コマンドを修正しました
 * [重大な変更] 空のリストを表示するのではなく、一般的な方法でリソースのエラー NotFound(404) を処理するように `list` コマンドを変更しました
 
-### <a name="extensions"></a>Extensions
+### <a name="extensions"></a>拡張機能
 * 既にインストールされている拡張機能を追加しようとする問題を修正しました
 
 ### <a name="hdinsight"></a>HDInsight
@@ -1936,7 +2116,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 ### <a name="signalr"></a>SignalR
 * 最初のリリース
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 * BLOB およびキュー承認用のユーザー ログイン資格情報に使用する `--auth-mode login` パラメーターを追加しました
 * 不変ストレージを管理するための `storage container immutability-policy/legal-hold` を追加しました
 
@@ -1985,7 +2165,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * リンクされたハブの関連付けに関する問題を修正しました
 
-### <a name="monitor"></a>監視
+### <a name="monitor"></a>モニター
 
 * ほぼリアルタイムのメトリック アラートのための `monitor metrics alert` コマンドを追加しました
 * `monitor alert` コマンドを非推奨にしました
@@ -1998,7 +2178,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * リソースが見つからないときにコード 3 で終了するように `provider operation show` を変更しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * リソースが見つからないときにコード 3 で終了するように `storage share policy show` を変更しました
 
@@ -2068,13 +2248,13 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * 最初のリリース
 
-### <a name="sql"></a>SQL
+### <a name="sql"></a>Sql
 
 * `sql failover-group` コマンドを追加しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
-* [重大な変更] `--location` パラメーターを必要とするように `storage account show-usage` を変更しました。リージョンごとに表示されます
+* [重大な変更]`--location` パラメーターを必要とするように `storage account show-usage` を変更しました。リージョンごとに表示されます
 * `storage account` コマンドで省略できるように `--resource-group` パラメーターを変更しました
 * バッチ コマンドの個々のエラーを表す "前提条件が満たされていない" という警告を削除し、1 つのメッセージに集約しました
 * null の配列が出力されないように `[blob|file] delete-batch` コマンドを変更しました
@@ -2119,7 +2299,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * Stack プロファイル 2017-03-09-profile のサポートを追加しました
 * `app update` に対する汎用更新パラメーターが正しく機能しない問題を修正しました
 
-### <a name="search"></a>Search
+### <a name="search"></a>検索
 
 * Azure Search サービスのコマンドを追加しました
 
@@ -2130,7 +2310,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
   *  `queue` の `--enable-batched-operations` および `--enable-dead-lettering-on-message-expiration`
   *  `subscriptions` の `--dead-letter-on-filter-exceptions`
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * 1 つの接続を使用した大きなファイルのダウンロードがサポートされるようになりました
 * リソースが見つからないときに終了コード 3 で失敗しそこなっていた `show` コマンドを変換しました
@@ -2201,7 +2381,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * `az configure --defaults sql-server=<name>` を実行して、既定の SQL Server を構成できるようになりました
 * `sql server`、`sql server firewall-rule`、`sql list-usages`、`sql show-usage` の各コマンドのテーブル フォーマッタを実装しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * `storage blob show` の出力に、ページ BLOB 用に設定される `pageRanges` プロパティを追加しました
 
@@ -2333,10 +2513,10 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * `--ids` のサポートを `batchai` コマンドに追加しました
 * [重大な変更] すべてのクラスターおよびファイルサーバーをワークスペースに作成する必要があります
 * [重大な変更] ジョブを実験に作成する必要があります
-* [重大な変更] `--nfs-resource-group` を `cluster create` コマンドおよび `job create` コマンドから削除しました。 別のワークスペース/リソース グループに属している NFS をマウントするには、`--nfs` オプションによってファイル サーバーの ARM ID を指定します
-* [重大な変更] `--cluster-resource-group` を `job create` コマンドから削除しました。 別のワークスペース/リソース グループに属しているクラスターでジョブを送信するには、`--cluster` オプションによってクラスターの ARM ID を指定します
-* [重大な変更] `location` 属性をジョブ、クラスター、およびファイル サーバーから削除しました。 現在の場所はワークスペースの属性です。
-* [重大な変更] `--location` を `job create` コマンド、`cluster create` コマンド、および `file-server create` コマンドから削除しました
+* [重大な変更]`--nfs-resource-group` を `cluster create` コマンドおよび `job create` コマンドから削除しました。 別のワークスペース/リソース グループに属している NFS をマウントするには、`--nfs` オプションによってファイル サーバーの ARM ID を指定します
+* [重大な変更]`--cluster-resource-group` を `job create` コマンドから削除しました。 別のワークスペース/リソース グループに属しているクラスターでジョブを送信するには、`--cluster` オプションによってクラスターの ARM ID を指定します
+* [重大な変更]`location` 属性をジョブ、クラスター、およびファイル サーバーから削除しました。 現在の場所はワークスペースの属性です。
+* [重大な変更]`--location` を `job create` コマンド、`cluster create` コマンド、および `file-server create` コマンドから削除しました
 * [重大な変更] インターフェイスの一貫性を向上させるために短いオプションの名前を変更しました。
   - [`--config`, `-c`] の名前を [`--config-file`, `-f`] に変更しました
   - [`--cluster`, `-r`] の名前を [`--cluster`, `-c`] に変更しました
@@ -2349,16 +2529,16 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 ### <a name="network"></a>ネットワーク
 
-* `https` のサポートを `network lb probe create` に追加しました [#6571](https://github.com/Azure/azure-cli/issues/6571)
+* `https` のサポートを `network lb probe create` に追加しました ([#6571](https://github.com/Azure/azure-cli/issues/6571))
 * `--endpoint-status` で大文字と小文字が区別されていた問題を修正しました。 [#6502](https://github.com/Azure/azure-cli/issues/6502)
 
 ### <a name="reservations"></a>Reservations
 
 * [重大な変更] 必要なパラメーター `ReservedResourceType` を `reservations catalog show` に追加しました
 * パラメーター `Location` を `reservations catalog show` に追加しました
-* [重大な変更] `kind` を `ReservationProperties` から削除しました
-* [重大な変更] `Catalog` で `capabilities` の名前を `sku_properties` に変更しました
-* [重大な変更] `Catalog` から `size` プロパティおよび `tier` プロパティを削除しました
+* [重大な変更]`kind` を `ReservationProperties` から削除しました
+* [重大な変更]`Catalog` で `capabilities` の名前を `sku_properties` に変更しました
+* [重大な変更]`Catalog` から `size` プロパティおよび `tier` プロパティを削除しました
 * パラメーター `InstanceFlexibility` を `reservations reservation update` に追加しました
 
 ### <a name="role"></a>Role
@@ -2369,7 +2549,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * ご自身のサブスクリプションで利用できない場所で `az sql db list-editions` 実行しているときに発生するわかりにくいエラーを修正しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * `storage blob download` のテーブル出力を読みやすくしました
 
@@ -2464,7 +2644,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
   * `sql midb restore`
   * `sql midb delete`
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * ファイル名拡張子から JSON および JavaScript が推論されるように、mimetype を追加しました
 
@@ -2517,30 +2697,30 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 ### <a name="sql"></a>SQL
 
-* [重大な変更] `db` コマンドおよび `dw` コマンドから返される応答オブジェクトを変更しました。
+* [重大な変更]`db` コマンドおよび `dw` コマンドから返される応答オブジェクトを変更しました。
     * `serviceLevelObjective` プロパティの名前を `currentServiceObjectiveName` に変更しました
     * `currentServiceObjectiveId` プロパティと `requestedServiceObjectiveId` プロパティを削除しました
     * `maxSizeBytes` プロパティを、文字列ではなく整数値に変更しました
 * [重大な変更] 次の `db` プロパティと `dw` プロパティを読み取り専用に変更しました。
-    * `requestedServiceObjectiveName`  更新するには、`--service-objective` パラメーターを使用するか、`sku.name` プロパティを設定します
-    * `edition` 更新するには、`--edition` パラメーターを使用するか、`sku.tier` プロパティを設定します
-    * `elasticPoolName` 更新するには、`--elastic-pool` パラメーターを使用するか、`elasticPoolId` プロパティを設定します
+    * [https://login.microsoftonline.com/consumers/](`requestedServiceObjectiveName`)  更新するには、`--service-objective` パラメーターを使用するか、`sku.name` プロパティを設定します
+    * [https://login.microsoftonline.com/consumers/](`edition`) 更新するには、`--edition` パラメーターを使用するか、`sku.tier` プロパティを設定します
+    * [https://login.microsoftonline.com/consumers/](`elasticPoolName`) 更新するには、`--elastic-pool` パラメーターを使用するか、`elasticPoolId` プロパティを設定します
 * [重大な変更] 次の `elastic-pool` プロパティを読み取り専用に変更しました。
-    * `edition` 更新するには、`--edition` パラメーターを使用します
-    * `dtu` 更新するには、`--capacity` パラメーターを使用します
-    *  `databaseDtuMin` 更新するには、`--db-min-capacity` パラメーターを使用します
-    *  `databaseDtuMax` 更新するには、`--db-max-capacity` パラメーターを使用します
+    * [https://login.microsoftonline.com/consumers/](`edition`) 更新するには、`--edition` パラメーターを使用します
+    * [https://login.microsoftonline.com/consumers/](`dtu`) 更新するには、`--capacity` パラメーターを使用します
+    *  [https://login.microsoftonline.com/consumers/](`databaseDtuMin`) 更新するには、`--db-min-capacity` パラメーターを使用します
+    *  [https://login.microsoftonline.com/consumers/](`databaseDtuMax`) 更新するには、`--db-max-capacity` パラメーターを使用します
 * `--family` パラメーターと `--capacity` パラメーターを、`db`、`dw`、`elastic-pool` の各コマンドに追加しました。
 * テーブル フォーマッタを、`db`、`dw`、`elastic-pool` の各コマンドに追加しました。
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * `--account-name` 引数の入力候補を追加しました
 * `storage entity query` の問題を修正しました
 
 ### <a name="vm"></a>VM
 
-* [重大な変更] `--write-accelerator` を `vm create` から削除しました。 同じサポートに、`vm update` または `vm disk attach` を使用してアクセスできます
+* [重大な変更]`--write-accelerator` を `vm create` から削除しました。 同じサポートに、`vm update` または `vm disk attach` を使用してアクセスできます
 * `[vm|vmss] extension` で一致する拡張機能イメージを修正しました
 * ブート ログがキャプチャされるように `--boot-diagnostics-storage` を `vm create` に追加しました
 * `--license-type` を `[vm|vmss] update` に追加しました
@@ -2590,9 +2770,9 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 ### <a name="cognitive-services"></a>Cognitive Services
 
-* `cognitiveservices account create` の例 ([#5603](https://github.com/Azure/azure-cli/issues/5603)) の誤りを修正しました
+* `cognitiveservices account create` の例の誤りを修正しました ([#5603](https://github.com/Azure/azure-cli/issues/5603))
 
-### <a name="consumption"></a>消費
+### <a name="consumption"></a>従量課金
 
 * budget API の新しいコマンドを追加しました
 
@@ -2637,7 +2817,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 ### <a name="profile"></a>プロファイル
 
 * `disk create` のソース検出を修正しました
-* [重大な変更] `--msi-port` と `--identity-port` は使用されなくなったため削除しました
+* [重大な変更]`--msi-port` と `--identity-port` は使用されなくなったため削除しました
 * `account get-access-token` の概要の誤りを修正しました
 
 ### <a name="redis"></a>Redis
@@ -2651,7 +2831,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * [重大な変更] 非推奨の `ad sp reset-credentials` を削除しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * ソース SAS とアカウント キーが指定されていない場合、コピー先の SAS トークンを BLOB コピーのソースに適用できます
 * BLOB のアップロードとダウンロードのための --socket-timeout を公開しました
@@ -2719,21 +2899,21 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * クラスター作成の `--use-auto-storage` オプションを追加しました。 このオプションによって、ストレージ アカウントの管理と、クラスターへの Azure ファイル共有および Azure BLOB コンテナーのマウントがシンプルになります
 * `--generate-ssh-keys` オプションを `cluster create` と `file-server create` に追加しました
 * コマンド ラインでノードのセットアップ タスクを提供できるようにしました
-* [重大な変更] `job file` グループで `job stream-file` および `job list-files` コマンドを移行しました
-* [重大な変更] `cluster create` コマンドに合わせて、`file-server create` コマンドの `--admin-user-name` の名前を `--user-name` に変更しました
+* [重大な変更]`job file` グループで `job stream-file` および `job list-files` コマンドを移行しました
+* [重大な変更]`cluster create` コマンドに合わせて、`file-server create` コマンドの `--admin-user-name` の名前を `--user-name` に変更しました
 
 ### <a name="billing"></a>課金
 
 * 登録アカウント コマンドを追加しました
 
-### <a name="consumption"></a>消費
+### <a name="consumption"></a>従量課金
 
 * `marketplace` コマンドを追加しました
 * [重大な変更] 名前を `reservations summaries` から `reservation summary` に変更しました
 * [重大な変更] 名前を `reservations details` から `reservation detail` に変更しました
-* [重大な変更] `reservation` コマンドの `--reservation-order-id` および `--reservation-id` の短いオプションを削除しました
-* [重大な変更] `reservation summary` コマンドの `--grain` の短いオプションを削除しました
-* [重大な変更] `pricesheet` コマンドの `--include-meter-details` の短いオプションを削除しました
+* [重大な変更]`reservation` コマンドの `--reservation-order-id` および `--reservation-id` の短いオプションを削除しました
+* [重大な変更]`reservation summary` コマンドの `--grain` の短いオプションを削除しました
+* [重大な変更]`pricesheet` コマンドの `--include-meter-details` の短いオプションを削除しました
 
 ### <a name="container"></a>コンテナー
 
@@ -2763,7 +2943,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 ### <a name="profile"></a>プロファイル
 
 * `account list` に Azure クラシック アカウントのサポートを追加しました
-* [重大な変更] `--msi` & `--msi-port` 引数を削除しました
+* [重大な変更]`--msi` & `--msi-port` 引数を削除しました
 
 ### <a name="rdbms"></a>RDBMS
 
@@ -2779,7 +2959,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * `sql elastic-pool op list` および `sql elastic-pool op cancel` を追加しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * 無効な形式の接続文字列のエラー メッセージを改善しました
 
@@ -2858,11 +3038,11 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * `create environment` コマンドに関するバグを修正しました
 
-### <a name="monitor"></a>監視
+### <a name="monitor"></a>モニター
 
-* `--top`、`--orderby`、`--namespace` のサポートを `metrics list`に追加しました [#5785](https://github.com/Azure/azure-cli/issues/5785)
+* `--top`、`--orderby`、および `--namespace` のサポートを `metrics list` に追加しました ([#5785](https://github.com/Azure/azure-cli/issues/5785))
 * [#4529](https://github.com/Azure/azure-cli/issues/5785) を修正しました:`metrics list` は、取得するメトリックのスペース区切りリストを受け入れます
-* `--namespace` のサポートを `metrics list-definitions` に追加しました [#5785](https://github.com/Azure/azure-cli/issues/5785)
+* `--namespace` のサポートを `metrics list-definitions` に追加しました ([#5785](https://github.com/Azure/azure-cli/issues/5785))
 
 ### <a name="network"></a>ネットワーク
 
@@ -2885,10 +3065,10 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * 必要なアクセス権の構成とネイティブ クライアントのサポートを `az ad app create` に追加しました
 * オブジェクトの解決時に 1000 未満の ID を返すように、`rbac` コマンドを変更しました
 * 資格情報管理コマンド `ad sp credential [reset|list|delete]` を追加しました
-* [重大な変更] `az role assignment [list|show]` の出力から 'properties' を削除しました
+* [重大な変更]`az role assignment [list|show]` の出力から 'properties' を削除しました
 * `dataActions` アクセス許可と `notDataActions` アクセス許可のサポートを `role definition` に追加しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * サイズが 195 ～ 200 GB のファイルをアップロードするときの問題を修正しました
 * [#4049](https://github.com/Azure/azure-cli/issues/4049) を修正しました:追加 BLOB のアップロードで条件のパラメーターが無視される問題
@@ -2919,7 +3099,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * [重大な変更] 名前を `advisor configuration get` から `advisor configuration list` に変更しました
 * [重大な変更] 名前を `advisor configuration set` から `advisor configuration update` に変更しました
-* [重大な変更] `advisor recommendation generate` を削除しました
+* [重大な変更]`advisor recommendation generate` を削除しました
 * `--refresh` パラメーターを `advisor recommendation list` に追加しました
 * `advisor recommendation show` コマンドを追加しました
 
@@ -2943,7 +3123,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * [#5688](https://github.com/Azure/azure-cli/issues/5688) を修正しました:コマンド テーブルの読み込み中に例外が発生した場合、入力候補が表示されませんでした
 * 実行時間の長い操作の進行状況インジケーターを修正しました
 
-### <a name="monitor"></a>監視
+### <a name="monitor"></a>モニター
 
 * `monitor autoscale-settings` コマンドを非推奨にしました
 * `monitor autoscale` コマンドを追加しました
@@ -2952,7 +3132,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 ### <a name="network"></a>ネットワーク
 
-* [重大な変更] `route-filter rule create` から `--tags` パラメーターを削除しました
+* [重大な変更]`route-filter rule create` から `--tags` パラメーターを削除しました
 * 次のコマンドの不適切な既定値を削除しました。
   * `network express-route update`
   * `network nsg rule update`
@@ -2975,7 +3155,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * 最初のリリース
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * [#4971](https://github.com/Azure/azure-cli/issues/4971) を修正しました: `storage blob copy` では他の Azure クラウドをサポートするようになりました
 * [#5286](https://github.com/Azure/azure-cli/issues/5286) を修正しました:Batch コマンド `storage blob [delete-batch|download-batch|upload-batch]` の前提条件が満たされていなくても、エラーがスローされなくなりました
@@ -3013,7 +3193,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * 新しい Cognitive Services アカウントを作成するときの "通知" を更新しました
 
-### <a name="consumption"></a>消費
+### <a name="consumption"></a>従量課金
 
 * pricesheet API の新しいコマンドを追加しました
 * 既存の使用方法の詳細と予約の詳細の形式を更新しました
@@ -3038,7 +3218,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * 作成および更新時のデータベースとエラスティック プールのゾーン冗長性に対するサポートを追加しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * `storage blob [upload-batch|download-batch]` のターゲット パス/プレフィックスの指定を有効にしました
 
@@ -3105,7 +3285,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * `--no-wait` のサポートを `iot dps access policy [create|update]` および `iot dps linked-hub [create|update]` に追加しました
 * パーティション数の指定を許可するように `iot hub create` を変更しました
 
-### <a name="monitor"></a>監視
+### <a name="monitor"></a>モニター
 
 * `az monitor log-profiles create` コマンドを修正しました
 
@@ -3137,7 +3317,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * `sql db rename` を追加しました
 * `--ids` 引数のサポートをすべての SQL コマンドに追加しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * 論理的な削除を有効にする `storage blob service-properties delete-policy` コマンドと `storage blob undelete` コマンドを追加しました
 
@@ -3202,7 +3382,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * テンプレートの "type" フィールドに大文字の値が含まれているときに警告が誤って表示される `deployment [create|validate]` のバグを修正しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * ストレージ V1 からストレージ V2 へのアカウント移行の問題を修正しました
 * すべてのアップロード/ダウンロード コマンドについて、進行状況レポートを追加しました
@@ -3254,15 +3434,15 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * クラウドで `--profile` を設定するときに、エンドポイントを不要にするように変更しました
 
-### <a name="consumption"></a>消費
+### <a name="consumption"></a>従量課金
 
 * 予約の新しいコマンドとして、`consumption reservations summaries` と `consumption reservations details` を追加しました
 
 ### <a name="event-grid"></a>Event Grid
 
-* [重大な変更] `az eventgrid topic event-subscription` コマンドを `eventgrid event-subscription` に移行しました
-* [重大な変更] `az eventgrid resource event-subscription` コマンドを `eventgrid event-subscription` に移行しました
-* [重大な変更] `eventgrid event-subscription show-endpoint-url` コマンドを削除しました 代わりに `eventgrid event-subscription show --include-full-endpoint-url` を使用してください
+* [重大な変更]`az eventgrid topic event-subscription` コマンドを `eventgrid event-subscription` に移行しました
+* [重大な変更]`az eventgrid resource event-subscription` コマンドを `eventgrid event-subscription` に移行しました
+* [重大な変更]`eventgrid event-subscription show-endpoint-url` コマンドを削除しました 代わりに `eventgrid event-subscription show --include-full-endpoint-url` を使用してください
 * `eventgrid topic update` コマンドを追加しました
 * `eventgrid event-subscription update` コマンドを追加しました
 * `eventgrid topic` コマンドの `--ids` パラメーターを追加しました
@@ -3280,7 +3460,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * コマンドとコマンドのヘルプに非推奨を示すメッセージを追加しました
 * ユーザーに IoT 拡張機能を通知する IoT チェックを追加しました
 
-### <a name="monitor"></a>監視
+### <a name="monitor"></a>モニター
 
 * 複数診断設定のサポートを追加しました `az monitor diagnostic-settings create` で `--name` パラメーターが必須になりました
 * 診断設定カテゴリを取得する `monitor diagnostic-settings categories` コマンドを追加しました
@@ -3329,7 +3509,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * `--disable-bgp-route-propagation` 引数を `route-table [create|update]` に追加しました
 * `--ip-tags` 引数を `public-ip [create|update]` に追加しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * ストレージ V2 のサポートを追加しました
 
@@ -3364,7 +3544,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * 正しいアプリを表示するように、`webapp [list|show]` と `functionapp [list|show]` を修正しました
 * `WEBSITE_NODE_DEFAULT_VERSION` の既定値を追加しました
 
-### <a name="consumption"></a>消費
+### <a name="consumption"></a>従量課金
 
 * API バージョン 2017-11-30 のサポートを追加しました
 
@@ -3372,7 +3552,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * 既定のポート回帰を修正しました
 
-### <a name="monitor"></a>監視
+### <a name="monitor"></a>モニター
 
 * メトリック コマンドに多次元のサポートを追加しました
 
@@ -3461,7 +3641,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * 証明機関 (CA) および証明書チェーンのサポートを追加しました
 
-### <a name="monitor"></a>監視
+### <a name="monitor"></a>モニター
 
 * `activity-log alert` コマンドを追加しました
 
@@ -3484,7 +3664,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * `--ignore-missing-vnet-service-endpoint` パラメーターを `sql server vnet-rule [create|update]` に追加しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * SKU `Standard_RAGRS` を既定値として使用するように `storage account create` を変更しました
 * 非 ASCII 文字を含むファイル/BLOB 名を処理する場合のバグを修正しました
@@ -3499,7 +3679,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * `Basic` サイズ レベルの使用を妨げていり `vmss create` のバグを修正しました
 * 課金情報を含むカスタム イメージ用に `--plan` 引数を `[vm|vmss] create` に追加しました
 * `vm secret `[add|remove|list]` コマンドを追加しました
-* `vm format-secret` の名前を `vm secret format` に変更しました
+* `vm format-secret` から `vm secret format` への名称変更
 * `--encrypt format` 引数を `vm encryption enable` に追加しました
 
 ## <a name="october-24-2017"></a>2017 年 10 月 24 日
@@ -3529,7 +3709,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * すべてのインストーラー向けのより明確な非推奨メッセージと、確認プロンプトを追加しました
 
-### <a name="monitor"></a>監視
+### <a name="monitor"></a>モニター
 
 * `action-group` コマンドを追加しました
 
@@ -3582,13 +3762,13 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * グループ レベルのロックを処理するための `group lock` 用のコマンドを追加しました
 * リソース レベルのロックを処理するための `resource lock` 用のコマンドを追加しました
 
-### <a name="sql"></a>SQL
+### <a name="sql"></a>Sql
 
 * SQL Transparent Data Encryption (TDE) および Bring Your Own Key による TDE のサポートを追加しました
 * `db list-deleted` コマンドと `db restore --deleted-time` パラメーターを追加し、削除したデータベースを検索して復元できるようにしました。
 * `db op list` と `db op cancel` を追加し、データベースに対して実行中の操作を一覧表示およびキャンセルできるようにしました。
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * ファイル共有スナップショットのサポートを追加しました
 
@@ -3610,7 +3790,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * 組み込みのポリシー定義を表示するためのサポートを追加しました
 * ポリシー定義を作成するためのサポート モード パラメーターを追加しました
 * UI の定義とテンプレートのサポートを `managedapp definition create` に追加しました
-* [重大な変更] `managedapp` のリソースの種類を `appliances` から `applications`、`applianceDefinitions` から `applicationDefinitions` に変更しました
+* [重大な変更]`managedapp` のリソースの種類を `appliances` から `applications`、`applianceDefinitions` から `applicationDefinitions` に変更しました
 
 ### <a name="network"></a>ネットワーク
 
@@ -3622,7 +3802,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * `--ddos-protection` 引数と `--vm-protection` 引数を `vnet [create|update]` に追加しました
 * `network [vnet-gateway|vpn-client|show-url]` コマンドを追加しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * SDK の更新後に `storage account network-rule` コマンドが失敗する可能性がある問題を修正しました
 
@@ -3693,7 +3873,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 ### <a name="network"></a>ネットワーク
 
-* `vnet list-private-access-services` の名前を `vnet list-endpoint-services` に変更しました
+* `vnet list-private-access-services` から `vnet list-endpoint-services` への名称変更
 * `vnet subnet create/update` の `--private-access-services` 引数の名前を `--service-endpoints` に変更しました
 * `nsg rule create/update` に対する複数の IP 範囲およびポート範囲のサポートを追加しました
 * `lb create` に対する SKU のサポートを追加しました
@@ -3712,8 +3892,8 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 ### <a name="vm"></a>VM
 
-* 修正済み:`--scope` が指定されないとアクセス権が割り当てられない
-* 修正済み:ポータルと同じ拡張機能の名前付けが行われる
+* 固定:`--scope` が指定されないとアクセス権が割り当てられない
+* 固定:ポータルと同じ拡張機能の名前付けが行われる
 * `[vm|vmss] create` 出力から `subscription` を削除しました
 * 修正済み: `[vm|vmss] create` ストレージ SKU がイメージ付きのデータ ディスクに適用されない
 * 修正済み: `vm format-secret --secrets` で、改行によって分かれた ID を使用できない
@@ -3730,7 +3910,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * すべてのコマンドが非推奨とされ、Service Fabric CLI (sfctl) が優先されます
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * ネットワーク ACL 機能がサポートされていないリージョンでストレージ アカウントを作成できない問題を修正しました
 * コンテンツの種類とエンコードがどちらも指定されていない場合、BLOB とファイルのアップロード中にコンテンツの種類とエンコードを決定します
@@ -3751,11 +3931,11 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 ### <a name="appservice"></a>Appservice
 
-* [重大な変更] `az webapp config appsettings [delete|set]` の出力の不整合を修正しました
+* [重大な変更]`az webapp config appsettings [delete|set]` の出力の不整合を修正しました
 * `az webapp config container set --docker-custom-image-name` の `-i` の新しいエイリアスを追加しました
 * `az webapp log show` を公開しました
 * App Service プラン、メトリック、または DNS 登録を保持するために、`az webapp delete` の新しい引数を公開しました
-* 修正済み:スロット設定の正常な検出
+* 固定:スロット設定の正常な検出
 
 ### <a name="iot"></a>IoT
 
@@ -3764,7 +3944,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 ### <a name="network"></a>ネットワーク
 
 * [重大な変更] 名前を `vnet list-private-access-services` から `vnet list-endpoint-services` に変更しました
-* [重大な変更] `vnet subnet [create|update]` のオプション `--private-access-services` の名前を `--service-endpoints` に変更しました
+* [重大な変更]`vnet subnet [create|update]` のオプション `--private-access-services` の名前を `--service-endpoints` に変更しました
 * `nsg rule [create|update]` に対する複数 IP およびポート範囲のサポートを追加しました
 * `lb create` に対する SKU のサポートを追加しました
 * `public-ip create` に対する SKU のサポートを追加しました
@@ -3780,13 +3960,13 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * パラメーターを渡した後でもユーザーにパスワードの入力が求められる問題を修正しました
 * 空の `registry_cred` のサポートを追加しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * BLOB 層の設定を有効にしました
 * サービス トンネリングをサポートするために、`--bypass` 引数と `--default-action` 引数を `storage account [create|update]` に追加しました
 * VNET ルールと IP ベースのルールを `storage account network-rule` に追加するためのコマンドを追加しました
 * 顧客管理キーによるサービスの暗号化を有効にしました
-* [重大な変更] `az storage account create and az storage account update` コマンドの `--encryption` オプションの名前を `--encryption-services` に変更しました
+* [重大な変更]`az storage account create and az storage account update` コマンドの `--encryption` オプションの名前を `--encryption-services` に変更しました
 * 修正済み #4220: `az storage account update encryption` - 構文の不一致
 
 ### <a name="vm"></a>VM
@@ -3860,7 +4040,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 * `account list`:サーバーの最新のサブスクリプションを同期する `--refresh` を追加しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * システムによって割り当てられた ID によるストレージ アカウントの更新を有効にします
 
@@ -3999,7 +4179,7 @@ vm (2.0.11)
 * 基になる Data Lake Store ファイル システム SDK のバージョンを更新して、パフォーマンスの問題に対応しました
 * コマンド `dls enable-key-vault` を追加しました。 このコマンドでは、Data Lake Store アカウント内でデータの暗号化を使用するために、ユーザー指定のキー コンテナーの有効化が試行されます
 
-### <a name="interactive"></a>対話
+### <a name="interactive"></a>Interactive
 
 * キャッシュされたコマンドを使用することで、起動時間が向上しました
 * テスト カバレッジが増えました
@@ -4031,13 +4211,13 @@ vm (2.0.11)
 * `az lab vm claim` を通じてラボ内の任意の VM を要求するためのサポートを追加しました
 * `az lab vm list` と `az lab vm show` のテーブル出力フォーマッタを追加しました
 
-### <a name="monitor"></a>監視
+### <a name="monitor"></a>モニター
 
 * `monitor autoscale-settings get-parameters-template` コマンドのテンプレート ファイルを修正しました (#3349)
-* `monitor alert-rule-incidents list` の名前を `monitor alert list-incidents` に変更しました
-* `monitor alert-rule-incidents show` の名前を `monitor alert show-incident` に変更しました
-* `monitor metric-defintions list` の名前を `monitor metrics list-definitions` に変更しました
-* `monitor alert-rules` の名前を `monitor alert` に変更しました
+* `monitor alert-rule-incidents list` から `monitor alert list-incidents` への名称変更
+* `monitor alert-rule-incidents show` から `monitor alert show-incident` への名称変更
+* `monitor metric-defintions list` から `monitor metrics list-definitions` への名称変更
+* `monitor alert-rules` から `monitor alert` への名称変更
 * `monitor alert create` を次のように変更しました。
   * `condition` および `action` サブコマンドが JSON を受け入れなくなりました
   * ルール作成プロセスを簡略化するために多数のパラメーターを追加します
@@ -4125,7 +4305,7 @@ vm (2.0.11)
 * `sql server create` および `sql server update` コマンドの出力からパスワード値を削除しました
 * `sql db list-editions` および `sql elastic-pool list-editions` コマンドを追加しました
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * `storage blob list`、`storage container list`、`storage share list` の各コマンドから `--marker` オプションを削除しました (#3745)
 * https 専用ストレージ アカウントの作成を有効にしました
@@ -4253,7 +4433,7 @@ vm (2.0.6)
 * パッケージ読み込みとコマンド実行のパフォーマンスが向上しています ([#2819](https://github.com/Azure/azure-cli/issues/2819))
 * access show のヘルプがなかったため、 追加しました ([#2743](https://github.com/Azure/azure-cli/issues/2743))
 
-### <a name="find"></a>検索
+### <a name="find"></a>Find
 
 * 検索結果を改善し、検索インデックスのバージョン管理を可能にしました
 
@@ -4273,7 +4453,7 @@ vm (2.0.6)
 * ラボの数式内でアーティファクト スキャフォールディングをエクスポートするための便利なコマンド `az lab formula export-artifacts` が追加されました
 * ラボ内でシークレットを管理するためのコマンドが追加されました
 
-### <a name="monitor"></a>監視
+### <a name="monitor"></a>モニター
 
 * バグの修正: JSON 文字列を使用するため `az alert-rules create` の `--actions` がモデル化されています ([#3009](https://github.com/Azure/azure-cli/issues/3009))
 * バグの修正: diagnostic settings create が、表示コマンドからのログ/メトリックを受け付けません ([#2913](https://github.com/Azure/azure-cli/issues/2913))
@@ -4330,7 +4510,7 @@ vm (2.0.6)
 * az sql server list-usages コマンドと az sql db list-usages コマンドが追加されました
 * SQL - リソース プロバイダーに直接接続できます ([#2832](https://github.com/Azure/azure-cli/issues/2832))
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
 
 * `storage account create` のリソース グループの場所に対する既定の場所
 * 増分 BLOB コピーに対応するようになりました
@@ -4437,7 +4617,7 @@ Azure CLI 2.0 のこのリリースは、最初の "一般公開" リリース�
 - コンテナー サービス (acs)
 - コンピューティング (Resource Manager、VM、仮想マシン スケール セット、Managed Disks など)
 - ネットワーク
-- Storage
+- ストレージ
 
 これらのコマンド モジュールは、運用環境で使用することができ、標準の Microsoft SLA でサポートされています。問題は、Microsoft サポートで直接開くことも、[GitHub の問題一覧](https://github.com/azure/azure-cli/issues/)で開くこともできます。[azure-cli タグを使用して StackOverflow](http://stackoverflow.com/questions/tagged/azure-cli) で質問したり、製品チーム ([azfeedback@microsoft.com](mailto:azfeedback@microsoft.com)) に問い合わせたりすることもできます。`az feedback` コマンドを使用すると、コマンド ラインからフィードバックを送ることができます。
 
