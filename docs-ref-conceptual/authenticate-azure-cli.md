@@ -1,20 +1,20 @@
 ---
 title: Azure CLI を使用してサインインする
 description: 対話形式またはローカル資格情報で Azure CLI を使用してサインインします
-author: sptramer
-ms.author: sttramer
-manager: carmonm
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ms.date: 02/22/2019
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
 ms.component: authentication
-ms.openlocfilehash: 3c25f648fe01f788521394af09350f9468aa8b46
-ms.sourcegitcommit: 4daaac4e3629e0467bf15c561f0f437158482e06
+ms.openlocfilehash: d9e0c851f9673683d29c7b74b4b1507d7404cf91
+ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68917676"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913698"
 ---
 # <a name="sign-in-with-azure-cli"></a>Azure CLI を使用してサインインする 
 

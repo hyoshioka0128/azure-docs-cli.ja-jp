@@ -4,19 +4,33 @@ description: Azure CLI の最新情報について説明します
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 01/07/2020
+ms.date: 01/13/2020
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 9fc54add3bfb2a75d1912c47f0a2571d9d065ec0
-ms.sourcegitcommit: 5646008e7a521dd9a8a627418f57bd92ee180352
+ms.openlocfilehash: 3ecb6fb41ee0ae60af58a02c934f2c295133f998
+ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75694276"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913721"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+
+## <a name="january-13-2020"></a>2020 年 1 月 13 日
+
+バージョン 2.0.80
+
+### <a name="compute"></a>Compute
+
+* disk update:--disk-encryption-set と --encryption-type を追加します
+* snapshot create/update:--disk-encryption-set と --encryption-type を追加します
+
+### <a name="storage"></a>ストレージ
+
+* azure-mgmt-storage のバージョンを 7.1.0 にアップグレードします
+* `az storage account create`:テーブルとキューの暗号化サービスをサポートするための `--encryption-key-type-for-table` と `--encryption-key-type-for-queue` を追加します
 
 ## <a name="january-07-2020"></a>2020 年 1 月 7 日
 
@@ -53,6 +67,11 @@ ms.locfileid: "75694276"
 * Azure Stack プロファイルの `vm create` エラーを修正します。
 * vm monitor metrics tail/list-definitions: VM のクエリ メトリックとリスト定義をサポートします。
 * az vm の新しい再適用コマンド アクションを追加します
+
+### <a name="hdinsight"></a>HDInsight
+
+* Kafka REST プロキシを使用する Kafka クラスターの作成のサポート
+* azure-mgmt-hdinsight を 1.3.0 にアップグレード
 
 ### <a name="misc"></a>その他
 
@@ -2702,14 +2721,14 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
     * `currentServiceObjectiveId` プロパティと `requestedServiceObjectiveId` プロパティを削除しました
     * `maxSizeBytes` プロパティを、文字列ではなく整数値に変更しました
 * [重大な変更] 次の `db` プロパティと `dw` プロパティを読み取り専用に変更しました。
-    * [https://login.microsoftonline.com/consumers/](`requestedServiceObjectiveName`)  更新するには、`--service-objective` パラメーターを使用するか、`sku.name` プロパティを設定します
-    * [https://login.microsoftonline.com/consumers/](`edition`) 更新するには、`--edition` パラメーターを使用するか、`sku.tier` プロパティを設定します
-    * [https://login.microsoftonline.com/consumers/](`elasticPoolName`) 更新するには、`--elastic-pool` パラメーターを使用するか、`elasticPoolId` プロパティを設定します
+    * `requestedServiceObjectiveName`.  更新するには、`--service-objective` パラメーターを使用するか、`sku.name` プロパティを設定します
+    * `edition`. 更新するには、`--edition` パラメーターを使用するか、`sku.tier` プロパティを設定します
+    * `elasticPoolName`. 更新するには、`--elastic-pool` パラメーターを使用するか、`elasticPoolId` プロパティを設定します
 * [重大な変更] 次の `elastic-pool` プロパティを読み取り専用に変更しました。
-    * [https://login.microsoftonline.com/consumers/](`edition`) 更新するには、`--edition` パラメーターを使用します
-    * [https://login.microsoftonline.com/consumers/](`dtu`) 更新するには、`--capacity` パラメーターを使用します
-    *  [https://login.microsoftonline.com/consumers/](`databaseDtuMin`) 更新するには、`--db-min-capacity` パラメーターを使用します
-    *  [https://login.microsoftonline.com/consumers/](`databaseDtuMax`) 更新するには、`--db-max-capacity` パラメーターを使用します
+    * `edition`. 更新するには、`--edition` パラメーターを使用します
+    * `dtu`. 更新するには、`--capacity` パラメーターを使用します
+    *  `databaseDtuMin`. 更新するには、`--db-min-capacity` パラメーターを使用します
+    *  `databaseDtuMax`. 更新するには、`--db-max-capacity` パラメーターを使用します
 * `--family` パラメーターと `--capacity` パラメーターを、`db`、`dw`、`elastic-pool` の各コマンドに追加しました。
 * テーブル フォーマッタを、`db`、`dw`、`elastic-pool` の各コマンドに追加しました。
 

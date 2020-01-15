@@ -2,20 +2,20 @@
 title: Azure CLI の概要
 description: コマンドの基本を学習し、Azure CLI を使い始めます。
 keywords: Azure CLI, CLI ヘルプ, Azure ヘルプ, クエリ, 自動化,
-author: sptramer
-ms.author: sttramer
-manager: carmonm
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ms.date: 09/07/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: c667f6fa00d8a03b6a451728ffcc1da3e446a741
-ms.sourcegitcommit: f9bfb4b063151434b3a9bff936a73b251666e775
+ms.openlocfilehash: af9b8ea52ded9d3bb27262ae0625ebdd1aedf189
+ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70878242"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913574"
 ---
 # <a name="get-started-with-azure-cli"></a>Azure CLI の概要
 

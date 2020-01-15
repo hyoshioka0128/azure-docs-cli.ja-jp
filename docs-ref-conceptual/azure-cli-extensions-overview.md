@@ -2,20 +2,20 @@
 title: Azure CLI の拡張機能
 description: Azure CLI での拡張機能の使用
 keywords: Azure CLI, 拡張機能
-author: sptramer
-ms.author: sttramer
-manager: carmonm
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ms.date: 09/07/2018
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 4f203f94e9b26e1219bfe69ec0ddd73228d30b64
-ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
+ms.openlocfilehash: a8591d6dff297027d0f78ec3865e00a17ba61c52
+ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56158880"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913630"
 ---
 # <a name="use-extensions-with-azure-cli"></a>Azure CLI で拡張機能を使用する 
 
@@ -76,7 +76,7 @@ az extension remove --name <extension-name>
 rm -rf $AZURE_EXTENSION_DIR/<extension-name>
 ```
 
-## <a name="faq"></a>FAQ
+## <a name="faq"></a>よく寄せられる質問
 
 ここでは、CLI 拡張機能に関するその他の一般的な質問に回答します。
 

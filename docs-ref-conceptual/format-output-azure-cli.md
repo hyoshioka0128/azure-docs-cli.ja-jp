@@ -1,26 +1,26 @@
 ---
 title: Azure CLI の出力形式
 description: テーブル、リスト、または JSON への Azure CLI の出力形式を設定する方法について説明します。
-author: sptramer
-ms.author: sttramer
-manager: carmonm
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 125055eec956e56c95af9a1c24ee4254e77556e6
-ms.sourcegitcommit: 5b9b4446c08b94256ced7f63c145b493ba8b50df
+ms.openlocfilehash: 7bc31ba89234dbdb7b939f3a09886f31184ac65f
+ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71217455"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913548"
 ---
 # <a name="output-formats-for-azure-cli-commands"></a>Azure CLI コマンドの出力形式
 
 Azure CLI では既定の出力形式として JSON が使用されますが、他の形式も用意されています。  CLI の出力を書式設定するには、`--output` (`--out` または `-o`) パラメーターを使用します。 引数値と出力の種類は、次のとおりです。
 
---output | 説明
+--output | [説明]
 ---------|-------------------------------
 `json`   | JSON 文字列。 これは、既定の設定です。
 `jsonc`  | 色付けされた JSON。

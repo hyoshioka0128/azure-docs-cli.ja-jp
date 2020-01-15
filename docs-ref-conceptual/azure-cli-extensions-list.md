@@ -1,20 +1,20 @@
 ---
 title: Azure CLI で使用可能な拡張機能
 description: Azure CLI で公式にサポートされている拡張機能の完全な一覧です。
-author: sptramer
-ms.author: sttramer
-manager: carmonm
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ms.date: 11/26/2019
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: cdeb281cbb085cd22104d5a04005a992e74a5de1
-ms.sourcegitcommit: 4712ae02526ad0f1a90aef118a4a2a181077628b
+ms.openlocfilehash: 60240bd73d80a2a10f82d71c36dca90a40bff83d
+ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784291"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913646"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Azure CLI で使用可能な拡張機能
 
@@ -26,7 +26,7 @@ ms.locfileid: "74784291"
 az extension list-available --output table
 ```
 
-| 名前 | Version | まとめ | プレビュー |
+| Name | Version | まとめ | プレビュー |
 |------|---------|---------|---------|
 | [aem](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Azure Enhanced Monitoring Extension for SAP を管理します |  |
 | [aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.4.23 | 次期 AKS 機能のプレビューを提供します | はい |

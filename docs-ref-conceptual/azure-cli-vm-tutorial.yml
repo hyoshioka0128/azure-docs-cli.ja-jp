@@ -8,20 +8,20 @@ metadata:
   displayType: two-column
   interactive: azurecli
   ms.date: 07/09/2018
-  ms.author: sttramer
-  author: sptramer
-  manager: carmonm
+  ms.author: dbradish
+  author: dbradish-microsoft
+  manager: barbkess
   ms.devlang: azure-cli
   ms.topic: tutorial
   ms.prod: azure
   ms.technology: azurecli
   clicktale: true
-  ms.openlocfilehash: e2c3c1a181105a86ccb8882b647f1984e32c8246
-  ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
+  ms.openlocfilehash: fb231b99b0f25760b84683d160a63e62c4f36276
+  ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 02/12/2019
-  ms.locfileid: "56158589"
+  ms.lasthandoff: 01/13/2020
+  ms.locfileid: "75913623"
 items:
 - durationInMinutes: 1
   content: >-
@@ -36,7 +36,7 @@ items:
   title: サインイン
   content: "CLI のローカル インストールを使用している場合は、最初にサインインしてから、他の手順を実行します。\n\n```azurecli-interactive\naz login\n```\n\nご使用の端末に表示される手順に従って、認証プロセスを完了してください。 "
 - durationInMinutes: 1
-  title: リソース グループの作成
+  title: リソース グループを作成する
   content: >-
     Azure では、すべてのリソースがリソース管理グループに割り当てられます。 リソース グループではリソースを論理グループに分類できるため、コレクションとして操作しやすくなります。 このチュートリアルでは、作成されたすべてのリソースが、`TutorialResources` という名前の 1 つのグループに割り当てられます。
 

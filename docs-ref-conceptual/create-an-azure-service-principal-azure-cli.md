@@ -1,19 +1,19 @@
 ---
 title: Azure CLI で Azure サービス プリンシパルを使用する
 description: Azure CLI でサービス プリンシパルを作成および使用する方法について説明します。
-author: sptramer
-ms.author: sttramer
-manager: carmonm
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ms.date: 02/15/2019
 ms.topic: conceptual
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 45374a29c45d8e9fa2d39aebf2d9bab556ef3b50
-ms.sourcegitcommit: b42ce26476b135bb2047c8d9d787580c858f8b6b
+ms.openlocfilehash: 0969b89895ffba0ff473a9d788360609524813df
+ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72163832"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913576"
 ---
 # <a name="create-an-azure-service-principal-with-azure-cli"></a>Azure CLI で Azure サービス プリンシパルを作成する
 
