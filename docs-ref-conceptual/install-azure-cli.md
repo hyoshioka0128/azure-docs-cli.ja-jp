@@ -2,24 +2,26 @@
 title: Azure CLI のインストール
 description: Azure CLI のインストールに関するリファレンス
 keywords: Azure CLI,Azure CLI のインストール
-author: sptramer
-ms.author: sttramer
-manager: carmonm
-ms.date: 02/12/2019
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
+ms.date: 01/30/2020
 ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: cacaa77845708f318b3743024d7f87e658368069
-ms.sourcegitcommit: 1987a39809f9865034b27130e56f30b2bd1eb72c
+ms.openlocfilehash: a4cdc3d745b673d88fa9b9554775b781af3b4048
+ms.sourcegitcommit: d0b2763cc856eef44a6ecb78f6b8c64291625750
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56421900"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77013193"
 ---
 # <a name="install-the-azure-cli"></a>Azure CLI のインストール
 
-Azure CLI は、Azure リソースを管理するための優れたエクスペリエンスを提供するコマンドライン ツールです。 CLI は、スクリプトを簡単に作成したり、データを照会したり、長時間実行される操作をサポートしたりするように設計されています。 今すぐお試しになり、CLI が提供する機能をご確認ください。
+Azure CLI は、Windows、maxOS、および Linux 環境にインストールできます。  Docker コンテナーおよび Azure Cloud Shell でも実行できます。
+
+## <a name="install"></a>インストール
 
 [!INCLUDE [current-version](includes/current-version.md)]
 
@@ -31,6 +33,11 @@ Azure CLI は、Azure リソースを管理するための優れたエクスペ�
   * [openSUSE または SLE での zypper を使用したインストール](install-azure-cli-zypper.md)
   * [スクリプトからのインストール](install-azure-cli-linux.md)
 * [Docker コンテナーでの実行](run-azure-cli-docker.md)
+* [Azure Cloud Shell での実行](/azure/cloud-shell/quickstart)
 
 > [!NOTE]
 > Azure クラシック デプロイ モデルを使用している場合は、[Azure クラシック CLI をインストール](install-classic-cli.md)してください。
+
+## <a name="next-steps"></a>次の手順
+
+主要な特性については、「[ Azure CLI とは](what-is-azure-cli.md)」を参照してください。

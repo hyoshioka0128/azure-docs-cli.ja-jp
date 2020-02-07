@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 7bc31ba89234dbdb7b939f3a09886f31184ac65f
-ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
+ms.openlocfilehash: adb488081076715eb080d1972bba18d285402e95
+ms.sourcegitcommit: a233bb75e27a5c8772c173f195e74d12381b7a64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75913548"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890458"
 ---
 # <a name="output-formats-for-azure-cli-commands"></a>Azure CLI コマンドの出力形式
 
@@ -22,11 +22,12 @@ Azure CLI では既定の出力形式として JSON が使用されますが、�
 
 --output | [説明]
 ---------|-------------------------------
-`json`   | JSON 文字列。 これは、既定の設定です。
-`jsonc`  | 色付けされた JSON。
-`yaml`   | YAML。JSON に代わる、コンピューターが読み取り可能な形式。
-`table`  | 列見出しとしてキーが使用されている ASCII テーブル。
+`json`   | JSON 文字列。 この設定が既定値です
+`jsonc`  | 色付けされた JSON
+`yaml`   | YAML。JSON に代わる、コンピューターが読み取り可能な形式
+`table`  | 列見出しとしてキーが使用されている ASCII テーブル
 `tsv`    | タブ区切りの値 (キーなし)
+`none`   | エラーと警告以外は出力されません
 
 ## <a name="json-output-format"></a>JSON 出力形式
 
@@ -177,7 +178,7 @@ az vm list --out tsv --query '[].[id, location, resourceGroup, name]'
 
 次の例は、`tsv` の出力を Bash の他のコマンドにパイプ処理する方法を示しています。 このクエリを使用して出力をフィルターにかけて順序を強制し、`grep` によって "RGD" というテキストが含まれている項目を選択し、`cut` コマンドによって 4 番目のフィールドの値を選択して VM の名前を出力に表示します。
 
-```bash
+```azurecli-interactive
 az vm list --out tsv --query '[].[id, location, resourceGroup, name]' | grep RGD | cut -f4
 ```
 

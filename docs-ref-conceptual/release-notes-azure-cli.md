@@ -4,19 +4,137 @@ description: Azure CLI の最新情報について説明します
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 01/13/2020
+ms.date: 02/04/2020
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 3ecb6fb41ee0ae60af58a02c934f2c295133f998
-ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
+ms.openlocfilehash: eafd18344ac4c1c0124ff53864a45510070b6fe7
+ms.sourcegitcommit: d0b2763cc856eef44a6ecb78f6b8c64291625750
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75913721"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77013286"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+
+## <a name="february-04-2020"></a>2020 年 2 月 4 日
+
+バージョン 2.0.81
+
+### <a name="acs"></a>ACS
+
+* Standard Load Balancer でアウトバウンド割当てポートとアイドル タイムアウトを設定するためのサポートを追加します
+* API バージョン 2019-11-01 への更新を行います
+
+### <a name="acr"></a>ACR
+
+* [破壊的変更] `az acr delete` でプロンプトが表示されます
+* [重大な変更] 'az acr task delete' でプロンプトが表示されます
+* taskrun 管理用の新しいコマンド グループ 'az acr taskrun show/list/delete' を追加します
+
+### <a name="aks"></a>AKS
+
+* 各クラスターは、分離を向上させるために、個別のサービス プリンシパルを取得します
+
+### <a name="appconfig"></a>AppConfig
+
+* appservice との間での keyvault 参照のインポート/エクスポートをサポートします
+* appconfig から appconfig へのすべてのラベルのインポート/エクスポートをサポートします
+* 設定とインポートの前にキーと機能の名前を検証します
+* 構成ストアの SKU 変更を公開します。
+* マネージド ID のコマンド グループを追加します。
+
+### <a name="appservice"></a>AppService
+
+* Azure Stack: 2019-03-01-hybrid のプロファイルの下の surface コマンド
+* functionapp:Linux で Java 関数アプリを作成する機能を追加します
+
+### <a name="arm"></a>ARM
+
+* 問題 #10246 を修正: 渡されたパラメーター `--ids` がリソース グループ ID の場合、`az resource tag` がクラッシュします
+* 問題 #11658 を修正: `az group export` コマンド が `--query` と `--output` パラメーターをサポートしません
+* 問題 #10279 を修正:検証が失敗した場合、`az group deployment validate` の終了コードは 0 になります
+* 問題 #9916 を修正:`az resource list` コマンドのタグとその他のフィルター条件間の競合に関するエラー メッセージを改善します
+* コマンド `az group create` の managedBy 情報の追加をサポートする新しいパラメーター `--managed-by` を追加します
+
+### <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
+
+* Azure Red Hat OpensShift クラスターで Log Analytics 監視を管理するための `monitor` サブグループを追加します
+
+### <a name="botservice"></a>BotService
+
+* 問題 #11697 を修正: `az bot create` がべき等ではありません
+* 名前修正テストをライブ モードでのみ実行するように変更します
+
+### <a name="cdn"></a>CDN
+
+* rulesEngine 機能のサポートを追加します
+* 規則を管理するための新しいコマンド グループ 'cdn endpoint rule' を追加します
+* API バージョン 2019-04-15 を使用するように azure-mgmt-cdn バージョンを 4.0.0 に更新します
+
+### <a name="deployment-manager"></a>Deployment Manager
+
+* すべてのリソースのリスト操作を追加します。
+* 新しい手順の種類に対する手順リソースを強化します。
+* バージョン 0.2.0 を使用するように azure-mgmt-deploymentmanager パッケージを更新します。
+
+### <a name="iot"></a>IoT
+
+* 'IoT hub Job' コマンドを廃止します。
+
+### <a name="iot-central"></a>IoT Central
+
+* 新しい SKU 名 ST0、ST1、ST2 でのアプリの作成/更新をサポートします。
+
+### <a name="key-vault"></a>Key Vault
+
+* キーをダウンロードするための新しいコマンド `az keyvault key download` を追加します。
+
+### <a name="misc"></a>その他
+
+* #6371 を修正:Bash でのファイル名と環境変数の補完をサポートします
+
+### <a name="network"></a>ネットワーク
+
+* #2092 を修正: az network dns record-add/remove: レコード セットが見つからない場合に警告を追加します。 今後、この自動作成を確認するための追加の引数がサポートされる予定です。
+
+### <a name="policy"></a>ポリシー
+
+* 豊富なポリシー メタデータ リソースを取得するための新しいコマンド `az policy metadata` を追加します
+* `az policy remediation create`:`--resource-discovery-mode` パラメーターを使用して、修復前にコンプライアンスを再評価する必要があるかどうかを指定します
+
+### <a name="profile"></a>プロファイル
+
+* `az account get-access-token`:サブスクリプションを指定することなく、テナントのトークンを直接取得するための `--tenant` パラメーターを追加します
+
+### <a name="rbac"></a>RBAC
+
+* [重大な変更] #11883 を修正: `az role assignment create`: 空のスコープの場合にエラーが表示されます
+
+### <a name="security"></a>Security
+
+* ストレージ アカウントの高度な脅威保護設定を表示および管理するための新しいコマンド `az atp show` と `az atp update` を追加します。
+
+### <a name="sql"></a>SQL
+
+* `sql dw create`: `--zone-redundant` と `--read-replica-count` パラメーターを廃止します。 これらのパラメーターは、DataWarehouse には適用されません。
+* [破壊的変更] `az sql db create`:"az sql db create --sample-name" に対して使用可能な値としてドキュメントに記載されている "WideWorldImportersStd" と "WideWorldImportersFull" を削除します。 これらのサンプル データベースを使用すると、常に作成が失敗します。
+* SQL データベースの機密性分類を管理するための新しいコマンド `sql db classification show/list/update/delete` と `sql db classification recommendation list/enable/disable` を追加します。
+* `az sql db audit-policy`:空の監査アクションとグループの修正
+
+### <a name="storage"></a>ストレージ
+
+* Azure ファイル共有の管理操作に Microsoft.Storage リソース プロバイダーを使用するための新しいコマンド グループ `az storage share-rm` を追加します。
+* 問題 #11415 を修正: `az storage blob update` のアクセス許可エラー
+* Azcopy 10.3.3 を統合し、Win32 をサポートします。
+* `az storage copy`:`--include-path`、`--include-pattern`、`--exclude-path`、および `--exclude-pattern` パラメーターを追加します
+* `az storage remove`:`--inlcude` および `--exclude` パラメーターを `--include-path`、`--include-pattern`、`--exclude-path`、および `--exclude-pattern` パラメーターに変更します
+* `az storage sync`:`--include-pattern`、`--exclude-path`、および `--exclude-pattern` パラメーターを追加します
+
+### <a name="servicefabric"></a>ServiceFabric
+
+* アプリケーションとサービスを管理するための新しいコマンドを追加します。
 
 ## <a name="january-13-2020"></a>2020 年 1 月 13 日
 
@@ -141,7 +259,7 @@ ms.locfileid: "75913721"
 * 'az bot directline create' に '--enable-enhanced-auth' フラグのサポートを追加しました。
 * コマンド グループ 'az bot authsetting' は、プレビュー段階ではなく、GA です。
 * 'az bot' の次のコマンドは、プレビュー段階ではなく、GA です: 'create'、'prepare-deploy'、'show'、'delete'、'update'。
-* 'az bot prepare-deploy' が修正され、 '--proj-file-path' 値が小文字に変更されます (例: "Test.csproj" の場合、"test.csproj")。
+* 'az bot prepare-deploy' が修正され、 '--proj-file-path' 値が小文字に変更されます (例:"Test.csproj" が "test.csproj" に)。
 
 ### <a name="compute"></a>Compute
 
@@ -431,7 +549,7 @@ ms.locfileid: "75913721"
 
 ### <a name="sql"></a>SQL
 
-* 新しい SQL Database オファリングであるサーバーレス コンピューティング モデルの CRUD 操作をサポートするために、`--compute-model`、`--auto-pause-delay`、および `--min-capacity` パラメーターを追加しました。
+* 次の新しい SQL Database オファリングの CRUD 操作をサポートするために、`--compute-model`、`--auto-pause-delay`、および `--min-capacity` パラメーターを追加しました:サーバーレス コンピューティング モデル。
 
 ### <a name="storage"></a>ストレージ
 
@@ -2721,14 +2839,14 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
     * `currentServiceObjectiveId` プロパティと `requestedServiceObjectiveId` プロパティを削除しました
     * `maxSizeBytes` プロパティを、文字列ではなく整数値に変更しました
 * [重大な変更] 次の `db` プロパティと `dw` プロパティを読み取り専用に変更しました。
-    * `requestedServiceObjectiveName`.  更新するには、`--service-objective` パラメーターを使用するか、`sku.name` プロパティを設定します
-    * `edition`. 更新するには、`--edition` パラメーターを使用するか、`sku.tier` プロパティを設定します
-    * `elasticPoolName`. 更新するには、`--elastic-pool` パラメーターを使用するか、`elasticPoolId` プロパティを設定します
+    * `requestedServiceObjectiveName`  更新するには、`--service-objective` パラメーターを使用するか、`sku.name` プロパティを設定します
+    * `edition` 更新するには、`--edition` パラメーターを使用するか、`sku.tier` プロパティを設定します
+    * `elasticPoolName` 更新するには、`--elastic-pool` パラメーターを使用するか、`elasticPoolId` プロパティを設定します
 * [重大な変更] 次の `elastic-pool` プロパティを読み取り専用に変更しました。
-    * `edition`. 更新するには、`--edition` パラメーターを使用します
-    * `dtu`. 更新するには、`--capacity` パラメーターを使用します
-    *  `databaseDtuMin`. 更新するには、`--db-min-capacity` パラメーターを使用します
-    *  `databaseDtuMax`. 更新するには、`--db-max-capacity` パラメーターを使用します
+    * `edition` 更新するには、`--edition` パラメーターを使用します
+    * `dtu` 更新するには、`--capacity` パラメーターを使用します
+    *  `databaseDtuMin` 更新するには、`--db-min-capacity` パラメーターを使用します
+    *  `databaseDtuMax` 更新するには、`--db-max-capacity` パラメーターを使用します
 * `--family` パラメーターと `--capacity` パラメーターを、`db`、`dw`、`elastic-pool` の各コマンドに追加しました。
 * テーブル フォーマッタを、`db`、`dw`、`elastic-pool` の各コマンドに追加しました。
 
