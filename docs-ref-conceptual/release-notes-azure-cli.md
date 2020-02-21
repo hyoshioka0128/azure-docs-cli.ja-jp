@@ -4,19 +4,108 @@ description: Azure CLI の最新情報について説明します
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 02/04/2020
+ms.date: 02/18/2020
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: eafd18344ac4c1c0124ff53864a45510070b6fe7
-ms.sourcegitcommit: d0b2763cc856eef44a6ecb78f6b8c64291625750
+ms.openlocfilehash: 6c07b93752df2dab6ca0b210675a48b5c7b85c1c
+ms.sourcegitcommit: 91c1e5423bd054a948620999b559bc3a9828a688
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77013286"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77453479"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+
+## <a name="february-18-2020"></a>2020 年 2 月 18 日
+
+バージョン 2.1.0
+
+### <a name="acr"></a>ACR
+
+* `az acr login` の新しい引数 `--expose-token` を追加
+* `az acr task identity show -n Name -r Registry -o table` の正しくない出力を修正
+* az acr login:Docker コマンドによって返されたエラーが返された場合は CLIError をスロー
+
+### <a name="acs"></a>ACS
+
+* aks create/update: `--vnet-subnet-id` の検証を追加
+
+### <a name="aladdin"></a>Aladdin
+
+* 生成された例をコマンドの _help.py として解析
+
+### <a name="ams"></a>AMS
+
+* az ams の一般提供を開始
+
+### <a name="appconfig"></a>AppConfig
+
+* サポートされていないキー/ラベル フィルターを除外するようにヘルプ メッセージを変更
+* マネージド ID と機能フラグを除くほとんどのコマンドのプレビュー タグを削除
+* ストアの更新時にカスタマー マネージド キーを追加
+
+### <a name="appservice"></a>AppService
+
+* az webapp list-runtimes:list-runtimes のバグを修正
+* az webapp | functionapp config ssl create を追加
+* v3 関数アプリおよびノード 12 のサポートを追加
+
+### <a name="arm"></a>ARM
+
+* az policy assignment create:`--policy` パラメーターが無効な場合のエラー メッセージを修正
+* az group deployment create:サイズの大きな parameters.json ファイルの使用時の "stat: path too long for Windows" エラーを修正
+
+### <a name="backup"></a>バックアップ
+
+* OLR のアイテム レベルの回復フローを修正
+* SQL Database および SAP Database のファイルとしての復元のサポートを追加
+
+### <a name="compute"></a>Compute
+
+* vm/vmss/availability-set update: ProximityPlacementGroup を更新できるように --ppg を追加
+* vmss create: --data-disk-iops および --data-disk-mbps を追加
+* az vm host: `vm host` および `vm host group` のプレビュー タグを削除
+* [重大な変更] #10728 を修正: `az vm create`: vnet が指定されている場合、サブネットが存在しなければサブネットが自動的に作成される
+* vm イメージ リストの信頼性を向上
+
+### <a name="eventhub"></a>Eventhub
+
+* 2019-03-01-hybrid プロファイルに対する Azure Stack のサポート
+
+### <a name="keyvault"></a>KeyVault
+
+* az keyvault key create: パラメーター `--ops` の新しい値 `import` を追加
+* az keyvault key list-versions: キー指定のためのパラメーター `--id` をサポート
+* プライベート エンドポイントの接続をサポート
+
+### <a name="network"></a>ネットワーク
+
+* azure-mgmt-network 9.0.0 にバージョンアップ
+* az network private-link-service update/create: support --enable-proxy-protocol
+* 接続モニター V2 の機能を追加
+
+### <a name="packaging"></a>梱包
+
+* [重大な変更] Python 2.7 のサポートを終了
+
+### <a name="profile"></a>プロファイル
+
+* プレビュー:サブスクリプション アカウントに新しい属性 `homeTenantId` および `managedByTenants` を追加。 変更を有効にするには、`az login` を再実行してください
+* az login:1 つのサブスクリプションが複数のテナントからリストされる場合は警告を表示して最初のものに既定で設定。 このサブスクリプションにアクセスする際の特定のテナントを選択するには、`az login` に `--tenant` を含めてください
+
+### <a name="role"></a>Role
+
+* az role assignment create:表示名でサービス プリンシパルにロールを割り当てた場合に HTTP 400 が発生するエラーを修正
+
+### <a name="sql"></a>SQL
+
+* Update SQL Managed Instance のコマンドレット `az sql mi update` に 2 つのパラメーター tier および family を追加して更新
+
+### <a name="storage"></a>ストレージ
+
+* [破壊的変更] `az storage account create`:既定のストレージ アカウントの種類を StorageV2 に変更
 
 ## <a name="february-04-2020"></a>2020 年 2 月 4 日
 

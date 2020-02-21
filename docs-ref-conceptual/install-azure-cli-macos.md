@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 790c63a60a5d23863b48227dcc99462bbf950d80
-ms.sourcegitcommit: b42ce26476b135bb2047c8d9d787580c858f8b6b
+ms.openlocfilehash: 9a5026634691f49d960f383c90e139754c862cb4
+ms.sourcegitcommit: 91c1e5423bd054a948620999b559bc3a9828a688
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72163848"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77453754"
 ---
 # <a name="install-azure-cli-on-macos"></a>macOS での Azure CLI のインストール
 
@@ -48,6 +48,10 @@ brew update && brew install azure-cli
 
 Homebrew を使用した CLI のインストール時に問題が発生した場合、一般的なエラーを以下に示します。 ここで取り上げていない問題が発生した場合は、[GitHub で問題を報告](https://github.com/Azure/azure-cli/issues)してください。
 
+### <a name="completion-is-not-working"></a>補完が機能していません
+
+Azure CLI の Homebrew formula では、Homebrew によって管理される補完ディレクトリ (既定の場所は `/usr/local/etc/bash_completion.d/`) に `az` という名前の補完ファイルがインストールされます。 補完を有効にするには、Homebrew の指示 ([ここ](https://docs.brew.sh/Shell-Completion)) に従ってしてください。
+
 ### <a name="unable-to-find-python-or-installed-packages"></a>Python またはインストールされているパッケージが見つかりません
 
 Homebrew のインストール中に、マイナー バージョンの不一致またはその他の問題が発生した可能性があります。 CLI では Python 仮想環境を使用しないため、インストールされている Python バージョンを見つけることができる必要があります。 考えられる修正案は、Homebrew から `python3` の依存関係をインストールして再リンクすることです。
@@ -75,7 +79,7 @@ Homebrew からボトル リソースを取得するには、プロキシで次�
 * `https://formulae.brew.sh`
 * `https://homebrew.bintray.com`
 
-## <a name="update"></a>アップデート
+## <a name="update"></a>更新
 
 CLI は、バグの修正、機能強化、新機能、およびプレビュー機能で定期的に更新されています。 新しいリリースは約 2 週間ごとに入手できます。 ローカル リポジトリ情報を更新してから、`azure-cli` パッケージをアップグレードします。
 
