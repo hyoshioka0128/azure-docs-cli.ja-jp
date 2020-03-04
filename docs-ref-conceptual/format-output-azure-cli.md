@@ -6,21 +6,20 @@ ms.author: dbradish
 manager: barbkess
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.prod: azure
-ms.technology: azure-cli
+ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: adb488081076715eb080d1972bba18d285402e95
-ms.sourcegitcommit: a233bb75e27a5c8772c173f195e74d12381b7a64
+ms.openlocfilehash: 7f28a5cc7acd7e5d41e1ab91424a9f360a25b702
+ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890458"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77779960"
 ---
 # <a name="output-formats-for-azure-cli-commands"></a>Azure CLI コマンドの出力形式
 
 Azure CLI では既定の出力形式として JSON が使用されますが、他の形式も用意されています。  CLI の出力を書式設定するには、`--output` (`--out` または `-o`) パラメーターを使用します。 引数値と出力の種類は、次のとおりです。
 
---output | [説明]
+--output | 説明
 ---------|-------------------------------
 `json`   | JSON 文字列。 この設定が既定値です
 `jsonc`  | 色付けされた JSON

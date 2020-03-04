@@ -1,20 +1,19 @@
 ---
 title: apt を使用して Linux に Azure CLI をインストールする
 description: apt パッケージ マネージャーで Azure CLI をインストールする方法
-author: sptramer
-ms.author: sttramer
-manager: carmonm
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ms.date: 10/14/2019
 ms.topic: conceptual
-ms.prod: azure
-ms.technology: azure-cli
+ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 782d88bc2487c24bd0574b6a106f109368191f6b
-ms.sourcegitcommit: 69f52b032167a01509fdf15431e3e4e89a7e20ef
+ms.openlocfilehash: c84d5093f670b397a3035dc0f08edc22fa990ff4
+ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72324037"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77780130"
 ---
 # <a name="install-azure-cli-with-apt"></a>apt での Azure CLI のインストール
 
@@ -29,7 +28,7 @@ Ubuntu や Debian など、`apt` が付属するディストリビューショ�
 >
 > Azure CLI のパッケージによって独自の Python インタープリターがインストールされ、システム上の Python は使用されません。
 
-## <a name="install"></a>Install
+## <a name="install"></a>インストール
 
 `apt` をサポートするディストリビューションで Azure CLI をインストールするために、次の 2 つの方法が提供されています。ユーザーに代わってコマンドを実行してインストールするオールインワンのスクリプトと、ユーザーが段階的なプロセスを自分で実行できる手順です。
 
@@ -123,7 +122,7 @@ Microsoft 署名キーを取得し、リポジトリからパッケージを取�
 
 [!INCLUDE[troubleshoot-wsl.md](includes/troubleshoot-wsl.md)]
 
-## <a name="update"></a>アップデート
+## <a name="update"></a>更新
 
 CLI パッケージを更新するには、`apt-get upgrade` を使用します。
 

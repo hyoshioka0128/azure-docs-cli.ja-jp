@@ -1,21 +1,19 @@
 ---
 title: Azure CLI の概要
 description: コマンドの基本を学習し、Azure CLI を使い始めます。
-keywords: Azure CLI, CLI ヘルプ, Azure ヘルプ, クエリ, 自動化,
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
 ms.date: 01/30/2020
 ms.topic: conceptual
-ms.prod: azure
-ms.technology: azure-cli
+ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 741d092121bbd448595301000acb9a5f51d87ace
-ms.sourcegitcommit: d0b2763cc856eef44a6ecb78f6b8c64291625750
+ms.openlocfilehash: bef8ef96ffefd6214bc924d7378971348d528304
+ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77013252"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77779637"
 ---
 # <a name="get-started-with-azure-cli"></a>Azure CLI の概要
 
@@ -32,6 +30,9 @@ Azure CLI で作業を開始するには、お使いのブラウザーから Azu
 CLI をインストールする準備ができたら、[インストール手順](install-azure-cli.md)に関するページをご覧ください。
 
 初めて CLI をインストールしたら、`az --version` を実行して、CLI の正しいバージョンがインストールされていること確認します。
+
+> [!NOTE]
+> Azure クラシック デプロイ モデルを使用している場合は、[Azure クラシック CLI をインストール](install-classic-cli.md)してください。
 
 ## <a name="sign-in"></a>サインイン
 

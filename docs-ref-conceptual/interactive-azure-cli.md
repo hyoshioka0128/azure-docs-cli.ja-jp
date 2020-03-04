@@ -1,20 +1,19 @@
 ---
 title: Azure CLI 対話モード
 description: 対話モードで Azure CLI を使用します。
-author: sptramer
-ms.author: sttramer
-manager: carmonm
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ms.date: 09/09/2018
 ms.topic: conceptual
-ms.prod: azure
-ms.technology: azure-cli
+ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: a325b799c7384037ae336093aa5274c7cbf53cbc
-ms.sourcegitcommit: 334a1da92a73e42e715e33470057f4194f10b2ea
+ms.openlocfilehash: 7b3ee1e284e7f771c661bb65bf8b8ab53dafd77f
+ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59429015"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77779518"
 ---
 # <a name="azure-cli-interactive-mode"></a>Azure CLI 対話モード
 
@@ -28,7 +27,7 @@ Azure CLI を対話モードで使用するには、`az interactive` コマン�
 
 まだアカウントにサインインしていない場合は、`login` コマンドを使用します。
 
-## <a name="configure"></a>構成
+## <a name="configure"></a>[構成]
 
 対話モードでは、必要に応じて、コマンドの説明、パラメーターの説明、およびコマンドの例が表示されます。
 説明と例のオン/オフを切り替えるには、`F1` を使用します。
@@ -43,7 +42,7 @@ Azure CLI を対話モードで使用するには、`az interactive` コマン�
 
 ![ジェスチャ](./media/interactive-azure-cli/gestures.png)
 
-## <a name="scope"></a>Scope (スコープ)
+## <a name="scope"></a>Scope
 
 対話モードのスコープを、`vm`、`vm image` などの特定のコマンド グループに指定することができます。
 これを行うと、すべてのコマンドがそのスコープ内で解釈されます。
@@ -80,7 +79,7 @@ az vm image>> %%
 az>>
 ```
 
-## <a name="query"></a>Query
+## <a name="query"></a>クエリ
 
 `??` と、その後に JMESPath クエリを指定して、最後に実行したコマンドの結果に対して、JMESPath クエリを実行することができます。
 たとえば、グループの作成後に、その新しいグループの ID を取得することができます。
@@ -113,7 +112,7 @@ az>> #dir
 一部のコマンドには例が多数あります。
 次の例のページにスクロールするには、`CTRL-N` を使用します。前のページに戻るには、`CTRL-Y` を使用します。
 
-![例](./media/interactive-azure-cli/examples.png)
+![使用例](./media/interactive-azure-cli/examples.png)
 
 `::#` を使用して、特定の例を確認することもできます。
 

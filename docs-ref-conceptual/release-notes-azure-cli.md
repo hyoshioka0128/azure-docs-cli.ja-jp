@@ -6,15 +6,14 @@ ms.author: dbradish
 manager: barbkess
 ms.date: 02/18/2020
 ms.topic: article
-ms.prod: azure
-ms.technology: azure-cli
+ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 6c07b93752df2dab6ca0b210675a48b5c7b85c1c
-ms.sourcegitcommit: 91c1e5423bd054a948620999b559bc3a9828a688
+ms.openlocfilehash: 49bb108372225146be8ffc6bb38cf793da8cdb74
+ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77453479"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77779943"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
 
@@ -711,7 +710,7 @@ ms.locfileid: "77453479"
 ### <a name="acr"></a>ACR
 
 * 必須の `--type` パラメーターを `acr config retention update` に追加しました
-* [破壊的変更] `acr config` コマンド グループでパラメーター `--name -n` の名前が `--registry -r ` に変更されました
+* [重大な変更] `acr config` コマンド グループでパラメーター `--name -n` の名前が `--registry -r ` に変更されました
 
 ### <a name="aks"></a>AKS
 

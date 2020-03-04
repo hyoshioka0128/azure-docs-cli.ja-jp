@@ -1,21 +1,19 @@
 ---
 title: Azure CLI 構成オプション
 description: Azure CLI を構成する方法
-keywords: Azure CLI, 構成, 設定, Azure
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
 ms.date: 06/11/2018
 ms.topic: conceptual
-ms.prod: azure
-ms.technology: azure-cli
+ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: ffdcbda500bc148e661ee4422b76ec51ff4603eb
-ms.sourcegitcommit: 18973ac471bbd12af2c8f8fa32a233b0abe5b020
+ms.openlocfilehash: ff5f9f5a5add52bc05009a42aeb00855eb2703fa
+ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75913685"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77779654"
 ---
 # <a name="azure-cli-configuration"></a>Azure CLI の構成
 
@@ -35,7 +33,7 @@ CLI の既定値を [az configure](/cli/azure/reference-index#az-configure) コ�
 
 次の表に、使用可能な構成キーの一覧を示します。
 
-| Name | [説明] |
+| 名前 | 説明 |
 |------|-------------|
 | group | すべてのコマンドに使用する既定のリソース グループ。 |
 | location | すべてのコマンドに使用する既定の場所。 |
@@ -84,11 +82,11 @@ log_dir=/var/log/azure
 
 既定値を指定すると、その引数は任意のコマンドで不要になります。 代わりに、その既定値が使用されます。
 
-| Section | Name      | 種類 | [説明]|
+| Section | 名前      | Type | 説明|
 |---------|-----------|------|------------|
 | __core__ | output | string | 既定の出力形式。 `json`、`jsonc`、`tsv`、`table` のいずれかを指定できます。 |
 | | disable\_confirm\_prompt | boolean | 確認のプロンプトをオン/オフにします。 |
-| | collect\_telemetry | boolean | Microsoft による、CLI の使用に関する匿名データの収集を許可します。 プライバシー情報については、[Azure CLI の使用条件](http://aka.ms/AzureCliLegal)に関するページをご覧ください。 |
+| | collect\_telemetry | boolean | Microsoft による、CLI の使用に関する匿名データの収集を許可します。 プライバシー情報については、[Azure CLI の使用条件](https://aka.ms/AzureCliLegal)に関するページをご覧ください。 |
 | __logging__ | enable\_log\_file | boolean | ログ記録をオン/オフにします。 |
 | | log\_dir | string | ログを書き込むディレクトリ。 この値の既定値は `${AZURE_CONFIG_DIR}/logs` です。 |
 | __storage__ | connection\_string | string | `az storage` コマンドに使用する既定の接続文字列。 |
@@ -99,7 +97,7 @@ log_dir=/var/log/azure
 | | storage\_key | string | `az batchai` コマンドに使用する既定のストレージ キー。 |
 | __batch__ | account | string | `az batch` コマンドに使用する既定の Azure Batch アカウント名。 |
 | | access\_key | string | `az batch` コマンドに使用する既定のアクセス キー。 `aad` 承認でのみ使用されます。 |
-| | エンドポイント (endpoint) | string | `az batch` コマンドに対する既定の接続先エンドポイント。 |
+| | endpoint | string | `az batch` コマンドに対する既定の接続先エンドポイント。 |
 | | auth\_mode | string | `az batch` コマンドに使用する承認モード。 `shared_key` または `aad` を指定できます。 |
 | __cloud__ | name | string | すべての `az` コマンドの既定のクラウド。  値には `AzureCloud` (既定)、`AzureChinaCloud`、`AzureUSGovernment`、`AzureGermanCloud` があります。 クラウドを変更するには、`az cloud set –name` コマンドを使用します。  例については、[Azure CLI を使用したクラウドの管理](manage-clouds-azure-cli.md)に関するページを参照してください。 |
 

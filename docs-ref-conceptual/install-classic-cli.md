@@ -1,20 +1,19 @@
 ---
 title: Azure クラシック CLI のインストール
 description: Mac、Linux、および Windows に Azure クラシック CLI をインストールして Azure サービスの利用を開始する
-author: sptramer
-ms.author: sttramer
-manager: carmonm
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ms.date: 06/11/2018
 ms.topic: conceptual
-ms.prod: azure
-ms.technology: azure-cli
+ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 65bf8cdc4ee5d74a778d29cd96e51bad5dc6b22e
-ms.sourcegitcommit: 7f79860c799e78fd8a591d7a5550464080e07aa9
+ms.openlocfilehash: 0cc1d7811223bf6f473c2c4516d0919306aa74c7
+ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56158934"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77779484"
 ---
 # <a name="install-the-azure-classic-cli"></a>Azure クラシック CLI のインストール
 
@@ -32,7 +31,7 @@ Azure クラシック CLI を簡単にインストールして、コマンド �
 
 Azure クラシック CLI をインストールした後、`azure login` に接続し、お使いのコマンド ライン インターフェイス (Bash、ターミナル、コマンド プロンプトなど) から `azure` コマンドを実行して、Azure リソースを操作します。
 
-## <a name="option-1-install-an-npm-package"></a>オプション 1:npm パッケージのインストール
+## <a name="option-1-install-an-npm-package"></a>オプション 1: npm パッケージのインストール
 
 クラシック CLI を npm パッケージからインストールするには、[最新の Node.js と npm](https://nodejs.org/en/download/package-manager/) をダウンロードし、インストールしていることを確認してください。 次に、`npm install` を実行して、azure-cli パッケージをインストールします。
 
@@ -62,7 +61,7 @@ Mac または Windows コンピューターを使用している場合は、[Git
 > [!TIP]
 > Windows では、[Web Platform Installer](https://go.microsoft.com/?linkid=9828653) をダウンロードして、クラシック CLI をインストールすることもできます。 このインストーラーを使用すると、その他の Azure SDK とコマンドライン ツールをインストールすることもできます。
 
-## <a name="option-3-use-a-docker-container"></a>オプション 3: Docker コンテナーの使用
+## <a name="option-3-use-a-docker-container"></a>オプション 3:Docker コンテナーの使用
 
 お使いのコンピューターを [Docker](https://docs.docker.com/engine/understanding-docker/) ホストとして設定すると、Docker コンテナーで Azure クラシック CLI を実行できるようになります。 次のコマンドを実行します (Linux ディストリビューションの場合、`sudo` の使用が必要になる場合があります)。
 
@@ -119,6 +118,6 @@ azure --completion >> ~/azure.completion.sh
 echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 * Azure クラシック CLI の詳細、ソース コードのダウンロード、問題のレポート、プロジェクトへの協力については、[Azure クラシック CLI 用の GitHub リポジトリ](https://github.com/azure/azure-xplat-cli)のページを参照してください。

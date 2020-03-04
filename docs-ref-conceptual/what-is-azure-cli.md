@@ -8,12 +8,12 @@ ms.date: 01/30/2020
 ms.topic: overview
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 95463c0c72aaf03386ee6755997652217ff68711
-ms.sourcegitcommit: d0b2763cc856eef44a6ecb78f6b8c64291625750
+ms.openlocfilehash: 6aeb296c635d3efa35af08af227f165c7bd8f7d2
+ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77013530"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77779807"
 ---
 # <a name="what-is-azure-cli"></a>Azure CLI とは
 
@@ -23,10 +23,11 @@ Azure コマンド ライン インターフェイス (Azure CLI) は、Azure �
 
 Azure CLI の機能を使用すると、異なるプログラミング言語やソフトウェア環境での作業が容易になります。  たとえば、Azure CLI には次のような特性があります。
 
-- Windows、maxOS、および Linux 環境にインストールできます。
+- Windows、macOS、および Linux 環境にインストールできます。
 
 - Docker および Azure Cloud Shell でも実行できます。
 - Azure ソリューションを管理するときに、コマンドラインの柔軟性を提供します。
+
 - 長時間にわたって実行される操作をサポートします。
 - すべてのコマンドに対して 1 つのサブスクリプションを使用することも、コマンドごとに異なるサブスクリプションを使用することもできます。
 - コマンドラインの結果に対してクエリを実行し、選択した形式でクエリ出力を返すことができます。

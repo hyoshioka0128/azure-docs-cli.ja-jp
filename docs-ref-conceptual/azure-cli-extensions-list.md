@@ -1,20 +1,19 @@
 ---
 title: Azure CLI で使用可能な拡張機能
 description: Azure CLI で公式にサポートされている拡張機能の完全な一覧です。
-author: sptramer
-ms.author: sttramer
-manager: carmonm
-ms.date: 02/17/2020
+author: haroldrandom
+ms.author: jianzen
+manager: yonzhan,yungezz
+ms.date: 02/27/2020
 ms.topic: article
-ms.prod: azure
-ms.technology: azure-cli
-ms.devlang: azure-cli
-ms.openlocfilehash: bac834704f4e965d44a8790f5a4fa59254357373
-ms.sourcegitcommit: aff84ab984e2d129927888e6b854ed7a5ccaaf59
+ms.service: azure-cli
+ms.devlang: azurecli
+ms.openlocfilehash: df3ebb4bae4d4e159e8218c3a67bb75e024ff60b
+ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77520773"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77779603"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Azure CLI で使用可能な拡張機能
 
@@ -29,10 +28,11 @@ az extension list-available --output table
 | 名前 | Version | まとめ | プレビュー |
 |------|---------|---------|---------|
 | [aem](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Azure Enhanced Monitoring Extension for SAP を管理します |  |
-| [aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.4.29 | 次期 AKS 機能のプレビューを提供します | はい |
+| [ai-examples](https://github.com/Azure/azure-cli-extensions/tree/master/src/ai-examples) | 0.1.0 | AI を使用した例をヘルプ コンテンツに追加します。 | はい |
+| [aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.4.33 | 次期 AKS 機能のプレビューを提供します | はい |
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.2 | コマンドのエイリアスをサポートします | はい |
 | [appconfig](https://github.com/Azure/azure-cli-extensions) | 0.5.0 | 次期アプリ構成機能のプレビューを提供します。 | はい |
-| [application-insights](https://github.com/Azure/azure-cli-extensions/tree/master/src/application-insights) | 0.1.3 | Application Insights コンポーネントの管理と、それらのコンポーネントのメトリック、イベント、およびログのクエリをサポートします。 | はい |
+| [application-insights](https://github.com/Azure/azure-cli-extensions/tree/master/src/application-insights) | 0.1.4 | Application Insights コンポーネントの管理と、それらのコンポーネントのメトリック、イベント、およびログのクエリをサポートします。 | はい |
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 5.0.0 | Azure Batch サービスを操作するための追加コマンド |  |
 | [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.8.9 | Azure CLI 用 Azure IoT 拡張機能です。 |  |
 | [azure-cli-ml](https://docs.microsoft.com/azure/machine-learning/service/) | 1.0.85 | Microsoft Azure コマンド ライン ツールの AzureML コマンド モジュール |  |
@@ -41,7 +41,7 @@ az extension list-available --output table
 | [connectedmachine](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Microsoft Azure コマンド ライン ツールの Connectedmachine 拡張機能 | はい |
 | [connection-monitor-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/connection-monitor-preview) | 0.1.0 | Microsoft Azure コマンドライン接続モニター V2 拡張機能 | はい |
 | [db-up](https://github.com/Azure/azure-cli-extensions/tree/master/src/db-up) | 0.1.13 | Azure データベースのワークフローを簡略化するための、その他のコマンド。 | はい |
-| [dev-spaces](https://github.com/Azure/azure-cli-extensions) | 1.0.4 | Dev Spaces は、高速で反復的な Kubernetes 開発エクスペリエンスをチームに提供します。 |  |
+| [dev-spaces](https://github.com/Azure/azure-cli-extensions) | 1.0.5 | Dev Spaces は、高速で反復的な Kubernetes 開発エクスペリエンスをチームに提供します。 |  |
 | [dev-spaces-preview](https://github.com/Azure/azure-cli-extensions) | 0.1.6 | Dev Spaces は、高速で反復的な Kubernetes 開発エクスペリエンスをチームに提供します。 | はい |
 | [dms-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/dms-preview) | 0.9.0 | 新しい Database Migration Service のシナリオをサポートします。 | はい |
 | [eventgrid](https://github.com/Azure/azure-cli-extensions) | 0.4.4 | Microsoft Azure コマンド ライン ツールの EventGrid コマンド モジュールです。 | はい |
@@ -66,8 +66,8 @@ az extension list-available --output table
 | [peering](https://github.com/Azure/azure-cli-extensions) | 0.1.0rc1 | Microsoft Azure コマンド ライン ツールのピアリング拡張機能 | はい |
 | [privatedns](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | プライベート DNS ゾーンを管理するためのコマンド | はい |
 | [resource-graph](https://github.com/Azure/azure-cli-extensions/tree/master/src/resource-graph) | 1.0.0 | Resource Graph を使用した Azure リソースのクエリをサポートします。 |  |
-| [sap-hana](https://github.com/Azure/azure-hanaonazure-cli-extension) | 0.5.5 | SAP HanaOnAzure インスタンスを操作するための追加コマンド。 |  |
-| [spring-cloud](https://github.com/Azure/azure-cli-extensions) | 0.2.0 | Microsoft Azure コマンド ライン ツールの spring-cloud 拡張機能 | はい |
+| [sap-hana](https://github.com/Azure/azure-hanaonazure-cli-extension) | 0.5.9 | SAP HanaOnAzure インスタンスを操作するための追加コマンド。 |  |
+| [spring-cloud](https://github.com/Azure/azure-cli-extensions) | 0.2.1 | Microsoft Azure コマンド ライン ツールの spring-cloud 拡張機能 | はい |
 | [storage-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) | 0.2.10 | 次期ストレージ機能のプレビューを提供します。 | はい |
 | [subscription](https://github.com/Azure/azure-cli-extensions) | 0.1.3 | サブスクリプション管理プレビューをサポートします。 |  |
 | [サポート](https://github.com/azure/azure-cli-extensions/tree/master/src/support) | 0.1.0 | Microsoft Azure コマンド ライン ツールの Support 拡張機能 | はい |
