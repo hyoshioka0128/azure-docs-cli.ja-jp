@@ -4,18 +4,143 @@ description: Azure CLI の最新情報について説明します
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 02/18/2020
+ms.date: 03/10/2020
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 49bb108372225146be8ffc6bb38cf793da8cdb74
-ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
+ms.openlocfilehash: ff3a1da2343b96bfd78b20742c2c15707932f3d7
+ms.sourcegitcommit: 21bc2a7125b6c38bf1c4def0a0e66e6673de4805
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77779943"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037950"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+
+## <a name="march-10-2020"></a>2020 年 3 月 10 日
+
+バージョン 2.2.0
+
+### <a name="acr"></a>ACR
+
+* 修正: `az acr login` で誤ってエラーが発生する
+* 新しいコマンド `az acr helm install-cli` を追加
+* プライベート リンクと CMK のサポートの追加
+* 'private-link-resource list' コマンドの追加
+
+### <a name="aks"></a>AKS
+
+* クラウド シェルでの aks browse の修正
+* az aks:addon および agentpool NoneType エラーの監視を修正
+* Azure Kubernetes クラスターの作成時にノード プールに --nodepool-tags を追加
+* クラスターへの nodepool の追加または更新時に --tags を追加
+* aks create: `--enable-private-cluster` の追加
+* Azure Kubernetes クラスターの作成時に --nodepool-labels を追加
+* Azure Kubernetes クラスターへの新しい nodepool 追加時に --labels を追加
+* ダッシュボード URL に欠落していた / を追加
+* マネージド ID を有効にする aks クラスターの作成のサポート
+* az aks:ネットワーク プラグインが "azure" または "kubernet" のいずれかであることを検証
+* az aks:aad セッション キーのサポートの追加
+* [重大な変更] az aks: omsagent での GF と BF に対する msi 変更のサポート (コンテナー監視)(#1)
+* az aks use-dev-spaces:Azure Dev Spaces コントローラー上に作成されたエンドポイントをカスタマイズするために、use-dev-spaces コマンドにエンドポイントの種類オプションを追加
+
+### <a name="appconfig"></a>AppConfig
+
+* keyvault 参照および機能の追加のための "kv set" を使用したブロック解除
+
+### <a name="appservice"></a>AppService
+
+* az webapp create:--runtime を指定したコマンドの実行時の問題を修正
+* az functionapp deployment source config-zip:リソース グループまたは関数名が無効であるか存在しない場合のエラー メッセージの追加
+* functionapp create:`functionapp create` で表示される警告メッセージの修正 (現在、これは`--functions_version` フラグを示しますが、誤ってフラグ名の `-` ではなく `_` を使用します)
+* az functionapp create:Linux 関数アプリに linuxFxVersion とコンテナー イメージ名が設定されていた方法を更新
+* az functionapp deployment source config-zip:zip デプロイ中にアプリ設定の変更の競合状態によって発生する問題 (デプロイ時に 5xx エラーが表示される) を修正
+* #5720946 の修正: az webapp backup で名前の設定に失敗する
+
+### <a name="arm"></a>ARM
+
+* az resource:リソース モジュールの例の改善
+* az policy assignment list:管理グループ スコープでのポリシー割り当ての一覧表示をサポート
+* リソース グループでのテンプレートのデプロイ用に `az deployment group` と `az deployment operation group` を追加。 これは `az group deployment` と `az group deployment operation` の複製です
+* サブスクリプション スコープでのテンプレートのデプロイ用に `az deployment sub` と `az deployment operation sub` を追加。 これは `az deployment` と `az deployment operation` の複製です
+* 管理グループでのテンプレートのデプロイ用に `az deployment mg` と `az deployment operation mg` を追加
+* テナント スコープでのテンプレートのデプロイ用に `az deployment tenant` と `az deployment operation tenant` を追加
+* az policy assignment create:`--location` パラメーターに対する説明の追加
+* az group deployment create:クロス テナントをサポートするためにパラメーター `--aux-tenants` を追加
+
+### <a name="cdn"></a>CDN
+
+* CDN WAF コマンドの追加
+
+### <a name="compute"></a>Compute
+
+* az sig image-version: --data-snapshot-luns の追加
+* az ppg show: 近接配置グループ内のすべてのリソースのコロケーションの状態をフェッチできるように、--colocation-status を追加
+* az vmss create/update: 自動修復のサポート
+* [重大な変更] az image template: テンプレートの名前を builder に変更
+* az image builder create: --image-template の追加
+
+### <a name="cosmos-db"></a>Cosmos DB
+
+* SQL ストアド プロシージャ、udf およびトリガーのコマンドレットの追加
+* az cosmosdb create: キー コンテナーの暗号化情報の追加をサポートするために、--key-uri を追加
+
+### <a name="keyvault"></a>KeyVault
+
+* keyvault create: 論理的な削除を既定で有効化
+
+### <a name="monitor"></a>モニター
+
+* az monitor metrics alert create: `--condition` での `~` のサポート
+
+### <a name="network"></a>ネットワーク
+
+* az network application-gateway rewrite-rule create: URL の構成のサポート
+* az network dns zone import: 今後、--zone-name は大文字と小文字を区別する
+* az network private-endpoint/private-link-service: プレビュー ラベルの削除
+* az network bastion: Bastion のサポート
+* az network vnet list-available-ips: VNet 内で使用可能な IP の一覧のサポート
+* az network watcher flow-log create/list/delete/update: Watcher フロー ログを管理するために新しいコマンドを追加し、Watcher を明示的に識別するために --location を公開
+* az network watcher flow-log configure: 非推奨
+* az network watcher flow-log show: ARM 形式の結果 (非推奨の古い形式の出力) を取得するために --location および--name をサポート
+
+### <a name="policy"></a>ポリシー
+
+* az policy assignment create:ポリシー割り当ての自動生成された名前が制限を超えるというバグの修正
+
+### <a name="rbac"></a>RBAC
+
+* az ad group show: RegEx の問題として扱われる --group 値の修正
+
+### <a name="rdbms"></a>RDBMS
+
+* azure-mgmt-rdbms SDK のバージョンを 2.0.0 にバージョンアップ
+* az postgres private-endpoint-connection: Postgres プライベート エンドポイント接続の管理
+* az postgres private-link-resource: Postgres プライベート リンク リソースの管理
+* az mysql private-endpoint-connection: MySQL プライベート エンドポイント接続の管理
+* az mysql private-link-resource: MySQL プライベート リンク リソースの管理
+* az mariadb private-endpoint-connection: MariaDB プライベート エンドポイント接続の管理
+* az mariadb private-link-resource: MariaDB プライベート リンク リソースの管理
+* RDBMS プライベート エンドポイント テストを更新中
+
+### <a name="sql"></a>SQL
+
+* Sql midb Add: list-deleted、show-deleted、update-retention、show-retention
+* (sql server create:)オプションの public-network-access 'Enable'/'Disable' フラグを sql server create に追加
+* (sql server update:) 顧客向けの変更の実施
+* MI および SQL DB 用の minimal_tls_version プロパティの追加
+
+### <a name="storage"></a>ストレージ
+
+* az storage blob delete-batch:`--dryrun` フラグの誤動作
+* az storage account network-rule add (バグ修正): 追加操作は、べき等にする必要がある
+* az storage account create/update:ルーティングの優先順位のサポートを追加
+* azure-mgmt-storage のバージョンを 8.0.0 にアップグレード
+* az storage container immutability create: --allow-protected-append-write パラメーターの追加
+* az storage account private-link-resource list:ストレージ アカウントのプライベート リンク リソースを一覧表示するためのサポートを追加
+* az storage account private-endpoint-connection approve/reject/show/delete:プライベート エンドポイント接続の管理のサポート
+* az storage account blob-service-properties update: --enable-restore-policy と --restore-days の追加
+* az storage blob restore:BLOB 範囲を復元するためのサポートを追加
 
 ## <a name="february-18-2020"></a>2020 年 2 月 18 日
 
@@ -1319,7 +1444,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 * 詳細ログ記録を `bot prepare-deploy` に追加しました
 * さらに多くの使用可能な Application Insights リージョンを `az bot create -v v3` に追加しました
 
-### <a name="configure"></a>[構成]
+### <a name="configure"></a>構成
 * フォルダー ベースの引数の既定値の構成のサポートを追加しました
 
 ### <a name="eventhubs"></a>イベント ハブ
@@ -1840,7 +1965,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 ### <a name="botservice"></a>Botservice
 * デプロイ状態の更新プログラムを `bot create` に追加しました
 
-### <a name="configure"></a>[構成]
+### <a name="configure"></a>構成
 * 構成可能な出力形式として `none` を追加しました
 
 ### <a name="cosmosdb"></a>Cosmos DB
@@ -2068,7 +2193,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 ### <a name="appservice"></a>AppService
 * バックアップ スケジュールがまだ設定されていない場合はバックアップ スケジュールを設定できないという `az webapp config backup update` のバグを修正しました
 
-### <a name="configure"></a>[構成]
+### <a name="configure"></a>構成
 * YAML を出力形式のオプションに追加しました
 
 ### <a name="container"></a>コンテナー

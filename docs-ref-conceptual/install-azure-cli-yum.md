@@ -8,12 +8,12 @@ ms.date: 11/26/2019
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: ad773a58cf784c46a1c605e7e7eca58de8a4a722
-ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
+ms.openlocfilehash: a98a51e4dc3ac85d27e27ef9b9164a7f98431d31
+ms.sourcegitcommit: 465f2402b71e3de8c699798dc2a766fc90df241a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77780113"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78953328"
 ---
 # <a name="install-azure-cli-with-yum"></a>yum での Azure CLI のインストール
 
@@ -65,6 +65,11 @@ RHEL、Fedora、CentOS など、`yum` が付属する Linux ディストリビ�
 $ sudo yum install yum-utils
 $ sudo yumdownloader azure-cli
 $ sudo rpm -ivh --nodeps azure-cli-*.rpm
+```
+
+python3 を設定しても、CLI を実行しようするとエラー `python3: command not found` が依然として表示される場合は、パスにそれを追加する必要があります。
+```bash
+$ scl enable rh-python36 bash
 ```
 
 ### <a name="proxy-blocks-connection"></a>プロキシによる接続のブロック
