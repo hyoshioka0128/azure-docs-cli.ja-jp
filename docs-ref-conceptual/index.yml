@@ -1,23 +1,20 @@
 ### YamlMime:Landing
-title: Azure コマンド ライン インターフェイス (CLI)
-summary: >
-  Azure コマンド ライン インターフェイス (CLI) は、Azure リソースを管理するための、Microsoft のクロスプラットフォーム コマンド ライン エクスペリエンスです。
-
-  Azure CLI は、簡単に学習して使い始めることができるように設計されていますが、Azure リソースを使用するためのカスタム自動化を構築するための優れたツールとして十分に活用できます。
+title: Azure コマンド ライン インターフェイス (CLI) ドキュメント
+summary: "Azure コマンド ライン インターフェイス (Azure CLI) は、Azure リソースを作成および管理するためのコマンド セットです。  \nAzure CLI は Azure サービス全体で利用でき、オートメーションに重点を置くことで、Azure で迅速に作業できるように設計されています。\n"
 metadata:
   title: Azure CLI の概要
   description: Azure CLI をインストールし、作業を開始する方法について説明します。
   ms.topic: landing-page
   ms.collection: collection
-  author: sptramer
-  ms.author: sttramer
+  author: dbradish-microsoft
+  ms.author: dbradish
   ms.date: 09/09/2019
-  ms.openlocfilehash: e42601468fe40d346ca91d6a95b6f37d377863d0
-  ms.sourcegitcommit: f9bfb4b063151434b3a9bff936a73b251666e775
+  ms.openlocfilehash: 804cf4efdcf88674f67f0d5e2afd2619ba1b892a
+  ms.sourcegitcommit: 93d8137f37e974f7d314a0b1deb65ac563c2e2c5
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 09/10/2019
-  ms.locfileid: "70886124"
+  ms.lasthandoff: 03/21/2020
+  ms.locfileid: "79990100"
 landingContent:
 - title: Azure CLI のインストール
   linkLists:
@@ -47,6 +44,10 @@ landingContent:
     links:
     - text: Azure CLI の概要
       url: get-started-with-azure-cli.md
+    - text: Azure CLI で管理できるサービス
+      url: azure-services-the-azure-cli-can-manage.md
+    - text: Azure CLI を使用した人気のある記事
+      url: popular-articles-using-the-azure-cli.md
   - linkListType: how-to-guide
     links:
     - text: サインイン方法
@@ -63,7 +64,7 @@ landingContent:
       url: /azure/app-service/scripts/cli-deploy-github?toc=%2fcli%2fazure%2ftoc.json
     - text: Postgres SQL データベースを作成する
       url: /azure/postgresql/quickstart-create-server-up-azure-cli?toc=%2fcli%2fazure%2ftoc.json
-    - text: Kubernetes クラスターの作成
+    - text: Kubernetes クラスターを作成する
       url: /azure/aks/kubernetes-walkthrough?toc=%2fcli%2fazure%2ftoc.json
   - linkListType: learn
     links:
