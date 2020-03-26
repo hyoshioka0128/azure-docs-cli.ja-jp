@@ -8,16 +8,16 @@ ms.date: 01/30/2020
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: bef8ef96ffefd6214bc924d7378971348d528304
-ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
+ms.openlocfilehash: bc9b86db6fb9c5b3731550df9dda96debcbfba9f
+ms.sourcegitcommit: 93d8137f37e974f7d314a0b1deb65ac563c2e2c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77779637"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "79990114"
 ---
 # <a name="get-started-with-azure-cli"></a>Azure CLI の概要
 
-Azure CLI へようこそ。  この記事では、CLI について説明し、作業を開始するのに役立つリンクを示します。
+Azure CLI へようこそ。  この記事では、CLI について説明し、一般的なタスクの実行に役立つ情報を示します。
 
 > [!NOTE]
 >
@@ -122,3 +122,9 @@ Azure CLI の使用を開始するには、詳細なチュートリアルをお�
 ```azurecli-interactive
 az feedback
 ```
+
+## <a name="see-also"></a>関連項目
+
+* [Azure CLI で管理できるサービス](azure-services-the-azure-cli-can-manage.md)
+* [Azure CLI の完全なコマンド リファレンス一覧](/cli/azure/reference-index)
+* [Azure CLI の使用に関する人気のある記事](popular-articles-using-the-azure-cli.md)
