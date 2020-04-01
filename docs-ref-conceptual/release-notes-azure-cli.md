@@ -4,18 +4,143 @@ description: Azure CLI の最新情報について説明します
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 03/10/2020
+ms.date: 03/31/2020
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: ff3a1da2343b96bfd78b20742c2c15707932f3d7
-ms.sourcegitcommit: 21bc2a7125b6c38bf1c4def0a0e66e6673de4805
+ms.openlocfilehash: aed043bcb900937a405fd71dafe24016fa0972d7
+ms.sourcegitcommit: b5ecfc168489cd0d96462d6decf83e8b26a10194
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79037950"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80417823"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+
+## <a name="march-31-2020"></a>2020 年 3 月 31 日
+
+バージョン 2.3.0
+
+### <a name="acr"></a>ACR
+
+* 'az acr task update': null ポインター例外
+* `az acr import`:--source と --registry の使用法を明確にするために、ヘルプとエラー メッセージを修正します
+* 引数 'registry_name' の検証コントロールを追加します
+* `az acr login`: '--expose-token' のプレビュー フラグを削除します
+* [重大な変更] 'az acr task create/update' の Branch パラメーターは削除されています
+* 'az acr task update' ではコンテキスト、git-token、トリガーを個別に更新できるようになりました
+* 'az acr agentpool': 新機能
+
+### <a name="aks"></a>AKS
+
+* --api-server-authorized-ip-ranges の更新時の apiServerAccessProfile を修正します
+* aks update:更新時に送信 IP を入力値でオーバーライドします
+* MSI クラスターに SPN を作成しないようにし、MSI クラスターへの ACR のアタッチをサポートしてください
+
+### <a name="ams"></a>AMS
+
+* #12469 の修正: 'ask' パラメーターの問題が原因で、Fairplay content-key-policy の追加が失敗します
+
+### <a name="appconfig"></a>AppConfig
+
+* kv export に --skip-keyvault を追加します
+
+### <a name="appservice"></a>AppService
+
+* #12509 の修正:az webapp up へのタグを既定で削除します
+* az functionapp create:--runtime-version ヘルプ メニューを更新し、ユーザーが dotnet に --runtime-version を指定した場合の警告を追加しました
+* az functionapp create:javaVersion が Windows 関数アプリに設定される方法を更新しました
+
+### <a name="arm"></a>ARM
+
+* az deployment create/validate:既定で --handle-extended-json-format を使用します
+* az lock create:ヘルプ ドキュメントにサブリソースの作成例を追加します
+* az deployment {group/mg/sub/tenant} list:provisioningState フィルターをサポートします
+* az deployment:最後の引数の後に書かれたコメントの解析バグを修正します
+
+### <a name="backup"></a>バックアップ
+
+* 複数ファイルの復元機能を追加しました
+* OS ディスクのみのバックアップのサポートを追加しました
+* アンマネージドとしての復元を指定するための restore-as-unmanaged-disk パラメーターを追加しました
+
+### <a name="compute"></a>Compute
+
+* az vm create:--nsg-rule の NONE オプションを追加します
+* az vmss create/update: VMSS 自動修復のプレビュー タグを削除します
+* az vm update:--workspace をサポートします
+* VirtualMachineScaleSetExtension 初期化コードのバグを修正します
+* VMAccessAgent のバージョンを 2.4 にアップグレードします
+* az vmss set-orchestration-service-state: VMSS オーケストレーション サービス状態の設定をサポートします
+* ディスク API のバージョンを 2019-11-01 にアップグレードします
+* az disk create: --disk-iops-read-only、--disk-mbps-read-only、--max-shares、--image-reference、--image-reference-lun、--gallery-image-reference、--gallery-image-reference-lun を追加します
+
+### <a name="cosmos-db"></a>Cosmos DB
+
+* 非推奨リダイレクトの --type オプションの欠落を修正します
+
+### <a name="docker"></a>Docker
+
+* Alpine 3.11 および Python 3.6.10 へ更新します
+
+### <a name="extension"></a>拡張機能
+
+* パッケージを使用してシステム パスに拡張機能を読み込むことを許可します
+
+### <a name="hdinsight"></a>HDInsight
+
+* (az hdinsight create:)パラメーター `--minimal-tls-version`を使用した、最低限サポートされている tls バージョンの指定をサポートします。 使用可能な値は、1.0、1.1、1.2 です
+
+### <a name="iot"></a>IoT
+
+* codeowner を追加します
+* az iot hub create:既定の SKU を F1 から S1 に変更します
+* iot hub:2019-03-01-hybrid のプロファイルで IotHub をサポートします
+
+### <a name="iotcentral"></a>IoTCentral
+
+* エラーの詳細を更新し、既定のアプリケーション テンプレートと確認メッセージを更新します
+
+### <a name="keyvault"></a>KeyVault
+
+* 証明書のバックアップ/復元をサポートします
+* keyvault create/update:--retention-days をサポートします
+* 一覧表示中にマネージド キー/シークレットは表示されなくなります
+* az keyvault create: コンテナーの作成中にネットワーク ルールを指定するための `--network-acls`、`--network-acls-ips`、`--network-acls-vnets`をサポートします
+
+### <a name="lock"></a>ロック
+
+* az lock delete のバグの修正: az lock delete は Microsoft.DocumentDB では機能しません
+
+### <a name="monitor"></a>モニター
+
+* az monitor clone: あるリソースから別のリソースへのメトリック ルールの複製をサポートします
+* IcM179210086 の修正: Application Insights メトリックのカスタム メトリック アラートを作成できません
+
+### <a name="netappfiles"></a>NetAppFiles
+
+* az volume create:レプリケーション操作 (許可、保留、再開、状態、削除) を追加して、データ保護ボリュームを許可します
+
+### <a name="network"></a>ネットワーク
+
+* az network application-gateway waf-policy managed-rule rule-set add: Microsoft_BotManagerRuleSet をサポートします
+* network watcher flow-log show:
+* Application Gateway リスナーでホスト名をサポートします
+* az network nat gateway: パブリック IP またはパブリック IP プレフィックスなしの空のリソースの作成をサポートします
+* VPN ゲートウェイの世代をサポートします
+* `az network dns record-set {} add-record`で `--if-none-match` をサポートします
+
+### <a name="packaging"></a>梱包
+
+* Python 3.5 のサポートは終了します
+
+### <a name="profile"></a>プロファイル
+
+* az login:MFA エラーの警告を表示します
+
+### <a name="rdbms"></a>RDBMS
+
+* PostgreSQL および MySQL 用のサーバー データ暗号化キー管理コマンドを追加します
 
 ## <a name="march-10-2020"></a>2020 年 3 月 10 日
 

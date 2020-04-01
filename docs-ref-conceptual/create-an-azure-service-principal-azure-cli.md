@@ -8,14 +8,14 @@ ms.date: 02/15/2019
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 1bde944f1c443ef1a8d5aa918575fa09e6bb4714
-ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
+ms.openlocfilehash: c18adbee84fd3e5c73367b07bbd0b03ac61008cd
+ms.sourcegitcommit: b5ecfc168489cd0d96462d6decf83e8b26a10194
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77779620"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80417868"
 ---
-# <a name="create-an-azure-service-principal-with-azure-cli"></a>Azure CLI で Azure サービス プリンシパルを作成する
+# <a name="create-an-azure-service-principal-with-the-azure-cli"></a>Azure CLI で Azure サービス プリンシパルを作成する
 
 Azure サービスを使用する自動化ツールのアクセス許可は、常に制限されている必要があります。 完全な特権を持つユーザーとしてアプリケーションをサインインさせる代わりに、Azure にはサービス プリンシパルが用意されています。
 
@@ -25,7 +25,7 @@ Azure サービス プリンシパルは、Azure リソースにアクセスす�
 
 ## <a name="create-a-service-principal"></a>サービス プリンシパルの作成
 
-サービス プリンシパルは、[az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) コマンドを使用して作成します。 サービス プリンシパルを作成する際に、サービス プリンシパルが使用するサインイン認証の種類を選択します。 
+サービス プリンシパルは、[az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) コマンドを使用して作成します。 サービス プリンシパルを作成する際に、サービス プリンシパルが使用するサインイン認証の種類を選択します。
 
 > [!NOTE]
 >
@@ -53,6 +53,9 @@ Azure サービス プリンシパルは、Azure リソースにアクセスす�
 
 証明書ベースの認証の場合は、`--cert` 引数を使用します。 この引数を使用するには、既存の証明書を保持しておく必要があります。 このサービス プリンシパルを使用する任意のツールから、証明書の秘密キーにアクセスできることを確認します。 証明書は、PEM、CER、または DER などの ASCII 形式でなければなりません。 文字列として証明書を渡すか、`@path` 形式を使用してファイルから証明書を読み込みます。
 
+> [!NOTE]
+> PEM ファイルを使用する場合は、ファイル内で **PRIVATE KEY** (秘密キー) に **CERTIFICATE** (証明書) を追加する必要があります。
+
 ```azurecli-interactive
 az ad sp create-for-rbac --name ServicePrincipalName --cert "-----BEGIN CERTIFICATE-----
 ...
@@ -74,6 +77,35 @@ az ad sp create-for-rbac --name ServicePrincipalName --cert CertName --keyvault 
 ```azurecli-interactive
 az ad sp create-for-rbac --name ServicePrincipalName --create-cert
 ```
+
+コンソール出力:
+
+```
+Creating a role assignment under the scope of "/subscriptions/myId"
+Please copy C:\myPath\myNewFile.pem to a safe place.
+When you run 'az login', provide the file path in the --password argument
+{
+  "appId": "myAppId",
+  "displayName": "myDisplayName",
+  "fileWithCertAndPrivateKey": "C:\\myPath\\myNewFile.pem",
+  "name": "http://myName",
+  "password": null,
+  "tenant": "myTenantId"
+}
+```
+
+新しい PEM ファイルの内容:
+```
+-----BEGIN PRIVATE KEY-----
+myPrivateKeyValue
+-----END PRIVATE KEY-----
+-----BEGIN CERTIFICATE-----
+myCertificateValue
+-----END CERTIFICATE-----
+```
+
+> [!NOTE]
+> `az ad sp create-for-rbac --create-cert` コマンドはサービス プリンシパルと PEM ファイルを作成します。 PEM ファイルには、正しく書式設定された **PRIVATE KEY** (秘密キー) と **CERTIFICATE** (証明書) が含まれます。
 
 `--keyvault` 引数を追加すると、証明書を Azure Key Vault に格納できます。 `--keyvault` を使用する場合は、`--cert` 引数が__必要__です。
 
@@ -149,7 +181,7 @@ az role assignment list --assignee APP_ID
 az login --service-principal --username APP_ID --password PASSWORD --tenant TENANT_ID
 ```
 
-証明書を使用してサインインする場合、その証明書は、ASCII 形式の PEM または DER ファイルとしてローカルで使用できる必要があります。
+証明書を使用してサインインする場合、その証明書は、ASCII 形式の PEM または DER ファイルとしてローカルで使用できる必要があります。 PEM ファイルを使用する場合は、ファイル内に **PRIVATE KEY** (秘密キー) と **CERTIFICATE** (証明書) を共に追加する必要があります。
 
 ```azurecli-interactive
 az login --service-principal --username APP_ID --tenant TENANT_ID --password /path/to/cert

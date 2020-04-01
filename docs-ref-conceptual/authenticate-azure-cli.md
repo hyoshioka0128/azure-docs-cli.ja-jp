@@ -8,12 +8,12 @@ ms.date: 02/22/2019
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 2027741c4fac1ffaeaf6099e18b9729df2e84beb
-ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
+ms.openlocfilehash: 9c01c0e42edc0c4199349e0bc5d454d7cd3ddc71
+ms.sourcegitcommit: b5ecfc168489cd0d96462d6decf83e8b26a10194
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77780028"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80417932"
 ---
 # <a name="sign-in-with-azure-cli"></a>Azure CLI を使用してサインインする 
 
@@ -57,13 +57,17 @@ az login -u <username> -p <password>
 
 ## <a name="sign-in-with-a-service-principal"></a>サービス プリンシパルを使ってサインインする
 
-サービス プリンシパルは、特定のユーザーに関連付けられていないアカウントであり、定義済みのロールによってアクセス許可を割り当てることができます。 サービス プリンシパルを使用した認証は、セキュリティで保護されたスクリプトやプログラムを記述するのに最適な方法で、アクセス許可の制限と、ローカルに保存された静的な資格情報の両方を適用できます。 サービス プリンシパルの詳細については、[Azure CLI を使用した Azure サービス プリンシパルの作成](create-an-azure-service-principal-azure-cli.md)に関するページをご覧ください。
+サービス プリンシパルは、特定のユーザーに関連付けられていないアカウントであり、定義済みのロールによってアクセス許可を割り当てることができます。 サービス プリンシパルを使用した認証は、セキュリティで保護されたスクリプトやプログラムを記述するのに最適な方法で、アクセス許可の制限と、ローカルに保存された静的な資格情報の両方を適用できます。 サービス プリンシパルの詳細については、[Azure CLI を使用した Azure サービス プリンシパルの作成](/cli/azure/create-an-azure-service-principal-azure-cli.md)に関するページをご覧ください。
 
 サービス プリンシパルを使ってサインインするには、以下が必要です。
 
 * サービス プリンシパルに関連付けられている URL または名前
 * サービス プリンシパルのパスワード、またはサービス プリンシパルを PEM 形式で作成するために使用する X509 証明書
 * `.onmicrosoft.com` ドメインまたは Azure オブジェクト ID として、サービス プリンシパルに関連付けられているテナント
+
+> [!NOTE]
+> PEM ファイル内で **PRIVATE KEY** (秘密キー) に **CERTIFICATE** (証明書) を追加する必要があります。  PEM ファイルの形式の例については、「[Azure CLI で Azure サービス プリンシパルを作成する](create-an-azure-service-principal-azure-cli#sign-in-using-a-service-principal)」を参照してください。 
+>
 
 > [!IMPORTANT]
 >
