@@ -8,12 +8,12 @@ ms.date: 05/01/2019
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: f88e9d6650354ace9d9e03a33a6bbb2642069bbd
-ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
+ms.openlocfilehash: c5e9118a04b0dc608309093866307fdc7083f591
+ms.sourcegitcommit: b5ecfc168489cd0d96462d6decf83e8b26a10194
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77779569"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80417844"
 ---
 # <a name="install-azure-cli-on-windows"></a>Windows での Azure CLI のインストール
 
@@ -34,7 +34,7 @@ Windows Subsystem for Linux (WSL) 用にインストールする場合は、お�
 Azure CLI は PowerShell を使用してインストールすることもできます。 管理者として PowerShell を開始し、次のコマンドを実行します。
 
    ```PowerShell
-   Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
+   Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'; rm .\AzureCLI.msi
    ```
 これにより、最新バージョンの Windows 用 Azure CLI がダウンロードされインストールされます。 既にインストールされているバージョンがある場合、既存のバージョンが更新されます。 インストールが完了したら、Azure CLI を使用するには PowerShell を再度開く必要があります。
 
