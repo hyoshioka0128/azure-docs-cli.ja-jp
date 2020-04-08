@@ -4,18 +4,30 @@ description: Azure CLI の最新情報について説明します
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 03/31/2020
+ms.date: 04/01/2020
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: aed043bcb900937a405fd71dafe24016fa0972d7
-ms.sourcegitcommit: b5ecfc168489cd0d96462d6decf83e8b26a10194
+ms.openlocfilehash: cca6f42f29467126553c6e8a332907b1ad1ebc74
+ms.sourcegitcommit: 712c8ca6457552b6b7a8866c1370a6ec51d07f2c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80417823"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80525262"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+
+## <a name="april-01-2020"></a>2020 年 4 月 1 日
+
+バージョン 2.3.1
+
+### <a name="acr"></a>ACR
+
+* Linux の azure-mgmt-containerregistry の間違ったバージョンを修正します
+
+### <a name="profile"></a>プロファイル
+
+* az login:`latest` 以外のクラウド プロファイルでのログイン エラーを修正します
 
 ## <a name="march-31-2020"></a>2020 年 3 月 31 日
 
@@ -5138,4 +5150,3 @@ CLI のナイトリー プレビュー ビルドもあります。詳細につ�
 - [github の問題一覧](https://github.com/azure/azure-cli/issues/)で問題を報告する。
 - 製品チーム ([azfeedback@microsoft.com](mailto:azfeedback@microsoft.com)) に問い合わせる
 - `az feedback` コマンドを使用してコマンド ラインからフィードバックを送る
-
