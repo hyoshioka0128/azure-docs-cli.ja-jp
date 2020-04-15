@@ -4,17 +4,17 @@ description: Azure CLI で公式にサポートされている拡張機能の完
 author: haroldrandom
 ms.author: jianzen
 manager: yonzhan,yungezz
-ms.date: 04/08/2020
+ms.date: 04/14/2020
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 93d876624c371269dc593aad9cde02fa2033ecc3
-ms.sourcegitcommit: 85e1fe2f122236279e3d59f3af9f7230e63c947e
+ms.openlocfilehash: 2774a2c24dc42afe980080e184f63fb97c5becd8
+ms.sourcegitcommit: f7d793aa1e56457c01d592a05e9bb3033b6c502b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81006875"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "81386737"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Azure CLI で使用可能な拡張機能
 
@@ -36,7 +36,7 @@ az extension list-available --output table
 | [application-insights](https://github.com/Azure/azure-cli-extensions/tree/master/src/application-insights) | 0.1.6 | Application Insights コンポーネントの管理と、それらのコンポーネントのメトリック、イベント、およびログのクエリをサポートします。 | はい |
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 5.0.1 | Azure Batch サービスを操作するための追加コマンド |  |
 | [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.8.9 | Azure CLI 用 Azure IoT 拡張機能です。 |  |
-| [azure-cli-ml](https://docs.microsoft.com/azure/machine-learning/service/) | 1.2.0 | Microsoft Azure コマンド ライン ツールの AzureML コマンド モジュール |  |
+| [azure-cli-ml](https://docs.microsoft.com/azure/machine-learning/service/) | 1.3.0 | Microsoft Azure コマンド ライン ツールの AzureML コマンド モジュール |  |
 | [azure-devops](https://github.com/Microsoft/azure-devops-cli-extension) | 0.18.0 | Azure DevOps を管理するためのツールです。 |  |
 | [azure-firewall](https://github.com/Azure/azure-cli-extensions/tree/master/src/azure-firewall) | 0.3.0 | Azure Firewall のリソースを管理します。 | はい |
 | [azure-iot](https://github.com/azure/azure-iot-cli-extension) | 0.9.1 | Azure CLI 用 Azure IoT 拡張機能です。 |  |
@@ -45,7 +45,7 @@ az extension list-available --output table
 | [connection-monitor-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/connection-monitor-preview) | 0.1.0 | Microsoft Azure コマンドライン接続モニター V2 拡張機能 | はい |
 | [csvmware](https://github.com/Azure/az-vmware-cli) | 0.3.0 | Azure VMware Solution by CloudSimple を管理します。 | はい |
 | [databox](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Microsoft Azure コマンド ライン ツールの DataBox 拡張機能 |  |
-| [databricks](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Microsoft Azure コマンド ライン ツールの DatabricksClient 拡張機能 |  |
+| [databricks](https://github.com/Azure/azure-cli-extensions) | 0.2.0 | Microsoft Azure コマンド ライン ツールの DatabricksClient 拡張機能 |  |
 | [db-up](https://github.com/Azure/azure-cli-extensions/tree/master/src/db-up) | 0.1.13 | Azure データベースのワークフローを簡略化するための、その他のコマンド。 | はい |
 | [deploy-to-azure](https://github.com/Azure/deploy-to-azure-cli-extension) | 0.2.0 | GitHub Actions を使用して Azure にデプロイします。 | はい |
 | [dev-spaces](https://github.com/Azure/azure-cli-extensions) | 1.0.5 | Dev Spaces は、高速で反復的な Kubernetes 開発エクスペリエンスをチームに提供します。 |  |
