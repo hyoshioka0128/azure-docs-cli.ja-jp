@@ -4,18 +4,129 @@ description: Azure CLI の最新情報について説明します
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 04/01/2020
+ms.date: 04/21/2020
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: cca6f42f29467126553c6e8a332907b1ad1ebc74
-ms.sourcegitcommit: 712c8ca6457552b6b7a8866c1370a6ec51d07f2c
+ms.openlocfilehash: 10dfdc316ba00f8a7019f0724aab231e344c1c6d
+ms.sourcegitcommit: 89ec9fa7ebd2170b55201cd51fb386fd9351d7ca
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80525262"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81728597"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+
+## <a name="april-21-2020"></a>2020 年 4 月 21 日
+
+バージョン 2.4.0
+
+### <a name="acr"></a>ACR
+
+* `az acr run --cmd`: 作業ディレクトリのオーバーライドを無効にします
+* 専用データ エンドポイントをサポートします
+
+### <a name="aks"></a>AKS
+
+* プライベート クラスターの場合、`az aks list -o table` は privateFqdn を fqdn として表示します
+* --uptime-sla を追加します
+* containerservice パッケージを更新します
+* ノードのパブリック IP サポートを追加します
+* help コマンドの入力ミスを修正します
+
+### <a name="appconfig"></a>AppConfig
+
+* Kv list および export コマンドのキー コンテナー参照を解決します
+* リスト キー値のバグの修正
+
+### <a name="appservice"></a>AppService
+
+* `az functionapp create`:dotnet の Linux 関数アプリに対する linuxFxVersion の設定方法を変更しました。 これにより、dotnet の Linux 使用アプリが作成されない原因となったバグが修正されます
+* [破壊的変更] `az webapp create`: 既存の AppSettings を az webapp create で保持するように修正します
+* [破壊的変更] `az webapp up`: -g フラグを使用する場合に az webapp up コマンドの RG を作成するように修正します
+* [破壊的変更] `az webapp config`: az webapp config connection-string list で JSON 以外の出力の値を表示するように修正します
+
+### <a name="arm"></a>ARM
+
+* `az deployment create/validate`:ARM テンプレートの欠落したパラメーターのプロンプトをスキップすることをサポートするパラメーター `--no-prompt` を追加します
+* `az deployment group/mg/sub/tenant validate`:デプロイ パラメーター ファイルのコメントをサポートします
+* `az deployment`:パラメーター `--handle-extended-json-format` の `is_preview` を削除します
+* `az deployment group/mg/sub/tenant cancel`:ARM テンプレートのデプロイのキャンセルをサポートします
+* `az deployment group/mg/sub/tenant validate`:デプロイの検証が失敗したときのエラー メッセージを改善します
+* `az deployment-scripts`:DeploymentScripts の新しいコマンドを追加します
+* `az resource tag`:リソースへのタグの増分追加をサポートするパラメーター `--is-incremental` を追加します
+
+### <a name="aro"></a>ARO
+
+* `az aro`:Azure RedHat OpenShift V4 aro コマンド モジュールを追加します
+
+### <a name="batch"></a>Batch
+
+* Batch API を更新します
+
+### <a name="compute"></a>Compute
+
+* `az sig image-version create`:ストレージ アカウントの種類 Premium_LRS を追加します
+* `az vmss update`:終了通知の更新の問題を修正します
+* `az vm/vmss create`:特殊なイメージ バージョンのサポートを追加します
+* SIG API バージョン2019-12-01
+* `az sig image-version create`:--target-region-encryption を追加します
+* keyvault 名がグローバル メモリ内キャッシュに複製されるため、シリアルで実行するとテストが失敗する問題を修正しました
+
+### <a name="cosmosdb"></a>Cosmos DB
+
+* `az cosmosdb private-link-resource/private-endpoint-connection` をサポートします
+
+### <a name="iot-central"></a>IoT Central
+
+* `az iotcentral` が非推奨になりました
+* `az iot central` コマンド モジュールを追加します
+
+### <a name="monitor"></a>モニター
+
+* モニターのプライベート リンクのシナリオをサポートします
+* test_monitor_general_operations.py の間違ったモック方法を修正します
+
+### <a name="network"></a>ネットワーク
+
+* public ip update コマンドの sku が非推奨になりました
+* `az network private-endpoint`:プライベート dns ゾーン グループをサポートします
+* vnet/subnet パラメーターのローカル コンテキスト機能を有効にします
+* test_nw_flow_log_delete の間違った使用例を修正します
+
+### <a name="packaging"></a>梱包
+
+* Ubuntu/Disco パッケージのサポートを終了します
+
+### <a name="rbac"></a>RBAC
+
+* `az ad app create/update`: パラメーターとして --optional-claims をサポートします
+
+### <a name="rdbms"></a>RDBMS
+
+* PostgreSQL および MySQL 用の Azure Active Directory 管理者コマンドを追加します
+
+### <a name="service-fabric"></a>Service Fabric
+
+* #12891 の修正: `az sf application update --application-parameters` は、要求に含まれていない古いパラメーターを削除します
+* #12470 az sf create cluster の修正。更新の持続性と信頼性に関するバグを修正し、ノード型名が指定されたコードを使用して vmss を正しく検出します
+
+### <a name="sql"></a>SQL
+
+* `az sql mi op list`、`az sql mi op get`、`az sql mi op cancel` を追加します
+* `az sql midb`: 長期保持ポリシーを更新/表示し、長期保持バックアップを表示/削除し、長期保持バックアップを復元します
+
+### <a name="storage"></a>ストレージ
+
+* azure-mgmt-storage を 9.0.0 にアップグレードします
+* `az storage logging off`:ストレージ アカウントのログ記録の無効化をサポートします
+* `az storage account update`:CMK のキーの自動ローテーションを有効にします
+* `az storage account encryption-scope create/update/list/show`:暗号化スコープをカスタマイズするためのサポートを追加します
+* `az storage container create`:コンテナー レベルの暗号化スコープを設定するための --default-encryption-scope および --deny-encryption-scope-override を追加します
+
+### <a name="survey"></a>アンケート
+
+* アンケート リンクをオフにするスイッチを追加します
 
 ## <a name="april-01-2020"></a>2020 年 4 月 1 日
 
