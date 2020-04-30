@@ -4,18 +4,72 @@ description: Azure CLI の最新情報について説明します
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 04/21/2020
+ms.date: 04/28/2020
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 10dfdc316ba00f8a7019f0724aab231e344c1c6d
-ms.sourcegitcommit: 89ec9fa7ebd2170b55201cd51fb386fd9351d7ca
+ms.openlocfilehash: 032039cc5a51f0d158fbd3616a30263df139f53b
+ms.sourcegitcommit: 1e5d8f04091803d68ac6833d2e2af37a863486ac
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81728597"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82199395"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+
+## <a name="april-28-2020"></a>2020 年 4 月 28 日
+
+バージョン 2.5.0
+
+### <a name="acs"></a>ACS
+
+* [重大な変更] az openshift create: --vnet-peer パラメーターを削除します。
+* `az openshift create`: プライベート クラスターをサポートするフラグを追加します。
+* `az openshift`: `2019-10-27-preview` API バージョンにアップグレードします。
+* `az openshift`: `update` コマンドを追加します。
+
+### <a name="aks"></a>AKS
+
+* `az aks create`:Windows のサポートを追加します
+
+### <a name="appservice"></a>AppService
+
+* `az webapp deployment source config-zip`: request.get() の後のスリープを削除します
+
+### <a name="arm"></a>ARM
+
+* テンプレート デプロイの What-If コマンドを追加します
+
+### <a name="aro"></a>ARO
+
+* `az aro`:テーブル出力を修正します
+
+### <a name="ci"></a>CI
+
+* オートメーション テスト用に pytest をオンボードし、nose を非推奨にします
+
+### <a name="compute"></a>Compute
+
+* `az vmss disk detach`: データ ディスク NoneType の問題を修正します
+* `az vm availability-set list`:VM リストの表示をサポートします
+* `az vm list-skus`:テーブル形式の表示の問題を修正します
+
+### <a name="keyvault"></a>KeyVault
+
+* 作成時または更新時の新しいパラメーター `--enable-rbac-authorization` を追加します
+
+### <a name="monitor"></a>モニター
+
+* LA クラスターの CMK 機能をサポートします
+* `az monitor log-analytics workspace linked-storage`: BYOS 機能をサポートします
+
+### <a name="network"></a>ネットワーク
+
+* `az network security-partner`: セキュリティ パートナー プロバイダーをサポートします
+
+### <a name="privatedns"></a>Privatedns
+
+* プライベート DNS ゾーンの機能を追加してエクスポート ゾーン ファイルをインポートします
 
 ## <a name="april-21-2020"></a>2020 年 4 月 21 日
 
@@ -247,7 +301,7 @@ ms.locfileid: "81728597"
 ### <a name="network"></a>ネットワーク
 
 * az network application-gateway waf-policy managed-rule rule-set add: Microsoft_BotManagerRuleSet をサポートします
-* network watcher flow-log show:
+* network watcher flow-log show: 
 * Application Gateway リスナーでホスト名をサポートします
 * az network nat gateway: パブリック IP またはパブリック IP プレフィックスなしの空のリソースの作成をサポートします
 * VPN ゲートウェイの世代をサポートします
@@ -5029,7 +5083,7 @@ vm (2.0.6)
 
 * 基になるファイルシステム SDK のバージョンが更新され、サーバー側スロットル処理への対応が強化されました
 * パッケージ読み込みとコマンド実行のパフォーマンスが向上しています ([#2819](https://github.com/Azure/azure-cli/issues/2819))
-* access show のヘルプがなかったため、 追加しました ([#2743](https://github.com/Azure/azure-cli/issues/2743))
+* access show のヘルプがなかったため、 追加しました  ([#2743](https://github.com/Azure/azure-cli/issues/2743))
 
 ### <a name="find"></a>Find
 
@@ -5090,9 +5144,9 @@ vm (2.0.6)
 * managedapp と managedapp の定義コマンドが追加されました ([#2985](https://github.com/Azure/azure-cli/issues/2985))
 * "provider operation" コマンドに対応するようになりました ([#2908](https://github.com/Azure/azure-cli/issues/2908))
 * 汎用リソースの作成に対応するようになりました ([#2606](https://github.com/Azure/azure-cli/issues/2606))
-* リソース解析および API バージョンの検索が修正されました ([#2781](https://github.com/Azure/azure-cli/issues/2781))
-* az lock update のドキュメントが追加されました ([#2702](https://github.com/Azure/azure-cli/issues/2702))
-* 存在しないグループのリソースの一覧を表示しようとするとエラーが出力されます ([#2769](https://github.com/Azure/azure-cli/issues/2769))
+* リソース解析および API バージョンの検索が修正されました  ([#2781](https://github.com/Azure/azure-cli/issues/2781))
+* az lock update のドキュメントが追加されました  ([#2702](https://github.com/Azure/azure-cli/issues/2702))
+* 存在しないグループのリソースの一覧を表示しようとするとエラーが出力されます  ([#2769](https://github.com/Azure/azure-cli/issues/2769))
 * [コンピューティング] VMSS と VM の可用性セットの更新に関する問題が修正されました。 ([#2773](https://github.com/Azure/azure-cli/issues/2773))
 * parent-resource-path が None の場合のロックの作成と削除が修正されました ([#2742](https://github.com/Azure/azure-cli/issues/2742))
 
@@ -5170,16 +5224,16 @@ vm (2.0.2)
 * ログイン: 既定のサブスクリプションを "Enabled" の状態のサブスクリプションに設定 ([#2575](https://github.com/Azure/azure-cli/pull/2575))
 * wait コマンドと --no-wait のサポートをより多くのコマンドに追加 ([#2524](https://github.com/Azure/azure-cli/pull/2524))
 * コア: 証明書を持つサービス プリンシパルを使用したログインをサポート ([#2457](https://github.com/Azure/azure-cli/pull/2457))
-* 不足しているテンプレート パラメーターの指定を求めるメッセージを追加 ([#2364](https://github.com/Azure/azure-cli/pull/2364))
+* 不足しているテンプレート パラメーターの指定を求めるメッセージを追加  ([#2364](https://github.com/Azure/azure-cli/pull/2364))
 * 既定のリソース グループ、既定の Web、既定の VM など、一般的な引数の既定値の設定をサポート
 * 特定のテナントへのログインをサポート
 
 ### <a name="acs"></a>ACS
 
 * [ACS] 既定の ACS クラスターを構成するためのサポートを追加 ([#2554](https://github.com/Azure/azure-cli/pull/2554))
-* ssh キー パスワードの入力要求のサポートを追加 ([#2044](https://github.com/Azure/azure-cli/pull/2044))
-* Windows クラスターのためのサポートを追加 ([#2211](https://github.com/Azure/azure-cli/pull/2211))
-* 所有者から共同作成者へのロールの切り替え ([#2321](https://github.com/Azure/azure-cli/pull/2321))
+* ssh キー パスワードの入力要求のサポートを追加  ([#2044](https://github.com/Azure/azure-cli/pull/2044))
+* Windows クラスターのためのサポートを追加  ([#2211](https://github.com/Azure/azure-cli/pull/2211))
+* 所有者から共同作成者へのロールの切り替え  ([#2321](https://github.com/Azure/azure-cli/pull/2321))
 
 ### <a name="appservice"></a>AppService
 

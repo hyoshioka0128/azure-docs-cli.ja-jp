@@ -8,12 +8,12 @@ ms.date: 06/11/2018
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: ff5f9f5a5add52bc05009a42aeb00855eb2703fa
-ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
+ms.openlocfilehash: 97f9fe767d8f7a6a1360c9068985b2fcfe1b7c6f
+ms.sourcegitcommit: 1e5d8f04091803d68ac6833d2e2af37a863486ac
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77779654"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82199429"
 ---
 # <a name="azure-cli-configuration"></a>Azure CLI の構成
 
@@ -78,7 +78,7 @@ log_dir=/var/log/azure
 
 ## <a name="cli-configuration-values-and-environment-variables"></a>CLI 構成値と環境変数
 
-次の表は、構成ファイルで指定できるすべてのセクションとオプションの名前を示しています。 対応する環境変数は、`AZURE_{section}_{name}` のようにすべて大文字で設定できます。 たとえば、`batchai` の既定値 `storage_account` は、`AZURE_BATCHAI_STORAGE_ACCOUNT` 変数で設定されます。
+次の表は、構成ファイルで指定できるすべてのセクションとオプションの名前を示しています。 対応する環境変数は、`AZURE_{section}_{name}` のようにすべて大文字で設定できます。 たとえば、`core` の `output` 既定値は `AZURE_CORE_OUTPUT` 変数に設定され、`batchai` の `storage_account` 既定値は `AZURE_BATCHAI_STORAGE_ACCOUNT` 変数に設定されています。
 
 既定値を指定すると、その引数は任意のコマンドで不要になります。 代わりに、その既定値が使用されます。
 
@@ -87,6 +87,8 @@ log_dir=/var/log/azure
 | __core__ | output | string | 既定の出力形式。 `json`、`jsonc`、`tsv`、`table` のいずれかを指定できます。 |
 | | disable\_confirm\_prompt | boolean | 確認のプロンプトをオン/オフにします。 |
 | | collect\_telemetry | boolean | Microsoft による、CLI の使用に関する匿名データの収集を許可します。 プライバシー情報については、[Azure CLI の使用条件](https://aka.ms/AzureCliLegal)に関するページをご覧ください。 |
+| | only\_show\_errors | boolean | コマンドの呼び出し中にエラーのみを表示します。 つまり、エラーのみが `stderr` に書き込まれます。 プレビュー、非推奨、および試験的なコマンドからの警告は抑制されます。 また、`--only-show-errors` パラメーターを使用して個々のコマンドに対して使用することもできます。 |
+| | no\_color | boolean | 色を無効にします。 もともと色分けされたメッセージには、`DEBUG`、`INFO`、`WARNING`、および `ERROR` がプレフィックスとして付けられます。 これにより、ターミナルの色を `stdout` リダイレクト後に戻すことができないという、サードパーティ製のライブラリの問題が回避されます。 |
 | __logging__ | enable\_log\_file | boolean | ログ記録をオン/オフにします。 |
 | | log\_dir | string | ログを書き込むディレクトリ。 この値の既定値は `${AZURE_CONFIG_DIR}/logs` です。 |
 | __storage__ | connection\_string | string | `az storage` コマンドに使用する既定の接続文字列。 |
