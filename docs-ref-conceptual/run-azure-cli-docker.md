@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.openlocfilehash: 96a2bcf311cb504b08d44da3ea6033dbad9034b8
-ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
+ms.sourcegitcommit: ee64dc738cfe689a2a479e32a87bf420f96c31c8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 05/06/2020
 ms.locfileid: "77780045"
 ---
 # <a name="run-azure-cli-in-a-docker-container"></a>Docker コンテナーでの Azure CLI の実行
@@ -37,7 +37,7 @@ Docker を使用して、Azure CLI がプレインストールされたスタン
 > docker run -it -v ${HOME}/.ssh:/root/.ssh mcr.microsoft.com/azure-cli
 > ```
 
-CLI は、`/usr/local/bin` の `az` コマンドとしてイメージにインストールされます。 サインインするには、[az login](/cli/azure/reference-index#az-login) コマンドを実行します。
+CLI は、`az` の `/usr/local/bin` コマンドとしてイメージにインストールされます。 サインインするには、[az login](/cli/azure/reference-index#az-login) コマンドを実行します。
 
 [!INCLUDE [interactive-login](includes/interactive-login.md)]
 

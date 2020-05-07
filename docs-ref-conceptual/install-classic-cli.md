@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.openlocfilehash: 0cc1d7811223bf6f473c2c4516d0919306aa74c7
-ms.sourcegitcommit: 7caa6673f65e61deb8d6def6386e4eb9acdac923
+ms.sourcegitcommit: ee64dc738cfe689a2a479e32a87bf420f96c31c8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/28/2020
+ms.lasthandoff: 05/06/2020
 ms.locfileid: "77779484"
 ---
 # <a name="install-the-azure-classic-cli"></a>Azure クラシック CLI のインストール
@@ -39,7 +39,7 @@ Azure クラシック CLI をインストールした後、`azure login` に接�
 npm install -g azure-cli
 ```
 
-Linux ディストリビューションの場合、`npm` コマンドを正常に実行するには、次のように `sudo` の使用が必要になる場合があります。
+Linux ディストリビューションの場合、`sudo` コマンドを正常に実行するには、次のように `npm` の使用が必要になる場合があります。
 
 ```bash
 sudo npm install -g azure-cli
@@ -54,14 +54,14 @@ sudo npm install -g azure-cli
 npm install -g <path to downloaded tar file>
 ```
 
-## <a name="option-2-use-an-installer"></a>オプション 2:インストーラーの使用
+## <a name="option-2-use-an-installer"></a>オプション 2: インストーラーの使用
 
 Mac または Windows コンピューターを使用している場合は、[GitHub リリース](https://github.com/Azure/azure-xplat-cli/releases)から DMG および MSI インストーラーを入手できます。
 
 > [!TIP]
 > Windows では、[Web Platform Installer](https://go.microsoft.com/?linkid=9828653) をダウンロードして、クラシック CLI をインストールすることもできます。 このインストーラーを使用すると、その他の Azure SDK とコマンドライン ツールをインストールすることもできます。
 
-## <a name="option-3-use-a-docker-container"></a>オプション 3:Docker コンテナーの使用
+## <a name="option-3-use-a-docker-container"></a>オプション 3: Docker コンテナーの使用
 
 お使いのコンピューターを [Docker](https://docs.docker.com/engine/understanding-docker/) ホストとして設定すると、Docker コンテナーで Azure クラシック CLI を実行できるようになります。 次のコマンドを実行します (Linux ディストリビューションの場合、`sudo` の使用が必要になる場合があります)。
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
 ms.openlocfilehash: bc9b86db6fb9c5b3731550df9dda96debcbfba9f
-ms.sourcegitcommit: 93d8137f37e974f7d314a0b1deb65ac563c2e2c5
+ms.sourcegitcommit: ee64dc738cfe689a2a479e32a87bf420f96c31c8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 05/06/2020
 ms.locfileid: "79990114"
 ---
 # <a name="get-started-with-azure-cli"></a>Azure CLI の概要
@@ -123,7 +123,7 @@ Azure CLI の使用を開始するには、詳細なチュートリアルをお�
 az feedback
 ```
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 * [Azure CLI で管理できるサービス](azure-services-the-azure-cli-can-manage.md)
 * [Azure CLI の完全なコマンド リファレンス一覧](/cli/azure/reference-index)
