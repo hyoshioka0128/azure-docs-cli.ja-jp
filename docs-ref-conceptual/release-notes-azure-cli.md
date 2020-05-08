@@ -4,18 +4,55 @@ description: Azure CLI の最新情報について説明します
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 04/28/2020
+ms.date: 04/30/2020
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 032039cc5a51f0d158fbd3616a30263df139f53b
-ms.sourcegitcommit: 1e5d8f04091803d68ac6833d2e2af37a863486ac
+ms.openlocfilehash: efb17acb25b2268496efe313cac0a8189a78930a
+ms.sourcegitcommit: ee64dc738cfe689a2a479e32a87bf420f96c31c8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82199395"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82591426"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+
+## <a name="april-30-2020"></a>2020 年 4 月 30 日
+
+バージョン 2.5.1
+
+### <a name="acr"></a>ACR
+
+* `az acr check-health`:Windows の "DOCKER_PULL_ERROR" を修正します
+
+### <a name="compute"></a>Compute
+
+* `az vm list-ip-addresses`:エラー処理
+* クラウドプロファイルに endpoint_vm_image_alias_doc が設定されていない場合の vm create のバグを修正します
+* `az vmss create`:--os-disk-size-gb を追加します
+
+### <a name="cosmos-db"></a>Cosmos DB
+
+* `az cosmosdb create/update`: --enable-public-network サポートを追加します
+
+### <a name="extension"></a>拡張機能
+
+* ホイールの種類の拡張機能に対する間違ったメタデータの読み込みを修正します
+
+### <a name="packaging"></a>梱包
+
+* Windows 上の Git Bash/Cygwin 用の az スクリプトを追加します
+
+### <a name="sql"></a>SQL
+
+* `az sql instance-pool`:インスタンス プールのコマンド グループを追加します
+
+### <a name="storage"></a>ストレージ
+
+* パッケージ azure-multiapi-storage を 0.3.0 にアップグレードします
+* ストレージ アカウントの作成と更新で GZRS をサポートします
+* `az storage account failover`:grs/gzrs ストレージ アカウントのフェールオーバーのサポートを追加します
+* `az storage blob upload`:-encryption-scope パラメーターを追加し、暗号化スコープ情報の指定をサポートします。
 
 ## <a name="april-28-2020"></a>2020 年 4 月 28 日
 

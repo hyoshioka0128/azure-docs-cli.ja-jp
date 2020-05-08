@@ -4,17 +4,17 @@ description: Azure CLI で公式にサポートされている拡張機能の完
 author: haroldrandom
 ms.author: jianzen
 manager: yonzhan,yungezz
-ms.date: 04/28/2020
+ms.date: 05/02/2020
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: f14ba4c0230407ee072ff4b51841d33da5d33b72
-ms.sourcegitcommit: 1e5d8f04091803d68ac6833d2e2af37a863486ac
+ms.openlocfilehash: d9e92e3b2e03185c9f9ba446bd10ef5237f3297d
+ms.sourcegitcommit: ee64dc738cfe689a2a479e32a87bf420f96c31c8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82199361"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82835681"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Azure CLI で使用可能な拡張機能
 
@@ -34,7 +34,7 @@ az extension list-available --output table
 | [aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.4.43 | 次期 AKS 機能のプレビューを提供します | はい |
 | [alertsmanagement](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Microsoft Azure コマンド ライン ツールの Alerts 拡張機能 |  |
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.2 | コマンドのエイリアスをサポートします | はい |
-| [application-insights](https://github.com/Azure/azure-cli-extensions/tree/master/src/application-insights) | 0.1.6 | Application Insights コンポーネントの管理と、それらのコンポーネントのメトリック、イベント、およびログのクエリをサポートします。 | はい |
+| [application-insights](https://github.com/Azure/azure-cli-extensions/tree/master/src/application-insights) | 0.1.7 | Application Insights コンポーネントの管理と、それらのコンポーネントのメトリック、イベント、およびログのクエリをサポートします。 | はい |
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 5.0.1 | Azure Batch サービスを操作するための追加コマンド |  |
 | [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.8.9 | Azure CLI 用 Azure IoT 拡張機能です。 |  |
 | [azure-cli-ml](https://docs.microsoft.com/azure/machine-learning/service/) | 1.4.0 | Microsoft Azure コマンド ライン ツールの AzureML コマンド モジュール |  |
@@ -66,7 +66,9 @@ az extension list-available --output table
 | [internet-analyzer](https://github.com/Azure/azure-cli-extensions) | 0.1.0rc5 | Microsoft Azure コマンド ライン ツールの Internet Analyzer 拡張機能 | はい |
 | [ip-group](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Microsoft Azure コマンド ライン ツールの IpGroup 拡張機能 |  |
 | [keyvault-preview](https://github.com/Azure/azure-keyvault-cli-extension) | 0.1.3 | Azure Key Vault のコマンドをプレビューします。 | はい |
+| [kusto](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Microsoft Azure コマンド ライン ツールの KustoManagementClient 拡張機能 |  |
 | [log-analytics](https://github.com/Azure/azure-cli-extensions/tree/master/src/log-analytics) | 0.1.4 | Azure Log Analytics のクエリ機能をサポートします。 | はい |
+| [log-analytics-solution](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Microsoft Azure コマンド ライン ツールの Operations 拡張機能 |  |
 | [logic](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Microsoft Azure コマンド ライン ツールの LogicManagementClient 拡張機能 |  |
 | [メンテナンス](https://github.com/Azure/azure-cli-extensions) | 1.0.1 | Azure メンテナンス管理のサポート。 |  |
 | [managementpartner](https://github.com/Azure/azure-cli-extensions) | 0.1.2 | 管理パートナーのプレビューをサポートします |  |
@@ -87,6 +89,7 @@ az extension list-available --output table
 | [subscription](https://github.com/Azure/azure-cli-extensions) | 0.1.3 | サブスクリプション管理プレビューをサポートします。 |  |
 | [サポート](https://github.com/azure/azure-cli-extensions/tree/master/src/support) | 1.0.2 | Microsoft Azure コマンド ライン ツールの Support 拡張機能 |  |
 | [synapse](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Microsoft Azure コマンド ライン ツールの Synapse 拡張機能 | はい |
+| [timeseriesinsights](https://github.com/Azure/azure-cli-extensions/src/timeseriesinsights)。 | 0.1.0 | Microsoft Azure コマンド ライン ツールの TimeSeriesInsightsClient 拡張機能 |  |
 | [virtual-network-tap](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-network-tap) | 0.1.0 | 仮想ネットワーク タップ (VTAP) を管理します。 | はい |
 | [virtual-wan](https://github.com/Azure/azure-cli-extensions/tree/master/src/virtual-wan) | 0.1.3 | 仮想 WAN、ハブ、VPN ゲートウェイ、および VPN サイトを管理します。 | はい |
 | [vm-repair](https://github.com/Azure/azure-cli-extensions/tree/master/src/vm-repair) | 0.2.7 | VM を修正する自動修復コマンド。 |  |
