@@ -2,13 +2,13 @@
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 04/30/2020
+ms.date: 05/19/2020
 ms.topic: include
-ms.openlocfilehash: e13c7c9bbdac88bf1904eb9c94015b2e27f4322e
-ms.sourcegitcommit: ee64dc738cfe689a2a479e32a87bf420f96c31c8
+ms.openlocfilehash: 0ccb63c991d7899b1911824ae6fd7f4dba1d23a3
+ms.sourcegitcommit: d05660a42b2a77c4b05a7f96c386e656bd2db0fe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82595325"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83572314"
 ---
-Azure CLI の現在のバージョンは __2.5.1__ です。 最新リリースについては、[リリース ノート](../release-notes-azure-cli.md)をご覧ください。 インストール済みのバージョンを見つけ、更新する必要があるかどうかを確認するには、`az --version` を実行します。
+Azure CLI の現在のバージョンは __2.6.0__ です。 最新リリースについては、[リリース ノート](../release-notes-azure-cli.md)をご覧ください。 インストール済みのバージョンを見つけ、更新する必要があるかどうかを確認するには、`az --version` を実行します。

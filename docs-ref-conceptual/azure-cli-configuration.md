@@ -8,12 +8,12 @@ ms.date: 06/11/2018
 ms.topic: conceptual
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: 97f9fe767d8f7a6a1360c9068985b2fcfe1b7c6f
-ms.sourcegitcommit: ee64dc738cfe689a2a479e32a87bf420f96c31c8
+ms.openlocfilehash: 24a798e9b3c08f3cd9e66c017cc45f5346d8995e
+ms.sourcegitcommit: d05660a42b2a77c4b05a7f96c386e656bd2db0fe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82199429"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83569172"
 ---
 # <a name="azure-cli-configuration"></a>Azure CLI の構成
 
@@ -86,7 +86,7 @@ log_dir=/var/log/azure
 |---------|-----------|------|------------|
 | __core__ | output | string | 既定の出力形式。 `json`、`jsonc`、`tsv`、`table` のいずれかを指定できます。 |
 | | disable\_confirm\_prompt | boolean | 確認のプロンプトをオン/オフにします。 |
-| | collect\_telemetry | boolean | Microsoft による、CLI の使用に関する匿名データの収集を許可します。 プライバシー情報については、[Azure CLI の使用条件](https://aka.ms/AzureCliLegal)に関するページをご覧ください。 |
+| | collect\_telemetry | boolean | Microsoft による、CLI の使用に関する匿名データの収集を許可します。 プライバシー情報については、[Azure CLI の MIT l ライセンス](https://github.com/Azure/azure-cli/blob/dev/LICENSE)に関するページをご覧ください。 |
 | | only\_show\_errors | boolean | コマンドの呼び出し中にエラーのみを表示します。 つまり、エラーのみが `stderr` に書き込まれます。 プレビュー、非推奨、および試験的なコマンドからの警告は抑制されます。 また、`--only-show-errors` パラメーターを使用して個々のコマンドに対して使用することもできます。 |
 | | no\_color | boolean | 色を無効にします。 もともと色分けされたメッセージには、`DEBUG`、`INFO`、`WARNING`、および `ERROR` がプレフィックスとして付けられます。 これにより、ターミナルの色を `stdout` リダイレクト後に戻すことができないという、サードパーティ製のライブラリの問題が回避されます。 |
 | __logging__ | enable\_log\_file | boolean | ログ記録をオン/オフにします。 |

@@ -4,18 +4,135 @@ description: Azure CLI の最新情報について説明します
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 04/30/2020
+ms.date: 05/19/2020
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: efb17acb25b2268496efe313cac0a8189a78930a
-ms.sourcegitcommit: ee64dc738cfe689a2a479e32a87bf420f96c31c8
+ms.openlocfilehash: c95a635cc58afcc7956c230d0e3f47351fa0893d
+ms.sourcegitcommit: d05660a42b2a77c4b05a7f96c386e656bd2db0fe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82591426"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83569189"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+
+## <a name="may-19-2020"></a>2020 年 5 月 19 日
+
+バージョン 2.6.0
+
+### <a name="acr"></a>ACR
+
+* ACR に対するすべての要求に対して既定のタイムアウト 5 分を追加します
+* パブリック ネットワーク アクセスの無効化をサポートします
+* `az acr token create`: --days 引数を公開します
+* `az acr import`: ログイン サーバー名を含む --source 引数をクライアント側の修正で受け入れいます
+
+### <a name="acs"></a>ACS
+
+* バグの修正: 存在しなくなったフィールドに対するフィールドのクリーンアップを削除します
+
+### <a name="aks"></a>AKS
+
+* uptime-sla コマンドのヘルプ テキストを更新します
+* オートスケーラーの最小カウント更新に対する範囲チェックを削除します
+* ユーザーが Windows パスワードのみを指定した場合に cli が失敗しないように修正します
+
+### <a name="ams"></a>AMS
+
+* `az ams transform create`:FaceDetector プリセットを使用して変換を作成する機能を追加します
+* `az ams content-key-policy create`:オフライン レンタル構成で FairPlay コンテンツ キー ポリシーを作成する機能を追加します
+
+### <a name="appconfig"></a>AppConfig
+
+* リスト キー値とフィールドのバグの修正
+
+### <a name="appservice"></a>AppService
+
+* `az functionapp create`:AzureWebJobsDashboard は、AppInsights が無効になっている場合にのみ設定されます
+* 修正 #10664 - VNet 統合 - 場所チェックの問題および修正 #13257 - RG を作成する必要がある場合に az webapp up が失敗する
+* `az webapp|functionapp config ssl import`:サブスクリプション内のリソース グループ全体でのキー コンテナーの検索およびヘルプと例の改善。
+* アプリ サービスのローカル コンテキストのオンボード
+
+### <a name="arm"></a>ARM
+
+* `az deployment`:template-uri をデプロイまたは検証するときに、templateLink が返されない問題を修正します
+* `az deployment`:デプロイ/検証で特別にエンコードされた文字がサポートされない問題を修正します
+* `az deployment sub/group what-if`:配列の配置とエラー処理を修正します
+* `az deployment operation`:非推奨情報を変更します
+
+### <a name="aro"></a>ARO
+
+* az aro create、list、list-credentials、show、delete に例を追加します
+* generate_random_id 関数を追加します
+
+### <a name="backup"></a>バックアップ
+
+* AzureFileShare コマンドの enable protection で FriendlyName を許可します
+* IaasVM restore-disks コマンドの修正
+* "MAB" BackupManagementType を item list コマンドに追加します
+* 失敗した項目の再試行ポリシー更新のサポートを追加します
+* Azure 仮想マシンの再開防止機能を追加します
+* ポリシーの作成時または変更時に instantRP を格納するための ResourceGroup を指定するためのサポートを追加します
+
+### <a name="ci"></a>CI
+
+* flake8 3.8.0 のサポート
+
+### <a name="compute"></a>Compute
+
+* 新しいコマンド az vm auto-shutdown
+* `az vm list-skus`:更新 - ゾーンの動作、すべての種類の sku を今すぐ返す
+
+### <a name="core"></a>コア
+
+* ローカル コンテキストのオン/オフの状態をグローバル ユーザー レベルに更新します
+
+### <a name="extension"></a>拡張機能
+
+* `az extension add`:システム パスへの拡張機能のインストールを有効にする --system を追加します
+* ホイールの種類の拡張メタデータを格納するための .egg-info をサポートします
+
+### <a name="iot"></a>IoT
+
+* `az iot`:IoT コマンド モジュールの最初の実行拡張機能の認識メッセージを、非推奨ではない最新の ID `azure-iot` に更新します。
+
+### <a name="iot-hub"></a>IoT Hub
+
+* 2020-03-01 API とネットワークの分離コマンドのサポート
+
+### <a name="netappfiles"></a>NetAppFiles
+
+* `az volume create`:ボリュームを作成するためのパラメーターとして snapshot-id を追加します。これにより、ユーザーは既存のスナップショットからボリュームを作成できるようになります。
+
+### <a name="network"></a>ネットワーク
+
+* dns add-record に対する予期しない ttl 値の変更を修正します
+* `az network public-ip create`:今後の破壊的変更についてユーザーに通知します
+* プライベート リンクのシナリオで一般的なコマンドをサポートします
+* `az network private-endpoint-connection`:mysql、postgre、および mariadb 型をサポートします
+* `az network private-endpoint-connection`:cosmosdb 型をサポートします
+* `az network private-endpoint`:--group-ids を非推奨にし、--group-id にリダイレクトします
+
+### <a name="output"></a>出力
+
+* 検索、フィードバック、および --help で更新の説明を表示します
+
+### <a name="packaging"></a>梱包
+
+* requirements.txt で解決された依存関係を含む MSI/Homebrew パッケージをビルドします
+
+### <a name="rbac"></a>RBAC
+
+* `az ad sp credential reset`: 脆弱な資格情報の生成を修正します
+
+### <a name="storage"></a>ストレージ
+
+* `az storage account file-service-properties update/show`:ストレージ アカウントのファイル プロパティ サポートを追加します
+* `az storage container create`:パブリック アクセスのバリデーターを追加して #13373 を修正します
+* ADLS Gen2 track2 のサポートを追加します
+* `az storage blob sync`:`--connection-string` をサポートします
+* `az storage blob sync`:azcopy がインストール場所を見つけられない場合の正しくないエラー メッセージを修正します
 
 ## <a name="april-30-2020"></a>2020 年 4 月 30 日
 
@@ -338,7 +455,7 @@ ms.locfileid: "82591426"
 ### <a name="network"></a>ネットワーク
 
 * az network application-gateway waf-policy managed-rule rule-set add: Microsoft_BotManagerRuleSet をサポートします
-* network watcher flow-log show: 
+* network watcher flow-log show:
 * Application Gateway リスナーでホスト名をサポートします
 * az network nat gateway: パブリック IP またはパブリック IP プレフィックスなしの空のリソースの作成をサポートします
 * VPN ゲートウェイの世代をサポートします
@@ -5120,7 +5237,7 @@ vm (2.0.6)
 
 * 基になるファイルシステム SDK のバージョンが更新され、サーバー側スロットル処理への対応が強化されました
 * パッケージ読み込みとコマンド実行のパフォーマンスが向上しています ([#2819](https://github.com/Azure/azure-cli/issues/2819))
-* access show のヘルプがなかったため、 追加しました  ([#2743](https://github.com/Azure/azure-cli/issues/2743))
+* access show のヘルプがなかったため、 追加しました ([#2743](https://github.com/Azure/azure-cli/issues/2743))
 
 ### <a name="find"></a>Find
 
@@ -5181,9 +5298,9 @@ vm (2.0.6)
 * managedapp と managedapp の定義コマンドが追加されました ([#2985](https://github.com/Azure/azure-cli/issues/2985))
 * "provider operation" コマンドに対応するようになりました ([#2908](https://github.com/Azure/azure-cli/issues/2908))
 * 汎用リソースの作成に対応するようになりました ([#2606](https://github.com/Azure/azure-cli/issues/2606))
-* リソース解析および API バージョンの検索が修正されました  ([#2781](https://github.com/Azure/azure-cli/issues/2781))
-* az lock update のドキュメントが追加されました  ([#2702](https://github.com/Azure/azure-cli/issues/2702))
-* 存在しないグループのリソースの一覧を表示しようとするとエラーが出力されます  ([#2769](https://github.com/Azure/azure-cli/issues/2769))
+* リソース解析および API バージョンの検索が修正されました ([#2781](https://github.com/Azure/azure-cli/issues/2781))
+* az lock update のドキュメントが追加されました ([#2702](https://github.com/Azure/azure-cli/issues/2702))
+* 存在しないグループのリソースの一覧を表示しようとするとエラーが出力されます ([#2769](https://github.com/Azure/azure-cli/issues/2769))
 * [コンピューティング] VMSS と VM の可用性セットの更新に関する問題が修正されました。 ([#2773](https://github.com/Azure/azure-cli/issues/2773))
 * parent-resource-path が None の場合のロックの作成と削除が修正されました ([#2742](https://github.com/Azure/azure-cli/issues/2742))
 
@@ -5261,16 +5378,16 @@ vm (2.0.2)
 * ログイン: 既定のサブスクリプションを "Enabled" の状態のサブスクリプションに設定 ([#2575](https://github.com/Azure/azure-cli/pull/2575))
 * wait コマンドと --no-wait のサポートをより多くのコマンドに追加 ([#2524](https://github.com/Azure/azure-cli/pull/2524))
 * コア: 証明書を持つサービス プリンシパルを使用したログインをサポート ([#2457](https://github.com/Azure/azure-cli/pull/2457))
-* 不足しているテンプレート パラメーターの指定を求めるメッセージを追加  ([#2364](https://github.com/Azure/azure-cli/pull/2364))
+* 不足しているテンプレート パラメーターの指定を求めるメッセージを追加 ([#2364](https://github.com/Azure/azure-cli/pull/2364))
 * 既定のリソース グループ、既定の Web、既定の VM など、一般的な引数の既定値の設定をサポート
 * 特定のテナントへのログインをサポート
 
 ### <a name="acs"></a>ACS
 
 * [ACS] 既定の ACS クラスターを構成するためのサポートを追加 ([#2554](https://github.com/Azure/azure-cli/pull/2554))
-* ssh キー パスワードの入力要求のサポートを追加  ([#2044](https://github.com/Azure/azure-cli/pull/2044))
-* Windows クラスターのためのサポートを追加  ([#2211](https://github.com/Azure/azure-cli/pull/2211))
-* 所有者から共同作成者へのロールの切り替え  ([#2321](https://github.com/Azure/azure-cli/pull/2321))
+* ssh キー パスワードの入力要求のサポートを追加 ([#2044](https://github.com/Azure/azure-cli/pull/2044))
+* Windows クラスターのためのサポートを追加 ([#2211](https://github.com/Azure/azure-cli/pull/2211))
+* 所有者から共同作成者へのロールの切り替え ([#2321](https://github.com/Azure/azure-cli/pull/2321))
 
 ### <a name="appservice"></a>AppService
 
