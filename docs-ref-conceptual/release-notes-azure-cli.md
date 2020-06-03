@@ -4,18 +4,85 @@ description: Azure CLI の最新情報について説明します
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.date: 05/19/2020
+ms.date: 06/02/2020
 ms.topic: article
 ms.service: azure-cli
 ms.devlang: azurecli
-ms.openlocfilehash: c95a635cc58afcc7956c230d0e3f47351fa0893d
-ms.sourcegitcommit: d05660a42b2a77c4b05a7f96c386e656bd2db0fe
+ms.openlocfilehash: be0db24ca312825aba03256119d1b5e43afbd902
+ms.sourcegitcommit: 62355a77ca59addf7b19db6b95027676e52fd936
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83569189"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84275064"
 ---
 # <a name="azure-cli-release-notes"></a>Azure CLI リリース ノート
+
+## <a name="june-02-2020"></a>2020 年 6 月 2 日
+
+バージョン 2.7.0
+
+### <a name="acr"></a>ACR
+
+* トークン作成のエラー メッセージのタイポを修正します
+
+### <a name="aks"></a>AKS
+
+* 既定の vm sku を Standard_D2s_v3 に変更します
+* MSI クラスターとカスタム サブネットに対するロールの割り当て作成を修正します
+
+### <a name="appservice"></a>AppService
+
+* az appservice list-locations が無効な場所を返す #12739 を修正します
+
+### <a name="arm"></a>ARM
+
+* `az deployment`:コメントを削除して圧縮した後の JSON の不適切なメッセージの問題 #13159 を修正します
+* `az resource tag`:リソースの種類 `Microsoft.ContainerRegistry/registries/webhooks` を使用したリソースへのタグ付けの問題 #13255 を修正します
+* リソース モジュールの例を改善します
+
+### <a name="aro"></a>ARO
+
+* CLIError を変更して--worker-vm-disk-size-gb のフラグを修正します
+
+### <a name="eventhub"></a>EventHub
+
+* 引数 --capture-interval で "intervalInSeconds" が更新されない問題 #12406 を修正します
+
+### <a name="hdinsight"></a>HDInsight
+
+* get_json_object を shell_safe_json_parse に変更します
+
+### <a name="monitor"></a>モニター
+
+* `az monitor metrics alert`: 複数のヘルプ メッセージを修正します
+* `az monitor diagnostic-settings create`: --export-to-resource-specific 引数をサポートします
+* LA ワークスペースの復旧をサポートします
+
+### <a name="network"></a>ネットワーク
+
+* `az network dns zone`: - 文字をサポートします
+* `az network vpn-connection ipsec-policy`:--sa-lifetime と --sa-max-size を、例では大きい値に変更します
+* ネットワークを 2020-04-01 に上げます
+* `az network private-endpoint-connection`: イベント グリッドをサポートします
+* `az network express-route list-route-tables`: ルートをテーブルとして表示できないバグを修正します
+
+### <a name="packaging"></a>梱包
+
+* Ubuntu Focal パッケージを追加します
+
+### <a name="rbac"></a>RBAC
+
+* `az ad sp credential reset`: 問題のある特殊文字を避けるために、資格情報の生成を変更します
+
+### <a name="redis"></a>Redis
+
+* #13529 の修正:パラメーター enable_non_ssl_port のドキュメントを変更します
+
+### <a name="storage"></a>ストレージ
+
+* `az storage copy`:シンボリック リンクをサポートするためにパラメーター `--follow-symlinks` を追加します
+* ストレージ アカウントのローカル コンテキストを有効にします
+* `az storage logging`:エラー メッセージを改善するために問題 #11969 を修正します
 
 ## <a name="may-19-2020"></a>2020 年 5 月 19 日
 
