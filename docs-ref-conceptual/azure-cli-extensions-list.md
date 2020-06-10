@@ -4,17 +4,17 @@ description: Azure CLI で公式にサポートされている拡張機能の完
 author: haroldrandom
 ms.author: jianzen
 manager: yonzhan,yungezz
-ms.date: 05/29/2020
+ms.date: 06/06/2020
 ms.topic: article
 ms.prod: azure
 ms.technology: azure-cli
 ms.devlang: azure-cli
-ms.openlocfilehash: 3b39886e51a28b30f69ae80a3369f5c36609179b
-ms.sourcegitcommit: 62355a77ca59addf7b19db6b95027676e52fd936
+ms.openlocfilehash: a88394bf84f5e8730ca149bf9377149ef7005449
+ms.sourcegitcommit: 0810de587d3a87a535d637a4aadb4c36be1e77f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84275098"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84638479"
 ---
 # <a name="available-extensions-for-the-azure-cli"></a>Azure CLI で使用可能な拡張機能
 
@@ -32,20 +32,23 @@ az extension list-available --output table
 | [aem](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Azure Enhanced Monitoring Extension for SAP を管理します |  |
 | [ai-did-you-mean-this](https://github.com/Azure/azure-cli-extensions/ai-did-you-mean-this) | 0.1.1 | 障害発生時の回復オプションを推奨します。 |  |
 | [ai-examples](https://github.com/Azure/azure-cli-extensions/tree/master/src/ai-examples) | 0.2.0 | AI を使用した例をヘルプ コンテンツに追加します。 | はい |
-| [aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.4.49 | 次期 AKS 機能のプレビューを提供します | はい |
+| [aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) | 0.4.50 | 次期 AKS 機能のプレビューを提供します | はい |
 | [alertsmanagement](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Microsoft Azure コマンド ライン ツールの Alerts 拡張機能 |  |
 | [alias](https://github.com/Azure/azure-cli-extensions) | 0.5.2 | コマンドのエイリアスをサポートします | はい |
-| [application-insights](https://github.com/Azure/azure-cli-extensions/tree/master/src/application-insights) | 0.1.7 | Application Insights コンポーネントの管理と、それらのコンポーネントのメトリック、イベント、およびログのクエリをサポートします。 | はい |
+| [application-insights](https://github.com/Azure/azure-cli-extensions/tree/master/src/application-insights) | 0.1.8 | Application Insights コンポーネントの管理と、それらのコンポーネントのメトリック、イベント、およびログのクエリをサポートします。 | はい |
 | [azure-batch-cli-extensions](https://github.com/Azure/azure-batch-cli-extensions) | 5.0.1 | Azure Batch サービスを操作するための追加コマンド |  |
 | [azure-cli-iot-ext](https://github.com/azure/azure-iot-cli-extension) | 0.8.9 | Azure CLI 用 Azure IoT 拡張機能です。 |  |
 | [azure-cli-ml](https://docs.microsoft.com/azure/machine-learning/service/) | 1.6.0 | Microsoft Azure コマンド ライン ツールの AzureML コマンド モジュール |  |
 | [azure-devops](https://github.com/Microsoft/azure-devops-cli-extension) | 0.18.0 | Azure DevOps を管理するためのツールです。 |  |
 | [azure-firewall](https://github.com/Azure/azure-cli-extensions/tree/master/src/azure-firewall) | 0.3.1 | Azure Firewall のリソースを管理します。 | はい |
-| [azure-iot](https://github.com/azure/azure-iot-cli-extension) | 0.9.2 | Azure CLI 用 Azure IoT 拡張機能です。 |  |
+| [azure-iot](https://github.com/azure/azure-iot-cli-extension) | 0.9.3 | Azure CLI 用 Azure IoT 拡張機能です。 |  |
+| [blockchain](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Microsoft Azure コマンド ライン ツールの BlockchainManagementClient 拡張機能 |  |
 | [blueprint](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Microsoft Azure コマンド ライン ツールの Blueprint 拡張機能 |  |
+| [codespaces](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Azure CLI Codespaces 拡張機能 | はい |
 | [connectedk8s](https://github.com/Azure/azure-cli-extensions) | 0.2.1 | Microsoft Azure コマンド ライン ツールの Connectedk8s 拡張機能 | はい |
 | [connectedmachine](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Microsoft Azure コマンド ライン ツールの Connectedmachine 拡張機能 | はい |
 | [connection-monitor-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/connection-monitor-preview) | 0.1.0 | Microsoft Azure コマンドライン接続モニター V2 拡張機能 | はい |
+| [costmanagement](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Microsoft Azure コマンド ライン ツールの CostManagementClient 拡張機能 |  |
 | [csvmware](https://github.com/Azure/az-vmware-cli) | 0.3.0 | Azure VMware Solution by CloudSimple を管理します。 | はい |
 | [custom-providers](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Microsoft Azure コマンド ライン ツールの Custom Providers 拡張機能 |  |
 | [databox](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Microsoft Azure コマンド ライン ツールの DataBox 拡張機能 |  |
@@ -61,6 +64,7 @@ az extension list-available --output table
 | [express-route-cross-connection](https://github.com/Azure/azure-cli-extensions/tree/master/src/express-route-cross-connection) | 0.1.1 | ExpressRoute のクロス接続を使用して、顧客の ExpressRoute 回線を管理します。 |  |
 | [front-door](https://github.com/Azure/azure-cli-extensions/tree/master/src/front-door) | 1.0.7 | ネットワークの Front Door を管理します。 |  |
 | [hack](https://github.com/Azure/azure-cli-extensions) | 0.4.2 | Microsoft Azure コマンド ライン ツールの Hack 拡張機能 | はい |
+| [hardware-security-modules](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Microsoft Azure コマンド ライン ツールの AzureDedicatedHSMResourceProvider 拡張機能 |  |
 | [healthcareapis](https://github.com/Azure/azure-cli-extensions) | 0.1.3 | Microsoft Azure コマンド ライン ツールの HealthCareApis 拡張機能 |  |
 | [hpc-cache](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Microsoft Azure コマンド ライン ツールの StorageCache 拡張機能 | はい |
 | [image-copy-extension](https://github.com/Azure/azure-cli-extensions) | 0.2.4 | リージョン間での管理対象 VM イメージのコピーをサポートします |  |
@@ -71,7 +75,7 @@ az extension list-available --output table
 | [k8sconfiguration](https://github.com/Azure/azure-cli-extensions) | 0.1.8 | Microsoft Azure コマンド ライン ツールの K8sconfiguration 拡張機能 | はい |
 | [keyvault-preview](https://github.com/Azure/azure-keyvault-cli-extension) | 0.1.3 | Azure Key Vault のコマンドをプレビューします。 | はい |
 | [kusto](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Microsoft Azure コマンド ライン ツールの KustoManagementClient 拡張機能 |  |
-| [log-analytics](https://github.com/Azure/azure-cli-extensions/tree/master/src/log-analytics) | 0.1.4 | Azure Log Analytics のクエリ機能をサポートします。 | はい |
+| [log-analytics](https://github.com/Azure/azure-cli-extensions/tree/master/src/log-analytics) | 0.2.0 | Azure Log Analytics のクエリ機能をサポートします。 | はい |
 | [log-analytics-solution](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Microsoft Azure コマンド ライン ツールの Operations 拡張機能 |  |
 | [logic](https://github.com/Azure/azure-cli-extensions) | 0.1.0 | Microsoft Azure コマンド ライン ツールの LogicManagementClient 拡張機能 |  |
 | [メンテナンス](https://github.com/Azure/azure-cli-extensions) | 1.0.1 | Azure メンテナンス管理のサポート。 |  |
@@ -85,7 +89,7 @@ az extension list-available --output table
 | [powerbidedicated](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | Microsoft Azure コマンド ライン ツールの PowerBIDedicated 拡張機能 | はい |
 | [privatedns](https://github.com/Azure/azure-cli-extensions) | 0.1.1 | プライベート DNS ゾーンを管理するためのコマンド | はい |
 | [resource-graph](https://github.com/Azure/azure-cli-extensions/tree/master/src/resource-graph) | 1.1.0 | Resource Graph を使用した Azure リソースのクエリをサポートします。 | はい |
-| [sap-hana](https://github.com/Azure/azure-hanaonazure-cli-extension) | 0.6.2 | SAP HanaOnAzure インスタンスを操作するための追加コマンド。 |  |
+| [sap-hana](https://github.com/Azure/azure-hanaonazure-cli-extension) | 0.6.3 | SAP HanaOnAzure インスタンスを操作するための追加コマンド。 |  |
 | [spring-cloud](https://github.com/Azure/azure-cli-extensions) | 0.2.4 | Microsoft Azure コマンド ライン ツールの spring-cloud 拡張機能 | はい |
 | [storage-or-preview](https://github.com/Azure/azure-cli-extensions) | 0.4.0 | Microsoft Azure コマンド ライン ツールの Storage-ors-preview 拡張機能 | はい |
 | [storage-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview) | 0.2.10 | 次期ストレージ機能のプレビューを提供します。 | はい |
