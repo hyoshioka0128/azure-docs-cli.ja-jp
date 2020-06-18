@@ -2911,7 +2911,7 @@ CLI では、将来、個々のパッケージのバージョン番号が削除�
 
 ### <a name="appservice"></a>AppService
 
-* Web ジョブの (継続的およびトリガーされた) 運用管理のサポートを追加しました
+* WebJobs の (継続的およびトリガーされた) 運用管理のサポートを追加しました
 * az webapp config set で --fts-state プロパティがサポートされました。また、az functionapp config set および az functionapp config show のサポートを追加しました
 * Web アプリについて Bring Your Own Storage のサポートを追加しました
 * 削除された Web アプリの一覧表示および復元のサポートを追加しました
